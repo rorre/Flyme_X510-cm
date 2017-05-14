@@ -1,0 +1,25 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+ro.adb.secure=0
+ro.secure=1
+security.perf_harden=1
+ro.allow.mock.location=0
+ro.debuggable=1
+ro.zygote=zygote32
+dalvik.vm.image-dex2oat-Xms=64m
+dalvik.vm.image-dex2oat-Xmx=64m
+dalvik.vm.dex2oat-Xms=64m
+dalvik.vm.dex2oat-Xmx=512m
+ro.dalvik.vm.native.bridge=0
+debug.atrace.tags.enableflags=0
+camera.disable_zsl_mode=1
+ro.mount.fs=EXT4
+persist.service.acm.enable=0
+persist.sys.usb.config=mtp,adb
+#
+# BOOTIMAGE_BUILD_PROPERTIES
+#
+ro.bootimage.build.date=Do 18. Aug 01:11:42 CEST 2016
+ro.bootimage.build.date.utc=1471475502
+ro.bootimage.build.fingerprint=DOOGEE/cm_x5/x5:6.0.1/MOB30Z/bf20773ca2:userdebug/test-keys

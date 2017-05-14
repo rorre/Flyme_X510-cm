@@ -1,0 +1,11 @@
+/boot	emmc	/dev/block/platform/mtk-msdc.0/by-name/boot
+/logo	emmc	/dev/block/platform/mtk-msdc.0/by-name/logo
+/system	ext4	/dev/block/platform/mtk-msdc.0/by-name/system
+/cache	ext4	/dev/block/platform/mtk-msdc.0/by-name/cache
+/data	ext4	/dev/block/platform/mtk-msdc.0/by-name/userdata
+/oem	ext4	/dev/block/platform/mtk-msdc.0/by-name/oem
+/nvram	emmc	/dev/block/platform/mtk-msdc.0/by-name/nvram
+/sec_ro	emmc	/dev/block/platform/mtk-msdc.0/by-name/secro
+/recovery	emmc	/dev/block/platform/mtk-msdc.0/by-name/recovery
+/usb_otg	auto	/dev/block/sda1
+/external_sd	vfat	/dev/block/mmcblk1p1
