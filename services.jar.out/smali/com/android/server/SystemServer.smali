@@ -1531,7 +1531,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v73, Lcom/android/server/InputMethodManagerService;
+    new-instance v73, Lcom/android/server/MzInputMethodManagerService;
 
     move-object/from16 v0, v73
 
@@ -1678,7 +1678,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v80, Lcom/android/server/LockSettingsService;
+    new-instance v80, Lcom/android/server/FlymeExtLockSettingsService;
 
     move-object/from16 v0, v80
 
@@ -1755,7 +1755,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v101, Lcom/android/server/statusbar/StatusBarManagerService;
+    new-instance v101, Lcom/android/server/statusbar/FlymeExtStatusBarManagerService;
 
     move-object/from16 v0, v101
 
@@ -3192,6 +3192,15 @@
     check-cast v85, Lcom/android/server/MmsServiceBroker;
 
     .local v85, "mmsService":Lcom/android/server/MmsServiceBroker;
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v3, v111
+
+    move-object/from16 v4, v108
+
+    invoke-static {v0, v3, v4}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeServices(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wallpaper/WallpaperManagerService;)V
+
     :try_start_3c
     invoke-static/range {v65 .. v65}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
