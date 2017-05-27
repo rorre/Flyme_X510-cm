@@ -780,3 +780,8 @@
 
 # bash
 /system/xbin/bash                               u:object_r:shell_exec:s0
+/dev/socket/flymed      u:object_r:flymed_socket:s0
+/system/bin/flymed      u:object_r:flymed_exec:s0
+/data/system/users/[0-9]+/lock_wallpaperu:object_r:wallpaper_file:s0
+/data/system/users/[0-9]+/smart_wallpaper_targetu:object_r:wallpaper_file:s0
+
