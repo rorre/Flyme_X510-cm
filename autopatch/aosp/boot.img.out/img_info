@@ -1,0 +1,12 @@
+kernel=kernel
+ramdisk=RAMDISK
+page_size=2048
+kernel_size=3368244
+ramdisk_size=918368
+base_addr=0x40000000
+kernel_offset=0x00008000
+ramdisk_offset=0x01000000
+tags_offset=0x00000100
+cmd_line='console=ttySAC2,115200 androidboot.selinux=permissive'
+board=""
+format=gzip

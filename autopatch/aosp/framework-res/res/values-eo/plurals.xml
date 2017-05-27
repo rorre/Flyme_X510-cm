@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="duration_seconds">
+        <item quantity="other">%d sekundoj</item>
+        <item quantity="one">1 sekundo</item>
+    </plurals>
+</resources>
