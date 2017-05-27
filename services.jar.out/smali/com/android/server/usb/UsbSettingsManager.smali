@@ -217,37 +217,30 @@
 
     move-result-object v3
 
-    .line 514
-    const-string/jumbo v4, "usb_device_manager.xml"
+    const-string v4, "usb_device_manager.xml"
 
-    .line 512
     invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     invoke-direct {v1, v2}, Landroid/util/AtomicFile;-><init>(Ljava/io/File;)V
 
     iput-object v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mSettingsFile:Landroid/util/AtomicFile;
 
-    .line 516
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 517
-    const v2, 0x1120082
+    const v2, #android:bool@config_disableUsbPermissionDialogs#t
 
-    .line 516
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v1
 
     iput-boolean v1, p0, Lcom/android/server/usb/UsbSettingsManager;->mDisablePermissionDialogs:Z
 
-    .line 519
     iget-object v2, p0, Lcom/android/server/usb/UsbSettingsManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 520
     :try_start_1
     sget-object v1, Landroid/os/UserHandle;->OWNER:Landroid/os/UserHandle;
 

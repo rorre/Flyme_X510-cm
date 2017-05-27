@@ -543,8 +543,7 @@
     .locals 1
 
     .prologue
-    .line 275
-    const v0, 0x1090042
+    const v0, #android:layout@chooser_grid#t
 
     return v0
 .end method
@@ -990,46 +989,37 @@
 
     iput-object v1, v0, Lcom/android/internal/app/ChooserActivity;->mReplacementExtras:Landroid/os/Bundle;
 
-    .line 180
-    const-string/jumbo v1, "android.intent.extra.TITLE"
+    const-string v1, "android.intent.extra.TITLE"
 
     invoke-virtual {v13, v1}, Landroid/content/Intent;->getCharSequenceExtra(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    .line 181
     .local v4, "title":Ljava/lang/CharSequence;
     const/4 v5, 0x0
 
-    .line 182
     .local v5, "defaultTitleRes":I
     if-nez v4, :cond_9
 
-    .line 183
-    const v5, 0x10403db
+    const v5, #android:string@chooseActivity#t
 
-    .line 185
     :cond_9
-    const-string/jumbo v1, "android.intent.extra.INITIAL_INTENTS"
+    const-string v1, "android.intent.extra.INITIAL_INTENTS"
 
     invoke-virtual {v13, v1}, Landroid/content/Intent;->getParcelableArrayExtra(Ljava/lang/String;)[Landroid/os/Parcelable;
 
     move-result-object v15
 
-    .line 186
     .local v15, "pa":[Landroid/os/Parcelable;
     const/4 v6, 0x0
 
-    .line 187
     .local v6, "initialIntents":[Landroid/content/Intent;
     if-eqz v15, :cond_b
 
-    .line 188
     array-length v1, v15
 
     new-array v6, v1, [Landroid/content/Intent;
 
-    .line 189
     .local v6, "initialIntents":[Landroid/content/Intent;
     const/4 v11, 0x0
 

@@ -393,30 +393,24 @@
 
     iput v11, p0, Landroid/view/ViewConfiguration;->mOverflingDistance:I
 
-    .line 311
     iget-boolean v11, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
 
     if-nez v11, :cond_0
 
-    .line 313
-    const v11, 0x10e0098
+    const v11, #android:integer@config_overrideHasPermanentMenuKey#t
 
-    .line 312
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
-    .line 315
     .local v1, "configVal":I
     packed-switch v1, :pswitch_data_0
 
-    .line 318
     :pswitch_0
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
 
     move-result-object v10
 
-    .line 320
     .local v10, "wm":Landroid/view/IWindowManager;
     :try_start_0
     invoke-interface {v10}, Landroid/view/IWindowManager;->hasPermanentMenuKey()Z
@@ -425,73 +419,60 @@
 
     iput-boolean v11, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKey:Z
 
-    .line 321
     const/4 v11, 0x1
 
     iput-boolean v11, p0, Landroid/view/ViewConfiguration;->sHasPermanentMenuKeySet:Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 341
     .end local v1    # "configVal":I
     .end local v10    # "wm":Landroid/view/IWindowManager;
     :cond_0
     :goto_1
-    const v11, 0x1120014
+    const v11, #android:bool@config_ui_enableFadingMarquee#t
 
-    .line 340
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v11
 
     iput-boolean v11, p0, Landroid/view/ViewConfiguration;->mFadingMarqueeEnabled:Z
 
-    .line 343
-    const v11, 0x105000f
+    const v11, #android:dimen@config_viewConfigurationTouchSlop#t
 
-    .line 342
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v11
 
     iput v11, p0, Landroid/view/ViewConfiguration;->mTouchSlop:I
 
-    .line 344
     iget v11, p0, Landroid/view/ViewConfiguration;->mTouchSlop:I
 
     mul-int/lit8 v11, v11, 0x2
 
     iput v11, p0, Landroid/view/ViewConfiguration;->mPagingTouchSlop:I
 
-    .line 346
     iget v11, p0, Landroid/view/ViewConfiguration;->mTouchSlop:I
 
     iput v11, p0, Landroid/view/ViewConfiguration;->mDoubleTapTouchSlop:I
 
-    .line 349
-    const v11, 0x1050010
+    const v11, #android:dimen@config_viewMinFlingVelocity#t
 
-    .line 348
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v11
 
     iput v11, p0, Landroid/view/ViewConfiguration;->mMinimumFlingVelocity:I
 
-    .line 351
-    const v11, 0x1050011
+    const v11, #android:dimen@config_viewMaxFlingVelocity#t
 
-    .line 350
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v11
 
     iput v11, p0, Landroid/view/ViewConfiguration;->mMaximumFlingVelocity:I
 
-    .line 353
-    const v11, 0x10e0090
+    const v11, #android:integer@config_globalActionsKeyTimeout#t
 
-    .line 352
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v11

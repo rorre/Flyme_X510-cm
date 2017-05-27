@@ -419,14 +419,12 @@
     .param p1, "r"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 162
-    const v9, 0x1110002
+    const v9, #android:xml@autotext#t
 
     invoke-virtual {p1, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
     move-result-object v6
 
-    .line 164
     .local v6, "parser":Landroid/content/res/XmlResourceParser;
     new-instance v7, Ljava/lang/StringBuilder;
 

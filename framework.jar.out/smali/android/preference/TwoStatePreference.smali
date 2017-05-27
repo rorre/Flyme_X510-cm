@@ -527,8 +527,7 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 198
-    const v4, 0x1020010
+    const v4, #android:id@summary#t
 
     invoke-virtual {p1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

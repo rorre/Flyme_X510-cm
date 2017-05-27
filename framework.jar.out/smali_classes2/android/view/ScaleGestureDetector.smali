@@ -182,24 +182,20 @@
 
     iput v2, p0, Landroid/view/ScaleGestureDetector;->mSpanSlop:I
 
-    .line 209
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 211
     .local v0, "res":Landroid/content/res/Resources;
-    const v2, 0x1050013
+    const v2, #android:dimen@config_minScalingTouchMajor#t
 
-    .line 210
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
     iput v2, p0, Landroid/view/ScaleGestureDetector;->mTouchMinMajor:I
 
-    .line 212
-    const v2, 0x1050012
+    const v2, #android:dimen@config_minScalingSpan#t
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

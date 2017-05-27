@@ -98,49 +98,39 @@
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl;->setLayerStack(I)V
 
-    .line 65
     invoke-virtual {v0, p4}, Landroid/view/SurfaceControl;->setLayer(I)V
 
-    .line 66
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/view/SurfaceControl;->setPosition(FF)V
 
-    .line 67
     invoke-virtual {v0}, Landroid/view/SurfaceControl;->show()V
 
-    .line 68
     iget-object v1, p0, Lcom/android/server/wm/EmulatorDisplayOverlay;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v1, v0}, Landroid/view/Surface;->copyFrom(Landroid/view/SurfaceControl;)V
     :try_end_1
     .catch Landroid/view/Surface$OutOfResourcesException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 71
     :goto_0
     iput-object v0, p0, Lcom/android/server/wm/EmulatorDisplayOverlay;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    .line 72
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/wm/EmulatorDisplayOverlay;->mDrawNeeded:Z
 
-    .line 74
-    const v1, 0x10802bb
+    const v1, #android:drawable@emulator_circular_window_overlay#t
 
-    .line 73
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/wm/EmulatorDisplayOverlay;->mOverlay:Landroid/graphics/drawable/Drawable;
 
-    .line 50
     return-void
 
-    .line 69
     .end local v0    # "ctrl":Landroid/view/SurfaceControl;
     .restart local v7    # "ctrl":Landroid/view/SurfaceControl;
     :catch_0

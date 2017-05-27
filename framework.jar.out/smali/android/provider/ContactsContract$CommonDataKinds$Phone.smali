@@ -225,135 +225,112 @@
     .param p0, "type"    # I
 
     .prologue
-    .line 5943
     packed-switch p0, :pswitch_data_0
 
-    .line 5964
-    const v0, 0x1040298
+    const v0, #android:string@phoneTypeCustom#t
 
     return v0
 
-    .line 5944
     :pswitch_0
-    const v0, 0x1040299
+    const v0, #android:string@phoneTypeHome#t
 
     return v0
 
-    .line 5945
     :pswitch_1
-    const v0, 0x104029a
+    const v0, #android:string@phoneTypeMobile#t
 
     return v0
 
-    .line 5946
     :pswitch_2
-    const v0, 0x104029b
+    const v0, #android:string@phoneTypeWork#t
 
     return v0
 
-    .line 5947
     :pswitch_3
-    const v0, 0x104029c
+    const v0, #android:string@phoneTypeFaxWork#t
 
     return v0
 
-    .line 5948
     :pswitch_4
-    const v0, 0x104029d
+    const v0, #android:string@phoneTypeFaxHome#t
 
     return v0
 
-    .line 5949
     :pswitch_5
-    const v0, 0x104029e
+    const v0, #android:string@phoneTypePager#t
 
     return v0
 
-    .line 5950
     :pswitch_6
-    const v0, 0x104029f
+    const v0, #android:string@phoneTypeOther#t
 
     return v0
 
-    .line 5951
     :pswitch_7
-    const v0, 0x10402a0
+    const v0, #android:string@phoneTypeCallback#t
 
     return v0
 
-    .line 5952
     :pswitch_8
-    const v0, 0x10402a1
+    const v0, #android:string@phoneTypeCar#t
 
     return v0
 
-    .line 5953
     :pswitch_9
-    const v0, 0x10402a2
+    const v0, #android:string@phoneTypeCompanyMain#t
 
     return v0
 
-    .line 5954
     :pswitch_a
-    const v0, 0x10402a3
+    const v0, #android:string@phoneTypeIsdn#t
 
     return v0
 
-    .line 5955
     :pswitch_b
-    const v0, 0x10402a4
+    const v0, #android:string@phoneTypeMain#t
 
     return v0
 
-    .line 5956
     :pswitch_c
-    const v0, 0x10402a5
+    const v0, #android:string@phoneTypeOtherFax#t
 
     return v0
 
-    .line 5957
     :pswitch_d
-    const v0, 0x10402a6
+    const v0, #android:string@phoneTypeRadio#t
 
     return v0
 
-    .line 5958
     :pswitch_e
-    const v0, 0x10402a7
+    const v0, #android:string@phoneTypeTelex#t
 
     return v0
 
-    .line 5959
     :pswitch_f
-    const v0, 0x10402a8
+    const v0, #android:string@phoneTypeTtyTdd#t
 
     return v0
 
-    .line 5960
     :pswitch_10
-    const v0, 0x10402a9
+    const v0, #android:string@phoneTypeWorkMobile#t
 
     return v0
 
-    .line 5961
     :pswitch_11
-    const v0, 0x10402aa
+    const v0, #android:string@phoneTypeWorkPager#t
 
     return v0
 
-    .line 5962
     :pswitch_12
-    const v0, 0x10402ab
+    const v0, #android:string@phoneTypeAssistant#t
 
     return v0
 
-    .line 5963
     :pswitch_13
-    const v0, 0x10402ac
+    const v0, #android:string@phoneTypeMms#t
 
     return v0
 
-    .line 5943
     nop
 
     :pswitch_data_0

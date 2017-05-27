@@ -89,7 +89,7 @@
 
     .line 112
     .local v0, "inflater":Landroid/view/LayoutInflater;
-    const v3, 0x1090045
+    const v3, #android:layout@date_picker_dialog#t
 
     const/4 v4, 0x0
 
@@ -97,12 +97,10 @@
 
     move-result-object v2
 
-    .line 113
     .local v2, "view":Landroid/view/View;
     invoke-virtual {p0, v2}, Landroid/app/DatePickerDialog;->setView(Landroid/view/View;)V
 
-    .line 114
-    const v3, 0x104000a
+    const v3, #android:string@ok#t
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -112,8 +110,7 @@
 
     invoke-virtual {p0, v4, v3, p0}, Landroid/app/DatePickerDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    .line 115
-    const/high16 v3, 0x1040000
+    const/high16 v3, #android:string@cancel#i
 
     invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -123,11 +120,9 @@
 
     invoke-virtual {p0, v4, v3, p0}, Landroid/app/DatePickerDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    .line 116
     invoke-virtual {p0, v5}, Landroid/app/DatePickerDialog;->setButtonPanelLayoutHint(I)V
 
-    .line 118
-    const v3, 0x1020320
+    const v3, #android:id@datePicker#t
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -203,7 +198,7 @@
 
     move-result-object v1
 
-    const v2, 0x10104ac
+    const v2, #android:attr@datePickerDialogTheme#t
 
     const/4 v3, 0x1
 
@@ -238,69 +233,56 @@
 
     if-nez v1, :cond_1
 
-    .line 169
     iget-object v1, p0, Landroid/app/DatePickerDialog;->mCalendar:Ljava/util/Calendar;
 
     invoke-virtual {v1, v5, p1}, Ljava/util/Calendar;->set(II)V
 
-    .line 170
     iget-object v1, p0, Landroid/app/DatePickerDialog;->mCalendar:Ljava/util/Calendar;
 
     const/4 v2, 0x2
 
     invoke-virtual {v1, v2, p2}, Ljava/util/Calendar;->set(II)V
 
-    .line 171
     iget-object v1, p0, Landroid/app/DatePickerDialog;->mCalendar:Ljava/util/Calendar;
 
     const/4 v2, 0x5
 
     invoke-virtual {v1, v2, p3}, Ljava/util/Calendar;->set(II)V
 
-    .line 172
     iget-object v1, p0, Landroid/app/DatePickerDialog;->mContext:Landroid/content/Context;
 
-    .line 173
     iget-object v2, p0, Landroid/app/DatePickerDialog;->mCalendar:Ljava/util/Calendar;
 
     invoke-virtual {v2}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v2
 
-    .line 174
     const v4, 0x18016
 
-    .line 172
     invoke-static {v1, v2, v3, v4}, Landroid/text/format/DateUtils;->formatDateTime(Landroid/content/Context;JI)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 179
     .local v0, "title":Ljava/lang/String;
     invoke-virtual {p0, v0}, Landroid/app/DatePickerDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 180
     iput-boolean v5, p0, Landroid/app/DatePickerDialog;->mTitleNeedsUpdate:Z
 
-    .line 167
     .end local v0    # "title":Ljava/lang/String;
     :cond_0
     :goto_0
     return-void
 
-    .line 182
     :cond_1
     iget-boolean v1, p0, Landroid/app/DatePickerDialog;->mTitleNeedsUpdate:Z
 
     if-eqz v1, :cond_0
 
-    .line 183
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/app/DatePickerDialog;->mTitleNeedsUpdate:Z
 
-    .line 184
-    const v1, 0x1040447
+    const v1, #android:string@date_picker_dialog_title#t
 
     invoke-virtual {p0, v1}, Landroid/app/DatePickerDialog;->setTitle(I)V
 

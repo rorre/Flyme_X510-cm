@@ -392,24 +392,20 @@
 
     move-result-object v3
 
-    .line 71
     invoke-direct {v4, v5, v3}, Landroid/accounts/ChooseAccountActivity$AccountInfo;-><init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
 
     aput-object v4, v2, v0
 
-    .line 70
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 75
     :cond_1
-    const v3, 0x109003e
+    const v3, #android:layout@choose_account#t
 
     invoke-virtual {p0, v3}, Landroid/accounts/ChooseAccountActivity;->setContentView(I)V
 
-    .line 78
-    const v3, 0x102000a
+    const v3, #android:id@list#t
 
     invoke-virtual {p0, v3}, Landroid/accounts/ChooseAccountActivity;->findViewById(I)Landroid/view/View;
 
@@ -417,32 +413,25 @@
 
     check-cast v1, Landroid/widget/ListView;
 
-    .line 80
     .local v1, "list":Landroid/widget/ListView;
     new-instance v3, Landroid/accounts/ChooseAccountActivity$AccountArrayAdapter;
 
-    .line 81
-    const v4, 0x1090003
+    const v4, #android:layout@simple_list_item_1#t
 
-    .line 80
     invoke-direct {v3, p0, v4, v2}, Landroid/accounts/ChooseAccountActivity$AccountArrayAdapter;-><init>(Landroid/content/Context;I[Landroid/accounts/ChooseAccountActivity$AccountInfo;)V
 
     invoke-virtual {v1, v3}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 82
     invoke-virtual {v1, v6}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 83
     invoke-virtual {v1, v6}, Landroid/widget/ListView;->setTextFilterEnabled(Z)V
 
-    .line 84
     new-instance v3, Landroid/accounts/ChooseAccountActivity$1;
 
     invoke-direct {v3, p0}, Landroid/accounts/ChooseAccountActivity$1;-><init>(Landroid/accounts/ChooseAccountActivity;)V
 
     invoke-virtual {v1, v3}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 53
     return-void
 .end method
 

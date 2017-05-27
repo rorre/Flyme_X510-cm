@@ -221,7 +221,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x104031e
+    const v2, #android:string@lockscreen_access_pattern_cell_added_verbose#t
 
     .line 1551
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
@@ -233,7 +233,7 @@
 
     .line 1553
     :cond_0
-    const v1, 0x104031d
+    const v1, #android:string@lockscreen_access_pattern_cell_added#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -631,26 +631,21 @@
 
     if-nez v1, :cond_0
 
-    .line 1445
     iget-object v1, p0, Lcom/android/internal/widget/LockPatternView$PatternExploreByTouchHelper;->this$0:Lcom/android/internal/widget/LockPatternView;
 
     invoke-virtual {v1}, Lcom/android/internal/widget/LockPatternView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 1446
-    const v2, 0x1040320
+    const v2, #android:string@lockscreen_access_pattern_area#t
 
-    .line 1445
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 1447
     .local v0, "contentDescription":Ljava/lang/CharSequence;
     invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    .line 1442
     .end local v0    # "contentDescription":Ljava/lang/CharSequence;
     :cond_0
     return-void

@@ -200,15 +200,12 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 653
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 654
-    const v1, 0x1120060
+    const v1, #android:bool@config_bluetooth_sco_off_call#t
 
-    .line 653
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0

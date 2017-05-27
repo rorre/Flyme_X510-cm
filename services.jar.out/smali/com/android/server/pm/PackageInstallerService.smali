@@ -787,38 +787,30 @@
 
     move-result-object v5
 
-    .line 1078
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    .line 1079
-    const v7, 0x1050005
+    const v7, #android:dimen@notification_large_icon_width#t
 
-    .line 1078
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v6
 
-    .line 1080
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
 
-    .line 1081
-    const v8, 0x1050006
+    const v8, #android:dimen@notification_large_icon_height#t
 
-    .line 1080
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v7
 
-    .line 1076
     invoke-static {v5, v6, v7}, Lcom/android/internal/util/ImageUtils;->buildScaledBitmap(Landroid/graphics/drawable/Drawable;II)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
-    .line 1082
     .local v1, "packageIcon":Landroid/graphics/Bitmap;
     iget-object v5, v2, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
@@ -826,34 +818,27 @@
 
     move-result-object v3
 
-    .line 1083
     .local v3, "packageLabel":Ljava/lang/CharSequence;
     new-instance v5, Landroid/app/Notification$Builder;
 
     invoke-direct {v5, p0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 1084
-    const v6, 0x1080311
+    const v6, #android:drawable@ic_check_circle_24px#t
 
-    .line 1083
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
-    .line 1085
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    .line 1086
-    const v7, 0x1060070
+    const v7, #android:color@system_notification_accent_color#t
 
-    .line 1085
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v6
 
-    .line 1083
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v5

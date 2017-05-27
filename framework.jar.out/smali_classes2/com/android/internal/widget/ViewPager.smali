@@ -223,43 +223,36 @@
     .locals 3
 
     .prologue
-    .line 101
     const/4 v0, 0x1
 
     new-array v0, v0, [I
 
-    .line 102
-    const v1, 0x10100b3
+    const v1, #android:attr@layout_gravity#t
 
     const/4 v2, 0x0
 
     aput v1, v0, v2
 
-    .line 101
     sput-object v0, Lcom/android/internal/widget/ViewPager;->LAYOUT_ATTRS:[I
 
-    .line 123
     new-instance v0, Lcom/android/internal/widget/ViewPager$1;
 
     invoke-direct {v0}, Lcom/android/internal/widget/ViewPager$1;-><init>()V
 
     sput-object v0, Lcom/android/internal/widget/ViewPager;->COMPARATOR:Ljava/util/Comparator;
 
-    .line 130
     new-instance v0, Lcom/android/internal/widget/ViewPager$2;
 
     invoke-direct {v0}, Lcom/android/internal/widget/ViewPager$2;-><init>()V
 
     sput-object v0, Lcom/android/internal/widget/ViewPager;->sInterpolator:Landroid/view/animation/Interpolator;
 
-    .line 230
     new-instance v0, Lcom/android/internal/widget/ViewPager$ViewPositionComparator;
 
     invoke-direct {v0}, Lcom/android/internal/widget/ViewPager$ViewPositionComparator;-><init>()V
 
     sput-object v0, Lcom/android/internal/widget/ViewPager;->sPositionComparator:Lcom/android/internal/widget/ViewPager$ViewPositionComparator;
 
-    .line 86
     return-void
 .end method
 

@@ -279,45 +279,37 @@
 
     iput-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mIntent:Landroid/content/Intent;
 
-    .line 2009
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mIntent:Landroid/content/Intent;
 
-    const-string/jumbo v1, "android.intent.extra.client_label"
+    const-string v1, "android.intent.extra.client_label"
 
-    .line 2010
-    const v2, 0x10404b2
+    const v2, #android:string@accessibility_binding_label#t
 
-    .line 2009
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 2011
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->mIntent:Landroid/content/Intent;
 
-    const-string/jumbo v1, "android.intent.extra.client_intent"
+    const-string v1, "android.intent.extra.client_intent"
 
-    .line 2012
     invoke-static {p1}, Lcom/android/server/accessibility/AccessibilityManagerService;->-get1(Lcom/android/server/accessibility/AccessibilityManagerService;)Landroid/content/Context;
 
     move-result-object v2
 
     new-instance v3, Landroid/content/Intent;
 
-    const-string/jumbo v4, "android.settings.ACCESSIBILITY_SETTINGS"
+    const-string v4, "android.settings.ACCESSIBILITY_SETTINGS"
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2011
     invoke-static {v2, v5, v3, v5}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 2014
     :cond_0
     invoke-virtual {p0, p4}, Lcom/android/server/accessibility/AccessibilityManagerService$Service;->setDynamicallyConfigurableProperties(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
 
-    .line 2000
     return-void
 .end method
 

@@ -173,36 +173,28 @@
 
     iput v2, p0, Lcom/android/internal/widget/ResolverDrawerLayout;->mMaxWidth:I
 
-    .line 123
     invoke-virtual {v0, v5, v3}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v2
 
     iput v2, p0, Lcom/android/internal/widget/ResolverDrawerLayout;->mMaxCollapsedHeight:I
 
-    .line 127
     iget v2, p0, Lcom/android/internal/widget/ResolverDrawerLayout;->mMaxCollapsedHeight:I
 
-    .line 126
     const/4 v3, 0x2
 
-    .line 125
     invoke-virtual {v0, v3, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v2
 
     iput v2, p0, Lcom/android/internal/widget/ResolverDrawerLayout;->mMaxCollapsedHeightSmall:I
 
-    .line 128
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 130
     new-instance v2, Landroid/widget/OverScroller;
 
-    .line 131
-    const v3, 0x10c0005
+    const v3, #android:interpolator@decelerate_quint#t
 
-    .line 130
     invoke-static {p1, v3}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
     move-result-object v3

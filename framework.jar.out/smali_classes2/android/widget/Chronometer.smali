@@ -273,7 +273,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x1140004
+    const v8, #android:plurals@duration_hours#t
 
     .line 312
     invoke-virtual {v4, v8, v2, v7}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
@@ -313,7 +313,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x1140003
+    const v8, #android:plurals@duration_minutes#t
 
     .line 319
     invoke-virtual {v4, v8, v3, v7}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
@@ -350,7 +350,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x1140002
+    const v8, #android:plurals@duration_seconds#t
 
     .line 326
     invoke-virtual {v4, v8, v5, v7}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;

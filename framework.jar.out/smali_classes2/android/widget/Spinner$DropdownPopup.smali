@@ -264,14 +264,13 @@
 
     add-int/2addr v3, v7
 
-    .line 1214
     :goto_2
     invoke-virtual {p0, v3}, Landroid/widget/Spinner$DropdownPopup;->setHorizontalOffset(I)V
 
-    .line 1179
+    invoke-direct/range {p0 .. p0}, Landroid/widget/Spinner$DropdownPopup;->setFlymeHorizontalOffset()V
+
     return-void
 
-    .line 1184
     .end local v4    # "spinnerPaddingLeft":I
     .end local v5    # "spinnerPaddingRight":I
     .end local v6    # "spinnerWidth":I
@@ -390,41 +389,34 @@
     .param p2, "textAlignment"    # I
 
     .prologue
-    .line 1218
     invoke-virtual {p0}, Landroid/widget/Spinner$DropdownPopup;->isShowing()Z
 
     move-result v3
 
-    .line 1220
     .local v3, "wasShowing":Z
     invoke-virtual {p0}, Landroid/widget/Spinner$DropdownPopup;->computeContentWidth()V
 
-    .line 1222
+    invoke-direct/range {p0 .. p0}, Landroid/widget/Spinner$DropdownPopup;->setFlymeLayoutMode()V
+
     const/4 v4, 0x2
 
     invoke-virtual {p0, v4}, Landroid/widget/Spinner$DropdownPopup;->setInputMethodMode(I)V
 
-    .line 1223
     invoke-super {p0}, Landroid/widget/ListPopupWindow;->show()V
 
-    .line 1224
     invoke-virtual {p0}, Landroid/widget/Spinner$DropdownPopup;->getListView()Landroid/widget/ListView;
 
     move-result-object v1
 
-    .line 1225
     .local v1, "listView":Landroid/widget/ListView;
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 1226
     invoke-virtual {v1, p1}, Landroid/widget/ListView;->setTextDirection(I)V
 
-    .line 1227
     invoke-virtual {v1, p2}, Landroid/widget/ListView;->setTextAlignment(I)V
 
-    .line 1228
     iget-object v4, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
 
     invoke-virtual {v4}, Landroid/widget/Spinner;->getSelectedItemPosition()I
@@ -470,5 +462,38 @@
     .line 1217
     .end local v0    # "layoutListener":Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
     :cond_1
+    return-void
+.end method
+
+.method private setFlymeHorizontalOffset()V
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
+
+    iget v0, v0, Landroid/widget/Spinner;->mMzDropDownHorizontalOffset:I
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
+
+    iget v0, v0, Landroid/widget/Spinner;->mMzDropDownHorizontalOffset:I
+
+    invoke-virtual {p0, v0}, Landroid/widget/Spinner$DropdownPopup;->setHorizontalOffset(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private setFlymeLayoutMode()V
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Landroid/widget/Spinner$DropdownPopup;->this$0:Landroid/widget/Spinner;
+
+    iget v0, v0, Landroid/widget/Spinner;->mMzPopupLayoutMode:I
+
+    invoke-virtual {p0, v0}, Landroid/widget/Spinner$DropdownPopup;->setLayoutMode(I)V
+
     return-void
 .end method

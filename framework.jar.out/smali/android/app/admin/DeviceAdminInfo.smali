@@ -101,241 +101,194 @@
     .locals 11
 
     .prologue
-    const v10, 0x1040283
+    const v10, #android:string@policylab_watchLogin#t
 
-    .line 189
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
-    .line 190
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Landroid/app/admin/DeviceAdminInfo;->sKnownPolicies:Ljava/util/HashMap;
 
-    .line 191
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Landroid/app/admin/DeviceAdminInfo;->sRevKnownPolicies:Landroid/util/SparseArray;
 
-    .line 194
     sget-object v9, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "wipe-data"
+    const-string v2, "wipe-data"
 
     const/4 v1, 0x4
 
-    .line 195
-    const v3, 0x104028a
+    const v3, #android:string@policylab_wipeData#t
 
-    .line 196
-    const v4, 0x104028b
+    const v4, #android:string@policydesc_wipeData#t
 
-    .line 197
-    const v5, 0x104028c
+    const v5, #android:string@policylab_wipeData_secondaryUser#t
 
-    .line 198
-    const v6, 0x104028d
+    const v6, #android:string@policydesc_wipeData_secondaryUser#t
 
-    .line 194
     invoke-direct/range {v0 .. v6}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;IIII)V
 
     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 200
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "reset-password"
+    const-string v2, "reset-password"
 
     const/4 v3, 0x2
 
-    .line 201
-    const v4, 0x1040286
+    const v4, #android:string@policylab_resetPassword#t
 
-    .line 202
-    const v5, 0x1040287
+    const v5, #android:string@policydesc_resetPassword#t
 
-    .line 200
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 203
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "limit-password"
+    const-string v2, "limit-password"
 
     const/4 v3, 0x0
 
-    .line 204
-    const v4, 0x1040281
+    const v4, #android:string@policylab_limitPassword#t
 
-    .line 205
-    const v5, 0x1040282
+    const v5, #android:string@policydesc_limitPassword#t
 
-    .line 203
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 206
     sget-object v9, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "watch-login"
+    const-string v2, "watch-login"
 
     const/4 v1, 0x1
 
-    .line 208
-    const v4, 0x1040284
+    const v4, #android:string@policydesc_watchLogin#t
 
-    .line 210
-    const v6, 0x1040285
+    const v6, #android:string@policydesc_watchLogin_secondaryUser#t
 
     move v3, v10
 
     move v5, v10
 
-    .line 206
     invoke-direct/range {v0 .. v6}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;IIII)V
 
     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 212
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "force-lock"
+    const-string v2, "force-lock"
 
     const/4 v3, 0x3
 
-    .line 213
-    const v4, 0x1040288
+    const v4, #android:string@policylab_forceLock#t
 
-    .line 214
-    const v5, 0x1040289
+    const v5, #android:string@policydesc_forceLock#t
 
-    .line 212
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 215
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "set-global-proxy"
+    const-string v2, "set-global-proxy"
 
     const/4 v3, 0x5
 
-    .line 216
-    const v4, 0x104028e
+    const v4, #android:string@policylab_setGlobalProxy#t
 
-    .line 217
-    const v5, 0x104028f
+    const v5, #android:string@policydesc_setGlobalProxy#t
 
-    .line 215
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 218
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "expire-password"
+    const-string v2, "expire-password"
 
     const/4 v3, 0x6
 
-    .line 219
-    const v4, 0x1040290
+    const v4, #android:string@policylab_expirePassword#t
 
-    .line 220
-    const v5, 0x1040291
+    const v5, #android:string@policydesc_expirePassword#t
 
-    .line 218
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 221
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "encrypted-storage"
+    const-string v2, "encrypted-storage"
 
     const/4 v3, 0x7
 
-    .line 222
-    const v4, 0x1040292
+    const v4, #android:string@policylab_encryptedStorage#t
 
-    .line 223
-    const v5, 0x1040293
+    const v5, #android:string@policydesc_encryptedStorage#t
 
-    .line 221
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 224
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    const-string/jumbo v2, "disable-camera"
+    const-string v2, "disable-camera"
 
     const/16 v3, 0x8
 
-    .line 225
-    const v4, 0x1040294
+    const v4, #android:string@policylab_disableCamera#t
 
-    .line 226
-    const v5, 0x1040295
+    const v5, #android:string@policydesc_disableCamera#t
 
-    .line 224
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 227
     sget-object v0, Landroid/app/admin/DeviceAdminInfo;->sPoliciesDisplayOrder:Ljava/util/ArrayList;
 
     new-instance v1, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;
 
-    .line 228
-    const-string/jumbo v2, "disable-keyguard-features"
+    const-string v2, "disable-keyguard-features"
 
     const/16 v3, 0x9
 
-    .line 229
-    const v4, 0x1040296
+    const v4, #android:string@policylab_disableKeyguardFeatures#t
 
-    .line 230
-    const v5, 0x1040297
+    const v5, #android:string@policydesc_disableKeyguardFeatures#t
 
-    .line 227
     invoke-direct {v1, v3, v2, v4, v5}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 232
     const/4 v7, 0x0
 
     .local v7, "i":I

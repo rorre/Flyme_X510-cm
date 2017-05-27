@@ -58,29 +58,22 @@
 
     const/4 v2, 0x0
 
-    .line 58
     new-array v0, v3, [I
 
-    .line 59
-    const v1, 0x10100a0
+    const v1, #android:attr@state_checked#t
 
     aput v1, v0, v2
 
-    .line 58
     sput-object v0, Landroid/app/MediaRouteButton;->CHECKED_STATE_SET:[I
 
-    .line 63
     new-array v0, v3, [I
 
-    .line 64
-    const v1, 0x10102fe
+    const v1, #android:attr@state_activated#t
 
     aput v1, v0, v2
 
-    .line 63
     sput-object v0, Landroid/app/MediaRouteButton;->ACTIVATED_STATE_SET:[I
 
-    .line 39
     return-void
 .end method
 
@@ -104,12 +97,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 72
-    const v0, 0x10103ad
+    const v0, #android:attr@mediaRouteButtonStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/app/MediaRouteButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 71
     return-void
 .end method
 

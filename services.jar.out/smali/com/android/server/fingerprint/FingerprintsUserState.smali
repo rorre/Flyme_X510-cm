@@ -508,14 +508,12 @@
 
     aput-object v4, v3, v5
 
-    .line 118
-    const v4, 0x1040248
+    const v4, #android:string@fingerprint_name_template#t
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 120
     .local v1, "name":Ljava/lang/String;
     invoke-direct {p0, v1}, Lcom/android/server/fingerprint/FingerprintsUserState;->isUnique(Ljava/lang/String;)Z
 

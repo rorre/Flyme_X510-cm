@@ -278,23 +278,18 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 152
     if-nez p2, :cond_0
 
-    .line 153
     iget-object v1, p0, Landroid/app/LauncherActivity$ActivityAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 154
-    const v2, 0x1090024
+    const v2, #android:layout@activity_list_item_2#t
 
     const/4 v3, 0x0
 
-    .line 153
     invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    .line 158
     .local v0, "view":Landroid/view/View;
     :goto_0
     iget-object v1, p0, Landroid/app/LauncherActivity$ActivityAdapter;->mActivitiesList:Ljava/util/List;

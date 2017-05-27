@@ -67,12 +67,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 88
-    const v0, 0x101035d
+    const v0, #android:attr@calendarViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/CalendarView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 87
     return-void
 .end method
 

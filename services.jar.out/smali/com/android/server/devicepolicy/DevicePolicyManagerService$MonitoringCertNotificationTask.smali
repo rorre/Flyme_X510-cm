@@ -147,36 +147,30 @@
 
     move-result-object v1
 
-    .line 1896
     const/4 v2, 0x0
 
-    const v4, 0x104016d
+    const v4, #android:string@ssl_ca_cert_warning#t
 
-    .line 1895
     move-object/from16 v0, p1
 
     invoke-virtual {v1, v2, v4, v0}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
-    .line 1897
     return-void
 
-    .line 1884
     .restart local v13    # "kcs":Landroid/security/KeyChain$KeyChainConnection;
     :catch_0
     move-exception v9
 
-    .line 1885
     .local v9, "e":Landroid/os/RemoteException;
     :try_start_3
-    const-string/jumbo v1, "DevicePolicyManagerService"
+    const-string v1, "DevicePolicyManagerService"
 
-    const-string/jumbo v2, "Could not connect to KeyChain service"
+    const-string v2, "Could not connect to KeyChain service"
 
     invoke-static {v1, v2, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 1887
     :try_start_4
     invoke-virtual {v13}, Landroid/security/KeyChain$KeyChainConnection;->close()V
     :try_end_4
@@ -266,38 +260,32 @@
 
     iget-object v1, v1, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
-    const v2, 0x104016f
+    const v2, #android:string@ssl_ca_cert_noti_by_administrator#t
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 1906
     .local v7, "contentText":Ljava/lang/String;
-    const v17, 0x1080674
+    const v17, #android:drawable@stat_sys_certificate_info#t
 
-    .line 1915
     .local v17, "smallIconId":I
     :goto_1
     new-instance v3, Landroid/content/Intent;
 
-    const-string/jumbo v1, "com.android.settings.MONITORING_CERT_INFO"
+    const-string v1, "com.android.settings.MONITORING_CERT_INFO"
 
     invoke-direct {v3, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1917
     .local v3, "dialogIntent":Landroid/content/Intent;
     const v1, 0x10008000
 
-    .line 1916
     invoke-virtual {v3, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 1918
-    const-string/jumbo v1, "com.android.settings"
+    const-string v1, "com.android.settings"
 
     invoke-virtual {v3, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1919
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$MonitoringCertNotificationTask;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
@@ -360,7 +348,7 @@
 
     iget-object v2, v2, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x104016d
+    const v4, #android:string@ssl_ca_cert_warning#t
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -379,38 +367,30 @@
 
     move-result-object v1
 
-    .line 1934
     const/4 v2, 0x1
 
-    .line 1929
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
-    .line 1935
     const/4 v2, 0x0
 
-    .line 1929
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setShowWhen(Z)Landroid/app/Notification$Builder;
 
     move-result-object v1
 
-    .line 1936
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$MonitoringCertNotificationTask;->this$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
     iget-object v2, v2, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
-    .line 1937
-    const v4, 0x1060070
+    const v4, #android:color@system_notification_accent_color#t
 
-    .line 1936
     invoke-virtual {v2, v4}, Landroid/content/Context;->getColor(I)I
 
     move-result v2
 
-    .line 1929
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v1
@@ -429,20 +409,16 @@
 
     move-result-object v1
 
-    .line 1941
     const/4 v2, 0x0
 
-    const v4, 0x104016d
+    const v4, #android:string@ssl_ca_cert_warning#t
 
-    .line 1940
     move-object/from16 v0, p1
 
     invoke-virtual {v1, v2, v4, v14, v0}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
-    .line 1871
     return-void
 
-    .line 1907
     .end local v3    # "dialogIntent":Landroid/content/Intent;
     .end local v7    # "contentText":Ljava/lang/String;
     .end local v14    # "noti":Landroid/app/Notification;
@@ -467,20 +443,18 @@
 
     aput-object v16, v2, v4
 
-    const v4, 0x1040170
+    const v4, #android:string@ssl_ca_cert_noti_managed#t
 
     invoke-virtual {v1, v4, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 1909
     .restart local v7    # "contentText":Ljava/lang/String;
-    const v17, 0x1080674
+    const v17, #android:drawable@stat_sys_certificate_info#t
 
     .restart local v17    # "smallIconId":I
     goto/16 :goto_1
 
-    .line 1911
     .end local v7    # "contentText":Ljava/lang/String;
     .end local v17    # "smallIconId":I
     :cond_4
@@ -490,34 +464,31 @@
 
     iget-object v1, v1, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
-    const v2, 0x104016e
+    const v2, #android:string@ssl_ca_cert_noti_by_unknown#t
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
-    .line 1912
     .restart local v7    # "contentText":Ljava/lang/String;
-    const v17, 0x108008a
+    const v17, #android:drawable@stat_sys_warning#t
 
     .restart local v17    # "smallIconId":I
     goto/16 :goto_1
 
-    .line 1925
     .restart local v3    # "dialogIntent":Landroid/content/Intent;
     .restart local v15    # "notifyIntent":Landroid/app/PendingIntent;
     :catch_3
     move-exception v8
 
-    .line 1926
     .local v8, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    const-string/jumbo v1, "DevicePolicyManagerService"
+    const-string v1, "DevicePolicyManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Create context as "
+    const-string v4, "Create context as "
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

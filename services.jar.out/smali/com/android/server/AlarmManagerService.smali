@@ -1796,12 +1796,12 @@
     .param p1, "userId"    # I
 
     .prologue
-    .line 2685
+    return-void
+
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v16
 
-    .line 2687
     .local v16, "token":J
     :try_start_0
     new-instance v18, Landroid/os/UserHandle;

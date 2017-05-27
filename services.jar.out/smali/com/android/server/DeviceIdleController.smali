@@ -5305,19 +5305,15 @@
 
     move-result-object v0
 
-    .line 946
-    const v1, 0x10e000e
+    const v1, #android:integer@config_autoPowerModeAnyMotionSensor#t
 
-    .line 945
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v9
 
-    .line 947
     .local v9, "sigMotionSensorId":I
     if-lez v9, :cond_0
 
-    .line 948
     iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mSensorManager:Landroid/hardware/SensorManager;
 
     const/4 v1, 0x1
@@ -5342,53 +5338,43 @@
 
     move-result-object v0
 
-    .line 951
-    const v1, 0x1120018
+    const v1, #android:bool@config_autoPowerModePreferWristTilt#t
 
-    .line 950
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 952
     iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mSensorManager:Landroid/hardware/SensorManager;
 
-    .line 953
     const/16 v1, 0x1a
 
     const/4 v2, 0x1
 
-    .line 952
     invoke-virtual {v0, v1, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(IZ)Landroid/hardware/Sensor;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/DeviceIdleController;->mMotionSensor:Landroid/hardware/Sensor;
 
-    .line 955
     :cond_1
     iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mMotionSensor:Landroid/hardware/Sensor;
 
     if-nez v0, :cond_2
 
-    .line 957
     iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mSensorManager:Landroid/hardware/SensorManager;
 
-    .line 958
     const/16 v1, 0x11
 
     const/4 v2, 0x1
 
-    .line 957
     invoke-virtual {v0, v1, v2}, Landroid/hardware/SensorManager;->getDefaultSensor(IZ)Landroid/hardware/Sensor;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/DeviceIdleController;->mMotionSensor:Landroid/hardware/Sensor;
 
-    .line 961
     :cond_2
     invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
@@ -5398,25 +5384,20 @@
 
     move-result-object v0
 
-    .line 962
-    const v1, 0x1120019
+    const v1, #android:bool@config_autoPowerModePrefetchLocation#t
 
-    .line 961
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    .line 963
     invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 964
-    const-string/jumbo v1, "location"
+    const-string v1, "location"
 
-    .line 963
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
@@ -5474,32 +5455,26 @@
 
     move-result-object v0
 
-    .line 973
-    const v1, 0x10e000d
+    const v1, #android:integer@config_autoPowerModeThresholdAngle#t
 
-    .line 972
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
     int-to-float v0, v0
 
-    .line 973
     const/high16 v1, 0x42c80000    # 100.0f
 
-    .line 972
     div-float v5, v0, v1
 
-    .line 974
     .local v5, "angleThreshold":F
     new-instance v0, Lcom/android/server/AnyMotionDetector;
 
-    .line 975
     invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const-string/jumbo v2, "power"
+    const-string v2, "power"
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -5732,28 +5707,23 @@
 
     move-result-object v9
 
-    .line 883
-    const v10, 0x1120017
+    const v10, #android:bool@config_enableAutoPowerModes#t
 
-    .line 882
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v9
 
     iput-boolean v9, p0, Lcom/android/server/DeviceIdleController;->mEnabled:Z
 
-    .line 884
     invoke-static {}, Lcom/android/server/SystemConfig;->getInstance()Lcom/android/server/SystemConfig;
 
     move-result-object v8
 
-    .line 885
     .local v8, "sysConfig":Lcom/android/server/SystemConfig;
     invoke-virtual {v8}, Lcom/android/server/SystemConfig;->getAllowInPowerSaveExceptIdle()Landroid/util/ArraySet;
 
     move-result-object v2
 
-    .line 886
     .local v2, "allowPowerExceptIdle":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     const/4 v5, 0x0
 

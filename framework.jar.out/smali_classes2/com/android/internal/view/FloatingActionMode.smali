@@ -217,29 +217,24 @@
 
     iput-object v0, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
 
-    .line 98
     iget-object v0, p0, Lcom/android/internal/view/FloatingActionMode;->mOriginatingView:Landroid/view/View;
 
     iget-object v1, p0, Lcom/android/internal/view/FloatingActionMode;->mViewPositionOnScreen:[I
 
     invoke-virtual {v0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 101
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 102
-    const v1, 0x10500a1
+    const v1, #android:dimen@content_rect_bottom_clip_allowance#t
 
-    .line 101
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/view/FloatingActionMode;->mBottomAllowance:I
 
-    .line 73
     return-void
 .end method
 

@@ -40,12 +40,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 109
-    const v0, 0x101036d
+    const v0, #android:attr@switchPreferenceStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 108
     return-void
 .end method
 
@@ -178,17 +176,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 123
     invoke-super {p0, p1}, Landroid/preference/TwoStatePreference;->onBindView(Landroid/view/View;)V
 
-    .line 125
-    const v2, 0x10203a3
+    const v2, #android:id@switchWidget#t
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 126
     .local v0, "checkableView":Landroid/view/View;
     if-eqz v0, :cond_1
 

@@ -302,27 +302,21 @@
 
     if-eqz v14, :cond_0
 
-    .line 64
-    const v13, 0x10404ae
+    const v13, #android:string@forward_intent_to_owner#t
 
-    .line 65
     .local v13, "userMessageId":I
     const/4 v12, 0x0
 
-    .line 74
     .local v12, "targetUserId":I
     :goto_0
     const/16 v14, -0x2710
 
     if-ne v12, v14, :cond_2
 
-    .line 76
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/app/IntentForwarderActivity;->finish()V
 
-    .line 77
     return-void
 
-    .line 66
     .end local v12    # "targetUserId":I
     .end local v13    # "userMessageId":I
     :cond_0
@@ -334,10 +328,8 @@
 
     if-eqz v14, :cond_1
 
-    .line 67
-    const v13, 0x10404af
+    const v13, #android:string@forward_intent_to_work#t
 
-    .line 68
     .restart local v13    # "userMessageId":I
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/app/IntentForwarderActivity;->getManagedProfile()I
 

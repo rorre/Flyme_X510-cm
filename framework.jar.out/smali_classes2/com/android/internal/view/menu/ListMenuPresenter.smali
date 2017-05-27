@@ -182,20 +182,16 @@
     .param p1, "root"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 97
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mMenuView:Lcom/android/internal/view/menu/ExpandedMenuView;
 
     if-nez v0, :cond_1
 
-    .line 98
     iget-object v0, p0, Lcom/android/internal/view/menu/ListMenuPresenter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 99
-    const v1, 0x1090057
+    const v1, #android:layout@expanded_menu_layout#t
 
     const/4 v2, 0x0
 
-    .line 98
     invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0

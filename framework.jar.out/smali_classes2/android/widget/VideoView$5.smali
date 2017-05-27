@@ -166,16 +166,13 @@
 
     move-result-object v1
 
-    .line 524
     .local v1, "r":Landroid/content/res/Resources;
     const/16 v2, 0xc8
 
     if-ne p2, v2, :cond_3
 
-    .line 525
-    const v0, 0x1040015
+    const v0, #android:string@VideoView_error_text_invalid_progressive_playback#t
 
-    .line 530
     .local v0, "messageId":I
     :goto_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
@@ -192,39 +189,32 @@
 
     move-result-object v2
 
-    .line 533
     new-instance v3, Landroid/widget/VideoView$5$1;
 
     invoke-direct {v3, p0}, Landroid/widget/VideoView$5$1;-><init>(Landroid/widget/VideoView$5;)V
 
-    .line 532
-    const v4, 0x1040010
+    const v4, #android:string@VideoView_error_button#t
 
-    .line 530
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    .line 543
     const/4 v3, 0x0
 
-    .line 530
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
 
-    .line 546
     .end local v0    # "messageId":I
     .end local v1    # "r":Landroid/content/res/Resources;
     :cond_2
     return v6
 
-    .line 527
     .restart local v1    # "r":Landroid/content/res/Resources;
     :cond_3
-    const v0, 0x1040011
+    const v0, #android:string@VideoView_error_text_unknown#t
 
     .restart local v0    # "messageId":I
     goto :goto_0

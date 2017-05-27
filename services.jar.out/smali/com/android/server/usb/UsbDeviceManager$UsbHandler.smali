@@ -365,21 +365,17 @@
 
     const/4 v1, 0x1
 
-    .line 979
     .local v1, "netAdbActive":Z
     :goto_1
     const/4 v0, 0x0
 
-    .line 980
     .local v0, "id":I
     if-eqz v3, :cond_4
 
     if-eqz v1, :cond_4
 
-    .line 981
-    const v0, 0x1040035
+    const v0, #android:string@adb_active_custom_tile_both#t
 
-    .line 988
     :cond_0
     :goto_2
     iget-object v4, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
@@ -392,30 +388,25 @@
 
     move-result-object v2
 
-    .line 989
     .local v2, "res":Landroid/content/res/Resources;
     const/4 v4, 0x1
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    .line 991
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     aput-object v5, v4, v7
 
-    .line 990
-    const v5, 0x1040034
+    const v5, #android:string@adb_active_custom_tile#t
 
-    .line 989
     invoke-virtual {v2, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
     return-object v4
 
-    .line 975
     .end local v0    # "id":I
     .end local v1    # "netAdbActive":Z
     .end local v2    # "res":Landroid/content/res/Resources;
@@ -441,22 +432,18 @@
     .restart local v1    # "netAdbActive":Z
     goto :goto_1
 
-    .line 982
     .restart local v0    # "id":I
     :cond_4
     if-eqz v3, :cond_5
 
-    .line 983
-    const v0, 0x1040036
+    const v0, #android:string@adb_active_custom_tile_usb#t
 
     goto :goto_2
 
-    .line 984
     :cond_5
     if-eqz v1, :cond_0
 
-    .line 985
-    const v0, 0x1040037
+    const v0, #android:string@adb_active_custom_tile_net#t
 
     goto :goto_2
 .end method
@@ -1493,39 +1480,31 @@
 
     move-result-object v12
 
-    .line 863
     .local v12, "r":Landroid/content/res/Resources;
     invoke-virtual {v12, v7}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v13
 
-    .line 865
     .local v13, "title":Ljava/lang/CharSequence;
-    const v0, 0x1040033
+    const v0, #android:string@adb_active_generic_notification_message#t
 
-    .line 864
     invoke-virtual {v12, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v8
 
-    .line 868
     .local v8, "message":Ljava/lang/CharSequence;
     new-instance v0, Landroid/content/ComponentName;
 
-    const-string/jumbo v1, "com.android.settings"
+    const-string v1, "com.android.settings"
 
-    .line 869
-    const-string/jumbo v3, "com.android.settings.DevelopmentSettings"
+    const-string v3, "com.android.settings.DevelopmentSettings"
 
-    .line 868
     invoke-direct {v0, v1, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 867
     invoke-static {v0}, Landroid/content/Intent;->makeRestartActivityTask(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     move-result-object v2
 
-    .line 870
     .local v2, "intent":Landroid/content/Intent;
     iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
@@ -1561,26 +1540,20 @@
 
     invoke-direct {v0, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 874
-    const v1, 0x1080656
+    const v1, #android:drawable@stat_sys_adb#t
 
-    .line 873
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 875
     const-wide/16 v4, 0x0
 
-    .line 873
     invoke-virtual {v0, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 876
     const/4 v1, 0x1
 
-    .line 873
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
     move-result-object v0
@@ -1589,38 +1562,30 @@
 
     move-result-object v0
 
-    .line 878
     const/4 v1, 0x0
 
-    .line 873
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 879
     const/4 v1, -0x1
 
-    .line 873
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 880
     iget-object v1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     invoke-static {v1}, Lcom/android/server/usb/UsbDeviceManager;->-get6(Lcom/android/server/usb/UsbDeviceManager;)Landroid/content/Context;
 
     move-result-object v1
 
-    .line 881
-    const v3, 0x1060070
+    const v3, #android:color@system_notification_accent_color#t
 
-    .line 880
     invoke-virtual {v1, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v1
 
-    .line 873
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
@@ -1727,41 +1692,34 @@
     .restart local v6    # "hideNotification":Z
     goto/16 :goto_2
 
-    .line 847
     :cond_9
     if-eqz v14, :cond_a
 
     if-eqz v9, :cond_a
 
-    .line 848
-    const v7, 0x1040032
+    const v7, #android:string@adb_both_active_notification_title#t
 
     .restart local v7    # "id":I
     goto/16 :goto_3
 
-    .line 849
     .end local v7    # "id":I
     :cond_a
     if-eqz v14, :cond_b
 
-    .line 850
-    const v7, 0x1040465
+    const v7, #android:string@adb_active_notification_title#t
 
     .restart local v7    # "id":I
     goto/16 :goto_3
 
-    .line 851
     .end local v7    # "id":I
     :cond_b
     if-eqz v9, :cond_c
 
-    .line 852
-    const v7, 0x1040031
+    const v7, #android:string@adb_net_active_notification_title#t
 
     .restart local v7    # "id":I
     goto/16 :goto_3
 
-    .line 854
     .end local v7    # "id":I
     :cond_c
     const/4 v7, 0x0
@@ -2452,28 +2410,23 @@
 
     if-eqz v0, :cond_1
 
-    .line 778
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mUsbDataUnlocked:Z
 
     if-nez v0, :cond_5
 
-    .line 779
-    const v6, 0x104045f
+    const v6, #android:string@usb_charging_notification_title#t
 
-    .line 796
     :cond_1
     :goto_0
     iget v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mUsbNotificationId:I
 
     if-eq v6, v0, :cond_3
 
-    .line 798
     iget v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mUsbNotificationId:I
 
     if-eqz v0, :cond_2
 
-    .line 799
     iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     invoke-static {v0}, Lcom/android/server/usb/UsbDeviceManager;->-get12(Lcom/android/server/usb/UsbDeviceManager;)Landroid/app/NotificationManager;
@@ -2482,51 +2435,39 @@
 
     iget v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mUsbNotificationId:I
 
-    .line 800
     sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    .line 799
     invoke-virtual {v0, v4, v3, v5}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
-    .line 801
     iput v1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mUsbNotificationId:I
 
-    .line 803
     :cond_2
     if-eqz v6, :cond_3
 
-    .line 805
-    const v0, 0x1040464
+    const v0, #android:string@usb_notification_message#t
 
-    .line 804
     invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v7
 
-    .line 806
     .local v7, "message":Ljava/lang/CharSequence;
     invoke-virtual {v10, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v11
 
-    .line 809
     .local v11, "title":Ljava/lang/CharSequence;
     new-instance v0, Landroid/content/ComponentName;
 
-    const-string/jumbo v3, "com.android.settings"
+    const-string v3, "com.android.settings"
 
-    .line 810
-    const-string/jumbo v5, "com.android.settings.deviceinfo.UsbModeChooserActivity"
+    const-string v5, "com.android.settings.deviceinfo.UsbModeChooserActivity"
 
-    .line 809
     invoke-direct {v0, v3, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 808
     invoke-static {v0}, Landroid/content/Intent;->makeRestartActivityTask(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     move-result-object v2
 
-    .line 811
     .local v2, "intent":Landroid/content/Intent;
     iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
@@ -2556,18 +2497,14 @@
 
     invoke-direct {v0, v3}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 815
-    const v3, 0x1080656
+    const v3, #android:drawable@stat_sys_adb#t
 
-    .line 814
     invoke-virtual {v0, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 816
     const-wide/16 v12, 0x0
 
-    .line 814
     invoke-virtual {v0, v12, v13}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v0
@@ -2584,30 +2521,24 @@
 
     move-result-object v0
 
-    .line 820
     const/4 v1, -0x2
 
-    .line 814
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 821
     iget-object v1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     invoke-static {v1}, Lcom/android/server/usb/UsbDeviceManager;->-get6(Lcom/android/server/usb/UsbDeviceManager;)Landroid/content/Context;
 
     move-result-object v1
 
-    .line 822
-    const v3, 0x1060070
+    const v3, #android:color@system_notification_accent_color#t
 
-    .line 821
     invoke-virtual {v1, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v1
 
-    .line 814
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
@@ -2658,93 +2589,75 @@
     :cond_3
     return-void
 
-    .line 774
     .end local v6    # "id":I
     .end local v10    # "r":Landroid/content/res/Resources;
     :cond_4
     return-void
 
-    .line 780
     .restart local v6    # "id":I
     .restart local v10    # "r":Landroid/content/res/Resources;
     :cond_5
     iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mCurrentFunctions:Ljava/lang/String;
 
-    .line 781
-    const-string/jumbo v3, "mtp"
+    const-string v3, "mtp"
 
-    .line 780
     invoke-static {v0, v3}, Landroid/hardware/usb/UsbManager;->containsFunction(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_6
 
-    .line 782
-    const v6, 0x1040460
+    const v6, #android:string@usb_mtp_notification_title#t
 
     goto/16 :goto_0
 
-    .line 783
     :cond_6
     iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mCurrentFunctions:Ljava/lang/String;
 
-    .line 784
-    const-string/jumbo v3, "ptp"
+    const-string v3, "ptp"
 
-    .line 783
     invoke-static {v0, v3}, Landroid/hardware/usb/UsbManager;->containsFunction(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_7
 
-    .line 785
-    const v6, 0x1040461
+    const v6, #android:string@usb_ptp_notification_title#t
 
     goto/16 :goto_0
 
-    .line 786
     :cond_7
     iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mCurrentFunctions:Ljava/lang/String;
 
-    .line 787
-    const-string/jumbo v3, "midi"
+    const-string v3, "midi"
 
-    .line 786
     invoke-static {v0, v3}, Landroid/hardware/usb/UsbManager;->containsFunction(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_8
 
-    .line 788
-    const v6, 0x1040462
+    const v6, #android:string@usb_midi_notification_title#t
 
     goto/16 :goto_0
 
-    .line 789
     :cond_8
     iget-object v0, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mCurrentFunctions:Ljava/lang/String;
 
-    .line 790
-    const-string/jumbo v3, "accessory"
+    const-string v3, "accessory"
 
-    .line 789
     invoke-static {v0, v3}, Landroid/hardware/usb/UsbManager;->containsFunction(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_9
 
-    .line 791
-    const v6, 0x1040463
+    const v6, #android:string@usb_accessory_notification_title#t
 
     goto/16 :goto_0
 
-    .line 793
     :cond_9
-    const v6, 0x104045f
+    const v6, #android:string@usb_charging_notification_title#t
 
     goto/16 :goto_0
 .end method

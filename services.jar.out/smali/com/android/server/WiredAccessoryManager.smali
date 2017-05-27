@@ -236,7 +236,7 @@
 
     move-result-object v1
 
-    const v2, 0x1120085
+    const v2, #android:bool@config_useDevInputEventForAudioJack#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

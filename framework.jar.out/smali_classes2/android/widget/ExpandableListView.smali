@@ -99,86 +99,70 @@
     .locals 5
 
     .prologue
-    const v2, 0x10100a9
+    const v2, #android:attr@state_empty#t
 
-    const v1, 0x10100a8
+    const v1, #android:attr@state_expanded#t
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 188
     new-array v0, v3, [I
 
     sput-object v0, Landroid/widget/ExpandableListView;->EMPTY_STATE_SET:[I
 
-    .line 192
     new-array v0, v4, [I
 
     aput v1, v0, v3
 
-    .line 191
     sput-object v0, Landroid/widget/ExpandableListView;->GROUP_EXPANDED_STATE_SET:[I
 
-    .line 196
     new-array v0, v4, [I
 
     aput v2, v0, v3
 
-    .line 195
     sput-object v0, Landroid/widget/ExpandableListView;->GROUP_EMPTY_STATE_SET:[I
 
-    .line 200
     filled-new-array {v1, v2}, [I
 
     move-result-object v0
 
-    .line 199
     sput-object v0, Landroid/widget/ExpandableListView;->GROUP_EXPANDED_EMPTY_STATE_SET:[I
 
-    .line 203
     const/4 v0, 0x4
 
     new-array v0, v0, [[I
 
-    .line 204
     sget-object v1, Landroid/widget/ExpandableListView;->EMPTY_STATE_SET:[I
 
     aput-object v1, v0, v3
 
-    .line 205
     sget-object v1, Landroid/widget/ExpandableListView;->GROUP_EXPANDED_STATE_SET:[I
 
     aput-object v1, v0, v4
 
-    .line 206
     sget-object v1, Landroid/widget/ExpandableListView;->GROUP_EMPTY_STATE_SET:[I
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    .line 207
     sget-object v1, Landroid/widget/ExpandableListView;->GROUP_EXPANDED_EMPTY_STATE_SET:[I
 
     const/4 v2, 0x3
 
     aput-object v1, v0, v2
 
-    .line 203
     sput-object v0, Landroid/widget/ExpandableListView;->GROUP_STATE_SETS:[[I
 
-    .line 212
     new-array v0, v4, [I
 
-    const v1, 0x10100a6
+    const v1, #android:attr@state_last#t
 
     aput v1, v0, v3
 
-    .line 211
     sput-object v0, Landroid/widget/ExpandableListView;->CHILD_LAST_STATE_SET:[I
 
-    .line 84
     return-void
 .end method
 
@@ -202,12 +186,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 225
-    const v0, 0x101006f
+    const v0, #android:attr@expandableListViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/ExpandableListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 224
     return-void
 .end method
 

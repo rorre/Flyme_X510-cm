@@ -239,22 +239,18 @@
 
     move-result-object v1
 
-    .line 414
-    const/high16 v2, 0x1130000
+    const/high16 v2, #android:fraction@config_dimBehindFadeDuration#i
 
     const/4 v3, 0x1
 
-    .line 413
     invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 
-    .line 415
     iget v1, v0, Landroid/util/TypedValue;->type:I
 
     const/4 v2, 0x6
 
     if-ne v1, v2, :cond_1
 
-    .line 416
     long-to-float v1, p1
 
     long-to-float v2, p1

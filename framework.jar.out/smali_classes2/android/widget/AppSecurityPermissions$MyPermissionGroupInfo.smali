@@ -125,7 +125,7 @@
 
     .line 102
     :cond_0
-    const v0, 0x10803ff
+    const v0, #android:drawable@ic_perm_device_info#t
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

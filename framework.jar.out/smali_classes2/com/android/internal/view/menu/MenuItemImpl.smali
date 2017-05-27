@@ -37,6 +37,8 @@
 
 
 # instance fields
+.field private mFlymeIsHeader:Z
+
 .field private mActionProvider:Landroid/view/ActionProvider;
 
 .field private mActionView:Landroid/view/View;
@@ -192,17 +194,14 @@
 
     move-result-object v1
 
-    .line 123
-    const v2, 0x1040399
+    const v2, #android:string@prepend_shortcut_label#t
 
-    .line 122
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     sput-object v1, Lcom/android/internal/view/menu/MenuItemImpl;->sPrependShortcutLabel:Ljava/lang/String;
 
-    .line 124
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuBuilder;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -211,17 +210,14 @@
 
     move-result-object v1
 
-    .line 125
-    const v2, 0x104039b
+    const v2, #android:string@menu_enter_shortcut_label#t
 
-    .line 124
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     sput-object v1, Lcom/android/internal/view/menu/MenuItemImpl;->sEnterShortcutLabel:Ljava/lang/String;
 
-    .line 126
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuBuilder;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -230,17 +226,14 @@
 
     move-result-object v1
 
-    .line 127
-    const v2, 0x104039c
+    const v2, #android:string@menu_delete_shortcut_label#t
 
-    .line 126
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     sput-object v1, Lcom/android/internal/view/menu/MenuItemImpl;->sDeleteShortcutLabel:Ljava/lang/String;
 
-    .line 128
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuBuilder;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -249,10 +242,8 @@
 
     move-result-object v1
 
-    .line 129
-    const v2, 0x104039a
+    const v2, #android:string@menu_space_shortcut_label#t
 
-    .line 128
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
@@ -1999,4 +1990,23 @@
 
     :cond_0
     return-object v0
+.end method
+
+.method public isCategoryHeader()Z
+    .locals 1
+
+    .prologue
+    iget-boolean v0, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlymeIsHeader:Z
+
+    return v0
+.end method
+
+.method public setCategoryHeader(Z)V
+    .locals 0
+    .param p1, "isHeader"    # Z
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/internal/view/menu/MenuItemImpl;->mFlymeIsHeader:Z
+
+    return-void
 .end method

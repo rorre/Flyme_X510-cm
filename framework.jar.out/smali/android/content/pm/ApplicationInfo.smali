@@ -2032,30 +2032,24 @@
 
     if-eqz v0, :cond_0
 
-    .line 953
     invoke-direct {p0, p1}, Landroid/content/pm/ApplicationInfo;->isPackageUnavailable(Landroid/content/pm/PackageManager;)Z
 
     move-result v0
 
-    .line 952
     if-eqz v0, :cond_0
 
-    .line 954
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 955
-    const v1, 0x10806be
+    const v1, #android:drawable@sym_app_on_sd_unavailable_icon#t
 
-    .line 954
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     return-object v0
 
-    .line 957
     :cond_0
     invoke-virtual {p1}, Landroid/content/pm/PackageManager;->getDefaultActivityIcon()Landroid/graphics/drawable/Drawable;
 

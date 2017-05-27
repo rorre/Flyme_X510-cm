@@ -121,29 +121,22 @@
 
     aput-object v1, v0, v3
 
-    .line 90
     sput-object v0, Landroid/view/LayoutInflater;->mConstructorSignature:[Ljava/lang/Class;
 
-    .line 94
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 93
     sput-object v0, Landroid/view/LayoutInflater;->sConstructorMap:Ljava/util/HashMap;
 
-    .line 108
     new-array v0, v3, [I
 
-    .line 109
-    const/high16 v1, 0x1010000
+    const/high16 v1, #android:attr@theme#i
 
     aput v1, v0, v2
 
-    .line 108
     sput-object v0, Landroid/view/LayoutInflater;->ATTRS_THEME:[I
 
-    .line 70
     return-void
 .end method
 

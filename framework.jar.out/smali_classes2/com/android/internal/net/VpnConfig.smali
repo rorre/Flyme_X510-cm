@@ -181,31 +181,25 @@
     .locals 4
 
     .prologue
-    .line 55
     new-instance v1, Landroid/content/Intent;
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    .line 57
     .local v1, "intent":Landroid/content/Intent;
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 58
-    const v3, 0x10400c7
+    const v3, #android:string@config_customVpnConfirmDialogComponent#t
 
-    .line 57
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 56
     invoke-static {v2}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    .line 59
     .local v0, "componentName":Landroid/content/ComponentName;
     invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 

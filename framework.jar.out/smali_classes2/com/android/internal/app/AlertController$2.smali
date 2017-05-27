@@ -66,21 +66,17 @@
 
     move-result-object v1
 
-    .line 440
-    const v2, 0x105003b
+    const v2, #android:dimen@alert_dialog_round_padding#t
 
-    .line 439
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v0
 
-    .line 441
     .local v0, "roundOffset":I
     iget-object v1, p0, Lcom/android/internal/app/AlertController$2;->val$parent:Landroid/view/View;
 
     invoke-virtual {v1, v0, v0, v0, v0}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 443
     .end local v0    # "roundOffset":I
     :cond_0
     invoke-virtual {p2}, Landroid/view/WindowInsets;->consumeSystemWindowInsets()Landroid/view/WindowInsets;

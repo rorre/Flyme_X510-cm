@@ -51,7 +51,7 @@
     .local v8, "terminalY":F
     iget-object v3, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    const v4, 0x1020051
+    const v4, #android:id@transitionPosition#t
 
     invoke-virtual {v3, v4}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 

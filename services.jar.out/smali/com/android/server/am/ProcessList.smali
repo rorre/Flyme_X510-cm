@@ -1915,36 +1915,29 @@
 
     const/4 v14, 0x0
 
-    .line 271
     :cond_0
     :goto_1
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v17
 
-    .line 272
-    const v18, 0x10e000a
+    const v18, #android:integer@config_lowMemoryKillerMinFreeKbytesAdjust#t
 
-    .line 271
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v10
 
-    .line 273
     .local v10, "minfree_adj":I
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v17
 
-    .line 274
-    const v18, 0x10e0009
+    const v18, #android:integer@config_lowMemoryKillerMinFreeKbytesAbsolute#t
 
-    .line 273
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v9
 
-    .line 283
     .local v9, "minfree_abs":I
     sget-object v17, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
@@ -2404,7 +2397,7 @@
 
     move-result-object v17
 
-    const v18, 0x10e000c
+    const v18, #android:integer@config_extraFreeKbytesAdjust#t
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2416,7 +2409,7 @@
 
     move-result-object v17
 
-    const v18, 0x10e000b
+    const v18, #android:integer@config_extraFreeKbytesAbsolute#t
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getInteger(I)I
 

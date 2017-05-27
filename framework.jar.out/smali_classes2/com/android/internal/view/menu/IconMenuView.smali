@@ -1134,39 +1134,33 @@
     .locals 6
 
     .prologue
-    .line 292
     invoke-virtual {p0}, Lcom/android/internal/view/menu/IconMenuView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 293
     .local v0, "context":Landroid/content/Context;
     invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    .line 296
     .local v1, "inflater":Landroid/view/LayoutInflater;
-    const v4, 0x1090066
+    const v4, #android:layout@icon_menu_item_layout#t
 
     const/4 v5, 0x0
 
-    .line 295
     invoke-virtual {v1, v4, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/internal/view/menu/IconMenuItemView;
 
-    .line 298
     .local v2, "itemView":Lcom/android/internal/view/menu/IconMenuItemView;
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 299
     .local v3, "r":Landroid/content/res/Resources;
-    const v4, 0x1040398
+    const v4, #android:string@more_item_label#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

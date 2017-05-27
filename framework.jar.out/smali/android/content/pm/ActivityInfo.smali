@@ -9,12 +9,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/content/pm/ActivityInfo$FlymeInjector;,
         Landroid/content/pm/ActivityInfo$1;
     }
 .end annotation
 
 
 # static fields
+.field public static final CONFIG_THEME:I = 0x4000
+
+.field public static final CONFIG_TYPEFACE:I = 0x8000
+
 .field public static final CONFIG_DENSITY:I = 0x1000
 
 .field public static final CONFIG_FONT_SCALE:I = 0x40000000
@@ -164,6 +169,8 @@
 
 
 # instance fields
+.field public mFlymeActivityInfo:Landroid/content/ActivityInfoExt;
+
 .field public configChanges:I
 
 .field public documentLaunchMode:I
@@ -248,20 +255,18 @@
     .locals 1
 
     .prologue
-    .line 716
     invoke-direct {p0}, Landroid/content/pm/ComponentInfo;-><init>()V
 
-    .line 448
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->screenOrientation:I
 
-    .line 662
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->uiOptions:I
 
-    .line 716
+    invoke-static/range {p0 .. p0}, Landroid/content/pm/ActivityInfo$FlymeInjector;->createFlymeActivityInfo(Landroid/content/pm/ActivityInfo;)V
+
     return-void
 .end method
 
@@ -270,95 +275,79 @@
     .param p1, "orig"    # Landroid/content/pm/ActivityInfo;
 
     .prologue
-    .line 720
     invoke-direct {p0, p1}, Landroid/content/pm/ComponentInfo;-><init>(Landroid/content/pm/ComponentInfo;)V
 
-    .line 448
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->screenOrientation:I
 
-    .line 662
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->uiOptions:I
 
-    .line 721
     iget v0, p1, Landroid/content/pm/ActivityInfo;->theme:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->theme:I
 
-    .line 722
     iget v0, p1, Landroid/content/pm/ActivityInfo;->launchMode:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->launchMode:I
 
-    .line 723
     iget v0, p1, Landroid/content/pm/ActivityInfo;->documentLaunchMode:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->documentLaunchMode:I
 
-    .line 724
     iget-object v0, p1, Landroid/content/pm/ActivityInfo;->permission:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ActivityInfo;->permission:Ljava/lang/String;
 
-    .line 725
     iget-object v0, p1, Landroid/content/pm/ActivityInfo;->taskAffinity:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ActivityInfo;->taskAffinity:Ljava/lang/String;
 
-    .line 726
     iget-object v0, p1, Landroid/content/pm/ActivityInfo;->targetActivity:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ActivityInfo;->targetActivity:Ljava/lang/String;
 
-    .line 727
     iget v0, p1, Landroid/content/pm/ActivityInfo;->flags:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->flags:I
 
-    .line 728
     iget v0, p1, Landroid/content/pm/ActivityInfo;->screenOrientation:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->screenOrientation:I
 
-    .line 729
     iget v0, p1, Landroid/content/pm/ActivityInfo;->configChanges:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->configChanges:I
 
-    .line 730
     iget v0, p1, Landroid/content/pm/ActivityInfo;->softInputMode:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->softInputMode:I
 
-    .line 731
     iget v0, p1, Landroid/content/pm/ActivityInfo;->uiOptions:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->uiOptions:I
 
-    .line 732
     iget-object v0, p1, Landroid/content/pm/ActivityInfo;->parentActivityName:Ljava/lang/String;
 
     iput-object v0, p0, Landroid/content/pm/ActivityInfo;->parentActivityName:Ljava/lang/String;
 
-    .line 733
     iget v0, p1, Landroid/content/pm/ActivityInfo;->maxRecents:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->maxRecents:I
 
-    .line 734
     iget-boolean v0, p1, Landroid/content/pm/ActivityInfo;->resizeable:Z
 
     iput-boolean v0, p0, Landroid/content/pm/ActivityInfo;->resizeable:Z
 
-    .line 735
     iget v0, p1, Landroid/content/pm/ActivityInfo;->lockTaskLaunchMode:I
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->lockTaskLaunchMode:I
 
-    .line 719
+    invoke-static/range {p0 .. p1}, Landroid/content/pm/ActivityInfo$FlymeInjector;->copyFromActivityInfo(Landroid/content/pm/ActivityInfo;Landroid/content/pm/ActivityInfo;)V
+
+
     return-void
 .end method
 
@@ -490,20 +479,19 @@
     :goto_0
     iput-boolean v0, p0, Landroid/content/pm/ActivityInfo;->resizeable:Z
 
-    .line 842
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/content/pm/ActivityInfo;->lockTaskLaunchMode:I
 
-    .line 825
+    invoke-static/range {p0 .. p1}, Landroid/content/pm/ActivityInfo$FlymeInjector;->readFromParcel(Landroid/content/pm/ActivityInfo;Landroid/os/Parcel;)V
+
     return-void
 
     :cond_0
     move v0, v1
 
-    .line 841
     goto :goto_0
 .end method
 
@@ -1316,15 +1304,14 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 812
     iget v0, p0, Landroid/content/pm/ActivityInfo;->lockTaskLaunchMode:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 795
+    invoke-static/range {p0 .. p1}, Landroid/content/pm/ActivityInfo$FlymeInjector;->writeToParcel(Landroid/content/pm/ActivityInfo;Landroid/os/Parcel;)V
+
     return-void
 
-    .line 811
     :cond_0
     const/4 v0, 0x0
 

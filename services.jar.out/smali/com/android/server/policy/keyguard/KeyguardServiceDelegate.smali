@@ -293,7 +293,7 @@
 
     .line 139
     .local v2, "resources":Landroid/content/res/Resources;
-    const v3, 0x10400d0
+    const v3, #android:string@config_keyguardComponent#t
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

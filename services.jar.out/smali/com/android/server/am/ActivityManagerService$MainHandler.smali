@@ -853,6 +853,25 @@
 
     .line 1778
     .local v13, "reason":Ljava/lang/String;
+    invoke-static/range {p1 .. p1}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->isFlymePackageShouldRestart(Landroid/os/Message;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_flyme_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v4, v0}, Lcom/android/server/am/ActivityManagerService;->forceStopFlymePackageLocked(Landroid/os/Message;)V
+    monitor-exit v15
+
+    return-void
+
+    :cond_flyme_0
+
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -998,14 +1017,12 @@
 
     aput-object v9, v8, v10
 
-    .line 1799
-    const v9, 0x10403f9
+    const v9, #android:string@heavy_weight_notification#t
 
     invoke-virtual {v4, v9, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v71
 
-    .line 1801
     .local v71, "text":Ljava/lang/String;
     new-instance v4, Landroid/app/Notification$Builder;
 
@@ -1013,26 +1030,20 @@
 
     invoke-direct {v4, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 1802
-    const v8, 0x1080656
+    const v8, #android:drawable@stat_sys_adb#t
 
-    .line 1801
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 1803
     const-wide/16 v8, 0x0
 
-    .line 1801
     invoke-virtual {v4, v8, v9}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 1804
     const/4 v8, 0x1
 
-    .line 1801
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
     move-result-object v4
@@ -1043,22 +1054,18 @@
 
     move-result-object v4
 
-    .line 1806
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    .line 1807
-    const v9, 0x1060070
+    const v9, #android:color@system_notification_accent_color#t
 
-    .line 1806
     invoke-virtual {v8, v9}, Landroid/content/Context;->getColor(I)I
 
     move-result v8
 
-    .line 1801
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
@@ -1076,7 +1083,7 @@
 
     iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v9, 0x10403fa
+    const v9, #android:string@heavy_weight_notification_detail#t
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1145,28 +1152,23 @@
 
     move-object/from16 v20, v0
 
-    .line 1817
     .local v20, "outId":[I
-    const-string/jumbo v15, "android"
+    const-string v15, "android"
 
-    const-string/jumbo v16, "android"
+    const-string v16, "android"
 
-    .line 1819
     move-object/from16 v0, v67
 
     iget v0, v0, Lcom/android/server/am/ActivityRecord;->userId:I
 
     move/from16 v21, v0
 
-    .line 1817
     const/16 v17, 0x0
 
-    .line 1818
-    const v18, 0x10403f9
+    const v18, #android:string@heavy_weight_notification#t
 
     move-object/from16 v14, v47
 
-    .line 1817
     invoke-interface/range {v14 .. v21}, Landroid/app/INotificationManager;->enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[II)V
     :try_end_f
     .catch Ljava/lang/RuntimeException; {:try_start_f .. :try_end_f} :catch_3
@@ -1227,30 +1229,23 @@
 
     move-result-object v14
 
-    .line 1831
     .local v14, "inm":Landroid/app/INotificationManager;
     if-nez v14, :cond_b
 
-    .line 1832
     return-void
 
-    .line 1835
     :cond_b
     :try_start_11
-    const-string/jumbo v4, "android"
+    const-string v4, "android"
 
-    .line 1836
     move-object/from16 v0, p1
 
     iget v8, v0, Landroid/os/Message;->arg1:I
 
-    .line 1835
     const/4 v9, 0x0
 
-    .line 1836
-    const v10, 0x10403f9
+    const v10, #android:string@heavy_weight_notification#t
 
-    .line 1835
     invoke-interface {v14, v4, v9, v10, v8}, Landroid/app/INotificationManager;->cancelNotificationWithTag(Ljava/lang/String;Ljava/lang/String;II)V
     :try_end_11
     .catch Ljava/lang/RuntimeException; {:try_start_11 .. :try_end_11} :catch_5
@@ -2384,7 +2379,7 @@
 
     aput-object v59, v8, v9
 
-    const v9, 0x1040401
+    const v9, #android:string@dump_heap_notification#t
 
     invoke-virtual {v4, v9, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2471,34 +2466,26 @@
 
     invoke-direct {v4, v8}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 2046
-    const v8, 0x1080656
+    const v8, #android:drawable@stat_sys_adb#t
 
-    .line 2045
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 2047
     const-wide/16 v8, 0x0
 
-    .line 2045
     invoke-virtual {v4, v8, v9}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 2048
     const/4 v8, 0x1
 
-    .line 2045
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 2049
     const/4 v8, 0x1
 
-    .line 2045
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
 
     move-result-object v4
@@ -2509,22 +2496,18 @@
 
     move-result-object v4
 
-    .line 2051
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    .line 2052
-    const v9, 0x1060070
+    const v9, #android:color@system_notification_accent_color#t
 
-    .line 2051
     invoke-virtual {v8, v9}, Landroid/content/Context;->getColor(I)I
 
     move-result v8
 
-    .line 2045
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
@@ -2542,7 +2525,7 @@
 
     iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v9, 0x1040402
+    const v9, #android:string@dump_heap_notification_detail#t
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -2630,20 +2613,17 @@
 
     move-object/from16 v20, v0
 
-    .line 2065
     .restart local v20    # "outId":[I
-    const-string/jumbo v15, "android"
+    const-string v15, "android"
 
-    const-string/jumbo v16, "android"
+    const-string v16, "android"
 
     const/16 v17, 0x0
 
-    .line 2066
-    const v18, 0x1040401
+    const v18, #android:string@dump_heap_notification#t
 
     move/from16 v21, v76
 
-    .line 2065
     invoke-interface/range {v14 .. v21}, Landroid/app/INotificationManager;->enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[II)V
     :try_end_21
     .catch Ljava/lang/RuntimeException; {:try_start_21 .. :try_end_21} :catch_a
@@ -3059,14 +3039,12 @@
 
     aput-object v9, v8, v10
 
-    .line 2136
-    const v9, 0x1040041
+    const v9, #android:string@privacy_guard_notification_detail#t
 
     invoke-virtual {v4, v9, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v71
 
-    .line 2138
     .restart local v71    # "text":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -3074,7 +3052,7 @@
 
     iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040040
+    const v8, #android:string@privacy_guard_notification#t
 
     invoke-virtual {v4, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3112,7 +3090,7 @@
 
     .line 2144
     .restart local v19    # "notification":Landroid/app/Notification;
-    const v4, 0x108064f
+    const v4, #android:drawable@stat_notify_privacy_guard#t
 
     move-object/from16 v0, v19
 
@@ -3219,26 +3197,21 @@
 
     move-object/from16 v20, v0
 
-    .line 2159
     .restart local v20    # "outId":[I
-    const-string/jumbo v15, "android"
+    const-string v15, "android"
 
-    const-string/jumbo v16, "android"
+    const-string v16, "android"
 
-    .line 2161
     move-object/from16 v0, v67
 
     iget v0, v0, Lcom/android/server/am/ActivityRecord;->userId:I
 
     move/from16 v21, v0
 
-    .line 2159
     const/16 v17, 0x0
 
-    .line 2160
-    const v18, 0x1040040
+    const v18, #android:string@privacy_guard_notification#t
 
-    .line 2159
     invoke-interface/range {v14 .. v21}, Landroid/app/INotificationManager;->enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[II)V
     :try_end_27
     .catch Ljava/lang/RuntimeException; {:try_start_27 .. :try_end_27} :catch_c
@@ -3301,30 +3274,23 @@
 
     move-result-object v14
 
-    .line 2173
     .restart local v14    # "inm":Landroid/app/INotificationManager;
     if-nez v14, :cond_1c
 
-    .line 2174
     return-void
 
-    .line 2177
     :cond_1c
     :try_start_29
-    const-string/jumbo v4, "android"
+    const-string v4, "android"
 
-    .line 2178
     move-object/from16 v0, p1
 
     iget v8, v0, Landroid/os/Message;->arg1:I
 
-    .line 2177
     const/4 v9, 0x0
 
-    .line 2178
-    const v10, 0x1040040
+    const v10, #android:string@privacy_guard_notification#t
 
-    .line 2177
     invoke-interface {v14, v4, v9, v10, v8}, Landroid/app/INotificationManager;->cancelNotificationWithTag(Ljava/lang/String;Ljava/lang/String;II)V
     :try_end_29
     .catch Ljava/lang/RuntimeException; {:try_start_29 .. :try_end_29} :catch_e
@@ -3517,15 +3483,12 @@
 
     iget-object v4, v4, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    .line 2219
-    const v8, 0x104008d
+    const v8, #android:string@notify_package_component_protected_title#t
 
-    .line 2218
     invoke-virtual {v4, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v73
 
-    .line 2221
     .restart local v73    # "title":Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -3560,15 +3523,12 @@
 
     aput-object v9, v8, v10
 
-    .line 2222
-    const v9, 0x104008e
+    const v9, #android:string@notify_package_component_protected_text#t
 
-    .line 2221
     invoke-virtual {v4, v9, v8}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v71
 
-    .line 2225
     .restart local v71    # "text":Ljava/lang/String;
     new-instance v4, Landroid/app/Notification$Builder;
 
@@ -3576,18 +3536,14 @@
 
     invoke-direct {v4, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 2226
-    const v8, 0x1080650
+    const v8, #android:drawable@stat_notify_protected#t
 
-    .line 2225
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 2227
     const-wide/16 v8, 0x0
 
-    .line 2225
     invoke-virtual {v4, v8, v9}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v4
@@ -3598,22 +3554,18 @@
 
     move-result-object v4
 
-    .line 2229
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v8, v8, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    .line 2230
-    const v9, 0x1060070
+    const v9, #android:color@system_notification_accent_color#t
 
-    .line 2229
     invoke-virtual {v8, v9}, Landroid/content/Context;->getColor(I)I
 
     move-result v8
 
-    .line 2225
     invoke-virtual {v4, v8}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
@@ -3717,30 +3669,23 @@
 
     move-object/from16 v20, v0
 
-    .line 2243
     .restart local v20    # "outId":[I
-    const-string/jumbo v4, "android"
+    const-string v4, "android"
 
-    .line 2244
     move-object/from16 v0, p1
 
     iget v8, v0, Landroid/os/Message;->arg1:I
 
-    .line 2243
     const/4 v9, 0x0
 
-    .line 2244
-    const v10, 0x104008d
+    const v10, #android:string@notify_package_component_protected_title#t
 
-    .line 2243
     invoke-interface {v14, v4, v9, v10, v8}, Landroid/app/INotificationManager;->cancelNotificationWithTag(Ljava/lang/String;Ljava/lang/String;II)V
 
-    .line 2245
-    const-string/jumbo v15, "android"
+    const-string v15, "android"
 
-    const-string/jumbo v16, "android"
+    const-string v16, "android"
 
-    .line 2247
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -3749,13 +3694,10 @@
 
     move/from16 v21, v0
 
-    .line 2245
     const/16 v17, 0x0
 
-    .line 2246
-    const v18, 0x104008d
+    const v18, #android:string@notify_package_component_protected_title#t
 
-    .line 2245
     invoke-interface/range {v14 .. v21}, Landroid/app/INotificationManager;->enqueueNotificationWithTag(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILandroid/app/Notification;[II)V
     :try_end_2b
     .catch Ljava/lang/RuntimeException; {:try_start_2b .. :try_end_2b} :catch_f
@@ -3819,30 +3761,23 @@
 
     move-result-object v14
 
-    .line 2259
     .restart local v14    # "inm":Landroid/app/INotificationManager;
     if-nez v14, :cond_20
 
-    .line 2260
     return-void
 
-    .line 2263
     :cond_20
     :try_start_2d
-    const-string/jumbo v4, "android"
+    const-string v4, "android"
 
-    .line 2264
     move-object/from16 v0, p1
 
     iget v8, v0, Landroid/os/Message;->arg1:I
 
-    .line 2263
     const/4 v9, 0x0
 
-    .line 2264
-    const v10, 0x104008d
+    const v10, #android:string@notify_package_component_protected_title#t
 
-    .line 2263
     invoke-interface {v14, v4, v9, v10, v8}, Landroid/app/INotificationManager;->cancelNotificationWithTag(Ljava/lang/String;Ljava/lang/String;II)V
     :try_end_2d
     .catch Ljava/lang/RuntimeException; {:try_start_2d .. :try_end_2d} :catch_11

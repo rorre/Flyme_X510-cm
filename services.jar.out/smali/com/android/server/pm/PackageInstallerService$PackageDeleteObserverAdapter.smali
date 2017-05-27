@@ -59,7 +59,7 @@
 
     move-result-object v1
 
-    const v2, 0x10405f6
+    const v2, #android:string@package_deleted_device_owner#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

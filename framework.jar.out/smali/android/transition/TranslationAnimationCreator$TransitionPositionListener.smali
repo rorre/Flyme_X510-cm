@@ -50,7 +50,7 @@
     .prologue
     const/4 v2, 0x0
 
-    const v1, 0x1020051
+    const v1, #android:id@transitionPosition#t
 
     .line 98
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -209,7 +209,7 @@
 
     iget-object v1, p0, Landroid/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
-    const v2, 0x1020051
+    const v2, #android:id@transitionPosition#t
 
     invoke-virtual {v0, v2, v1}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 

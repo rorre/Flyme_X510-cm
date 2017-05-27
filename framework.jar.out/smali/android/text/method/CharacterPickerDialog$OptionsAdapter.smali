@@ -103,7 +103,7 @@
 
     move-result-object v1
 
-    const v2, 0x109003d
+    const v2, #android:layout@character_picker_button#t
 
     const/4 v3, 0x0
 

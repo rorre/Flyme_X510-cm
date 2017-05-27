@@ -86,20 +86,16 @@
     .param p3, "flags"    # I
 
     .prologue
-    .line 101
     move-wide/from16 v0, p1
 
     long-to-float v4, v0
 
-    .line 102
     .local v4, "result":F
-    const v10, 0x10400ee
+    const v10, #android:string@byteShort#t
 
-    .line 103
     .local v10, "suffix":I
     const-wide/16 v2, 0x1
 
-    .line 104
     .local v2, "mult":J
     const/high16 v12, 0x44610000    # 900.0f
 
@@ -107,18 +103,14 @@
 
     if-lez v12, :cond_0
 
-    .line 105
-    const v10, 0x10400ef
+    const v10, #android:string@kilobyteShort#t
 
-    .line 106
     const-wide/16 v2, 0x400
 
-    .line 107
     const/high16 v12, 0x44800000    # 1024.0f
 
     div-float/2addr v4, v12
 
-    .line 109
     :cond_0
     const/high16 v12, 0x44610000    # 900.0f
 
@@ -126,18 +118,14 @@
 
     if-lez v12, :cond_1
 
-    .line 110
-    const v10, 0x10400f0
+    const v10, #android:string@megabyteShort#t
 
-    .line 111
     const-wide/32 v2, 0x100000
 
-    .line 112
     const/high16 v12, 0x44800000    # 1024.0f
 
     div-float/2addr v4, v12
 
-    .line 114
     :cond_1
     const/high16 v12, 0x44610000    # 900.0f
 
@@ -145,18 +133,14 @@
 
     if-lez v12, :cond_2
 
-    .line 115
-    const v10, 0x10400f1
+    const v10, #android:string@gigabyteShort#t
 
-    .line 116
     const-wide/32 v2, 0x40000000
 
-    .line 117
     const/high16 v12, 0x44800000    # 1024.0f
 
     div-float/2addr v4, v12
 
-    .line 119
     :cond_2
     const/high16 v12, 0x44610000    # 900.0f
 
@@ -164,18 +148,14 @@
 
     if-lez v12, :cond_3
 
-    .line 120
-    const v10, 0x10400f2
+    const v10, #android:string@terabyteShort#t
 
-    .line 121
     const-wide v2, 0x10000000000L
 
-    .line 122
     const/high16 v12, 0x44800000    # 1024.0f
 
     div-float/2addr v4, v12
 
-    .line 124
     :cond_3
     const/high16 v12, 0x44610000    # 900.0f
 
@@ -183,18 +163,14 @@
 
     if-lez v12, :cond_4
 
-    .line 125
-    const v10, 0x10400f3
+    const v10, #android:string@petabyteShort#t
 
-    .line 126
     const-wide/high16 v2, 0x4000000000000L
 
-    .line 127
     const/high16 v12, 0x44800000    # 1024.0f
 
     div-float/2addr v4, v12
 
-    .line 134
     :cond_4
     const/high16 v12, 0x3f800000    # 1.0f
 
@@ -411,8 +387,7 @@
 
     aput-object v2, v1, v3
 
-    .line 82
-    const v2, 0x10400f4
+    const v2, #android:string@fileSizeSuffix#t
 
     invoke-virtual {p0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -563,7 +538,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400f5
+    const v7, #android:string@durationDays#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -601,7 +576,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400f7
+    const v7, #android:string@durationDayHour#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -631,7 +606,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400f6
+    const v7, #android:string@durationDayHours#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -665,7 +640,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400f8
+    const v7, #android:string@durationHours#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -704,8 +679,7 @@
 
     aput-object v7, v6, v8
 
-    .line 227
-    const v7, 0x10400fa
+    const v7, #android:string@durationHourMinute#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -736,8 +710,7 @@
 
     aput-object v7, v6, v8
 
-    .line 230
-    const v7, 0x10400f9
+    const v7, #android:string@durationHourMinutes#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -771,7 +744,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400fb
+    const v7, #android:string@durationMinutes#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -810,8 +783,7 @@
 
     aput-object v7, v6, v8
 
-    .line 237
-    const v7, 0x10400fe
+    const v7, #android:string@durationMinuteSecond#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -842,8 +814,7 @@
 
     aput-object v7, v6, v8
 
-    .line 240
-    const v7, 0x10400fd
+    const v7, #android:string@durationMinuteSeconds#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -870,7 +841,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x1040100
+    const v7, #android:string@durationSecond#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -892,7 +863,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x10400ff
+    const v7, #android:string@durationSeconds#t
 
     invoke-virtual {p0, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -939,7 +910,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x10400fb
+    const v3, #android:string@durationMinutes#t
 
     invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -962,7 +933,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x10400fc
+    const v3, #android:string@durationMinute#t
 
     invoke-virtual {p0, v3, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1024,8 +995,7 @@
 
     aput-object v2, v1, v4
 
-    .line 95
-    const v2, 0x10400f4
+    const v2, #android:string@fileSizeSuffix#t
 
     invoke-virtual {p0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

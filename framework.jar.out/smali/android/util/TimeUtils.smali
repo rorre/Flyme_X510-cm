@@ -1244,7 +1244,7 @@
 
     .line 174
     .local v5, "r":Landroid/content/res/Resources;
-    const v9, 0x1110014
+    const v9, #android:xml@time_zones_by_country#t
 
     invoke-virtual {v5, v9}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 

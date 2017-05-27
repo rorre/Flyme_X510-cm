@@ -117,7 +117,7 @@
 
     .line 286
     .local v1, "holder":Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;
-    const v4, 0x1020006
+    const v4, #android:id@icon#t
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -127,8 +127,7 @@
 
     iput-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->icon:Landroid/widget/ImageView;
 
-    .line 287
-    const v4, 0x1020016
+    const v4, #android:id@title#t
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -138,8 +137,7 @@
 
     iput-object v4, v1, Landroid/preference/PreferenceActivity$HeaderAdapter$HeaderViewHolder;->title:Landroid/widget/TextView;
 
-    .line 288
-    const v4, 0x1020010
+    const v4, #android:id@summary#t
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

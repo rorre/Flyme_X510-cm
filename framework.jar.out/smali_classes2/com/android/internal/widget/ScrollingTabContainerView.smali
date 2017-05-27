@@ -174,30 +174,23 @@
 
     const/4 v2, 0x0
 
-    .line 206
-    const v3, 0x10102d7
+    const v3, #android:attr@actionDropDownStyle#t
 
-    .line 205
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/Spinner;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 207
     .local v0, "spinner":Landroid/widget/Spinner;
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 208
     const/4 v2, -0x2
 
     const/4 v3, -0x1
 
-    .line 207
     invoke-direct {v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 209
     invoke-virtual {v0, p0}, Landroid/widget/Spinner;->setOnItemClickListenerInt(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 210
     return-object v0
 .end method
 
@@ -214,37 +207,29 @@
 
     const/4 v2, 0x0
 
-    .line 196
-    const v3, 0x10102f4
+    const v3, #android:attr@actionBarTabBarStyle#t
 
-    .line 195
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 197
     .local v0, "tabLayout":Landroid/widget/LinearLayout;
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setMeasureWithLargestChildEnabled(Z)V
 
-    .line 198
     const/16 v1, 0x11
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    .line 199
     new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 200
     const/4 v2, -0x2
 
     const/4 v3, -0x1
 
-    .line 199
     invoke-direct {v1, v2, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 201
     return-object v0
 .end method
 

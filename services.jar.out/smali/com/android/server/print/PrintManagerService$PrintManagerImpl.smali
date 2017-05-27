@@ -730,21 +730,17 @@
 
     move-result-object v9
 
-    .line 755
     :goto_0
     new-instance v2, Landroid/app/Notification$Builder;
 
     invoke-direct {v2, v9}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 756
-    const v3, 0x108041e
+    const v3, #android:drawable@ic_print#t
 
-    .line 755
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 757
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->mContext:Landroid/content/Context;
@@ -753,29 +749,25 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    .line 758
     const/4 v6, 0x0
 
     aput-object p2, v5, v6
 
-    .line 757
-    const v6, 0x10405ce
+    const v6, #android:string@print_service_installed_title#t
 
     invoke-virtual {v3, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 755
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 759
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->mContext:Landroid/content/Context;
 
-    const v5, 0x10405cf
+    const v5, #android:string@print_service_installed_message#t
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -790,67 +782,53 @@
 
     move-result-object v2
 
-    .line 761
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v14
 
-    .line 755
     invoke-virtual {v2, v14, v15}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 762
     const/4 v3, 0x1
 
-    .line 755
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 763
     const/4 v3, 0x1
 
-    .line 755
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setShowWhen(Z)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 764
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->mContext:Landroid/content/Context;
 
-    .line 765
-    const v5, 0x1060070
+    const v5, #android:color@system_notification_accent_color#t
 
-    .line 764
     invoke-virtual {v3, v5}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
-    .line 755
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v8
 
-    .line 767
     .local v8, "builder":Landroid/app/Notification$Builder;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/print/PrintManagerService$PrintManagerImpl;->mContext:Landroid/content/Context;
 
-    .line 768
-    const-string/jumbo v3, "notification"
+    const-string v3, "notification"
 
-    .line 767
     invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v11
 
     check-cast v11, Landroid/app/NotificationManager;
 
-    .line 770
     .local v11, "notificationManager":Landroid/app/NotificationManager;
     new-instance v2, Ljava/lang/StringBuilder;
 

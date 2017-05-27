@@ -141,31 +141,26 @@
     .locals 3
 
     .prologue
-    .line 160
     const/4 v0, 0x1
 
     new-array v0, v0, [I
 
-    .line 161
-    const v1, 0x10100a0
+    const v1, #android:attr@state_checked#t
 
     const/4 v2, 0x0
 
     aput v1, v0, v2
 
-    .line 160
     sput-object v0, Landroid/widget/Switch;->CHECKED_STATE_SET:[I
 
-    .line 1432
     new-instance v0, Landroid/widget/Switch$1;
 
-    const-string/jumbo v1, "thumbPos"
+    const-string v1, "thumbPos"
 
     invoke-direct {v0, v1}, Landroid/widget/Switch$1;-><init>(Ljava/lang/String;)V
 
     sput-object v0, Landroid/widget/Switch;->THUMB_POS:Landroid/util/FloatProperty;
 
-    .line 79
     return-void
 .end method
 
@@ -189,12 +184,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 181
-    const v0, 0x101043f
+    const v0, #android:attr@switchStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/Switch;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 180
     return-void
 .end method
 

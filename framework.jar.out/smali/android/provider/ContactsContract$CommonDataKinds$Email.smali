@@ -156,39 +156,32 @@
     .param p0, "type"    # I
 
     .prologue
-    .line 6158
     packed-switch p0, :pswitch_data_0
 
-    .line 6163
-    const v0, 0x10402b1
+    const v0, #android:string@emailTypeCustom#t
 
     return v0
 
-    .line 6159
     :pswitch_0
-    const v0, 0x10402b2
+    const v0, #android:string@emailTypeHome#t
 
     return v0
 
-    .line 6160
     :pswitch_1
-    const v0, 0x10402b3
+    const v0, #android:string@emailTypeWork#t
 
     return v0
 
-    .line 6161
     :pswitch_2
-    const v0, 0x10402b4
+    const v0, #android:string@emailTypeOther#t
 
     return v0
 
-    .line 6162
     :pswitch_3
-    const v0, 0x10402b5
+    const v0, #android:string@emailTypeMobile#t
 
     return v0
 
-    .line 6158
     nop
 
     :pswitch_data_0

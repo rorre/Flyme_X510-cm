@@ -36,12 +36,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 44
-    const v0, 0x1010090
+    const v0, #android:attr@yesNoPreferenceStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/preference/YesNoPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 43
     return-void
 .end method
 

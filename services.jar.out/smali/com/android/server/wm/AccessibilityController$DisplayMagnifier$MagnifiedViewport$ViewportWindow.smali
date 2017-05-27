@@ -236,7 +236,7 @@
 
     move-result-object v1
 
-    const v2, 0x1010390
+    const v2, #android:attr@colorActivatedHighlight#t
 
     invoke-virtual {v1, v2, v10, v12}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 

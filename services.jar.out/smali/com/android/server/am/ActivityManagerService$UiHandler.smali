@@ -1126,7 +1126,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x10401a0
+    const v3, #android:string@android_system_label#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1143,7 +1143,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040604
+    const v3, #android:string@system_error_wipe_data#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1160,7 +1160,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x104000a
+    const v3, #android:string@ok#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1239,7 +1239,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x10401a0
+    const v3, #android:string@android_system_label#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1256,7 +1256,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040605
+    const v3, #android:string@system_error_manufacturer#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1273,7 +1273,7 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x104000a
+    const v3, #android:string@ok#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

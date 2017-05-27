@@ -12,9 +12,9 @@
 
 
 # static fields
-.field static final CHRONOMETER_ID:I = 0x1020014
+.field static final CHRONOMETER_ID:I = #android:id@text1#t
 
-.field static final PROGRESSBAR_ID:I = 0x102000d
+.field static final PROGRESSBAR_ID:I = #android:id@progress#t
 
 .field public static final TAG:Ljava/lang/String; = "TextProgressBar"
 
@@ -211,7 +211,7 @@
 
     .line 86
     .local v0, "childId":I
-    const v1, 0x1020014
+    const v1, #android:id@text1#t
 
     if-ne v0, v1, :cond_2
 
@@ -271,7 +271,7 @@
     .line 95
     .restart local p1    # "child":Landroid/view/View;
     :cond_2
-    const v1, 0x102000d
+    const v1, #android:id@progress#t
 
     if-ne v0, v1, :cond_0
 

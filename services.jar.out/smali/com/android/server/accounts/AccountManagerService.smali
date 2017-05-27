@@ -1641,14 +1641,12 @@
 
     aput-object v4, v3, v5
 
-    .line 2048
-    const v4, 0x10404ad
+    const v4, #android:string@permission_request_notification_with_subtitle#t
 
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v14
 
-    .line 2050
     .local v14, "titleAndSubtitle":Ljava/lang/String;
     const/16 v2, 0xa
 
@@ -1698,37 +1696,29 @@
 
     move-result-object v9
 
-    .line 2059
     .local v9, "contextForUser":Landroid/content/Context;
     new-instance v2, Landroid/app/Notification$Builder;
 
     invoke-direct {v2, v9}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 2060
-    const v3, 0x108008a
+    const v3, #android:drawable@stat_sys_warning#t
 
-    .line 2059
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 2061
     const-wide/16 v4, 0x0
 
-    .line 2059
     invoke-virtual {v2, v4, v5}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 2063
-    const v3, 0x1060070
+    const v3, #android:color@system_notification_accent_color#t
 
-    .line 2062
     invoke-virtual {v9, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
-    .line 2059
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v2
@@ -1943,7 +1933,7 @@
 
     .line 3675
     .local v10, "contextForUser":Landroid/content/Context;
-    const v4, 0x1040168
+    const v4, #android:string@notification_title#t
 
     invoke-virtual {v10, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1953,42 +1943,33 @@
 
     move-result-object v15
 
-    .line 3676
     .local v15, "notificationTitleFormat":Ljava/lang/String;
     new-instance v4, Landroid/app/Notification$Builder;
 
     invoke-direct {v4, v10}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 3677
     const-wide/16 v6, 0x0
 
-    .line 3676
     invoke-virtual {v4, v6, v7}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 3678
-    const v5, 0x108008a
+    const v5, #android:drawable@stat_sys_warning#t
 
-    .line 3676
     invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 3680
-    const v5, 0x1060070
+    const v5, #android:color@system_notification_accent_color#t
 
-    .line 3679
     invoke-virtual {v10, v5}, Landroid/content/Context;->getColor(I)I
 
     move-result v5
 
-    .line 3676
     invoke-virtual {v4, v5}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v4
 
-    .line 3681
     const/4 v5, 0x1
 
     new-array v5, v5, [Ljava/lang/Object;
@@ -2743,15 +2724,12 @@
 
     move-result-object v15
 
-    .line 4068
-    const v16, 0x10400c8
+    const v16, #android:string@config_appsAuthorizedForSharedAccounts#t
 
-    .line 4067
     invoke-virtual/range {v15 .. v16}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v14
 
-    .line 4069
     .local v14, "whiteList":Ljava/lang/String;
     const/4 v15, 0x0
 

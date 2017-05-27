@@ -178,17 +178,14 @@
 
     move-result-object v1
 
-    .line 430
-    const v2, 0x1050077
+    const v2, #android:dimen@accessibility_magnification_indicator_width#t
 
-    .line 429
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/wm/AccessibilityController$DisplayMagnifier$MagnifiedViewport;->mBorderWidth:F
 
-    .line 431
     iget v1, p0, Lcom/android/server/wm/AccessibilityController$DisplayMagnifier$MagnifiedViewport;->mBorderWidth:F
 
     const/high16 v2, 0x40000000    # 2.0f

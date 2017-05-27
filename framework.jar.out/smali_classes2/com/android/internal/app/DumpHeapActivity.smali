@@ -235,31 +235,25 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 84
     .end local v1    # "clip":Landroid/content/ClipData;
     .end local v3    # "e":Landroid/content/ActivityNotFoundException;
     .end local v4    # "intent":Landroid/content/Intent;
     :cond_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    .line 85
-    const v5, 0x103023a
+    const v5, #android:style@Theme.Material.Light.Dialog.Alert#t
 
-    .line 84
     invoke-direct {v0, p0, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    .line 86
     .local v0, "b":Landroid/app/AlertDialog$Builder;
-    const v5, 0x1040403
+    const v5, #android:string@dump_heap_title#t
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 87
     const/4 v5, 0x2
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    .line 88
     iget-object v6, p0, Lcom/android/internal/app/DumpHeapActivity;->mProcess:Ljava/lang/String;
 
     aput-object v6, v5, v11
@@ -272,8 +266,7 @@
 
     aput-object v6, v5, v10
 
-    .line 87
-    const v6, 0x1040404
+    const v6, #android:string@dump_heap_text#t
 
     invoke-virtual {p0, v6, v5}, Lcom/android/internal/app/DumpHeapActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -286,7 +279,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/internal/app/DumpHeapActivity$1;-><init>(Lcom/android/internal/app/DumpHeapActivity;)V
 
-    const/high16 v6, 0x1040000
+    const/high16 v6, #android:string@cancel#i
 
     invoke-virtual {v0, v6, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -295,7 +288,7 @@
 
     invoke-direct {v5, p0}, Lcom/android/internal/app/DumpHeapActivity$2;-><init>(Lcom/android/internal/app/DumpHeapActivity;)V
 
-    const v6, 0x104000a
+    const v6, #android:string@ok#t
 
     invoke-virtual {v0, v6, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

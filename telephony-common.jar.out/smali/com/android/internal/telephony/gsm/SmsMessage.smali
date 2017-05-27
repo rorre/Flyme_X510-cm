@@ -90,7 +90,7 @@
 
     .line 895
     .local v1, "r":Landroid/content/res/Resources;
-    const v3, 0x11200a7
+    const v3, #android:bool@config_sms_force_7bit_encoding#t
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1882,26 +1882,24 @@
     :cond_0
     iput-boolean v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->mReplyPathPresent:Z
 
-    .line 1136
     invoke-virtual {p1}, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->getByte()I
 
     move-result v4
 
     iput v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->mMessageRef:I
 
-    .line 1138
     invoke-virtual {p1}, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->getAddress()Lcom/android/internal/telephony/gsm/GsmSmsAddress;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->mRecipientAddress:Lcom/android/internal/telephony/SmsAddress;
 
-    .line 1140
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/SmsMessage;->setFlymeDestinationAddress()V
+
     iget-object v4, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->mRecipientAddress:Lcom/android/internal/telephony/SmsAddress;
 
     if-eqz v4, :cond_1
 
-    .line 1146
     :cond_1
     invoke-virtual {p1}, Lcom/android/internal/telephony/gsm/SmsMessage$PduParser;->getByte()I
 
@@ -2310,7 +2308,7 @@
 
     .line 1219
     .local v7, "r":Landroid/content/res/Resources;
-    const v9, 0x11200a1
+    const v9, #android:bool@config_sms_decode_gsm_8bit_data#t
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2838,7 +2836,7 @@
 
     .line 1383
     .restart local v7    # "r":Landroid/content/res/Resources;
-    const v9, 0x11200a1
+    const v9, #android:bool@config_sms_decode_gsm_8bit_data#t
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -3396,4 +3394,15 @@
 
     .line 1447
     goto :goto_0
+.end method
+
+.method private setFlymeDestinationAddress()V
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->mRecipientAddress:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
+
+    iput-object v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->mFlymeDestinationAddress:Lcom/android/internal/telephony/SmsAddress;
+
+    return-void
 .end method

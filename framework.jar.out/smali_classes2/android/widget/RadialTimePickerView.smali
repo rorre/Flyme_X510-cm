@@ -516,12 +516,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 296
-    const v0, 0x101049d
+    const v0, #android:attr@timePickerStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/RadialTimePickerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 295
     return-void
 .end method
 
@@ -807,7 +805,7 @@
 
     move-result-object v13
 
-    const v14, 0x1010033
+    const v14, #android:attr@disabledAlpha#t
 
     const/4 v15, 0x1
 
@@ -1327,13 +1325,11 @@
 
     invoke-virtual {v13, v14}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 370
     move-object/from16 v0, p0
 
     iget-object v13, v0, Landroid/widget/RadialTimePickerView;->mPaintBackground:Landroid/graphics/Paint;
 
-    .line 371
-    const v14, 0x10600f3
+    const v14, #android:color@timepicker_default_numbers_background_color_material#t
 
     move-object/from16 v0, p1
 
@@ -1359,8 +1355,7 @@
 
     invoke-virtual {v13, v14}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 374
-    const v13, 0x105010f
+    const v13, #android:dimen@timepicker_selector_radius#t
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1370,8 +1365,7 @@
 
     iput v13, v0, Landroid/widget/RadialTimePickerView;->mSelectorRadius:I
 
-    .line 375
-    const v13, 0x1050110
+    const v13, #android:dimen@timepicker_selector_stroke#t
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1381,8 +1375,7 @@
 
     iput v13, v0, Landroid/widget/RadialTimePickerView;->mSelectorStroke:I
 
-    .line 376
-    const v13, 0x1050112
+    const v13, #android:dimen@timepicker_selector_dot_radius#t
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1392,8 +1385,7 @@
 
     iput v13, v0, Landroid/widget/RadialTimePickerView;->mSelectorDotRadius:I
 
-    .line 377
-    const v13, 0x1050111
+    const v13, #android:dimen@timepicker_center_dot_radius#t
 
     invoke-virtual {v10, v13}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1408,7 +1400,7 @@
 
     iget-object v13, v0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
-    const v14, 0x1050114
+    const v14, #android:dimen@timepicker_text_size_normal#t
 
     invoke-virtual {v10, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1423,7 +1415,7 @@
 
     iget-object v13, v0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
-    const v14, 0x1050114
+    const v14, #android:dimen@timepicker_text_size_normal#t
 
     invoke-virtual {v10, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1438,7 +1430,7 @@
 
     iget-object v13, v0, Landroid/widget/RadialTimePickerView;->mTextSize:[I
 
-    const v14, 0x1050115
+    const v14, #android:dimen@timepicker_text_size_inner#t
 
     invoke-virtual {v10, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1453,7 +1445,7 @@
 
     iget-object v13, v0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v14, 0x1050113
+    const v14, #android:dimen@timepicker_text_inset_normal#t
 
     invoke-virtual {v10, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1468,7 +1460,7 @@
 
     iget-object v13, v0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v14, 0x1050113
+    const v14, #android:dimen@timepicker_text_inset_normal#t
 
     invoke-virtual {v10, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1483,7 +1475,7 @@
 
     iget-object v13, v0, Landroid/widget/RadialTimePickerView;->mTextInset:[I
 
-    const v14, 0x10500a9
+    const v14, #android:dimen@timepicker_text_inset_inner#t
 
     invoke-virtual {v10, v14}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -1122,19 +1122,16 @@
 
     if-eqz v3, :cond_6
 
-    .line 925
     move-object/from16 v0, p1
 
     iget-object v3, v0, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
 
     iget-object v11, v3, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
 
-    .line 926
     .local v11, "id":Landroid/net/Uri;
     if-nez v11, :cond_1
 
-    .line 927
-    const v3, 0x10405fa
+    const v3, #android:string@zen_mode_forever#t
 
     move-object/from16 v0, p0
 
@@ -1305,29 +1302,24 @@
 
     new-array v6, v6, [Ljava/lang/Object;
 
-    .line 947
     const/4 v7, 0x0
 
     aput-object v15, v6, v7
 
-    .line 948
     iget-object v7, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
 
     const/4 v8, 0x1
 
     aput-object v7, v6, v8
 
-    .line 947
-    const v7, 0x10405fc
+    const v7, #android:string@zen_mode_rule_name_combination#t
 
-    .line 946
     invoke-virtual {v3, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v15
 
     goto :goto_1
 
-    .line 952
     .end local v2    # "automaticRule":Landroid/service/notification/ZenModeConfig$ZenRule;
     :cond_9
     return-object v15
@@ -2828,7 +2820,7 @@
 
     aput-object v11, v3, v8
 
-    const v5, 0x10405f9
+    const v5, #android:string@zen_mode_alarm#t
 
     invoke-virtual {v12, v5, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3077,16 +3069,13 @@
 
     if-ge v0, v4, :cond_2
 
-    .line 668
     move/from16 v14, p3
 
-    .line 669
     .local v14, "num":I
     if-eqz p5, :cond_0
 
-    const v16, 0x114000a
+    const v16, #android:plurals@zen_mode_duration_minutes_summary_short#t
 
-    .line 671
     .local v16, "summaryResId":I
     :goto_0
     const/4 v4, 0x2
@@ -3111,13 +3100,11 @@
 
     move-result-object v6
 
-    .line 672
     .local v6, "summary":Ljava/lang/String;
     if-eqz p5, :cond_1
 
-    const v13, 0x114000e
+    const v13, #android:plurals@zen_mode_duration_minutes_short#t
 
-    .line 674
     .local v13, "line1ResId":I
     :goto_1
     const/4 v4, 0x2
@@ -3150,7 +3137,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405f8
+    const v9, #android:string@zen_mode_until#t
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3189,7 +3176,7 @@
     .end local v8    # "line2":Ljava/lang/String;
     .restart local v14    # "num":I
     :cond_0
-    const v16, 0x1140009
+    const v16, #android:plurals@zen_mode_duration_minutes_summary#t
 
     .restart local v16    # "summaryResId":I
     goto :goto_0
@@ -3197,7 +3184,7 @@
     .line 673
     .restart local v6    # "summary":Ljava/lang/String;
     :cond_1
-    const v13, 0x114000d
+    const v13, #android:plurals@zen_mode_duration_minutes#t
 
     .restart local v13    # "line1ResId":I
     goto :goto_1
@@ -3227,13 +3214,11 @@
 
     move-result v14
 
-    .line 679
     .restart local v14    # "num":I
     if-eqz p5, :cond_3
 
-    const v16, 0x114000c
+    const v16, #android:plurals@zen_mode_duration_hours_summary_short#t
 
-    .line 681
     .restart local v16    # "summaryResId":I
     :goto_3
     const/4 v4, 0x2
@@ -3258,13 +3243,11 @@
 
     move-result-object v6
 
-    .line 682
     .restart local v6    # "summary":Ljava/lang/String;
     if-eqz p5, :cond_4
 
-    const v13, 0x1140010
+    const v13, #android:plurals@zen_mode_duration_hours_short#t
 
-    .line 684
     .restart local v13    # "line1ResId":I
     :goto_4
     const/4 v4, 0x2
@@ -3297,7 +3280,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405f8
+    const v9, #android:string@zen_mode_until#t
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3313,7 +3296,7 @@
     .end local v13    # "line1ResId":I
     .end local v16    # "summaryResId":I
     :cond_3
-    const v16, 0x114000b
+    const v16, #android:plurals@zen_mode_duration_hours_summary#t
 
     .restart local v16    # "summaryResId":I
     goto :goto_3
@@ -3321,7 +3304,7 @@
     .line 683
     .restart local v6    # "summary":Ljava/lang/String;
     :cond_4
-    const v13, 0x114000f
+    const v13, #android:plurals@zen_mode_duration_hours#t
 
     .restart local v13    # "line1ResId":I
     goto :goto_4
@@ -3340,7 +3323,7 @@
 
     aput-object v12, v4, v9
 
-    const v9, 0x10405f8
+    const v9, #android:string@zen_mode_until#t
 
     invoke-virtual {v15, v9, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

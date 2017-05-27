@@ -481,7 +481,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x1040509
+    const v2, #android:string@storage_sd_card_label#t
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -491,7 +491,7 @@
 
     .line 104
     :cond_0
-    const v1, 0x1040508
+    const v1, #android:string@storage_sd_card#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -523,7 +523,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x104050b
+    const v2, #android:string@storage_usb_drive_label#t
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -533,7 +533,7 @@
 
     .line 110
     :cond_2
-    const v1, 0x104050a
+    const v1, #android:string@storage_usb_drive#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

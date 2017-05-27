@@ -56,7 +56,7 @@
 
     move-result-object v6
 
-    const v3, 0x102002c
+    const v3, #android:id@home#t
 
     move v4, v2
 

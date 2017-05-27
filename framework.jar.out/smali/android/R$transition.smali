@@ -15,21 +15,21 @@
 
 
 # static fields
-.field public static final explode:I = 0x10f0003
+.field public static final explode:I = #android:transition@explode#t
 
-.field public static final fade:I = 0x10f0002
+.field public static final fade:I = #android:transition@fade#t
 
-.field public static final move:I = 0x10f0001
+.field public static final move:I = #android:transition@move#t
 
-.field public static final no_transition:I = 0x10f0000
+.field public static final no_transition:I = #android:transition@no_transition#t
 
-.field public static final slide_bottom:I = 0x10f0004
+.field public static final slide_bottom:I = #android:transition@slide_bottom#t
 
-.field public static final slide_left:I = 0x10f0007
+.field public static final slide_left:I = #android:transition@slide_left#t
 
-.field public static final slide_right:I = 0x10f0006
+.field public static final slide_right:I = #android:transition@slide_right#t
 
-.field public static final slide_top:I = 0x10f0005
+.field public static final slide_top:I = #android:transition@slide_top#t
 
 
 # direct methods

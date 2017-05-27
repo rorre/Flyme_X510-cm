@@ -309,85 +309,68 @@
     .prologue
     const/4 v4, -0x2
 
-    .line 242
     new-instance v2, Landroid/view/WindowManager$LayoutParams;
 
     invoke-direct {v2, v4, v4}, Landroid/view/WindowManager$LayoutParams;-><init>(II)V
 
-    .line 244
     .local v2, "lp":Landroid/view/WindowManager$LayoutParams;
     const v3, 0x800033
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    .line 245
     const v3, 0x20218
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 249
     iput v4, v2, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    .line 250
     const/4 v3, -0x1
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    .line 251
     const/16 v3, 0x3e8
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 252
     const/4 v3, -0x3
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    .line 253
-    const v3, 0x10302f2
+    const v3, #android:style@Animation.ZoomButtons#t
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 254
     iput-object v2, p0, Landroid/widget/ZoomButtonsController;->mContainerLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
-    .line 256
     new-instance v0, Landroid/widget/ZoomButtonsController$Container;
 
     iget-object v3, p0, Landroid/widget/ZoomButtonsController;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, p0, v3}, Landroid/widget/ZoomButtonsController$Container;-><init>(Landroid/widget/ZoomButtonsController;Landroid/content/Context;)V
 
-    .line 257
     .local v0, "container":Landroid/widget/FrameLayout;
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 258
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3}, Landroid/widget/FrameLayout;->setMeasureAllChildren(Z)V
 
-    .line 260
     iget-object v3, p0, Landroid/widget/ZoomButtonsController;->mContext:Landroid/content/Context;
 
-    .line 261
-    const-string/jumbo v4, "layout_inflater"
+    const-string v4, "layout_inflater"
 
-    .line 260
     invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    .line 262
     .local v1, "inflater":Landroid/view/LayoutInflater;
-    const v3, 0x1090104
+    const v3, #android:layout@zoom_container#t
 
     invoke-virtual {v1, v3, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 264
-    const v3, 0x102041b
+    const v3, #android:id@zoomControls#t
 
     invoke-virtual {v0, v3}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 

@@ -192,20 +192,16 @@
     :goto_0
     iput-object p1, p0, Landroid/database/CursorWindow;->mName:Ljava/lang/String;
 
-    .line 99
     sget v0, Landroid/database/CursorWindow;->sCursorWindowSize:I
 
     if-gez v0, :cond_0
 
-    .line 103
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 104
-    const v1, 0x10e0084
+    const v1, #android:integer@config_cursorWindowSize#t
 
-    .line 103
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0

@@ -109,19 +109,16 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 1122
     invoke-virtual {p0}, Lcom/android/server/policy/GlobalActions$ToggleAction;->willCreate()V
 
-    .line 1124
-    const v6, 0x1090062
+    const v6, #android:layout@global_actions_item#t
 
     invoke-virtual {p4, v6, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v5
 
-    .line 1127
     .local v5, "v":Landroid/view/View;
-    const v6, 0x1020006
+    const v6, #android:id@icon#t
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +128,7 @@
 
     .line 1128
     .local v1, "icon":Landroid/widget/ImageView;
-    const v6, 0x102000b
+    const v6, #android:id@message#t
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -141,7 +138,7 @@
 
     .line 1129
     .local v2, "messageView":Landroid/widget/TextView;
-    const v6, 0x1020333
+    const v6, #android:id@status#t
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -262,25 +262,25 @@
     .line 66
     :array_0
     .array-data 4
-        0x101009d
+        #android:attr@state_window_focused#t
         0x1
-        0x10100a1
+        #android:attr@state_selected#t
         0x2
-        0x101009c
+        #android:attr@state_focused#t
         0x4
-        0x101009e
+        #android:attr@state_enabled#t
         0x8
-        0x10100a7
+        #android:attr@state_pressed#t
         0x10
-        0x10102fe
+        #android:attr@state_activated#t
         0x20
-        0x101031b
+        #android:attr@state_accelerated#t
         0x40
-        0x1010367
+        #android:attr@state_hovered#t
         0x80
-        0x1010368
+        #android:attr@state_drag_can_accept#t
         0x100
-        0x1010369
+        #android:attr@state_drag_hovered#t
         0x200
     .end array-data
 .end method
@@ -381,11 +381,11 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x101009c -> :sswitch_3
-        0x101009d -> :sswitch_0
-        0x101009e -> :sswitch_4
-        0x10100a1 -> :sswitch_2
-        0x10100a7 -> :sswitch_1
+        #android:attr@state_focused#t -> :sswitch_3
+        #android:attr@state_window_focused#t -> :sswitch_0
+        #android:attr@state_enabled#t -> :sswitch_4
+        #android:attr@state_selected#t -> :sswitch_2
+        #android:attr@state_pressed#t -> :sswitch_1
     .end sparse-switch
 .end method
 

@@ -28,11 +28,9 @@
     .param p5, "overflowOnly"    # Z
 
     .prologue
-    .line 912
     iput-object p1, p0, Landroid/widget/ActionMenuPresenter$OverflowPopup;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    .line 915
-    const v5, 0x1010444
+    const v5, #android:attr@actionOverflowMenuStyle#t
 
     move-object v0, p0
 

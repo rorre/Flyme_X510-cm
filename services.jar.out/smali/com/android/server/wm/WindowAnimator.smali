@@ -101,66 +101,51 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 122
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 87
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/server/wm/WindowAnimator;->mWindowDetachedWallpaper:Lcom/android/server/wm/WindowState;
 
-    .line 89
     iput v4, p0, Lcom/android/server/wm/WindowAnimator;->mBulkUpdateParams:I
 
-    .line 93
     new-instance v2, Landroid/util/SparseArray;
 
     const/4 v3, 0x2
 
     invoke-direct {v2, v3}, Landroid/util/SparseArray;-><init>(I)V
 
-    .line 92
     iput-object v2, p0, Lcom/android/server/wm/WindowAnimator;->mDisplayContentsAnimators:Landroid/util/SparseArray;
 
-    .line 95
     iput-boolean v4, p0, Lcom/android/server/wm/WindowAnimator;->mInitialized:Z
 
-    .line 111
     iput v4, p0, Lcom/android/server/wm/WindowAnimator;->mForceHiding:I
 
-    .line 123
     iput-object p1, p0, Lcom/android/server/wm/WindowAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    .line 124
     iget-object v2, p1, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
     iput-object v2, p0, Lcom/android/server/wm/WindowAnimator;->mContext:Landroid/content/Context;
 
-    .line 125
     iget-object v2, p1, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
 
     iput-object v2, p0, Lcom/android/server/wm/WindowAnimator;->mPolicy:Landroid/view/WindowManagerPolicy;
 
-    .line 127
     iget-object v2, p0, Lcom/android/server/wm/WindowAnimator;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 128
-    const v3, 0x11200c1
+    const v3, #android:bool@config_ui_blur_enabled#t
 
-    .line 127
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    .line 130
     .local v0, "blurUiEnabled":Z
     if-eqz v0, :cond_0
 
-    .line 131
     new-instance v1, Lcom/android/server/wm/WindowAnimator$SettingsObserver;
 
     new-instance v2, Landroid/os/Handler;

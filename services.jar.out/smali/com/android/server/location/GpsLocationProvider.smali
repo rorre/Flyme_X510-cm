@@ -3158,20 +3158,16 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 607
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 608
-    const v5, 0x1070045
+    const v5, #android:array@config_gpsParameters#t
 
-    .line 607
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 609
     .local v0, "configValues":[Ljava/lang/String;
     array-length v5, v0
 

@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/power/Notifier$FlymeInjector;,
         Lcom/android/server/power/Notifier$NotifierHandler;,
         Lcom/android/server/power/Notifier$1;,
         Lcom/android/server/power/Notifier$2;,
@@ -33,6 +34,8 @@
 
 
 # instance fields
+.field mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
 .field private final mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
 
 .field private final mAppOps:Lcom/android/internal/app/IAppOpsService;
@@ -241,72 +244,60 @@
 
     iput-object v1, p0, Lcom/android/server/power/Notifier;->mInputMethodManagerInternal:Landroid/view/inputmethod/InputMethodManagerInternal;
 
-    .line 135
     new-instance v1, Lcom/android/server/power/Notifier$NotifierHandler;
 
     invoke-direct {v1, p0, p1}, Lcom/android/server/power/Notifier$NotifierHandler;-><init>(Lcom/android/server/power/Notifier;Landroid/os/Looper;)V
 
     iput-object v1, p0, Lcom/android/server/power/Notifier;->mHandler:Lcom/android/server/power/Notifier$NotifierHandler;
 
-    .line 136
     new-instance v1, Landroid/content/Intent;
 
-    const-string/jumbo v2, "android.intent.action.SCREEN_ON"
+    const-string v2, "android.intent.action.SCREEN_ON"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     iput-object v1, p0, Lcom/android/server/power/Notifier;->mScreenOnIntent:Landroid/content/Intent;
 
-    .line 137
     iget-object v1, p0, Lcom/android/server/power/Notifier;->mScreenOnIntent:Landroid/content/Intent;
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 139
     new-instance v1, Landroid/content/Intent;
 
-    const-string/jumbo v2, "android.intent.action.SCREEN_OFF"
+    const-string v2, "android.intent.action.SCREEN_OFF"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     iput-object v1, p0, Lcom/android/server/power/Notifier;->mScreenOffIntent:Landroid/content/Intent;
 
-    .line 140
     iget-object v1, p0, Lcom/android/server/power/Notifier;->mScreenOffIntent:Landroid/content/Intent;
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 143
     new-instance v1, Landroid/content/Intent;
 
-    const-string/jumbo v2, "android.os.action.SCREEN_BRIGHTNESS_BOOST_CHANGED"
+    const-string v2, "android.os.action.SCREEN_BRIGHTNESS_BOOST_CHANGED"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 142
     iput-object v1, p0, Lcom/android/server/power/Notifier;->mScreenBrightnessBoostIntent:Landroid/content/Intent;
 
-    .line 144
     iget-object v1, p0, Lcom/android/server/power/Notifier;->mScreenBrightnessBoostIntent:Landroid/content/Intent;
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 147
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 148
-    const v2, 0x1120044
+    const v2, #android:bool@config_suspendWhenScreenOffDueToProximity#t
 
-    .line 147
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v1
 
     iput-boolean v1, p0, Lcom/android/server/power/Notifier;->mSuspendWhenScreenOffDueToProximityConfig:Z
 
-    .line 152
     :try_start_0
     iget-object v1, p0, Lcom/android/server/power/Notifier;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
@@ -1669,4 +1660,13 @@
     .prologue
     .line 496
     return-void
+.end method
+
+.method flymeGetFieldContext()Landroid/content/Context;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/power/Notifier;->mContext:Landroid/content/Context;
+
+    return-object v0
 .end method

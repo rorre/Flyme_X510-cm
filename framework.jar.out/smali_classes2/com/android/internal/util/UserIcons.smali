@@ -27,14 +27,14 @@
     .line 33
     :array_0
     .array-data 4
-        0x1060072
-        0x1060073
-        0x1060074
-        0x1060075
-        0x1060076
-        0x1060077
-        0x1060078
-        0x1060079
+        #android:color@user_icon_1#t
+        #android:color@user_icon_2#t
+        #android:color@user_icon_3#t
+        #android:color@user_icon_4#t
+        #android:color@user_icon_5#t
+        #android:color@user_icon_6#t
+        #android:color@user_icon_7#t
+        #android:color@user_icon_8#t
     .end array-data
 .end method
 
@@ -110,19 +110,16 @@
 
     const/4 v4, 0x0
 
-    .line 68
     if-eqz p1, :cond_1
 
-    const v0, 0x106007b
+    const v0, #android:color@user_icon_default_white#t
 
-    .line 69
     .local v0, "colorResId":I
     :goto_0
     const/16 v2, -0x2710
 
     if-eq p0, v2, :cond_0
 
-    .line 71
     sget-object v2, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
 
     sget-object v3, Lcom/android/internal/util/UserIcons;->USER_ICON_COLORS:[I
@@ -139,7 +136,7 @@
 
     move-result-object v2
 
-    const v3, 0x10802f2
+    const v3, #android:drawable@ic_account_circle#t
 
     invoke-virtual {v2, v3, v5}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -181,7 +178,7 @@
     .end local v0    # "colorResId":I
     .end local v1    # "icon":Landroid/graphics/drawable/Drawable;
     :cond_1
-    const v0, 0x106007a
+    const v0, #android:color@user_icon_default_gray#t
 
     .restart local v0    # "colorResId":I
     goto :goto_0

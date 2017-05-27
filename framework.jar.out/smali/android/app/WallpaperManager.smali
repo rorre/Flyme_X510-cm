@@ -6,6 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/app/WallpaperManager$FLYME_WALLPAPER_TYPE;,
+        Landroid/app/WallpaperManager$FlymeInjector;,
         Landroid/app/WallpaperManager$FastBitmapDrawable;,
         Landroid/app/WallpaperManager$Globals;
     }
@@ -150,7 +152,7 @@
     .line 1398
     .end local v0    # "cn":Landroid/content/ComponentName;
     :cond_0
-    const v2, 0x10400a0
+    const v2, #android:string@default_wallpaper_component#t
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -398,21 +400,17 @@
 
     return-object v3
 
-    .line 1374
     :catch_0
     move-exception v0
 
-    .line 1379
     .end local v1    # "file":Ljava/io/File;
     :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 1380
-    const v4, 0x108026c
+    const v4, #android:drawable@default_wallpaper#t
 
-    .line 1379
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
 
     move-result-object v3
@@ -498,7 +496,7 @@
     .line 1347
     iget-object v1, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Landroid/app/WallpaperManager;->openDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
+    invoke-static {v1}, Landroid/app/WallpaperManager$FlymeInjector;->openFlymeDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
 
     move-result-object v1
 
@@ -524,7 +522,7 @@
 
     move-result-object v1
 
-    const v2, 0x106000c
+    const v2, #android:color@black#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -798,7 +796,7 @@
 
     iget-object v5, v0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Landroid/app/WallpaperManager;->openDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
+    invoke-static {v5}, Landroid/app/WallpaperManager$FlymeInjector;->openFlymeDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
 
     move-result-object v5
 
@@ -909,7 +907,7 @@
 
     iget-object v5, v0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Landroid/app/WallpaperManager;->openDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
+    invoke-static {v5}, Landroid/app/WallpaperManager$FlymeInjector;->openFlymeDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
 
     move-result-object v5
 
@@ -1152,7 +1150,7 @@
 
     iget-object v5, v0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
 
-    invoke-static {v5}, Landroid/app/WallpaperManager;->openDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
+    invoke-static {v5}, Landroid/app/WallpaperManager$FlymeInjector;->openFlymeDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
 
     move-result-object v5
 
@@ -2197,6 +2195,217 @@
     .end annotation
 
     .prologue
+    invoke-static/range {p0 .. p0}, Landroid/app/WallpaperManager$FlymeInjector;->isFlymeChildrenMode(Landroid/app/WallpaperManager;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_flyme_0
+
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0}, Ljava/io/IOException;-><init>()V
+
+    throw v0
+
+    :cond_flyme_0
+
+    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
+
+    sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string v5, "WallpaperService not running"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v4
+
+    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v6, v5}, Landroid/app/IWallpaperManager;->setWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
+    if-nez v1, :cond_1
+
+    return-void
+
+    :cond_1
+    const/4 v2, 0x0
+
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    :try_start_1
+    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
+
+    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .local v3, "fos":Ljava/io/FileOutputStream;
+    :try_start_2
+    sget-object v4, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    const/16 v5, 0x5a
+
+    invoke-virtual {p1, v4, v5, v3}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    if-eqz v3, :cond_2
+
+    :try_start_3
+    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    :cond_2
+    :goto_0
+    return-void
+
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
+    :catchall_0
+    move-exception v4
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    :goto_1
+    if-eqz v2, :cond_3
+
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+
+    :cond_3
+    throw v4
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
+    :catchall_1
+    move-exception v4
+
+    move-object v2, v3
+
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    goto :goto_1
+.end method
+
+.method public setDisplayOffset(Landroid/os/IBinder;II)V
+    .locals 2
+    .param p1, "windowToken"    # Landroid/os/IBinder;
+    .param p2, "x"    # I
+    .param p3, "y"    # I
+
+    .prologue
+    :try_start_0
+    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowSession()Landroid/view/IWindowSession;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1, p2, p3}, Landroid/view/IWindowSession;->setWallpaperDisplayOffset(Landroid/os/IBinder;II)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+.end method
+
+.method public setDisplayPadding(Landroid/graphics/Rect;)V
+    .locals 3
+    .param p1, "padding"    # Landroid/graphics/Rect;
+
+    .prologue
+    :try_start_0
+    sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v1}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    sget-object v1, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string v2, "WallpaperService not running"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v1}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, p1, v2}, Landroid/app/IWallpaperManager;->setDisplayPadding(Landroid/graphics/Rect;Ljava/lang/String;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+.end method
+
+.method public setKeyguardBitmap(Landroid/graphics/Bitmap;)V
+    .locals 7
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
     .line 861
     sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
 
@@ -2217,6 +2426,424 @@
     return-void
 
     .line 866
+    :cond_0
+    :try_start_0
+    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v4
+
+    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v6, v5}, Landroid/app/IWallpaperManager;->setKeyguardWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
+    if-nez v1, :cond_1
+
+    return-void
+
+    :cond_1
+    const/4 v2, 0x0
+
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    :try_start_1
+    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
+
+    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .local v3, "fos":Ljava/io/FileOutputStream;
+    :try_start_2
+    sget-object v4, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    const/16 v5, 0x5a
+
+    invoke-virtual {p1, v4, v5, v3}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    if-eqz v3, :cond_2
+
+    :try_start_3
+    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    :cond_2
+    :goto_0
+    return-void
+
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
+    :catchall_0
+    move-exception v4
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    :goto_1
+    if-eqz v2, :cond_3
+
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+
+    :cond_3
+    throw v4
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
+    :catchall_1
+    move-exception v4
+
+    move-object v2, v3
+
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    goto :goto_1
+.end method
+
+.method public setKeyguardStream(Ljava/io/InputStream;)V
+    .locals 7
+    .param p1, "data"    # Ljava/io/InputStream;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
+
+    sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string v5, "WallpaperService not running"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v4
+
+    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-interface {v4, v6, v5}, Landroid/app/IWallpaperManager;->setKeyguardWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
+    if-nez v1, :cond_1
+
+    return-void
+
+    :cond_1
+    const/4 v2, 0x0
+
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    :try_start_1
+    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
+
+    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .local v3, "fos":Ljava/io/FileOutputStream;
+    :try_start_2
+    invoke-direct {p0, p1, v3}, Landroid/app/WallpaperManager;->setWallpaper(Ljava/io/InputStream;Ljava/io/FileOutputStream;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    if-eqz v3, :cond_2
+
+    :try_start_3
+    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    :cond_2
+    :goto_0
+    return-void
+
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
+    :catchall_0
+    move-exception v4
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    :goto_1
+    if-eqz v2, :cond_3
+
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+
+    :cond_3
+    throw v4
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
+    :catchall_1
+    move-exception v4
+
+    move-object v2, v3
+
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    goto :goto_1
+.end method
+
+.method public setResource(I)V
+    .locals 8
+    .param p1, "resid"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static/range {p0 .. p0}, Landroid/app/WallpaperManager$FlymeInjector;->isFlymeChildrenMode(Landroid/app/WallpaperManager;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_flyme_0
+
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0}, Ljava/io/IOException;-><init>()V
+
+    throw v0
+
+    :cond_flyme_0
+
+    sget-object v5, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v5}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v5
+
+    if-nez v5, :cond_0
+
+    sget-object v5, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string v6, "WallpaperService not running"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    :try_start_0
+    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    .local v4, "resources":Landroid/content/res/Resources;
+    sget-object v5, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v5}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v5
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "res:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v4, p1}, Landroid/content/res/Resources;->getResourceName(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    iget-object v7, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-interface {v5, v6, v7}, Landroid/app/IWallpaperManager;->setWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v1
+
+    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
+    if-eqz v1, :cond_1
+
+    const/4 v2, 0x0
+
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    :try_start_1
+    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
+
+    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .local v3, "fos":Ljava/io/FileOutputStream;
+    :try_start_2
+    invoke-virtual {v4, p1}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    move-result-object v5
+
+    invoke-direct {p0, v5, v3}, Landroid/app/WallpaperManager;->setWallpaper(Ljava/io/InputStream;Ljava/io/FileOutputStream;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    if-eqz v3, :cond_1
+
+    :try_start_3
+    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .end local v4    # "resources":Landroid/content/res/Resources;
+    :cond_1
+    :goto_0
+    return-void
+
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v4    # "resources":Landroid/content/res/Resources;
+    :catchall_0
+    move-exception v5
+
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    :goto_1
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+
+    :cond_2
+    throw v5
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+
+    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .end local v4    # "resources":Landroid/content/res/Resources;
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Landroid/os/RemoteException;
+    goto :goto_0
+
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
+    .restart local v4    # "resources":Landroid/content/res/Resources;
+    :catchall_1
+    move-exception v5
+
+    move-object v2, v3
+
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .local v2, "fos":Ljava/io/FileOutputStream;
+    goto :goto_1
+.end method
+
+.method public setStream(Ljava/io/InputStream;)V
+    .locals 7
+    .param p1, "data"    # Ljava/io/InputStream;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static/range {p0 .. p0}, Landroid/app/WallpaperManager$FlymeInjector;->isFlymeChildrenMode(Landroid/app/WallpaperManager;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_flyme_0
+
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0}, Ljava/io/IOException;-><init>()V
+
+    throw v0
+
+    :cond_flyme_0
+
+    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
+
+    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
+
+    sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
+
+    const-string v5, "WallpaperService not running"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
     :cond_0
     :try_start_0
     sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
@@ -2264,413 +2891,38 @@
     .line 874
     .local v3, "fos":Ljava/io/FileOutputStream;
     :try_start_2
-    sget-object v4, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
-
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    const/16 v5, 0x5a
-
-    invoke-virtual {p1, v4, v5, v3}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    .line 876
-    if-eqz v3, :cond_2
-
-    .line 877
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-
-    .line 860
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    :cond_2
-    :goto_0
-    return-void
-
-    .line 875
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v2    # "fos":Ljava/io/FileOutputStream;
-    :catchall_0
-    move-exception v4
-
-    .line 876
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    :goto_1
-    if-eqz v2, :cond_3
-
-    .line 877
-    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-
-    .line 875
-    :cond_3
-    throw v4
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-
-    .line 880
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-
-    .line 875
-    .end local v0    # "e":Landroid/os/RemoteException;
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v3    # "fos":Ljava/io/FileOutputStream;
-    :catchall_1
-    move-exception v4
-
-    move-object v2, v3
-
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    goto :goto_1
-.end method
-
-.method public setDisplayOffset(Landroid/os/IBinder;II)V
-    .locals 2
-    .param p1, "windowToken"    # Landroid/os/IBinder;
-    .param p2, "x"    # I
-    .param p3, "y"    # I
-
-    .prologue
-    .line 1160
-    :try_start_0
-    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowSession()Landroid/view/IWindowSession;
-
-    move-result-object v1
-
-    invoke-interface {v1, p1, p2, p3}, Landroid/view/IWindowSession;->setWallpaperDisplayOffset(Landroid/os/IBinder;II)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 1157
-    :goto_0
-    return-void
-
-    .line 1163
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-.end method
-
-.method public setDisplayPadding(Landroid/graphics/Rect;)V
-    .locals 3
-    .param p1, "padding"    # Landroid/graphics/Rect;
-
-    .prologue
-    .line 1137
-    :try_start_0
-    sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v1}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    .line 1138
-    sget-object v1, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v2, "WallpaperService not running"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1135
-    :goto_0
-    return-void
-
-    .line 1140
-    :cond_0
-    sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v1}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v1, p1, v2}, Landroid/app/IWallpaperManager;->setDisplayPadding(Landroid/graphics/Rect;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 1142
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-.end method
-
-.method public setKeyguardBitmap(Landroid/graphics/Bitmap;)V
-    .locals 7
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 891
-    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v4
-
-    if-nez v4, :cond_0
-
-    .line 892
-    sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "WallpaperService not running"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 893
-    return-void
-
-    .line 896
-    :cond_0
-    :try_start_0
-    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v4
-
-    .line 897
-    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 896
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v6, v5}, Landroid/app/IWallpaperManager;->setKeyguardWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 898
-    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
-    if-nez v1, :cond_1
-
-    .line 899
-    return-void
-
-    .line 901
-    :cond_1
-    const/4 v2, 0x0
-
-    .line 903
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    :try_start_1
-    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
-
-    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 904
-    .local v3, "fos":Ljava/io/FileOutputStream;
-    :try_start_2
-    sget-object v4, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
-
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    const/16 v5, 0x5a
-
-    invoke-virtual {p1, v4, v5, v3}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    .line 906
-    if-eqz v3, :cond_2
-
-    .line 907
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-
-    .line 890
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    :cond_2
-    :goto_0
-    return-void
-
-    .line 905
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v2    # "fos":Ljava/io/FileOutputStream;
-    :catchall_0
-    move-exception v4
-
-    .line 906
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    :goto_1
-    if-eqz v2, :cond_3
-
-    .line 907
-    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-
-    .line 905
-    :cond_3
-    throw v4
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-
-    .line 910
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-
-    .line 905
-    .end local v0    # "e":Landroid/os/RemoteException;
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v3    # "fos":Ljava/io/FileOutputStream;
-    :catchall_1
-    move-exception v4
-
-    move-object v2, v3
-
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    goto :goto_1
-.end method
-
-.method public setKeyguardStream(Ljava/io/InputStream;)V
-    .locals 7
-    .param p1, "data"    # Ljava/io/InputStream;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 959
-    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v4
-
-    if-nez v4, :cond_0
-
-    .line 960
-    sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "WallpaperService not running"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 961
-    return-void
-
-    .line 964
-    :cond_0
-    :try_start_0
-    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v4
-
-    .line 965
-    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 964
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v6, v5}, Landroid/app/IWallpaperManager;->setKeyguardWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 966
-    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
-    if-nez v1, :cond_1
-
-    .line 967
-    return-void
-
-    .line 969
-    :cond_1
-    const/4 v2, 0x0
-
-    .line 971
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    :try_start_1
-    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
-
-    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 972
-    .local v3, "fos":Ljava/io/FileOutputStream;
-    :try_start_2
     invoke-direct {p0, p1, v3}, Landroid/app/WallpaperManager;->setWallpaper(Ljava/io/InputStream;Ljava/io/FileOutputStream;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 974
     .end local v2    # "fos":Ljava/io/FileOutputStream;
     if-eqz v3, :cond_2
 
-    .line 975
     :try_start_3
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
 
-    .line 958
     .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
     .end local v3    # "fos":Ljava/io/FileOutputStream;
     :cond_2
     :goto_0
     return-void
 
-    .line 973
     .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
     .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :catchall_0
     move-exception v4
 
-    .line 974
     .end local v2    # "fos":Ljava/io/FileOutputStream;
     :goto_1
     if-eqz v2, :cond_3
 
-    .line 975
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
 
-    .line 973
     :cond_3
     throw v4
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
 
-    .line 978
     .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
     :catch_0
     move-exception v0
@@ -2678,315 +2930,7 @@
     .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 
-    .line 973
-    .end local v0    # "e":Landroid/os/RemoteException;
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v3    # "fos":Ljava/io/FileOutputStream;
-    :catchall_1
-    move-exception v4
-
-    move-object v2, v3
-
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    goto :goto_1
-.end method
-
-.method public setResource(I)V
-    .locals 8
-    .param p1, "resid"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 822
-    sget-object v5, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v5}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v5
-
-    if-nez v5, :cond_0
-
-    .line 823
-    sget-object v5, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v6, "WallpaperService not running"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 824
-    return-void
-
-    .line 827
-    :cond_0
-    :try_start_0
-    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    .line 829
-    .local v4, "resources":Landroid/content/res/Resources;
-    sget-object v5, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v5}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v5
-
-    .line 830
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "res:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v4, p1}, Landroid/content/res/Resources;->getResourceName(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    iget-object v7, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 829
-    invoke-interface {v5, v6, v7}, Landroid/app/IWallpaperManager;->setWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 831
-    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
-    if-eqz v1, :cond_1
-
-    .line 832
-    const/4 v2, 0x0
-
-    .line 834
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    :try_start_1
-    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
-
-    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 835
-    .local v3, "fos":Ljava/io/FileOutputStream;
-    :try_start_2
-    invoke-virtual {v4, p1}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
-
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    move-result-object v5
-
-    invoke-direct {p0, v5, v3}, Landroid/app/WallpaperManager;->setWallpaper(Ljava/io/InputStream;Ljava/io/FileOutputStream;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    .line 837
-    if-eqz v3, :cond_1
-
-    .line 838
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-
-    .line 821
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    .end local v4    # "resources":Landroid/content/res/Resources;
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 836
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v2    # "fos":Ljava/io/FileOutputStream;
-    .restart local v4    # "resources":Landroid/content/res/Resources;
-    :catchall_0
-    move-exception v5
-
-    .line 837
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    :goto_1
-    if-eqz v2, :cond_2
-
-    .line 838
-    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-
-    .line 836
-    :cond_2
-    throw v5
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-
-    .line 842
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .end local v4    # "resources":Landroid/content/res/Resources;
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-
-    .line 836
-    .end local v0    # "e":Landroid/os/RemoteException;
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v3    # "fos":Ljava/io/FileOutputStream;
-    .restart local v4    # "resources":Landroid/content/res/Resources;
-    :catchall_1
-    move-exception v5
-
-    move-object v2, v3
-
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    goto :goto_1
-.end method
-
-.method public setStream(Ljava/io/InputStream;)V
-    .locals 7
-    .param p1, "data"    # Ljava/io/InputStream;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .prologue
-    .line 931
-    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v4
-
-    if-nez v4, :cond_0
-
-    .line 932
-    sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v5, "WallpaperService not running"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 933
-    return-void
-
-    .line 936
-    :cond_0
-    :try_start_0
-    sget-object v4, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
-
-    invoke-static {v4}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
-
-    move-result-object v4
-
-    .line 937
-    iget-object v5, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 936
-    const/4 v6, 0x0
-
-    invoke-interface {v4, v6, v5}, Landroid/app/IWallpaperManager;->setWallpaper(Ljava/lang/String;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 938
-    .local v1, "fd":Landroid/os/ParcelFileDescriptor;
-    if-nez v1, :cond_1
-
-    .line 939
-    return-void
-
-    .line 941
-    :cond_1
-    const/4 v2, 0x0
-
-    .line 943
-    .local v2, "fos":Ljava/io/FileOutputStream;
-    :try_start_1
-    new-instance v3, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
-
-    invoke-direct {v3, v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 944
-    .local v3, "fos":Ljava/io/FileOutputStream;
-    :try_start_2
-    invoke-direct {p0, p1, v3}, Landroid/app/WallpaperManager;->setWallpaper(Ljava/io/InputStream;Ljava/io/FileOutputStream;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    .line 946
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    if-eqz v3, :cond_2
-
-    .line 947
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
-
-    .line 930
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .end local v3    # "fos":Ljava/io/FileOutputStream;
-    :cond_2
-    :goto_0
-    return-void
-
-    .line 945
-    .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    .restart local v2    # "fos":Ljava/io/FileOutputStream;
-    :catchall_0
-    move-exception v4
-
-    .line 946
-    .end local v2    # "fos":Ljava/io/FileOutputStream;
-    :goto_1
-    if-eqz v2, :cond_3
-
-    .line 947
-    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-
-    .line 945
-    :cond_3
-    throw v4
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
-
-    .line 950
-    .end local v1    # "fd":Landroid/os/ParcelFileDescriptor;
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
-
-    .line 945
+    .line 875
     .end local v0    # "e":Landroid/os/RemoteException;
     .restart local v1    # "fd":Landroid/os/ParcelFileDescriptor;
     .restart local v3    # "fos":Ljava/io/FileOutputStream;
@@ -3005,9 +2949,20 @@
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
+    invoke-static/range {p0 .. p0}, Landroid/app/WallpaperManager$FlymeInjector;->isFlymeChildrenMode(Landroid/app/WallpaperManager;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_flyme_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_flyme_0
+
     const/4 v3, 0x0
 
-    .line 1196
     sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
 
     invoke-static {v1}, Landroid/app/WallpaperManager$Globals;->-get0(Landroid/app/WallpaperManager$Globals;)Landroid/app/IWallpaperManager;
@@ -3016,17 +2971,14 @@
 
     if-nez v1, :cond_0
 
-    .line 1197
     sget-object v1, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v2, "WallpaperService not running"
+    const-string v2, "WallpaperService not running"
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1198
     return v3
 
-    .line 1201
     :cond_0
     :try_start_0
     sget-object v1, Landroid/app/WallpaperManager;->sGlobals:Landroid/app/WallpaperManager$Globals;
@@ -3045,16 +2997,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1202
     const/4 v1, 0x1
 
     return v1
 
-    .line 1203
     :catch_0
     move-exception v0
 
-    .line 1206
     .local v0, "e":Landroid/os/RemoteException;
     return v3
 .end method
@@ -3065,13 +3014,10 @@
     .param p2, "yStep"    # F
 
     .prologue
-    .line 1242
     iput p1, p0, Landroid/app/WallpaperManager;->mWallpaperXStep:F
 
-    .line 1243
     iput p2, p0, Landroid/app/WallpaperManager;->mWallpaperYStep:F
 
-    .line 1241
     return-void
 .end method
 
@@ -3082,13 +3028,12 @@
     .param p3, "yOffset"    # F
 
     .prologue
-    .line 1225
+    .line 1160
     :try_start_0
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowSession()Landroid/view/IWindowSession;
 
     move-result-object v0
 
-    .line 1226
     iget v4, p0, Landroid/app/WallpaperManager;->mWallpaperXStep:F
 
     iget v5, p0, Landroid/app/WallpaperManager;->mWallpaperYStep:F
@@ -3099,16 +3044,15 @@
 
     move v3, p3
 
-    .line 1225
     invoke-interface/range {v0 .. v5}, Landroid/view/IWindowSession;->setWallpaperPosition(Landroid/os/IBinder;FFFF)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1222
+    .line 1157
     :goto_0
     return-void
 
-    .line 1228
+    .line 1163
     :catch_0
     move-exception v6
 
@@ -3124,9 +3068,8 @@
     .prologue
     const-wide/high16 v6, 0x3fe0000000000000L    # 0.5
 
-    .line 1096
     :try_start_0
-    const-string/jumbo v4, "sys.max_texture_size"
+    const-string v4, "sys.max_texture_size"
 
     const/4 v5, 0x0
 
@@ -3137,18 +3080,14 @@
 
     move-result v3
 
-    .line 1101
     .local v3, "maximumTextureSize":I
     :goto_0
     if-lez v3, :cond_1
 
-    .line 1102
     if-gt p1, v3, :cond_0
 
-    .line 1103
     if-le p2, v3, :cond_1
 
-    .line 1104
     :cond_0
     int-to-float v4, p2
 
@@ -3156,14 +3095,11 @@
 
     div-float v0, v4, v5
 
-    .line 1105
     .local v0, "aspect":F
     if-le p1, p2, :cond_2
 
-    .line 1106
     move p1, v3
 
-    .line 1107
     int-to-float v4, p1
 
     mul-float/2addr v4, v0
@@ -3174,7 +3110,6 @@
 
     double-to-int p2, v4
 
-    .line 1115
     .end local v0    # "aspect":F
     :cond_1
     :goto_1
@@ -3187,36 +3122,31 @@
 
     if-nez v4, :cond_3
 
-    .line 1116
     sget-object v4, Landroid/app/WallpaperManager;->TAG:Ljava/lang/String;
 
-    const-string/jumbo v5, "WallpaperService not running"
+    const-string v5, "WallpaperService not running"
 
     invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1084
     .end local v3    # "maximumTextureSize":I
     :goto_2
     return-void
 
-    .line 1097
+    .line 1142
     :catch_0
     move-exception v2
 
-    .line 1098
     .local v2, "e":Ljava/lang/Exception;
     const/4 v3, 0x0
 
     .restart local v3    # "maximumTextureSize":I
     goto :goto_0
 
-    .line 1109
     .end local v2    # "e":Ljava/lang/Exception;
     .restart local v0    # "aspect":F
     :cond_2
     move p2, v3
 
-    .line 1110
     int-to-float v4, p2
 
     div-float/2addr v4, v0
@@ -3229,6 +3159,7 @@
 
     goto :goto_1
 
+    .line 1115
     .line 1118
     .end local v0    # "aspect":F
     :cond_3
@@ -3259,4 +3190,199 @@
 
     .local v1, "e":Landroid/os/RemoteException;
     goto :goto_2
+.end method
+
+.method public static getFlymeDefWallpaper(Landroid/content/Context;Landroid/app/WallpaperManager$FLYME_WALLPAPER_TYPE;)Ljava/io/InputStream;
+    .locals 4
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "type"    # Landroid/app/WallpaperManager$FLYME_WALLPAPER_TYPE;
+
+    .prologue
+    invoke-static {p0}, Landroid/app/WallpaperManager$FlymeInjector;->initColorValue(Landroid/content/Context;)V
+
+    const/4 v1, 0x0
+
+    .local v1, "is":Ljava/io/InputStream;
+    sget-object v2, Landroid/app/WallpaperManager$FLYME_WALLPAPER_TYPE;->LAUNCHER:Landroid/app/WallpaperManager$FLYME_WALLPAPER_TYPE;
+
+    if-ne p1, v2, :cond_1
+
+    sget-object v2, Landroid/app/WallpaperManager$FlymeInjector;->mFlymeWallpaperPath:Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/app/WallpaperManager$FlymeInjector;->checkWallpaperPath(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    :try_start_0
+    new-instance v1, Ljava/io/FileInputStream;
+
+    .end local v1    # "is":Ljava/io/InputStream;
+    new-instance v2, Ljava/io/File;
+
+    sget-object v3, Landroid/app/WallpaperManager$FlymeInjector;->mFlymeWallpaperPath:Ljava/lang/String;
+
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {v1, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .local v1, "is":Ljava/io/InputStream;
+    :goto_0
+    return-object v1
+
+    .end local v1    # "is":Ljava/io/InputStream;
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Ljava/io/FileNotFoundException;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    sget v3, Lcom/flyme/internal/R$drawable;->default_wallpaper:I
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object v1
+
+    .restart local v1    # "is":Ljava/io/InputStream;
+    goto :goto_0
+
+    .end local v0    # "e":Ljava/io/FileNotFoundException;
+    .local v1, "is":Ljava/io/InputStream;
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    sget v3, Lcom/flyme/internal/R$drawable;->default_wallpaper:I
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object v1
+
+    .local v1, "is":Ljava/io/InputStream;
+    goto :goto_0
+
+    .local v1, "is":Ljava/io/InputStream;
+    :cond_1
+    sget-object v2, Landroid/app/WallpaperManager$FLYME_WALLPAPER_TYPE;->LOCK:Landroid/app/WallpaperManager$FLYME_WALLPAPER_TYPE;
+
+    if-ne p1, v2, :cond_4
+
+    sget-object v2, Landroid/app/WallpaperManager$FlymeInjector;->mFlymeLockWallpaperPath:Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/app/WallpaperManager$FlymeInjector;->checkWallpaperPath(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    :try_start_1
+    const-string v2, "/custom/meizu/wallpaper/default_lock_wallpaper.png"
+
+    invoke-static {v2}, Landroid/app/WallpaperManager$FlymeInjector;->checkWallpaperPath(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-static {}, Landroid/content/res/flymetheme/FlymeThemeUtils;->isUseCustomSystem()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    new-instance v1, Ljava/io/FileInputStream;
+
+    .end local v1    # "is":Ljava/io/InputStream;
+    new-instance v2, Ljava/io/File;
+
+    const-string v3, "/custom/meizu/wallpaper/default_lock_wallpaper.png"
+
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {v1, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .local v1, "is":Ljava/io/InputStream;
+    goto :goto_0
+
+    .local v1, "is":Ljava/io/InputStream;
+    :cond_2
+    new-instance v1, Ljava/io/FileInputStream;
+
+    .end local v1    # "is":Ljava/io/InputStream;
+    new-instance v2, Ljava/io/File;
+
+    sget-object v3, Landroid/app/WallpaperManager$FlymeInjector;->mFlymeLockWallpaperPath:Ljava/lang/String;
+
+    invoke-direct {v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {v1, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+
+    .local v1, "is":Ljava/io/InputStream;
+    goto :goto_0
+
+    .end local v1    # "is":Ljava/io/InputStream;
+    :catch_1
+    move-exception v0
+
+    .restart local v0    # "e":Ljava/io/FileNotFoundException;
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    sget v3, Lcom/flyme/internal/R$drawable;->default_lock_wallpaper:I
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object v1
+
+    .restart local v1    # "is":Ljava/io/InputStream;
+    goto :goto_0
+
+    .end local v0    # "e":Ljava/io/FileNotFoundException;
+    .local v1, "is":Ljava/io/InputStream;
+    :cond_3
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    sget v3, Lcom/flyme/internal/R$drawable;->default_lock_wallpaper:I
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object v1
+
+    .local v1, "is":Ljava/io/InputStream;
+    goto :goto_0
+
+    .local v1, "is":Ljava/io/InputStream;
+    :cond_4
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    sget v3, Lcom/flyme/internal/R$drawable;->default_wallpaper:I
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object v1
+
+    .local v1, "is":Ljava/io/InputStream;
+    goto :goto_0
+.end method
+
+.method flymeGetFieldContext()Landroid/content/Context;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Landroid/app/WallpaperManager;->mContext:Landroid/content/Context;
+
+    return-object v0
 .end method

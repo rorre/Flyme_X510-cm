@@ -2026,34 +2026,29 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 323
-    const-string/jumbo v0, "BluetoothManagerService"
+    const-string v0, "BluetoothManagerService"
 
-    const-string/jumbo v1, "Loading stored name and address"
+    const-string v1, "Loading stored name and address"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 324
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 325
-    const v1, 0x1120062
+    const v1, #android:bool@config_bluetooth_address_validation#t
 
-    .line 324
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 326
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mContentResolver:Landroid/content/ContentResolver;
 
-    const-string/jumbo v1, "bluetooth_addr_valid"
+    const-string v1, "bluetooth_addr_valid"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -4364,33 +4359,28 @@
 
     if-eq v2, v3, :cond_0
 
-    .line 617
-    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->checkIfCallerIsForegroundUser()Z
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->hook_checkIfCallerIsForegroundUser()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 622
     :cond_0
     iget-object v2, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v3, "android.permission.BLUETOOTH_ADMIN"
+    const-string v3, "android.permission.BLUETOOTH_ADMIN"
 
-    .line 623
-    const-string/jumbo v4, "Need BLUETOOTH ADMIN permission"
+    const-string v4, "Need BLUETOOTH ADMIN permission"
 
-    .line 622
     invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 625
-    const-string/jumbo v2, "BluetoothManagerService"
+    const-string v2, "BluetoothManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "enable():  mBluetooth ="
+    const-string v4, "enable():  mBluetooth ="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5759,4 +5749,29 @@
     monitor-exit p0
 
     throw v3
+.end method
+
+
+.method private hook_checkIfCallerIsForegroundUser()Z
+    .locals 1
+
+    .prologue
+    const/16 v0, 0x4d
+
+    invoke-static {v0}, Lmeizu/security/FlymePermissionManager;->isFlymePermissionGranted(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/BluetoothManagerService;->checkIfCallerIsForegroundUser()Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method

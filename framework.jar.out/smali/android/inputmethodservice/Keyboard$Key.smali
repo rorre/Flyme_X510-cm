@@ -73,15 +73,15 @@
     .locals 6
 
     .prologue
-    const v5, 0x10100a0
+    const v5, #android:attr@state_checked#t
 
     const/4 v4, 0x1
 
-    const v3, 0x10100a7
+    const v3, #android:attr@state_pressed#t
 
     const/4 v2, 0x0
 
-    const v1, 0x101009f
+    const v1, #android:attr@state_checkable#t
 
     .line 286
     filled-new-array {v1, v5}, [I

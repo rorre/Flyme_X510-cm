@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static final loaderror:I = 0x1100000
+.field public static final loaderror:I = #android:raw@loaderror#t
 
-.field public static final nodomain:I = 0x1100001
+.field public static final nodomain:I = #android:raw@nodomain#t
 
 
 # direct methods

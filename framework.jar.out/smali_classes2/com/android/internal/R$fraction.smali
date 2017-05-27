@@ -15,11 +15,11 @@
 
 
 # static fields
-.field public static final config_dimBehindFadeDuration:I = 0x1130000
+.field public static final config_dimBehindFadeDuration:I = #android:fraction@config_dimBehindFadeDuration#t
 
-.field public static final config_maximumScreenDimRatio:I = 0x1130002
+.field public static final config_maximumScreenDimRatio:I = #android:fraction@config_maximumScreenDimRatio#t
 
-.field public static final config_screenAutoBrightnessDozeScaleFactor:I = 0x1130001
+.field public static final config_screenAutoBrightnessDozeScaleFactor:I = #android:fraction@config_screenAutoBrightnessDozeScaleFactor#t
 
 
 # direct methods

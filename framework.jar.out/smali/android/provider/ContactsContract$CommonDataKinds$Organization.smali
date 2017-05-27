@@ -95,27 +95,22 @@
     .param p0, "type"    # I
 
     .prologue
-    .line 6714
     packed-switch p0, :pswitch_data_0
 
-    .line 6717
-    const v0, 0x10402ca
+    const v0, #android:string@orgTypeCustom#t
 
     return v0
 
-    .line 6715
     :pswitch_0
-    const v0, 0x10402c8
+    const v0, #android:string@orgTypeWork#t
 
     return v0
 
-    .line 6716
     :pswitch_1
-    const v0, 0x10402c9
+    const v0, #android:string@orgTypeOther#t
 
     return v0
 
-    .line 6714
     nop
 
     :pswitch_data_0

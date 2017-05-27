@@ -210,10 +210,8 @@
 
     move-result-object v7
 
-    .line 135
-    const v8, 0x10405cb
+    const v8, #android:string@write_fail_reason_cannot_write#t
 
-    .line 134
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v7
@@ -292,17 +290,14 @@
 
     move-result-object v1
 
-    .line 151
-    const v2, 0x10405ca
+    const v2, #android:string@write_fail_reason_cancelled#t
 
-    .line 150
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/print/PrintDocumentAdapter$WriteResultCallback;->onWriteFailed(Ljava/lang/CharSequence;)V
 
-    .line 149
     return-void
 .end method
 

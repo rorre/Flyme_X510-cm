@@ -1454,34 +1454,26 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 224
-    const v2, 0x1100004
+    const v2, #android:raw@color_fade_vert#t
 
-    .line 225
     const v3, 0x8b31
 
-    .line 224
     invoke-direct {p0, p1, v2, v3}, Lcom/android/server/display/ColorFade;->loadShader(Landroid/content/Context;II)I
 
     move-result v1
 
-    .line 226
     .local v1, "vshader":I
-    const v2, 0x1100003
+    const v2, #android:raw@color_fade_frag#t
 
-    .line 227
     const v3, 0x8b30
 
-    .line 226
     invoke-direct {p0, p1, v2, v3}, Lcom/android/server/display/ColorFade;->loadShader(Landroid/content/Context;II)I
 
     move-result v0
 
-    .line 228
     .local v0, "fshader":I
     invoke-static {}, Landroid/opengl/GLES20;->glReleaseShaderCompiler()V
 
-    .line 229
     if-eqz v1, :cond_0
 
     if-nez v0, :cond_1

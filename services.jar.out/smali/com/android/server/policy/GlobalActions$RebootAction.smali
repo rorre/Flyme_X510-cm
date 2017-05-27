@@ -24,19 +24,14 @@
     .param p1, "this$0"    # Lcom/android/server/policy/GlobalActions;
 
     .prologue
-    .line 478
     iput-object p1, p0, Lcom/android/server/policy/GlobalActions$RebootAction;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    .line 479
-    const v0, 0x1080365
+    const v0, #android:drawable@ic_lock_power_reboot#t
 
-    .line 480
-    const v1, 0x1040026
+    const v1, #android:string@global_action_reboot#t
 
-    .line 479
     invoke-direct {p0, v0, v1}, Lcom/android/server/policy/GlobalActions$SinglePressAction;-><init>(II)V
 
-    .line 478
     return-void
 .end method
 

@@ -476,51 +476,43 @@
 
     iput-object v2, p0, Lcom/android/server/content/SyncStorageEngine;->mCal:Ljava/util/Calendar;
 
-    .line 513
     iget-object v2, p0, Lcom/android/server/content/SyncStorageEngine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 514
-    const v3, 0x1120080
+    const v3, #android:bool@config_syncstorageengine_masterSyncAutomatically#t
 
-    .line 513
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v2
 
     iput-boolean v2, p0, Lcom/android/server/content/SyncStorageEngine;->mDefaultMasterSyncAutomatically:Z
 
-    .line 516
     new-instance v1, Ljava/io/File;
 
-    const-string/jumbo v2, "system"
+    const-string v2, "system"
 
     invoke-direct {v1, p2, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 517
     .local v1, "systemDir":Ljava/io/File;
     new-instance v0, Ljava/io/File;
 
-    const-string/jumbo v2, "sync"
+    const-string v2, "sync"
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 518
     .local v0, "syncDir":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
-    .line 520
     invoke-direct {p0, v0}, Lcom/android/server/content/SyncStorageEngine;->maybeDeleteLegacyPendingInfoLocked(Ljava/io/File;)V
 
-    .line 522
     new-instance v2, Landroid/util/AtomicFile;
 
     new-instance v3, Ljava/io/File;
 
-    const-string/jumbo v4, "accounts.xml"
+    const-string v4, "accounts.xml"
 
     invoke-direct {v3, v0, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 

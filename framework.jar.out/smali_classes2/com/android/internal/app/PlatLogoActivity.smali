@@ -168,69 +168,56 @@
 
     invoke-virtual {v4, v9}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 96
-    const v9, 0x1080544
+    const v9, #android:drawable@platlogo_m#t
 
     invoke-virtual {p0, v9}, Lcom/android/internal/app/PlatLogoActivity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 97
     .local v0, "M":Landroid/graphics/drawable/Drawable;
     new-instance v7, Lcom/android/internal/app/PlatLogoActivity$2;
 
     invoke-direct {v7, p0, v1, v4, v0}, Lcom/android/internal/app/PlatLogoActivity$2;-><init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/graphics/Paint;Landroid/graphics/Paint;Landroid/graphics/drawable/Drawable;)V
 
-    .line 118
     .local v7, "platlogo":Landroid/graphics/drawable/Drawable;
     new-instance v9, Landroid/graphics/drawable/RippleDrawable;
 
-    .line 119
     const/4 v10, -0x1
 
     invoke-static {v10}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v10
 
-    .line 121
     const/4 v11, 0x0
 
-    .line 118
     invoke-direct {v9, v10, v7, v11}, Landroid/graphics/drawable/RippleDrawable;-><init>(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     invoke-virtual {v6, v9}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 122
     new-instance v9, Lcom/android/internal/app/PlatLogoActivity$3;
 
     invoke-direct {v9, p0}, Lcom/android/internal/app/PlatLogoActivity$3;-><init>(Lcom/android/internal/app/PlatLogoActivity;)V
 
     invoke-virtual {v6, v9}, Landroid/view/View;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
-    .line 128
     invoke-virtual {v6, v14}, Landroid/view/View;->setClickable(Z)V
 
-    .line 129
     new-instance v9, Lcom/android/internal/app/PlatLogoActivity$4;
 
     invoke-direct {v9, p0, v6}, Lcom/android/internal/app/PlatLogoActivity$4;-><init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/view/View;)V
 
     invoke-virtual {v6, v9}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 176
     invoke-virtual {v6, v14}, Landroid/view/View;->setFocusable(Z)V
 
-    .line 177
     invoke-virtual {v6}, Landroid/view/View;->requestFocus()Z
 
-    .line 178
     new-instance v9, Lcom/android/internal/app/PlatLogoActivity$5;
 
     invoke-direct {v9, p0, v6}, Lcom/android/internal/app/PlatLogoActivity$5;-><init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/view/View;)V
 
     invoke-virtual {v6, v9}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    .line 200
     iget-object v9, p0, Lcom/android/internal/app/PlatLogoActivity;->mLayout:Landroid/widget/FrameLayout;
 
     new-instance v10, Landroid/widget/FrameLayout$LayoutParams;
@@ -332,21 +319,17 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 210
     iget-boolean v2, p0, Lcom/android/internal/app/PlatLogoActivity;->mIsCM:Z
 
     if-eqz v2, :cond_0
 
-    .line 211
-    const v2, 0x1080543
+    const v2, #android:drawable@platlogo_cm#t
 
-    .line 210
     :goto_0
     invoke-virtual {p0, v2}, Lcom/android/internal/app/PlatLogoActivity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 213
     .local v1, "fg":Landroid/graphics/drawable/Drawable;
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
@@ -404,7 +387,7 @@
     .end local v0    # "fadeIn":Landroid/animation/Animator;
     .end local v1    # "fg":Landroid/graphics/drawable/Drawable;
     :cond_0
-    const v2, 0x1080542
+    const v2, #android:drawable@platlogo#t
 
     goto :goto_0
 .end method

@@ -15,19 +15,19 @@
 
 
 # static fields
-.field public static final accessibility_gestures:I = 0x1100002
+.field public static final accessibility_gestures:I = #android:raw@accessibility_gestures#t
 
-.field public static final color_fade_frag:I = 0x1100003
+.field public static final color_fade_frag:I = #android:raw@color_fade_frag#t
 
-.field public static final color_fade_vert:I = 0x1100004
+.field public static final color_fade_vert:I = #android:raw@color_fade_vert#t
 
-.field public static final fallbackring:I = 0x1100005
+.field public static final fallbackring:I = #android:raw@fallbackring#t
 
-.field public static final incognito_mode_start_page:I = 0x1100006
+.field public static final incognito_mode_start_page:I = #android:raw@incognito_mode_start_page#t
 
-.field public static final loaderror:I = 0x1100000
+.field public static final loaderror:I = #android:raw@loaderror#t
 
-.field public static final nodomain:I = 0x1100001
+.field public static final nodomain:I = #android:raw@nodomain#t
 
 
 # direct methods

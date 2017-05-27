@@ -132,15 +132,12 @@
 
     iput-wide v0, p0, Lcom/android/server/policy/ImmersiveModeConfirmation;->mShowDelayMs:J
 
-    .line 75
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 76
-    const v1, 0x10e0096
+    const v1, #android:integer@config_immersive_mode_confirmation_panic#t
 
-    .line 75
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
@@ -174,7 +171,7 @@
     .line 82
     iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation;->mContext:Landroid/content/Context;
 
-    const v2, 0x10a0018
+    const v2, #android:anim@dock_bottom_exit#t
 
     invoke-static {v1, v2}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -367,31 +364,24 @@
     .locals 4
 
     .prologue
-    .line 178
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 179
     iget-object v1, p0, Lcom/android/server/policy/ImmersiveModeConfirmation;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 180
-    const v2, 0x1050088
+    const v2, #android:dimen@immersive_mode_cling_width#t
 
-    .line 179
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 181
     const/4 v2, -0x2
 
-    .line 182
     const/16 v3, 0x31
 
-    .line 178
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
     return-object v0
@@ -428,17 +418,14 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 172
-    const-string/jumbo v1, "ImmersiveModeConfirmation"
+    const-string v1, "ImmersiveModeConfirmation"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 173
-    const v1, 0x10302f8
+    const v1, #android:style@Animation.ImmersiveModeConfirmation#t
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 174
     return-object v0
 .end method
 

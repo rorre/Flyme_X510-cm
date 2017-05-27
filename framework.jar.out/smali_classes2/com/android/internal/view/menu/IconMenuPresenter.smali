@@ -35,35 +35,28 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 46
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    const v1, 0x103047f
+    const v1, #android:style@Theme.IconMenu#t
 
     invoke-direct {v0, p1, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    .line 47
-    const v1, 0x1090067
+    const v1, #android:layout@icon_menu_layout#t
 
-    .line 48
-    const v2, 0x1090066
+    const v2, #android:layout@icon_menu_item_layout#t
 
-    .line 46
     invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/view/menu/BaseMenuPresenter;-><init>(Landroid/content/Context;II)V
 
-    .line 36
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/view/menu/IconMenuPresenter;->mMaxItems:I
 
-    .line 39
     new-instance v0, Lcom/android/internal/view/menu/IconMenuPresenter$SubMenuPresenterCallback;
 
     invoke-direct {v0, p0}, Lcom/android/internal/view/menu/IconMenuPresenter$SubMenuPresenterCallback;-><init>(Lcom/android/internal/view/menu/IconMenuPresenter;)V
 
     iput-object v0, p0, Lcom/android/internal/view/menu/IconMenuPresenter;->mSubMenuPresenterCallback:Lcom/android/internal/view/menu/IconMenuPresenter$SubMenuPresenterCallback;
 
-    .line 45
     return-void
 .end method
 

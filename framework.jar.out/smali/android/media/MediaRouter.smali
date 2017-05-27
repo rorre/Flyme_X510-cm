@@ -1207,61 +1207,50 @@
 
     iput-object v1, v0, Landroid/media/MediaRouter$RouteInfo;->mDeviceAddress:Ljava/lang/String;
 
-    .line 1403
     const/4 v1, 0x7
 
     iput v1, v0, Landroid/media/MediaRouter$RouteInfo;->mSupportedTypes:I
 
-    .line 1405
     const/4 v1, 0x0
 
     iput v1, v0, Landroid/media/MediaRouter$RouteInfo;->mVolumeHandling:I
 
-    .line 1406
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/media/MediaRouter$RouteInfo;->mPlaybackType:I
 
-    .line 1408
     invoke-static {p0, p1}, Landroid/media/MediaRouter;->getWifiDisplayStatusCode(Landroid/hardware/display/WifiDisplay;Landroid/hardware/display/WifiDisplayStatus;)I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/media/MediaRouter$RouteInfo;->setRealStatusCode(I)Z
 
-    .line 1409
     invoke-static {p0, p1}, Landroid/media/MediaRouter;->isWifiDisplayEnabled(Landroid/hardware/display/WifiDisplay;Landroid/hardware/display/WifiDisplayStatus;)Z
 
     move-result v1
 
     iput-boolean v1, v0, Landroid/media/MediaRouter$RouteInfo;->mEnabled:Z
 
-    .line 1410
     invoke-virtual {p0}, Landroid/hardware/display/WifiDisplay;->getFriendlyDisplayName()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/media/MediaRouter$RouteInfo;->mName:Ljava/lang/CharSequence;
 
-    .line 1411
     sget-object v1, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v1, v1, Landroid/media/MediaRouter$Static;->mResources:Landroid/content/res/Resources;
 
-    .line 1412
-    const v2, 0x1040539
+    const v2, #android:string@wireless_display_route_description#t
 
-    .line 1411
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/media/MediaRouter$RouteInfo;->mDescription:Ljava/lang/CharSequence;
 
-    .line 1413
     invoke-virtual {v0}, Landroid/media/MediaRouter$RouteInfo;->updatePresentationDisplay()Z
 
-    .line 1414
     return-object v0
 .end method
 

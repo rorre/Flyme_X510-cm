@@ -177,7 +177,7 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    const v5, 0x1080486
+    const v5, #android:drawable@jog_tab_target_gray#t
 
     const/4 v2, 0x1
 
@@ -245,35 +245,26 @@
 
     iput v2, p0, Lcom/android/internal/widget/SlidingTab;->mDensity:F
 
-    .line 467
     new-instance v2, Lcom/android/internal/widget/SlidingTab$Slider;
 
-    .line 468
-    const v3, 0x1080478
+    const v3, #android:drawable@jog_tab_left_generic#t
 
-    .line 469
-    const v4, 0x1080467
+    const v4, #android:drawable@jog_tab_bar_left_generic#t
 
-    .line 467
     invoke-direct {v2, p0, v3, v4, v5}, Lcom/android/internal/widget/SlidingTab$Slider;-><init>(Landroid/view/ViewGroup;III)V
 
     iput-object v2, p0, Lcom/android/internal/widget/SlidingTab;->mLeftSlider:Lcom/android/internal/widget/SlidingTab$Slider;
 
-    .line 471
     new-instance v2, Lcom/android/internal/widget/SlidingTab$Slider;
 
-    .line 472
-    const v3, 0x1080481
+    const v3, #android:drawable@jog_tab_right_generic#t
 
-    .line 473
-    const v4, 0x1080470
+    const v4, #android:drawable@jog_tab_bar_right_generic#t
 
-    .line 471
     invoke-direct {v2, p0, v3, v4, v5}, Lcom/android/internal/widget/SlidingTab$Slider;-><init>(Landroid/view/ViewGroup;III)V
 
     iput-object v2, p0, Lcom/android/internal/widget/SlidingTab;->mRightSlider:Lcom/android/internal/widget/SlidingTab$Slider;
 
-    .line 453
     return-void
 .end method
 

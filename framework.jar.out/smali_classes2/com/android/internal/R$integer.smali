@@ -15,343 +15,343 @@
 
 
 # static fields
-.field public static final config_LTE_RSRP_threshold_type:I = 0x10e009c
+.field public static final config_LTE_RSRP_threshold_type:I = #android:integer@config_LTE_RSRP_threshold_type#t
 
-.field public static final config_MaxConcurrentDownloadsAllowed:I = 0x10e0082
+.field public static final config_MaxConcurrentDownloadsAllowed:I = #android:integer@config_MaxConcurrentDownloadsAllowed#t
 
-.field public static final config_autoBrightnessAmbientLightHorizon:I = 0x10e006c
+.field public static final config_autoBrightnessAmbientLightHorizon:I = #android:integer@config_autoBrightnessAmbientLightHorizon#t
 
-.field public static final config_autoBrightnessBrighteningLightDebounce:I = 0x10e0069
+.field public static final config_autoBrightnessBrighteningLightDebounce:I = #android:integer@config_autoBrightnessBrighteningLightDebounce#t
 
-.field public static final config_autoBrightnessBrighteningLightFastDebounce:I = 0x10e0068
+.field public static final config_autoBrightnessBrighteningLightFastDebounce:I = #android:integer@config_autoBrightnessBrighteningLightFastDebounce#t
 
-.field public static final config_autoBrightnessDarkeningLightDebounce:I = 0x10e006a
+.field public static final config_autoBrightnessDarkeningLightDebounce:I = #android:integer@config_autoBrightnessDarkeningLightDebounce#t
 
-.field public static final config_autoBrightnessLightSensorRate:I = 0x10e006b
+.field public static final config_autoBrightnessLightSensorRate:I = #android:integer@config_autoBrightnessLightSensorRate#t
 
-.field public static final config_autoPowerModeAnyMotionSensor:I = 0x10e000e
+.field public static final config_autoPowerModeAnyMotionSensor:I = #android:integer@config_autoPowerModeAnyMotionSensor#t
 
-.field public static final config_autoPowerModeThresholdAngle:I = 0x10e000d
+.field public static final config_autoPowerModeThresholdAngle:I = #android:integer@config_autoPowerModeThresholdAngle#t
 
-.field public static final config_backKillTimeout:I = 0x10e00a7
+.field public static final config_backKillTimeout:I = #android:integer@config_backKillTimeout#t
 
-.field public static final config_bluetooth_idle_cur_ma:I = 0x10e0075
+.field public static final config_bluetooth_idle_cur_ma:I = #android:integer@config_bluetooth_idle_cur_ma#t
 
-.field public static final config_bluetooth_max_advertisers:I = 0x10e0074
+.field public static final config_bluetooth_max_advertisers:I = #android:integer@config_bluetooth_max_advertisers#t
 
-.field public static final config_bluetooth_max_scan_filters:I = 0x10e0073
+.field public static final config_bluetooth_max_scan_filters:I = #android:integer@config_bluetooth_max_scan_filters#t
 
-.field public static final config_bluetooth_operating_voltage_mv:I = 0x10e0078
+.field public static final config_bluetooth_operating_voltage_mv:I = #android:integer@config_bluetooth_operating_voltage_mv#t
 
-.field public static final config_bluetooth_rx_cur_ma:I = 0x10e0076
+.field public static final config_bluetooth_rx_cur_ma:I = #android:integer@config_bluetooth_rx_cur_ma#t
 
-.field public static final config_bluetooth_tx_cur_ma:I = 0x10e0077
+.field public static final config_bluetooth_tx_cur_ma:I = #android:integer@config_bluetooth_tx_cur_ma#t
 
-.field public static final config_burnInProtectionMaxHorizontalOffset:I = 0x10e00a1
+.field public static final config_burnInProtectionMaxHorizontalOffset:I = #android:integer@config_burnInProtectionMaxHorizontalOffset#t
 
-.field public static final config_burnInProtectionMaxRadius:I = 0x10e009f
+.field public static final config_burnInProtectionMaxRadius:I = #android:integer@config_burnInProtectionMaxRadius#t
 
-.field public static final config_burnInProtectionMaxVerticalOffset:I = 0x10e00a3
+.field public static final config_burnInProtectionMaxVerticalOffset:I = #android:integer@config_burnInProtectionMaxVerticalOffset#t
 
-.field public static final config_burnInProtectionMinHorizontalOffset:I = 0x10e00a0
+.field public static final config_burnInProtectionMinHorizontalOffset:I = #android:integer@config_burnInProtectionMinHorizontalOffset#t
 
-.field public static final config_burnInProtectionMinVerticalOffset:I = 0x10e00a2
+.field public static final config_burnInProtectionMinVerticalOffset:I = #android:integer@config_burnInProtectionMinVerticalOffset#t
 
-.field public static final config_buttonBrightnessSettingDefault:I = 0x10e006f
+.field public static final config_buttonBrightnessSettingDefault:I = #android:integer@config_buttonBrightnessSettingDefault#t
 
-.field public static final config_cameraLaunchGestureSensorType:I = 0x10e00a9
+.field public static final config_cameraLaunchGestureSensorType:I = #android:integer@config_cameraLaunchGestureSensorType#t
 
-.field public static final config_carDockKeepsScreenOn:I = 0x10e0049
+.field public static final config_carDockKeepsScreenOn:I = #android:integer@config_carDockKeepsScreenOn#t
 
-.field public static final config_carDockRotation:I = 0x10e0048
+.field public static final config_carDockRotation:I = #android:integer@config_carDockRotation#t
 
-.field public static final config_cdma_3waycall_flash_delay:I = 0x10e009b
+.field public static final config_cdma_3waycall_flash_delay:I = #android:integer@config_cdma_3waycall_flash_delay#t
 
-.field public static final config_criticalBatteryWarningLevel:I = 0x10e0052
+.field public static final config_criticalBatteryWarningLevel:I = #android:integer@config_criticalBatteryWarningLevel#t
 
-.field public static final config_cursorWindowSize:I = 0x10e0084
+.field public static final config_cursorWindowSize:I = #android:integer@config_cursorWindowSize#t
 
-.field public static final config_datause_notification_type:I = 0x10e007c
+.field public static final config_datause_notification_type:I = #android:integer@config_datause_notification_type#t
 
-.field public static final config_datause_polling_period_sec:I = 0x10e0079
+.field public static final config_datause_polling_period_sec:I = #android:integer@config_datause_polling_period_sec#t
 
-.field public static final config_datause_threshold_bytes:I = 0x10e007a
+.field public static final config_datause_threshold_bytes:I = #android:integer@config_datause_threshold_bytes#t
 
-.field public static final config_datause_throttle_kbitsps:I = 0x10e007b
+.field public static final config_datause_throttle_kbitsps:I = #android:integer@config_datause_throttle_kbitsps#t
 
-.field public static final config_defaultNightMode:I = 0x10e004c
+.field public static final config_defaultNightMode:I = #android:integer@config_defaultNightMode#t
 
-.field public static final config_defaultNotificationLedOff:I = 0x10e0057
+.field public static final config_defaultNotificationLedOff:I = #android:integer@config_defaultNotificationLedOff#t
 
-.field public static final config_defaultNotificationLedOn:I = 0x10e0056
+.field public static final config_defaultNotificationLedOn:I = #android:integer@config_defaultNotificationLedOn#t
 
-.field public static final config_defaultUiModeType:I = 0x10e004b
+.field public static final config_defaultUiModeType:I = #android:integer@config_defaultUiModeType#t
 
-.field public static final config_deskDockKeepsScreenOn:I = 0x10e0047
+.field public static final config_deskDockKeepsScreenOn:I = #android:integer@config_deskDockKeepsScreenOn#t
 
-.field public static final config_deskDockRotation:I = 0x10e0046
+.field public static final config_deskDockRotation:I = #android:integer@config_deskDockRotation#t
 
-.field public static final config_deviceHardwareKeys:I = 0x10e0062
+.field public static final config_deviceHardwareKeys:I = #android:integer@config_deviceHardwareKeys#t
 
-.field public static final config_deviceHardwareWakeKeys:I = 0x10e0063
+.field public static final config_deviceHardwareWakeKeys:I = #android:integer@config_deviceHardwareWakeKeys#t
 
-.field public static final config_doublePressOnPowerBehavior:I = 0x10e004f
+.field public static final config_doublePressOnPowerBehavior:I = #android:integer@config_doublePressOnPowerBehavior#t
 
-.field public static final config_doubleTapOnHomeBehavior:I = 0x10e005f
+.field public static final config_doubleTapOnHomeBehavior:I = #android:integer@config_doubleTapOnHomeBehavior#t
 
-.field public static final config_downloadDataDirLowSpaceThreshold:I = 0x10e0083
+.field public static final config_downloadDataDirLowSpaceThreshold:I = #android:integer@config_downloadDataDirLowSpaceThreshold#t
 
-.field public static final config_downloadDataDirSize:I = 0x10e0081
+.field public static final config_downloadDataDirSize:I = #android:integer@config_downloadDataDirSize#t
 
-.field public static final config_drawLockTimeoutMillis:I = 0x10e009a
+.field public static final config_drawLockTimeoutMillis:I = #android:integer@config_drawLockTimeoutMillis#t
 
-.field public static final config_dreamsBatteryLevelDrainCutoff:I = 0x10e008d
+.field public static final config_dreamsBatteryLevelDrainCutoff:I = #android:integer@config_dreamsBatteryLevelDrainCutoff#t
 
-.field public static final config_dreamsBatteryLevelMinimumWhenNotPowered:I = 0x10e008c
+.field public static final config_dreamsBatteryLevelMinimumWhenNotPowered:I = #android:integer@config_dreamsBatteryLevelMinimumWhenNotPowered#t
 
-.field public static final config_dreamsBatteryLevelMinimumWhenPowered:I = 0x10e008b
+.field public static final config_dreamsBatteryLevelMinimumWhenPowered:I = #android:integer@config_dreamsBatteryLevelMinimumWhenPowered#t
 
-.field public static final config_extraFreeKbytesAbsolute:I = 0x10e000b
+.field public static final config_extraFreeKbytesAbsolute:I = #android:integer@config_extraFreeKbytesAbsolute#t
 
-.field public static final config_extraFreeKbytesAdjust:I = 0x10e000c
+.field public static final config_extraFreeKbytesAdjust:I = #android:integer@config_extraFreeKbytesAdjust#t
 
-.field public static final config_fingerprintMaxTemplatesPerUser:I = 0x10e00a5
+.field public static final config_fingerprintMaxTemplatesPerUser:I = #android:integer@config_fingerprintMaxTemplatesPerUser#t
 
-.field public static final config_globalActionsKeyTimeout:I = 0x10e0090
+.field public static final config_globalActionsKeyTimeout:I = #android:integer@config_globalActionsKeyTimeout#t
 
-.field public static final config_immersive_mode_confirmation_panic:I = 0x10e0096
+.field public static final config_immersive_mode_confirmation_panic:I = #android:integer@config_immersive_mode_confirmation_panic#t
 
-.field public static final config_initial_saved_channel_scan_interval:I = 0x10e003c
+.field public static final config_initial_saved_channel_scan_interval:I = #android:integer@config_initial_saved_channel_scan_interval#t
 
-.field public static final config_keyboardBrightnessSettingDefault:I = 0x10e0070
+.field public static final config_keyboardBrightnessSettingDefault:I = #android:integer@config_keyboardBrightnessSettingDefault#t
 
-.field public static final config_lidKeyboardAccessibility:I = 0x10e0044
+.field public static final config_lidKeyboardAccessibility:I = #android:integer@config_lidKeyboardAccessibility#t
 
-.field public static final config_lidNavigationAccessibility:I = 0x10e0045
+.field public static final config_lidNavigationAccessibility:I = #android:integer@config_lidNavigationAccessibility#t
 
-.field public static final config_lidOpenRotation:I = 0x10e0043
+.field public static final config_lidOpenRotation:I = #android:integer@config_lidOpenRotation#t
 
-.field public static final config_lightSensorWarmupTime:I = 0x10e0071
+.field public static final config_lightSensorWarmupTime:I = #android:integer@config_lightSensorWarmupTime#t
 
-.field public static final config_lockSoundVolumeDb:I = 0x10e0006
+.field public static final config_lockSoundVolumeDb:I = #android:integer@config_lockSoundVolumeDb#t
 
-.field public static final config_longAnimTime:I = 0x10e0002
+.field public static final config_longAnimTime:I = #android:integer@config_longAnimTime#t
 
-.field public static final config_longPressOnAppSwitchBehavior:I = 0x10e0061
+.field public static final config_longPressOnAppSwitchBehavior:I = #android:integer@config_longPressOnAppSwitchBehavior#t
 
-.field public static final config_longPressOnHomeBehavior:I = 0x10e005e
+.field public static final config_longPressOnHomeBehavior:I = #android:integer@config_longPressOnHomeBehavior#t
 
-.field public static final config_longPressOnMenuBehavior:I = 0x10e0060
+.field public static final config_longPressOnMenuBehavior:I = #android:integer@config_longPressOnMenuBehavior#t
 
-.field public static final config_longPressOnPowerBehavior:I = 0x10e004d
+.field public static final config_longPressOnPowerBehavior:I = #android:integer@config_longPressOnPowerBehavior#t
 
-.field public static final config_lowBatteryCloseWarningBump:I = 0x10e0055
+.field public static final config_lowBatteryCloseWarningBump:I = #android:integer@config_lowBatteryCloseWarningBump#t
 
-.field public static final config_lowBatteryWarningLevel:I = 0x10e0054
+.field public static final config_lowBatteryWarningLevel:I = #android:integer@config_lowBatteryWarningLevel#t
 
-.field public static final config_lowMemoryKillerMinFreeKbytesAbsolute:I = 0x10e0009
+.field public static final config_lowMemoryKillerMinFreeKbytesAbsolute:I = #android:integer@config_lowMemoryKillerMinFreeKbytesAbsolute#t
 
-.field public static final config_lowMemoryKillerMinFreeKbytesAdjust:I = 0x10e000a
+.field public static final config_lowMemoryKillerMinFreeKbytesAdjust:I = #android:integer@config_lowMemoryKillerMinFreeKbytesAdjust#t
 
-.field public static final config_maxResolverActivityColumns:I = 0x10e0091
+.field public static final config_maxResolverActivityColumns:I = #android:integer@config_maxResolverActivityColumns#t
 
-.field public static final config_max_initial_scans_on_selective_channels:I = 0x10e003b
+.field public static final config_max_initial_scans_on_selective_channels:I = #android:integer@config_max_initial_scans_on_selective_channels#t
 
-.field public static final config_max_pan_devices:I = 0x10e0011
+.field public static final config_max_pan_devices:I = #android:integer@config_max_pan_devices#t
 
-.field public static final config_maximumScreenDimDuration:I = 0x10e008f
+.field public static final config_maximumScreenDimDuration:I = #android:integer@config_maximumScreenDimDuration#t
 
-.field public static final config_mdc_initial_max_retry:I = 0x10e00a8
+.field public static final config_mdc_initial_max_retry:I = #android:integer@config_mdc_initial_max_retry#t
 
-.field public static final config_mediumAnimTime:I = 0x10e0001
+.field public static final config_mediumAnimTime:I = #android:integer@config_mediumAnimTime#t
 
-.field public static final config_minimumScreenOffTimeout:I = 0x10e008e
+.field public static final config_minimumScreenOffTimeout:I = #android:integer@config_minimumScreenOffTimeout#t
 
-.field public static final config_mobile_hotspot_provision_check_period:I = 0x10e0012
+.field public static final config_mobile_hotspot_provision_check_period:I = #android:integer@config_mobile_hotspot_provision_check_period#t
 
-.field public static final config_mobile_mtu:I = 0x10e0094
+.field public static final config_mobile_mtu:I = #android:integer@config_mobile_mtu#t
 
-.field public static final config_multiuserMaximumUsers:I = 0x10e0092
+.field public static final config_multiuserMaximumUsers:I = #android:integer@config_multiuserMaximumUsers#t
 
-.field public static final config_networkPolicyDefaultWarning:I = 0x10e008a
+.field public static final config_networkPolicyDefaultWarning:I = #android:integer@config_networkPolicyDefaultWarning#t
 
-.field public static final config_networkTransitionTimeout:I = 0x10e0010
+.field public static final config_networkTransitionTimeout:I = #android:integer@config_networkTransitionTimeout#t
 
-.field public static final config_notificationServiceArchiveSize:I = 0x10e005d
+.field public static final config_notificationServiceArchiveSize:I = #android:integer@config_notificationServiceArchiveSize#t
 
-.field public static final config_notificationsBatteryFullARGB:I = 0x10e005a
+.field public static final config_notificationsBatteryFullARGB:I = #android:integer@config_notificationsBatteryFullARGB#t
 
-.field public static final config_notificationsBatteryLedOff:I = 0x10e005c
+.field public static final config_notificationsBatteryLedOff:I = #android:integer@config_notificationsBatteryLedOff#t
 
-.field public static final config_notificationsBatteryLedOn:I = 0x10e005b
+.field public static final config_notificationsBatteryLedOn:I = #android:integer@config_notificationsBatteryLedOn#t
 
-.field public static final config_notificationsBatteryLowARGB:I = 0x10e0058
+.field public static final config_notificationsBatteryLowARGB:I = #android:integer@config_notificationsBatteryLowARGB#t
 
-.field public static final config_notificationsBatteryMediumARGB:I = 0x10e0059
+.field public static final config_notificationsBatteryMediumARGB:I = #android:integer@config_notificationsBatteryMediumARGB#t
 
-.field public static final config_ntpPollingInterval:I = 0x10e0085
+.field public static final config_ntpPollingInterval:I = #android:integer@config_ntpPollingInterval#t
 
-.field public static final config_ntpPollingIntervalShorter:I = 0x10e0086
+.field public static final config_ntpPollingIntervalShorter:I = #android:integer@config_ntpPollingIntervalShorter#t
 
-.field public static final config_ntpRetry:I = 0x10e0087
+.field public static final config_ntpRetry:I = #android:integer@config_ntpRetry#t
 
-.field public static final config_ntpThreshold:I = 0x10e0088
+.field public static final config_ntpThreshold:I = #android:integer@config_ntpThreshold#t
 
-.field public static final config_ntpTimeout:I = 0x10e0089
+.field public static final config_ntpTimeout:I = #android:integer@config_ntpTimeout#t
 
-.field public static final config_overrideHasPermanentMenuKey:I = 0x10e0098
+.field public static final config_overrideHasPermanentMenuKey:I = #android:integer@config_overrideHasPermanentMenuKey#t
 
-.field public static final config_previousVibrationsDumpLimit:I = 0x10e00a6
+.field public static final config_previousVibrationsDumpLimit:I = #android:integer@config_previousVibrationsDumpLimit#t
 
-.field public static final config_radioScanningTimeout:I = 0x10e000f
+.field public static final config_radioScanningTimeout:I = #android:integer@config_radioScanningTimeout#t
 
-.field public static final config_safe_media_volume_index:I = 0x10e0093
+.field public static final config_safe_media_volume_index:I = #android:integer@config_safe_media_volume_index#t
 
-.field public static final config_screenBrightnessDark:I = 0x10e006e
+.field public static final config_screenBrightnessDark:I = #android:integer@config_screenBrightnessDark#t
 
-.field public static final config_screenBrightnessDim:I = 0x10e006d
+.field public static final config_screenBrightnessDim:I = #android:integer@config_screenBrightnessDim#t
 
-.field public static final config_screenBrightnessDoze:I = 0x10e0067
+.field public static final config_screenBrightnessDoze:I = #android:integer@config_screenBrightnessDoze#t
 
-.field public static final config_screenBrightnessSettingDefault:I = 0x10e0066
+.field public static final config_screenBrightnessSettingDefault:I = #android:integer@config_screenBrightnessSettingDefault#t
 
-.field public static final config_screenBrightnessSettingMaximum:I = 0x10e0065
+.field public static final config_screenBrightnessSettingMaximum:I = #android:integer@config_screenBrightnessSettingMaximum#t
 
-.field public static final config_screenBrightnessSettingMinimum:I = 0x10e0064
+.field public static final config_screenBrightnessSettingMinimum:I = #android:integer@config_screenBrightnessSettingMinimum#t
 
-.field public static final config_screen_magnification_multi_tap_adjustment:I = 0x10e009e
+.field public static final config_screen_magnification_multi_tap_adjustment:I = #android:integer@config_screen_magnification_multi_tap_adjustment#t
 
-.field public static final config_shortAnimTime:I = 0x10e0000
+.field public static final config_shortAnimTime:I = #android:integer@config_shortAnimTime#t
 
-.field public static final config_shortPressOnPowerBehavior:I = 0x10e004e
+.field public static final config_shortPressOnPowerBehavior:I = #android:integer@config_shortPressOnPowerBehavior#t
 
-.field public static final config_shortPressOnSleepBehavior:I = 0x10e0051
+.field public static final config_shortPressOnSleepBehavior:I = #android:integer@config_shortPressOnSleepBehavior#t
 
-.field public static final config_shutdownBatteryTemperature:I = 0x10e0053
+.field public static final config_shutdownBatteryTemperature:I = #android:integer@config_shutdownBatteryTemperature#t
 
-.field public static final config_soundEffectVolumeDb:I = 0x10e0005
+.field public static final config_soundEffectVolumeDb:I = #android:integer@config_soundEffectVolumeDb#t
 
-.field public static final config_toastDefaultGravity:I = 0x10e0095
+.field public static final config_toastDefaultGravity:I = #android:integer@config_toastDefaultGravity#t
 
-.field public static final config_triplePressOnPowerBehavior:I = 0x10e0050
+.field public static final config_triplePressOnPowerBehavior:I = #android:integer@config_triplePressOnPowerBehavior#t
 
-.field public static final config_undockedHdmiRotation:I = 0x10e004a
+.field public static final config_undockedHdmiRotation:I = #android:integer@config_undockedHdmiRotation#t
 
-.field public static final config_valid_wappush_index:I = 0x10e0097
+.field public static final config_valid_wappush_index:I = #android:integer@config_valid_wappush_index#t
 
-.field public static final config_virtualKeyQuietTimeMillis:I = 0x10e0072
+.field public static final config_virtualKeyQuietTimeMillis:I = #android:integer@config_virtualKeyQuietTimeMillis#t
 
-.field public static final config_volte_replacement_rat:I = 0x10e007d
+.field public static final config_volte_replacement_rat:I = #android:integer@config_volte_replacement_rat#t
 
-.field public static final config_wifi_active_rx_cur_ma:I = 0x10e0040
+.field public static final config_wifi_active_rx_cur_ma:I = #android:integer@config_wifi_active_rx_cur_ma#t
 
-.field public static final config_wifi_associated_long_scan_interval:I = 0x10e0031
+.field public static final config_wifi_associated_long_scan_interval:I = #android:integer@config_wifi_associated_long_scan_interval#t
 
-.field public static final config_wifi_associated_short_scan_interval:I = 0x10e0030
+.field public static final config_wifi_associated_short_scan_interval:I = #android:integer@config_wifi_associated_short_scan_interval#t
 
-.field public static final config_wifi_disconnected_long_scan_interval:I = 0x10e002f
+.field public static final config_wifi_disconnected_long_scan_interval:I = #android:integer@config_wifi_disconnected_long_scan_interval#t
 
-.field public static final config_wifi_disconnected_short_scan_interval:I = 0x10e002e
+.field public static final config_wifi_disconnected_short_scan_interval:I = #android:integer@config_wifi_disconnected_short_scan_interval#t
 
-.field public static final config_wifi_driver_stop_delay:I = 0x10e003e
+.field public static final config_wifi_driver_stop_delay:I = #android:integer@config_wifi_driver_stop_delay#t
 
-.field public static final config_wifi_framework_5GHz_preference_boost_factor:I = 0x10e0014
+.field public static final config_wifi_framework_5GHz_preference_boost_factor:I = #android:integer@config_wifi_framework_5GHz_preference_boost_factor#t
 
-.field public static final config_wifi_framework_5GHz_preference_boost_threshold:I = 0x10e0013
+.field public static final config_wifi_framework_5GHz_preference_boost_threshold:I = #android:integer@config_wifi_framework_5GHz_preference_boost_threshold#t
 
-.field public static final config_wifi_framework_5GHz_preference_penalty_factor:I = 0x10e0018
+.field public static final config_wifi_framework_5GHz_preference_penalty_factor:I = #android:integer@config_wifi_framework_5GHz_preference_penalty_factor#t
 
-.field public static final config_wifi_framework_5GHz_preference_penalty_threshold:I = 0x10e0017
+.field public static final config_wifi_framework_5GHz_preference_penalty_threshold:I = #android:integer@config_wifi_framework_5GHz_preference_penalty_threshold#t
 
-.field public static final config_wifi_framework_associated_full_scan_backoff:I = 0x10e0032
+.field public static final config_wifi_framework_associated_full_scan_backoff:I = #android:integer@config_wifi_framework_associated_full_scan_backoff#t
 
-.field public static final config_wifi_framework_associated_full_scan_max_interval:I = 0x10e0033
+.field public static final config_wifi_framework_associated_full_scan_max_interval:I = #android:integer@config_wifi_framework_associated_full_scan_max_interval#t
 
-.field public static final config_wifi_framework_associated_full_scan_max_total_dwell_time:I = 0x10e0034
+.field public static final config_wifi_framework_associated_full_scan_max_total_dwell_time:I = #android:integer@config_wifi_framework_associated_full_scan_max_total_dwell_time#t
 
-.field public static final config_wifi_framework_associated_full_scan_rx_packet_threshold:I = 0x10e0024
+.field public static final config_wifi_framework_associated_full_scan_rx_packet_threshold:I = #android:integer@config_wifi_framework_associated_full_scan_rx_packet_threshold#t
 
-.field public static final config_wifi_framework_associated_full_scan_tx_packet_threshold:I = 0x10e0023
+.field public static final config_wifi_framework_associated_full_scan_tx_packet_threshold:I = #android:integer@config_wifi_framework_associated_full_scan_tx_packet_threshold#t
 
-.field public static final config_wifi_framework_associated_partial_scan_max_num_active_channels:I = 0x10e0035
+.field public static final config_wifi_framework_associated_partial_scan_max_num_active_channels:I = #android:integer@config_wifi_framework_associated_partial_scan_max_num_active_channels#t
 
-.field public static final config_wifi_framework_associated_partial_scan_max_num_passive_channels:I = 0x10e0036
+.field public static final config_wifi_framework_associated_partial_scan_max_num_passive_channels:I = #android:integer@config_wifi_framework_associated_partial_scan_max_num_passive_channels#t
 
-.field public static final config_wifi_framework_associated_partial_scan_rx_packet_threshold:I = 0x10e0026
+.field public static final config_wifi_framework_associated_partial_scan_rx_packet_threshold:I = #android:integer@config_wifi_framework_associated_partial_scan_rx_packet_threshold#t
 
-.field public static final config_wifi_framework_associated_partial_scan_tx_packet_threshold:I = 0x10e0025
+.field public static final config_wifi_framework_associated_partial_scan_tx_packet_threshold:I = #android:integer@config_wifi_framework_associated_partial_scan_tx_packet_threshold#t
 
-.field public static final config_wifi_framework_current_association_hysteresis_high:I = 0x10e0015
+.field public static final config_wifi_framework_current_association_hysteresis_high:I = #android:integer@config_wifi_framework_current_association_hysteresis_high#t
 
-.field public static final config_wifi_framework_current_association_hysteresis_low:I = 0x10e0016
+.field public static final config_wifi_framework_current_association_hysteresis_low:I = #android:integer@config_wifi_framework_current_association_hysteresis_low#t
 
-.field public static final config_wifi_framework_current_network_boost:I = 0x10e003a
+.field public static final config_wifi_framework_current_network_boost:I = #android:integer@config_wifi_framework_current_network_boost#t
 
-.field public static final config_wifi_framework_max_auth_errors_to_blacklist:I = 0x10e0038
+.field public static final config_wifi_framework_max_auth_errors_to_blacklist:I = #android:integer@config_wifi_framework_max_auth_errors_to_blacklist#t
 
-.field public static final config_wifi_framework_max_connection_errors_to_blacklist:I = 0x10e0037
+.field public static final config_wifi_framework_max_connection_errors_to_blacklist:I = #android:integer@config_wifi_framework_max_connection_errors_to_blacklist#t
 
-.field public static final config_wifi_framework_network_black_list_min_time_milli:I = 0x10e0039
+.field public static final config_wifi_framework_network_black_list_min_time_milli:I = #android:integer@config_wifi_framework_network_black_list_min_time_milli#t
 
-.field public static final config_wifi_framework_network_switch_rx_packet_threshold:I = 0x10e0028
+.field public static final config_wifi_framework_network_switch_rx_packet_threshold:I = #android:integer@config_wifi_framework_network_switch_rx_packet_threshold#t
 
-.field public static final config_wifi_framework_network_switch_tx_packet_threshold:I = 0x10e0027
+.field public static final config_wifi_framework_network_switch_tx_packet_threshold:I = #android:integer@config_wifi_framework_network_switch_tx_packet_threshold#t
 
-.field public static final config_wifi_framework_scan_interval:I = 0x10e002c
+.field public static final config_wifi_framework_scan_interval:I = #android:integer@config_wifi_framework_scan_interval#t
 
-.field public static final config_wifi_framework_scan_result_rssi_level_patchup_value:I = 0x10e003d
+.field public static final config_wifi_framework_scan_result_rssi_level_patchup_value:I = #android:integer@config_wifi_framework_scan_result_rssi_level_patchup_value#t
 
-.field public static final config_wifi_framework_wifi_score_bad_link_speed_24:I = 0x10e001f
+.field public static final config_wifi_framework_wifi_score_bad_link_speed_24:I = #android:integer@config_wifi_framework_wifi_score_bad_link_speed_24#t
 
-.field public static final config_wifi_framework_wifi_score_bad_link_speed_5:I = 0x10e0020
+.field public static final config_wifi_framework_wifi_score_bad_link_speed_5:I = #android:integer@config_wifi_framework_wifi_score_bad_link_speed_5#t
 
-.field public static final config_wifi_framework_wifi_score_bad_rssi_threshold_24GHz:I = 0x10e001c
+.field public static final config_wifi_framework_wifi_score_bad_rssi_threshold_24GHz:I = #android:integer@config_wifi_framework_wifi_score_bad_rssi_threshold_24GHz#t
 
-.field public static final config_wifi_framework_wifi_score_bad_rssi_threshold_5GHz:I = 0x10e0019
+.field public static final config_wifi_framework_wifi_score_bad_rssi_threshold_5GHz:I = #android:integer@config_wifi_framework_wifi_score_bad_rssi_threshold_5GHz#t
 
-.field public static final config_wifi_framework_wifi_score_good_link_speed_24:I = 0x10e0021
+.field public static final config_wifi_framework_wifi_score_good_link_speed_24:I = #android:integer@config_wifi_framework_wifi_score_good_link_speed_24#t
 
-.field public static final config_wifi_framework_wifi_score_good_link_speed_5:I = 0x10e0022
+.field public static final config_wifi_framework_wifi_score_good_link_speed_5:I = #android:integer@config_wifi_framework_wifi_score_good_link_speed_5#t
 
-.field public static final config_wifi_framework_wifi_score_good_rssi_threshold_24GHz:I = 0x10e001e
+.field public static final config_wifi_framework_wifi_score_good_rssi_threshold_24GHz:I = #android:integer@config_wifi_framework_wifi_score_good_rssi_threshold_24GHz#t
 
-.field public static final config_wifi_framework_wifi_score_good_rssi_threshold_5GHz:I = 0x10e001b
+.field public static final config_wifi_framework_wifi_score_good_rssi_threshold_5GHz:I = #android:integer@config_wifi_framework_wifi_score_good_rssi_threshold_5GHz#t
 
-.field public static final config_wifi_framework_wifi_score_low_rssi_threshold_24GHz:I = 0x10e001d
+.field public static final config_wifi_framework_wifi_score_low_rssi_threshold_24GHz:I = #android:integer@config_wifi_framework_wifi_score_low_rssi_threshold_24GHz#t
 
-.field public static final config_wifi_framework_wifi_score_low_rssi_threshold_5GHz:I = 0x10e001a
+.field public static final config_wifi_framework_wifi_score_low_rssi_threshold_5GHz:I = #android:integer@config_wifi_framework_wifi_score_low_rssi_threshold_5GHz#t
 
-.field public static final config_wifi_idle_receive_cur_ma:I = 0x10e003f
+.field public static final config_wifi_idle_receive_cur_ma:I = #android:integer@config_wifi_idle_receive_cur_ma#t
 
-.field public static final config_wifi_network_switching_blacklist_time:I = 0x10e002a
+.field public static final config_wifi_network_switching_blacklist_time:I = #android:integer@config_wifi_network_switching_blacklist_time#t
 
-.field public static final config_wifi_no_network_periodic_scan_interval:I = 0x10e002d
+.field public static final config_wifi_no_network_periodic_scan_interval:I = #android:integer@config_wifi_no_network_periodic_scan_interval#t
 
-.field public static final config_wifi_operating_voltage_mv:I = 0x10e0042
+.field public static final config_wifi_operating_voltage_mv:I = #android:integer@config_wifi_operating_voltage_mv#t
 
-.field public static final config_wifi_scan_interval_p2p_connected:I = 0x10e002b
+.field public static final config_wifi_scan_interval_p2p_connected:I = #android:integer@config_wifi_scan_interval_p2p_connected#t
 
-.field public static final config_wifi_supplicant_scan_interval:I = 0x10e0029
+.field public static final config_wifi_supplicant_scan_interval:I = #android:integer@config_wifi_supplicant_scan_interval#t
 
-.field public static final config_wifi_tx_cur_ma:I = 0x10e0041
+.field public static final config_wifi_tx_cur_ma:I = #android:integer@config_wifi_tx_cur_ma#t
 
-.field public static final config_windowOutsetBottom:I = 0x10e0099
+.field public static final config_windowOutsetBottom:I = #android:integer@config_windowOutsetBottom#t
 
-.field public static final config_zen_repeat_callers_threshold:I = 0x10e009d
+.field public static final config_zen_repeat_callers_threshold:I = #android:integer@config_zen_repeat_callers_threshold#t
 
-.field public static final db_connection_pool_size:I = 0x10e007e
+.field public static final db_connection_pool_size:I = #android:integer@db_connection_pool_size#t
 
-.field public static final db_journal_size_limit:I = 0x10e007f
+.field public static final db_journal_size_limit:I = #android:integer@db_journal_size_limit#t
 
-.field public static final db_wal_autocheckpoint:I = 0x10e0080
+.field public static final db_wal_autocheckpoint:I = #android:integer@db_wal_autocheckpoint#t
 
-.field public static final def_wifi_idle_ms:I = 0x10e0004
+.field public static final def_wifi_idle_ms:I = #android:integer@def_wifi_idle_ms#t
 
-.field public static final dock_enter_exit_duration:I = 0x10e00c8
+.field public static final dock_enter_exit_duration:I = #android:integer@dock_enter_exit_duration#t
 
-.field public static final max_action_buttons:I = 0x10e00aa
+.field public static final max_action_buttons:I = #android:integer@max_action_buttons#t
 
-.field public static final status_bar_notification_info_maxnum:I = 0x10e0003
+.field public static final status_bar_notification_info_maxnum:I = #android:integer@status_bar_notification_info_maxnum#t
 
 
 # direct methods

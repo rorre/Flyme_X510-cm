@@ -93,18 +93,15 @@
     :goto_0
     invoke-virtual {p0, v3}, Lcom/android/internal/widget/ButtonBarLayout;->setGravity(I)V
 
-    .line 106
-    const v3, 0x1020301
+    const v3, #android:id@spacer#t
 
     invoke-virtual {p0, v3}, Lcom/android/internal/widget/ButtonBarLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    .line 107
     .local v2, "spacer":Landroid/view/View;
     if-eqz v2, :cond_1
 
-    .line 108
     if-eqz p1, :cond_3
 
     const/16 v3, 0x8

@@ -159,24 +159,20 @@
 
     move-result-object v5
 
-    .line 595
-    const v6, 0x10405ff
+    const v6, #android:string@zen_mode_downtime_feature_name#t
 
-    .line 594
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     iput-object v5, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
 
-    .line 596
     invoke-static {v3}, Landroid/service/notification/ZenModeConfig;->toScheduleConditionId(Landroid/service/notification/ZenModeConfig$ScheduleInfo;)Landroid/net/Uri;
 
     move-result-object v5
 
     iput-object v5, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
 
-    .line 597
     iget-boolean v5, p1, Landroid/service/notification/ZenModeConfig$XmlV1;->sleepNone:Z
 
     if-eqz v5, :cond_1

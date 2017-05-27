@@ -183,15 +183,12 @@
 
     move-result-object v11
 
-    .line 893
-    const v13, 0x1040183
+    const v13, #android:string@reboot_to_update_package#t
 
-    .line 892
     invoke-virtual {v11, v13}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    .line 894
     .local v4, "msg":Ljava/lang/CharSequence;
     invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get6()Lcom/android/server/power/ShutdownThread;
 
@@ -357,15 +354,12 @@
 
     move-result-object v11
 
-    .line 898
-    const v13, 0x1040184
+    const v13, #android:string@reboot_to_update_reboot#t
 
-    .line 897
     invoke-virtual {v11, v13}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
-    .line 899
     .restart local v4    # "msg":Ljava/lang/CharSequence;
     invoke-static {}, Lcom/android/server/power/ShutdownThread;->-get6()Lcom/android/server/power/ShutdownThread;
 

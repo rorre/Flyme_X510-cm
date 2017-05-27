@@ -15,28 +15,22 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 31
     invoke-direct {p0}, Landroid/hardware/ISerialManager$Stub;-><init>()V
 
-    .line 32
     iput-object p1, p0, Lcom/android/server/SerialService;->mContext:Landroid/content/Context;
 
-    .line 33
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 34
-    const v1, 0x1070021
+    const v1, #android:array@config_serialPorts#t
 
-    .line 33
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/SerialService;->mSerialPorts:[Ljava/lang/String;
 
-    .line 31
     return-void
 .end method
 

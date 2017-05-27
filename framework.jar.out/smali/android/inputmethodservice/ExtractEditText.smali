@@ -30,12 +30,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 38
-    const v0, 0x101006e
+    const v0, #android:attr@editTextStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/EditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 37
     return-void
 .end method
 
@@ -218,12 +216,11 @@
     .param p1, "id"    # I
 
     .prologue
-    .line 108
-    const v0, 0x102001f
+    const v0, #android:id@selectAll#t
 
     if-eq p1, v0, :cond_0
 
-    const v0, 0x1020034
+    const v0, #android:id@replaceText#t
 
     if-ne p1, v0, :cond_1
 
@@ -249,12 +246,11 @@
 
     if-eqz v0, :cond_4
 
-    .line 114
-    const v0, 0x1020021
+    const v0, #android:id@copy#t
 
     if-eq p1, v0, :cond_2
 
-    const v0, 0x1020022
+    const v0, #android:id@paste#t
 
     if-ne p1, v0, :cond_3
 

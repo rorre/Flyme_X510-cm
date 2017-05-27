@@ -408,43 +408,34 @@
 
     iput-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier;->mWindowManager:Landroid/view/WindowManagerInternal;
 
-    .line 192
     iput-object p3, p0, Lcom/android/server/accessibility/ScreenMagnifier;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    .line 194
     invoke-static {}, Landroid/view/ViewConfiguration;->getDoubleTapTimeout()I
 
     move-result v0
 
-    .line 195
     iget-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 196
-    const v2, 0x10e009e
+    const v2, #android:integer@config_screen_magnification_multi_tap_adjustment#t
 
-    .line 195
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
-    .line 194
     add-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/server/accessibility/ScreenMagnifier;->mMultiTapTimeSlop:I
 
-    .line 197
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 198
-    const v1, 0x10e0002
+    const v1, #android:integer@config_longAnimTime#t
 
-    .line 197
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0

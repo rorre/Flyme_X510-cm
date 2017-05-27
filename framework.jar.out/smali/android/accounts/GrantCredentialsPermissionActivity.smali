@@ -156,7 +156,7 @@
     .line 152
     iget-object v1, p0, Landroid/accounts/GrantCredentialsPermissionActivity;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x109009a
+    const v2, #android:layout@permissions_package_list_item#t
 
     const/4 v3, 0x0
 
@@ -166,7 +166,7 @@
 
     .line 153
     .local v0, "view":Landroid/view/View;
-    const v1, 0x1020394
+    const v1, #android:id@package_label#t
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -318,7 +318,7 @@
 
     .line 158
     :pswitch_data_0
-    .packed-switch 0x1020340
+    .packed-switch #android:id@deny_button#t
         :pswitch_1
         :pswitch_0
     .end packed-switch
@@ -329,21 +329,17 @@
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 51
     invoke-super/range {p0 .. p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 52
-    const v11, 0x1090064
+    const v11, #android:layout@grant_credentials_permission#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->setContentView(I)V
 
-    .line 53
-    const v11, 0x10404a9
+    const v11, #android:string@grant_permissions_header_text#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->setTitle(I)V
 
-    .line 55
-    const-string/jumbo v11, "layout_inflater"
+    const-string v11, "layout_inflater"
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -458,7 +454,7 @@
 
     .line 89
     .local v0, "accountTypeLabel":Ljava/lang/String;
-    const v11, 0x102033d
+    const v11, #android:id@authtoken_type#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
@@ -493,8 +489,7 @@
 
     invoke-virtual {v11, v12, v13, v2, v14}, Landroid/accounts/AccountManager;->getAuthTokenLabel(Ljava/lang/String;Ljava/lang/String;Landroid/accounts/AccountManagerCallback;Landroid/os/Handler;)Landroid/accounts/AccountManagerFuture;
 
-    .line 114
-    const v11, 0x1020341
+    const v11, #android:id@allow_button#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
@@ -502,8 +497,7 @@
 
     invoke-virtual {v11, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 115
-    const v11, 0x1020340
+    const v11, #android:id@deny_button#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
@@ -511,8 +505,7 @@
 
     invoke-virtual {v11, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 117
-    const v11, 0x1020339
+    const v11, #android:id@packages_list#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
@@ -608,7 +601,7 @@
     .end local v6    # "packageLabel":Ljava/lang/String;
     .end local v9    # "pkg":Ljava/lang/String;
     :cond_3
-    const v11, 0x102033c
+    const v11, #android:id@account_name#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 
@@ -622,8 +615,7 @@
 
     invoke-virtual {v11, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 130
-    const v11, 0x102033b
+    const v11, #android:id@account_type#t
 
     invoke-virtual {p0, v11}, Landroid/accounts/GrantCredentialsPermissionActivity;->findViewById(I)Landroid/view/View;
 

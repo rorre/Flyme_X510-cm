@@ -37,12 +37,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 65
-    const v0, 0x101006b
+    const v0, #android:attr@autoCompleteTextViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/MultiAutoCompleteTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 64
     return-void
 .end method
 

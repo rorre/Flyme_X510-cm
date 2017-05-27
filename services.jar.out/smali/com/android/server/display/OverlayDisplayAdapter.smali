@@ -690,41 +690,36 @@
 
     aput-object v26, v3, v27
 
-    .line 192
-    const v26, 0x1040547
+    const v26, #android:string@display_manager_overlay_display_name#t
 
-    .line 191
     move/from16 v0, v26
 
     invoke-virtual {v2, v0, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 194
     .local v4, "name":Ljava/lang/String;
     invoke-static {v8}, Lcom/android/server/display/OverlayDisplayAdapter;->chooseOverlayGravity(I)I
 
     move-result v6
 
-    .line 195
     .local v6, "gravity":I
     if-eqz v13, :cond_a
 
-    const-string/jumbo v2, ",secure"
+    const-string v2, ",secure"
 
     invoke-virtual {v13, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    .line 197
     :goto_4
-    const-string/jumbo v2, "OverlayDisplayAdapter"
+    const-string v2, "OverlayDisplayAdapter"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v26, "Showing overlay display device #"
+    const-string v26, "Showing overlay display device #"
 
     move-object/from16 v0, v26
 

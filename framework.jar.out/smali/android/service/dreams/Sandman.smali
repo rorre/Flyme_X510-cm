@@ -47,38 +47,30 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 118
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 119
-    const v3, 0x1120079
+    const v3, #android:bool@config_dreamsActivatedOnDockByDefault#t
 
-    .line 118
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 119
     const/4 v0, 0x1
 
-    .line 120
     .local v0, "def":I
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 121
-    const-string/jumbo v3, "screensaver_activate_on_dock"
+    const-string v3, "screensaver_activate_on_dock"
 
-    .line 122
     const/4 v4, -0x2
 
-    .line 120
     invoke-static {v2, v3, v0, v4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result v2
@@ -106,38 +98,30 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 110
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 111
-    const v3, 0x1120078
+    const v3, #android:bool@config_dreamsEnabledByDefault#t
 
-    .line 110
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 111
     const/4 v0, 0x1
 
-    .line 112
     .local v0, "def":I
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 113
-    const-string/jumbo v3, "screensaver_enabled"
+    const-string v3, "screensaver_enabled"
 
-    .line 114
     const/4 v4, -0x2
 
-    .line 112
     invoke-static {v2, v3, v0, v4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result v2

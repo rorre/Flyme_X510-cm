@@ -79,66 +79,54 @@
 
     if-eqz v0, :cond_0
 
-    .line 1024
     if-eqz p4, :cond_2
 
-    const-string/jumbo v0, "android.intent.extra.REPLACING"
+    const-string v0, "android.intent.extra.REPLACING"
 
     invoke-virtual {p4, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v10
 
-    .line 1025
     :goto_0
     iget-object v1, p0, Lcom/android/server/pm/PackageInstallerService$PackageInstallObserverAdapter;->mContext:Landroid/content/Context;
 
-    .line 1026
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerService$PackageInstallObserverAdapter;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 1027
     if-eqz v10, :cond_3
 
-    const v0, 0x10405f5
+    const v0, #android:string@package_updated_device_owner#t
 
-    .line 1026
     :goto_1
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1030
     iget v2, p0, Lcom/android/server/pm/PackageInstallerService$PackageInstallObserverAdapter;->mUserId:I
 
-    .line 1025
     invoke-static {v1, v0, p1, v2}, Lcom/android/server/pm/PackageInstallerService;->-wrap0(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)Landroid/app/Notification;
 
     move-result-object v8
 
-    .line 1031
     .local v8, "notification":Landroid/app/Notification;
     if-eqz v8, :cond_0
 
-    .line 1033
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerService$PackageInstallObserverAdapter;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v1, "notification"
+    const-string v1, "notification"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v9
 
-    .line 1032
     check-cast v9, Landroid/app/NotificationManager;
 
-    .line 1034
     .local v9, "notificationManager":Landroid/app/NotificationManager;
     invoke-virtual {v9, p1, v4, v8}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
 
-    .line 1037
     .end local v8    # "notification":Landroid/app/Notification;
     .end local v9    # "notificationManager":Landroid/app/NotificationManager;
     :cond_0
@@ -240,14 +228,12 @@
     .local v10, "update":Z
     goto :goto_0
 
-    .line 1028
     .end local v10    # "update":Z
     :cond_3
-    const v0, 0x10405f4
+    const v0, #android:string@package_installed_device_owner#t
 
     goto :goto_1
 
-    .line 1054
     .restart local v3    # "fillIn":Landroid/content/Intent;
     :catch_0
     move-exception v7

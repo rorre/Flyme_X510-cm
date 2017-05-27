@@ -8,6 +8,8 @@
 
 
 # instance fields
+.field mFlymeKilledReason:Ljava/lang/String;
+
 .field final activities:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2568,34 +2570,29 @@
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 580
     iget v0, p0, Lcom/android/server/am/ProcessRecord;->pid:I
 
     invoke-static {v0}, Landroid/os/Process;->killProcessQuiet(I)V
 
-    .line 581
     iget v0, p0, Lcom/android/server/am/ProcessRecord;->uid:I
 
     iget v1, p0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-static {v0, v1}, Landroid/os/Process;->killProcessGroup(II)I
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ProcessRecord;->killFlymeProcessGroup()V
 
-    .line 582
     iget-boolean v0, p0, Lcom/android/server/am/ProcessRecord;->persistent:Z
 
     if-nez v0, :cond_1
 
-    .line 583
     iput-boolean v3, p0, Lcom/android/server/am/ProcessRecord;->killed:Z
 
-    .line 584
     iput-boolean v3, p0, Lcom/android/server/am/ProcessRecord;->killedByAm:Z
 
-    .line 586
     :cond_1
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/am/ProcessRecord;->setFlymeKilledReason(Ljava/lang/String;)V
+
     invoke-static {v4, v5}, Landroid/os/Trace;->traceEnd(J)V
 
-    .line 573
     :cond_2
     return-void
 .end method
@@ -3086,15 +3083,14 @@
     :cond_a
     move v3, v4
 
-    .line 451
     goto/16 :goto_7
 
-    .line 475
     .restart local v8    # "seempStr":Ljava/lang/String;
     :cond_b
     iput-object p1, p0, Lcom/android/server/am/ProcessRecord;->thread:Landroid/app/IApplicationThread;
 
-    .line 440
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ProcessRecord;->addFlymeProcessShrinker()V
+
     return-void
 .end method
 
@@ -4230,11 +4226,11 @@
 
     invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 537
     :cond_0
     iput-object v3, p0, Lcom/android/server/am/ProcessRecord;->deathRecipient:Landroid/os/IBinder$DeathRecipient;
 
-    .line 533
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ProcessRecord;->removeFlymeProcessShrinker()V
+
     return-void
 .end method
 
@@ -4293,4 +4289,68 @@
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
+.end method
+
+.method private addFlymeProcessShrinker()V
+    .locals 4
+
+    .prologue
+    invoke-static {}, Lcom/android/server/shrinker/Shrinker;->getInstance()Lcom/android/server/shrinker/Shrinker;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v2, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    iget v3, p0, Lcom/android/server/am/ProcessRecord;->pid:I
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/shrinker/Shrinker;->addProcess(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method private killFlymeProcessGroup()V
+    .locals 2
+
+    .prologue
+    iget v0, p0, Lcom/android/server/am/ProcessRecord;->uid:I
+
+    iget v1, p0, Lcom/android/server/am/ProcessRecord;->pid:I
+
+    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerService;->killFlymeProcessGroup(II)V
+
+    return-void
+.end method
+
+.method private removeFlymeProcessShrinker()V
+    .locals 4
+
+    .prologue
+    invoke-static {}, Lcom/android/server/shrinker/Shrinker;->getInstance()Lcom/android/server/shrinker/Shrinker;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v2, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    iget v3, p0, Lcom/android/server/am/ProcessRecord;->pid:I
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/shrinker/Shrinker;->removeProcess(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method private setFlymeKilledReason(Ljava/lang/String;)V
+    .locals 0
+    .param p1, "reason"    # Ljava/lang/String;
+
+    .prologue
+    if-eqz p1, :cond_0
+
+    iput-object p1, p0, Lcom/android/server/am/ProcessRecord;->mFlymeKilledReason:Ljava/lang/String;
+
+    :cond_0
+    return-void
 .end method

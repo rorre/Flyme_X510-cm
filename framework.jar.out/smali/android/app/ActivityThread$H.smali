@@ -305,86 +305,73 @@
 
     const-wide/16 v12, 0x40
 
-    .line 1356
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1354
     :goto_0
     :pswitch_0
+    invoke-direct/range {p0 .. p1}, Landroid/app/ActivityThread$H;->handleFlymeMessage(Landroid/os/Message;)V
+
     return-void
 
-    .line 1358
     :pswitch_1
-    const-string/jumbo v0, "activityStart"
+    const-string v0, "activityStart"
 
     invoke-static {v12, v13, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    .line 1359
     iget-object v9, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v9, Landroid/app/ActivityThread$ActivityClientRecord;
 
-    .line 1361
     .local v9, "r":Landroid/app/ActivityThread$ActivityClientRecord;
     iget-object v0, p0, Landroid/app/ActivityThread$H;->this$0:Landroid/app/ActivityThread;
 
-    .line 1362
     iget-object v1, v9, Landroid/app/ActivityThread$ActivityClientRecord;->activityInfo:Landroid/content/pm/ActivityInfo;
 
     iget-object v1, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget-object v2, v9, Landroid/app/ActivityThread$ActivityClientRecord;->compatInfo:Landroid/content/res/CompatibilityInfo;
 
-    .line 1361
     invoke-virtual {v0, v1, v2}, Landroid/app/ActivityThread;->getPackageInfoNoCheck(Landroid/content/pm/ApplicationInfo;Landroid/content/res/CompatibilityInfo;)Landroid/app/LoadedApk;
 
     move-result-object v0
 
     iput-object v0, v9, Landroid/app/ActivityThread$ActivityClientRecord;->packageInfo:Landroid/app/LoadedApk;
 
-    .line 1363
     iget-object v0, p0, Landroid/app/ActivityThread$H;->this$0:Landroid/app/ActivityThread;
 
     invoke-static {v0, v9, v3}, Landroid/app/ActivityThread;->-wrap11(Landroid/app/ActivityThread;Landroid/app/ActivityThread$ActivityClientRecord;Landroid/content/Intent;)V
 
-    .line 1364
     invoke-static {v12, v13}, Landroid/os/Trace;->traceEnd(J)V
 
     goto :goto_0
 
-    .line 1367
     .end local v9    # "r":Landroid/app/ActivityThread$ActivityClientRecord;
     :pswitch_2
-    const-string/jumbo v0, "activityRestart"
+    const-string v0, "activityRestart"
 
     invoke-static {v12, v13, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    .line 1368
     iget-object v9, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v9, Landroid/app/ActivityThread$ActivityClientRecord;
 
-    .line 1369
     .restart local v9    # "r":Landroid/app/ActivityThread$ActivityClientRecord;
     iget-object v0, p0, Landroid/app/ActivityThread$H;->this$0:Landroid/app/ActivityThread;
 
     invoke-static {v0, v9}, Landroid/app/ActivityThread;->-wrap15(Landroid/app/ActivityThread;Landroid/app/ActivityThread$ActivityClientRecord;)V
 
-    .line 1370
     invoke-static {v12, v13}, Landroid/os/Trace;->traceEnd(J)V
 
     goto :goto_0
 
-    .line 1373
     .end local v9    # "r":Landroid/app/ActivityThread$ActivityClientRecord;
     :pswitch_3
-    const-string/jumbo v0, "activityPause"
+    const-string v0, "activityPause"
 
     invoke-static {v12, v13, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    .line 1374
     iget-object v0, p0, Landroid/app/ActivityThread$H;->this$0:Landroid/app/ActivityThread;
 
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -1400,5 +1387,32 @@
         :pswitch_2f
         :pswitch_30
         :pswitch_31
+    .end packed-switch
+.end method
+
+.method private handleFlymeMessage(Landroid/os/Message;)V
+    .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
+
+    .prologue
+    iget v0, p1, Landroid/os/Message;->what:I
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    return-void
+
+    :pswitch_0
+    iget-object v0, p0, Landroid/app/ActivityThread$H;->this$0:Landroid/app/ActivityThread;
+
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    invoke-virtual {v0, v1}, Landroid/app/ActivityThread;->handleShrinkMemory(I)V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0xcb
+        :pswitch_0
     .end packed-switch
 .end method

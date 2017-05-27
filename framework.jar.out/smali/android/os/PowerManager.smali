@@ -260,17 +260,14 @@
     .locals 2
 
     .prologue
-    .line 1289
     iget-object v0, p0, Landroid/os/PowerManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1290
-    const v1, 0x10e006f
+    const v1, #android:integer@config_buttonBrightnessSettingDefault#t
 
-    .line 1289
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
@@ -282,17 +279,14 @@
     .locals 2
 
     .prologue
-    .line 1298
     iget-object v0, p0, Landroid/os/PowerManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1299
-    const v1, 0x10e0070
+    const v1, #android:integer@config_keyboardBrightnessSettingDefault#t
 
-    .line 1298
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
@@ -304,17 +298,14 @@
     .locals 2
 
     .prologue
-    .line 436
     iget-object v0, p0, Landroid/os/PowerManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 437
-    const v1, 0x10e0066
+    const v1, #android:integer@config_screenBrightnessSettingDefault#t
 
-    .line 436
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
@@ -326,17 +317,14 @@
     .locals 2
 
     .prologue
-    .line 427
     iget-object v0, p0, Landroid/os/PowerManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 428
-    const v1, 0x10e0065
+    const v1, #android:integer@config_screenBrightnessSettingMaximum#t
 
-    .line 427
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
@@ -348,17 +336,14 @@
     .locals 2
 
     .prologue
-    .line 416
     iget-object v0, p0, Landroid/os/PowerManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 417
-    const v1, 0x10e0064
+    const v1, #android:integer@config_screenBrightnessSettingMinimum#t
 
-    .line 416
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0

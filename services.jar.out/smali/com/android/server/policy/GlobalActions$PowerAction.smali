@@ -27,19 +27,14 @@
     .param p1, "this$0"    # Lcom/android/server/policy/GlobalActions;
 
     .prologue
-    .line 445
     iput-object p1, p0, Lcom/android/server/policy/GlobalActions$PowerAction;->this$0:Lcom/android/server/policy/GlobalActions;
 
-    .line 446
-    const v0, 0x1080030
+    const v0, #android:drawable@ic_lock_power_off#t
 
-    .line 447
-    const v1, 0x1040190
+    const v1, #android:string@global_action_power_off#t
 
-    .line 446
     invoke-direct {p0, v0, v1}, Lcom/android/server/policy/GlobalActions$SinglePressAction;-><init>(II)V
 
-    .line 445
     return-void
 .end method
 

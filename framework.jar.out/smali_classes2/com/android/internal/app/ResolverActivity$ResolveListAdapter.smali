@@ -2336,15 +2336,12 @@
     .param p1, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 1591
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 1592
-    const v1, 0x10900bf
+    const v1, #android:layout@resolve_list_item#t
 
     const/4 v2, 0x0
 
-    .line 1591
     invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0

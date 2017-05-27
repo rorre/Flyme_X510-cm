@@ -838,22 +838,18 @@
 
     if-nez v2, :cond_1
 
-    .line 103
     iget-object v2, p0, Lcom/android/server/NetworkScoreService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 104
-    const v3, 0x10400c9
+    const v3, #android:string@config_defaultNetworkScorerPackageName#t
 
-    .line 103
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 105
     .local v1, "defaultPackage":Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 

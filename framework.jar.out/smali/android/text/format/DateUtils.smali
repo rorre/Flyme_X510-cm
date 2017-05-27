@@ -386,7 +386,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x1140004
+    const v5, #android:plurals@duration_hours#t
 
     .line 362
     invoke-virtual {v2, v5, v0, v4}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
@@ -422,7 +422,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x1140003
+    const v5, #android:plurals@duration_minutes#t
 
     .line 366
     invoke-virtual {v2, v5, v1, v4}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
@@ -455,7 +455,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x1140002
+    const v5, #android:plurals@duration_seconds#t
 
     .line 370
     invoke-virtual {v2, v5, v3, v4}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
@@ -1208,26 +1208,21 @@
 
     move-wide/from16 v6, p1
 
-    .line 793
     invoke-static/range {v3 .. v8}, Landroid/text/format/DateUtils;->formatDateRange(Landroid/content/Context;JJI)Ljava/lang/String;
 
     move-result-object v12
 
-    .line 794
     .local v12, "result":Ljava/lang/String;
-    const v2, 0x10403aa
+    const v2, #android:string@preposition_for_time#t
 
-    .line 808
     .local v2, "prepositionId":I
     :goto_0
     if-eqz p3, :cond_2
 
-    .line 809
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v9
 
-    .line 810
     .local v9, "res":Landroid/content/res/Resources;
     const/4 v3, 0x1
 
@@ -1276,19 +1271,16 @@
 
     move-wide/from16 v6, p1
 
-    .line 798
     invoke-static/range {v3 .. v8}, Landroid/text/format/DateUtils;->formatDateRange(Landroid/content/Context;JJI)Ljava/lang/String;
 
     move-result-object v12
 
-    .line 801
     .restart local v12    # "result":Ljava/lang/String;
-    const v2, 0x10403a9
+    const v2, #android:string@preposition_for_date#t
 
     .restart local v2    # "prepositionId":I
     goto :goto_0
 
-    .line 804
     .end local v2    # "prepositionId":I
     .end local v8    # "flags":I
     .end local v12    # "result":Ljava/lang/String;
@@ -1302,21 +1294,18 @@
 
     move-wide/from16 v6, p1
 
-    .line 805
     invoke-static/range {v3 .. v8}, Landroid/text/format/DateUtils;->formatDateRange(Landroid/content/Context;JJI)Ljava/lang/String;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v12
 
-    .line 806
     .restart local v12    # "result":Ljava/lang/String;
-    const v2, 0x10403a9
+    const v2, #android:string@preposition_for_date#t
 
     .restart local v2    # "prepositionId":I
     goto :goto_0
 
-    .line 777
     .end local v2    # "prepositionId":I
     .end local v8    # "flags":I
     .end local v12    # "result":Ljava/lang/String;
@@ -1386,16 +1375,13 @@
 
     if-eqz v2, :cond_0
 
-    .line 341
     :goto_0
     return-void
 
-    .line 345
     :cond_0
     sput-object v0, Landroid/text/format/DateUtils;->sLastConfig:Landroid/content/res/Configuration;
 
-    .line 346
-    const v2, 0x10403bd
+    const v2, #android:string@elapsed_time_short_format_mm_ss#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1403,8 +1389,7 @@
 
     sput-object v2, Landroid/text/format/DateUtils;->sElapsedFormatMMSS:Ljava/lang/String;
 
-    .line 347
-    const v2, 0x10403be
+    const v2, #android:string@elapsed_time_short_format_h_mm_ss#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -8,7 +8,7 @@
 # Support values: base, base_cm, base_mt6592 and other devices in the future.
 #-----------------------------------------------------------------------------
 #BASE := base_cm
-
+BASE := base_cm
 ##############################################################################
 # The value is used for resource adapter with the aapt tool.
 # It depends on the device's resolution.
@@ -47,14 +47,14 @@ vendor_modify_images := boot
 # The default value is nothing.
 # You can configure the file name which relative to the vendor/system directory.
 #-----------------------------------------------------------------------------
-#vendor_remove_files := bin/zchgd
+vendor_remove_files := etc/permissions/org.cyanogenmod.livedisplay.xml
 
 ##############################################################################
 # The value decides the vendor apk which you want to save in the vendor directory for the ota package.
 # The default value is Bluetooth.
 # You can configure the apk name in the vendor/system/app or vendor/system/priv-app directory.
 #-----------------------------------------------------------------------------
-vendor_saved_apps := Bluetooth BluetoothMidiService HTMLViewer KeyChain PicoTts PrintSpooler Stk UserDictionaryProvider BackupRestoreConfirmation DefaultContainerService ExternalStorageProvider FMRadio FusedLocation InputDevices ProxyHandler SharedStorageBackup Shell
+vendor_saved_apps := Bluetooth BluetoothMidiService HTMLViewer KeyChain PicoTts PrintSpooler Stk UserDictionaryProvider BackupRestoreConfirmation DefaultContainerService ExternalStorageProvider FusedLocation InputDevices ProxyHandler SharedStorageBackup Shell WAPPushManager CaptivePortalLogin webview CMSettingsProvider telresources
 
 ##############################################################################
 # The value decides which vendor apk you want to modify.
@@ -72,7 +72,7 @@ vendor_saved_apps := Bluetooth BluetoothMidiService HTMLViewer KeyChain PicoTts 
 # You need to decode android.policy.jar to the project directory (use apktool d android.policy.jar) first,
 # and then you can make it by:   make android.policy
 #-----------------------------------------------------------------------------
-vendor_modify_jars := framework services telephony-common wifi-service
+vendor_modify_jars := framework services telephony-common wifi-service org.cyanogenmod.platform
 
 ##############################################################################
 # The value decides which board system directory you want to save.
@@ -139,15 +139,19 @@ override_property += \
 # You should configure the property according to your device and your ID with replace the "Nexus-6P_Unofficial".
 override_property += \
     ro.flyme.romer=Unofficial \
-    ro.product.model_romer=X510_Unofficial
+    ro.product.model_romer=X510_Unofficial \
+    config.disable_atlas=true \
+    persist.adb.notify=0 \
+    dalvik.vm.heapgrowthlimit=192m \
+    dalvik.vm.heapsize=512m
 
 ##############################################################################
 # The value decides which property you will remove from the build.prop.
 # The default value is nothing.
 # You can add the property name in the value from the build.prop.
 #-----------------------------------------------------------------------------
-# remove_property += \
-#     dev.defaultwallpaper
+remove_property += \
+    ro.build.selinux
 
 ##############################################################################
 # Defines whether uses assertions in /META-INF/com/google/android/updater-script of the OTA package.
@@ -182,5 +186,11 @@ PRODUCE_BLOCK_BASED_OTA := false
 # Default: false
 #-----------------------------------------------------------------------------
 PRODUCE_INTERNATIONAL_ROM := true
+
+##############################################################################
+# Defines whether use sepolicy inject.
+# Default: true
+#-----------------------------------------------------------------------------
+#PRODUCE_SEPOLICY_INJECT := false
 
 include $(PORT_BUILD)/main.mk

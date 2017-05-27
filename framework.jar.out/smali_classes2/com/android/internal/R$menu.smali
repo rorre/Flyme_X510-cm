@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static final webview_copy:I = 0x1150000
+.field public static final webview_copy:I = #android:menu@webview_copy#t
 
-.field public static final webview_find:I = 0x1150001
+.field public static final webview_find:I = #android:menu@webview_find#t
 
 
 # direct methods

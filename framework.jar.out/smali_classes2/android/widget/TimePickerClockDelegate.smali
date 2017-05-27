@@ -201,29 +201,22 @@
 
     const/4 v2, 0x0
 
-    .line 69
     new-array v0, v3, [I
 
-    .line 70
-    const v1, 0x1010098
+    const v1, #android:attr@textColor#t
 
     aput v1, v0, v2
 
-    .line 69
     sput-object v0, Landroid/widget/TimePickerClockDelegate;->ATTRS_TEXT_COLOR:[I
 
-    .line 71
     new-array v0, v3, [I
 
-    .line 72
-    const v1, 0x1010033
+    const v1, #android:attr@disabledAlpha#t
 
     aput v1, v0, v2
 
-    .line 71
     sput-object v0, Landroid/widget/TimePickerClockDelegate;->ATTRS_DISABLED_ALPHA:[I
 
-    .line 55
     return-void
 .end method
 
@@ -361,7 +354,7 @@
 
     .line 131
     .local v16, "res":Landroid/content/res/Resources;
-    const v19, 0x10405e0
+    const v19, #android:string@select_hours#t
 
     move-object/from16 v0, v16
 
@@ -377,8 +370,7 @@
 
     iput-object v0, v1, Landroid/widget/TimePickerClockDelegate;->mSelectHours:Ljava/lang/String;
 
-    .line 132
-    const v19, 0x10405e1
+    const v19, #android:string@select_minutes#t
 
     move-object/from16 v0, v16
 
@@ -422,13 +414,10 @@
 
     iput-object v0, v1, Landroid/widget/TimePickerClockDelegate;->mPmText:Ljava/lang/String;
 
-    .line 138
     const/16 v19, 0xa
 
-    .line 139
-    const v20, 0x10900f5
+    const v20, #android:layout@time_picker_material#t
 
-    .line 138
     move/from16 v0, v19
 
     move/from16 v1, v20
@@ -447,7 +436,7 @@
 
     .line 142
     .local v15, "mainView":Landroid/view/View;
-    const v19, 0x10203f7
+    const v19, #android:id@time_header#t
 
     move/from16 v0, v19
 
@@ -461,8 +450,7 @@
 
     iput-object v0, v1, Landroid/widget/TimePickerClockDelegate;->mHeaderView:Landroid/view/View;
 
-    .line 145
-    const v19, 0x10203f8
+    const v19, #android:id@hours#t
 
     move/from16 v0, v19
 
@@ -503,7 +491,7 @@
     .line 148
     new-instance v20, Landroid/widget/TimePickerClockDelegate$ClickActionDelegate;
 
-    const v21, 0x10405e0
+    const v21, #android:string@select_hours#t
 
     move-object/from16 v0, v20
 
@@ -513,11 +501,9 @@
 
     invoke-direct {v0, v1, v2}, Landroid/widget/TimePickerClockDelegate$ClickActionDelegate;-><init>(Landroid/content/Context;I)V
 
-    .line 147
     invoke-virtual/range {v19 .. v20}, Landroid/widget/TextView;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    .line 149
-    const v19, 0x10203f9
+    const v19, #android:id@separator#t
 
     move/from16 v0, v19
 
@@ -533,8 +519,7 @@
 
     iput-object v0, v1, Landroid/widget/TimePickerClockDelegate;->mSeparatorView:Landroid/widget/TextView;
 
-    .line 150
-    const v19, 0x10203fa
+    const v19, #android:id@minutes#t
 
     move/from16 v0, v19
 
@@ -575,7 +560,7 @@
     .line 153
     new-instance v20, Landroid/widget/TimePickerClockDelegate$ClickActionDelegate;
 
-    const v21, 0x10405e1
+    const v21, #android:string@select_minutes#t
 
     move-object/from16 v0, v20
 
@@ -673,7 +658,7 @@
 
     .line 164
     .local v6, "amLabel":Landroid/text/SpannableStringBuilder;
-    const v19, 0x10203fb
+    const v19, #android:id@ampm_layout#t
 
     move/from16 v0, v19
 
@@ -694,7 +679,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x10203fc
+    const v20, #android:id@am_label#t
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -747,7 +732,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x10203fd
+    const v20, #android:id@pm_label#t
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -974,14 +959,11 @@
 
     invoke-virtual/range {v19 .. v20}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 205
     :cond_3
     invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 208
-    const v19, 0x1020403
+    const v19, #android:id@radial_picker#t
 
-    .line 207
     move/from16 v0, v19
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1008,8 +990,7 @@
 
     iput-boolean v0, v1, Landroid/widget/TimePickerClockDelegate;->mAllowAutoAdvance:Z
 
-    .line 215
-    const v19, 0x10405e6
+    const v19, #android:string@time_placeholder#t
 
     move-object/from16 v0, v16
 
@@ -1025,8 +1006,7 @@
 
     iput-object v0, v1, Landroid/widget/TimePickerClockDelegate;->mDoublePlaceholderText:Ljava/lang/String;
 
-    .line 216
-    const v19, 0x10405e4
+    const v19, #android:string@deleted_key#t
 
     move-object/from16 v0, v16
 
@@ -1294,7 +1274,7 @@
     .prologue
     const/4 v12, 0x0
 
-    const v11, 0x10102fe
+    const v11, #android:attr@state_activated#t
 
     const/4 v10, 0x2
 
@@ -1317,7 +1297,7 @@
 
     .line 250
     :cond_1
-    const v6, 0x10100a1
+    const v6, #android:attr@state_selected#t
 
     invoke-virtual {p1, v6}, Landroid/content/res/ColorStateList;->hasState(I)Z
 

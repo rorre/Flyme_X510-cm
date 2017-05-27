@@ -184,34 +184,26 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1388
     :cond_0
     new-instance v8, Landroid/content/Intent;
 
     invoke-direct {v8}, Landroid/content/Intent;-><init>()V
 
-    .line 1389
     .local v8, "intent":Landroid/content/Intent;
-    const-string/jumbo v0, "android.content.SyncAdapter"
+    const-string v0, "android.content.SyncAdapter"
 
     invoke-virtual {v8, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1390
     invoke-virtual {v8, p1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 1391
-    const-string/jumbo v0, "android.intent.extra.client_label"
+    const-string v0, "android.intent.extra.client_label"
 
-    .line 1392
-    const v2, 0x10404b1
+    const v2, #android:string@sync_binding_label#t
 
-    .line 1391
     invoke-virtual {v8, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 1393
-    const-string/jumbo v9, "android.intent.extra.client_intent"
+    const-string v9, "android.intent.extra.client_intent"
 
-    .line 1394
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-static {v0}, Lcom/android/server/content/SyncManager;->-get8(Lcom/android/server/content/SyncManager;)Landroid/content/Context;

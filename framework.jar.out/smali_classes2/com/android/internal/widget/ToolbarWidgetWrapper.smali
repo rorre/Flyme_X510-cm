@@ -91,12 +91,10 @@
     .param p2, "style"    # Z
 
     .prologue
-    .line 91
-    const v0, 0x1040503
+    const v0, #android:string@action_bar_up_description#t
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/widget/ToolbarWidgetWrapper;-><init>(Landroid/widget/Toolbar;ZI)V
 
-    .line 90
     return-void
 .end method
 
@@ -192,23 +190,18 @@
 
     iput-object v0, v1, Lcom/android/internal/widget/ToolbarWidgetWrapper;->mNavIcon:Landroid/graphics/drawable/Drawable;
 
-    .line 102
     invoke-virtual/range {p1 .. p1}, Landroid/widget/Toolbar;->getContext()Landroid/content/Context;
 
     move-result-object v18
 
-    .line 103
     sget-object v19, Lcom/android/internal/R$styleable;->ActionBar:[I
 
-    .line 102
     const/16 v20, 0x0
 
-    .line 103
-    const v21, 0x10102ce
+    const v21, #android:attr@actionBarStyle#t
 
     const/16 v22, 0x0
 
-    .line 102
     move-object/from16 v0, v18
 
     move-object/from16 v1, v20
@@ -812,7 +805,7 @@
 
     move-result-object v2
 
-    const v3, 0x10102d7
+    const v3, #android:attr@actionDropDownStyle#t
 
     invoke-direct {v1, v2, v5, v3}, Landroid/widget/Spinner;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -1991,20 +1984,17 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper;->mActionMenuPresenter:Landroid/widget/ActionMenuPresenter;
 
-    .line 388
     iget-object v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper;->mActionMenuPresenter:Landroid/widget/ActionMenuPresenter;
 
-    const v1, 0x102004b
+    const v1, #android:id@action_menu_presenter#t
 
     invoke-virtual {v0, v1}, Landroid/widget/ActionMenuPresenter;->setId(I)V
 
-    .line 390
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper;->mActionMenuPresenter:Landroid/widget/ActionMenuPresenter;
 
     invoke-virtual {v0, p2}, Landroid/widget/ActionMenuPresenter;->setCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
 
-    .line 391
     iget-object v0, p0, Lcom/android/internal/widget/ToolbarWidgetWrapper;->mToolbar:Landroid/widget/Toolbar;
 
     check-cast p1, Lcom/android/internal/view/menu/MenuBuilder;

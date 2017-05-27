@@ -3,6 +3,13 @@
 .source "ResourcesManager.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/app/ResourcesManager$FlymeInjector;
+    }
+.end annotation
+
 # static fields
 .field private static final DEBUG:Z = false
 
@@ -1795,29 +1802,25 @@
 
     if-eqz v12, :cond_a
 
-    .line 487
     :cond_2
     :goto_0
     iget-object v12, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     if-eqz v12, :cond_3
 
-    .line 488
     iget-object v12, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     invoke-static {v12}, Ljava/util/Locale;->setDefault(Ljava/util/Locale;)V
 
-    .line 491
     :cond_3
     invoke-static {p1, v2, p2}, Landroid/content/res/Resources;->updateSystemConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
 
-    .line 493
+    invoke-static {v1}, Landroid/app/ResourcesManager$FlymeInjector;->freeCaches(I)V
+
     invoke-static {}, Landroid/app/ApplicationPackageManager;->configurationChanged()V
 
-    .line 496
     const/4 v11, 0x0
 
-    .line 498
     .local v11, "tmpConfig":Landroid/content/res/Configuration;
     iget-object v12, p0, Landroid/app/ResourcesManager;->mActiveResources:Landroid/util/ArrayMap;
 

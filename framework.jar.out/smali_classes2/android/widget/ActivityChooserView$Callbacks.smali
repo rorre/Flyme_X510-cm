@@ -131,23 +131,19 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    .line 665
     aput-object v0, v4, v6
 
-    const v5, 0x10404fb
+    const v5, #android:string@activitychooserview_choose_application_error#t
 
-    .line 664
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 666
     .local v1, "message":Ljava/lang/String;
-    const-string/jumbo v3, "ActivityChooserView"
+    const-string v3, "ActivityChooserView"
 
     invoke-static {v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 667
     iget-object v3, p0, Landroid/widget/ActivityChooserView$Callbacks;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-static {v3}, Landroid/widget/ActivityChooserView;->-get1(Landroid/widget/ActivityChooserView;)Landroid/content/Context;

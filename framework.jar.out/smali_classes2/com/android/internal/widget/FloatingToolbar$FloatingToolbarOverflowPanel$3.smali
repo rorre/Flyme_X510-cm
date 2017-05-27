@@ -71,26 +71,21 @@
 
     check-cast v1, Landroid/view/MenuItem;
 
-    .line 1367
     .local v1, "menuItem":Landroid/view/MenuItem;
-    const v2, 0x1020054
+    const v2, #android:id@floating_toolbar_menu_item_image_button#t
 
-    .line 1366
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/ImageView;
 
-    .line 1368
     invoke-interface {v1}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    .line 1366
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1369
     iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel$3;->this$1:Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;
 
     invoke-static {v2}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->-get3(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;)I
@@ -112,10 +107,8 @@
 
     move-result-object v2
 
-    .line 1363
-    const v3, 0x109005d
+    const v3, #android:layout@floating_popup_overflow_image_list_item#t
 
-    .line 1362
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0

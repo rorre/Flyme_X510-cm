@@ -785,6 +785,8 @@
     .local v3, "uid":I
     if-eqz v3, :cond_1
 
+    goto :goto_flyme_0
+
     const/16 v4, 0x3e8
 
     if-ne v3, v4, :cond_2
@@ -811,10 +813,10 @@
 
     throw v4
 
-    .line 163
     :cond_2
+    :goto_flyme_0
     :try_start_2
-    const-string/jumbo v4, "WebViewFactory.getProvider()"
+    const-string v4, "WebViewFactory.getProvider()"
 
     const-wide/16 v6, 0x10
 
@@ -1472,21 +1474,17 @@
     .locals 3
 
     .prologue
-    .line 100
     invoke-static {}, Landroid/app/AppGlobals;->getInitialApplication()Landroid/app/Application;
 
     move-result-object v0
 
-    .line 102
     .local v0, "initialApp":Landroid/app/Application;
-    const v2, 0x10400ce
+    const v2, #android:string@config_alternateWebViewPackageName#t
 
-    .line 101
     invoke-virtual {v0, v2}, Landroid/app/Application;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 104
     .local v1, "pkg":Ljava/lang/String;
     invoke-static {v0, v1}, Landroid/webkit/WebViewFactory;->isPackageInstalled(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -1494,14 +1492,11 @@
 
     if-eqz v2, :cond_0
 
-    .line 105
     return-object v1
 
-    .line 108
     :cond_0
-    const v2, 0x10400cd
+    const v2, #android:string@config_webViewPackageName#t
 
-    .line 107
     invoke-virtual {v0, v2}, Landroid/app/Application;->getString(I)Ljava/lang/String;
 
     move-result-object v2

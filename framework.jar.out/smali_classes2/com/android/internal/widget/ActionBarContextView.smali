@@ -54,12 +54,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 62
-    const v0, 0x1010394
+    const v0, #android:attr@actionModeStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/widget/ActionBarContextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 61
     return-void
 .end method
 
@@ -108,63 +106,50 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/ActionBarContextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 78
     const/4 v1, 0x2
 
-    .line 77
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleStyleRes:I
 
-    .line 80
     const/4 v1, 0x3
 
-    .line 79
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/internal/widget/ActionBarContextView;->mSubtitleStyleRes:I
 
-    .line 83
     const/4 v1, 0x1
 
-    .line 82
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/internal/widget/ActionBarContextView;->mContentHeight:I
 
-    .line 86
     const/4 v1, 0x4
 
-    .line 85
     invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/widget/ActionBarContextView;->mSplitBackground:Landroid/graphics/drawable/Drawable;
 
-    .line 89
     const/4 v1, 0x5
 
-    .line 90
-    const v2, 0x109001f
+    const v2, #android:layout@action_mode_close_item#t
 
-    .line 88
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/internal/widget/ActionBarContextView;->mCloseItemLayout:I
 
-    .line 92
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 70
     return-void
 .end method
 
@@ -190,13 +175,11 @@
 
     move-result-object v2
 
-    .line 177
     .local v2, "inflater":Landroid/view/LayoutInflater;
-    const v3, 0x109001a
+    const v3, #android:layout@action_bar_title_item#t
 
     invoke-virtual {v2, v3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 178
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarContextView;->getChildCount()I
 
     move-result v3
@@ -214,7 +197,7 @@
     .line 179
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
-    const v6, 0x10202ee
+    const v6, #android:id@action_bar_title#t
 
     invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +210,7 @@
     .line 180
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
-    const v6, 0x10202ef
+    const v6, #android:id@action_bar_subtitle#t
 
     invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -514,7 +497,7 @@
     :goto_0
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarContextView;->mClose:Landroid/view/View;
 
-    const v5, 0x10202f0
+    const v5, #android:id@action_mode_close_button#t
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

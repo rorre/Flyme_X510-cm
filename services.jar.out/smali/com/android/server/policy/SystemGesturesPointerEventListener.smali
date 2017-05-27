@@ -164,22 +164,18 @@
 
     move-result-object v0
 
-    .line 70
-    const v1, 0x1050017
+    const v1, #android:dimen@status_bar_height#t
 
-    .line 69
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/policy/SystemGesturesPointerEventListener;->mSwipeStartThreshold:I
 
-    .line 71
     iget v0, p0, Lcom/android/server/policy/SystemGesturesPointerEventListener;->mSwipeStartThreshold:I
 
     iput v0, p0, Lcom/android/server/policy/SystemGesturesPointerEventListener;->mSwipeDistanceThreshold:I
 
-    .line 66
     return-void
 .end method
 

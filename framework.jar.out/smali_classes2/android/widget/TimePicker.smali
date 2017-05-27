@@ -45,12 +45,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 66
-    const v0, 0x101049d
+    const v0, #android:attr@timePickerStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/TimePicker;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 65
     return-void
 .end method
 

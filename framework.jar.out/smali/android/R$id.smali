@@ -15,127 +15,127 @@
 
 
 # static fields
-.field public static final accessibilityActionContextClick:I = 0x102003c
+.field public static final accessibilityActionContextClick:I = #android:id@accessibilityActionContextClick#t
 
-.field public static final accessibilityActionScrollDown:I = 0x102003a
+.field public static final accessibilityActionScrollDown:I = #android:id@accessibilityActionScrollDown#t
 
-.field public static final accessibilityActionScrollLeft:I = 0x1020039
+.field public static final accessibilityActionScrollLeft:I = #android:id@accessibilityActionScrollLeft#t
 
-.field public static final accessibilityActionScrollRight:I = 0x102003b
+.field public static final accessibilityActionScrollRight:I = #android:id@accessibilityActionScrollRight#t
 
-.field public static final accessibilityActionScrollToPosition:I = 0x1020037
+.field public static final accessibilityActionScrollToPosition:I = #android:id@accessibilityActionScrollToPosition#t
 
-.field public static final accessibilityActionScrollUp:I = 0x1020038
+.field public static final accessibilityActionScrollUp:I = #android:id@accessibilityActionScrollUp#t
 
-.field public static final accessibilityActionShowOnScreen:I = 0x1020036
+.field public static final accessibilityActionShowOnScreen:I = #android:id@accessibilityActionShowOnScreen#t
 
-.field public static final addToDictionary:I = 0x102002a
+.field public static final addToDictionary:I = #android:id@addToDictionary#t
 
-.field public static final background:I = 0x1020000
+.field public static final background:I = #android:id@background#t
 
-.field public static final button1:I = 0x1020019
+.field public static final button1:I = #android:id@button1#t
 
-.field public static final button2:I = 0x102001a
+.field public static final button2:I = #android:id@button2#t
 
-.field public static final button3:I = 0x102001b
+.field public static final button3:I = #android:id@button3#t
 
-.field public static final candidatesArea:I = 0x102001d
+.field public static final candidatesArea:I = #android:id@candidatesArea#t
 
-.field public static final checkbox:I = 0x1020001
+.field public static final checkbox:I = #android:id@checkbox#t
 
-.field public static final closeButton:I = 0x1020027
+.field public static final closeButton:I = #android:id@closeButton#t
 
-.field public static final content:I = 0x1020002
+.field public static final content:I = #android:id@content#t
 
-.field public static final copy:I = 0x1020021
+.field public static final copy:I = #android:id@copy#t
 
-.field public static final copyUrl:I = 0x1020023
+.field public static final copyUrl:I = #android:id@copyUrl#t
 
-.field public static final custom:I = 0x102002b
+.field public static final custom:I = #android:id@custom#t
 
-.field public static final cut:I = 0x1020020
+.field public static final cut:I = #android:id@cut#t
 
-.field public static final edit:I = 0x1020003
+.field public static final edit:I = #android:id@edit#t
 
-.field public static final empty:I = 0x1020004
+.field public static final empty:I = #android:id@empty#t
 
-.field public static final extractArea:I = 0x102001c
+.field public static final extractArea:I = #android:id@extractArea#t
 
-.field public static final hint:I = 0x1020005
+.field public static final hint:I = #android:id@hint#t
 
-.field public static final home:I = 0x102002c
+.field public static final home:I = #android:id@home#t
 
-.field public static final icon:I = 0x1020006
+.field public static final icon:I = #android:id@icon#t
 
-.field public static final icon1:I = 0x1020007
+.field public static final icon1:I = #android:id@icon1#t
 
-.field public static final icon2:I = 0x1020008
+.field public static final icon2:I = #android:id@icon2#t
 
-.field public static final input:I = 0x1020009
+.field public static final input:I = #android:id@input#t
 
-.field public static final inputArea:I = 0x102001e
+.field public static final inputArea:I = #android:id@inputArea#t
 
-.field public static final inputExtractEditText:I = 0x1020025
+.field public static final inputExtractEditText:I = #android:id@inputExtractEditText#t
 
-.field public static final keyboardView:I = 0x1020026
+.field public static final keyboardView:I = #android:id@keyboardView#t
 
-.field public static final list:I = 0x102000a
+.field public static final list:I = #android:id@list#t
 
-.field public static final mask:I = 0x102002e
+.field public static final mask:I = #android:id@mask#t
 
-.field public static final message:I = 0x102000b
+.field public static final message:I = #android:id@message#t
 
-.field public static final navigationBarBackground:I = 0x1020030
+.field public static final navigationBarBackground:I = #android:id@navigationBarBackground#t
 
-.field public static final paste:I = 0x1020022
+.field public static final paste:I = #android:id@paste#t
 
-.field public static final pasteAsPlainText:I = 0x1020031
+.field public static final pasteAsPlainText:I = #android:id@pasteAsPlainText#t
 
-.field public static final primary:I = 0x102000c
+.field public static final primary:I = #android:id@primary#t
 
-.field public static final progress:I = 0x102000d
+.field public static final progress:I = #android:id@progress#t
 
-.field public static final redo:I = 0x1020033
+.field public static final redo:I = #android:id@redo#t
 
-.field public static final replaceText:I = 0x1020034
+.field public static final replaceText:I = #android:id@replaceText#t
 
-.field public static final secondaryProgress:I = 0x102000f
+.field public static final secondaryProgress:I = #android:id@secondaryProgress#t
 
-.field public static final selectAll:I = 0x102001f
+.field public static final selectAll:I = #android:id@selectAll#t
 
-.field public static final selectTextMode:I = 0x102002d
+.field public static final selectTextMode:I = #android:id@selectTextMode#t
 
-.field public static final selectedIcon:I = 0x102000e
+.field public static final selectedIcon:I = #android:id@selectedIcon#t
 
-.field public static final shareText:I = 0x1020035
+.field public static final shareText:I = #android:id@shareText#t
 
-.field public static final startSelectingText:I = 0x1020028
+.field public static final startSelectingText:I = #android:id@startSelectingText#t
 
-.field public static final statusBarBackground:I = 0x102002f
+.field public static final statusBarBackground:I = #android:id@statusBarBackground#t
 
-.field public static final stopSelectingText:I = 0x1020029
+.field public static final stopSelectingText:I = #android:id@stopSelectingText#t
 
-.field public static final summary:I = 0x1020010
+.field public static final summary:I = #android:id@summary#t
 
-.field public static final switchInputMethod:I = 0x1020024
+.field public static final switchInputMethod:I = #android:id@switchInputMethod#t
 
-.field public static final tabcontent:I = 0x1020011
+.field public static final tabcontent:I = #android:id@tabcontent#t
 
-.field public static final tabhost:I = 0x1020012
+.field public static final tabhost:I = #android:id@tabhost#t
 
-.field public static final tabs:I = 0x1020013
+.field public static final tabs:I = #android:id@tabs#t
 
-.field public static final text1:I = 0x1020014
+.field public static final text1:I = #android:id@text1#t
 
-.field public static final text2:I = 0x1020015
+.field public static final text2:I = #android:id@text2#t
 
-.field public static final title:I = 0x1020016
+.field public static final title:I = #android:id@title#t
 
-.field public static final toggle:I = 0x1020017
+.field public static final toggle:I = #android:id@toggle#t
 
-.field public static final undo:I = 0x1020032
+.field public static final undo:I = #android:id@undo#t
 
-.field public static final widget_frame:I = 0x1020018
+.field public static final widget_frame:I = #android:id@widget_frame#t
 
 
 # direct methods

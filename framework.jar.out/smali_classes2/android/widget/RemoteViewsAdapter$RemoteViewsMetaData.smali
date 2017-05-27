@@ -138,27 +138,22 @@
 
     invoke-direct {v9, v10}, Ljava/lang/Integer;-><init>(I)V
 
-    .line 476
-    const v10, 0x1020046
+    const v10, #android:id@rowTypeId#t
 
     invoke-virtual {v8, v10, v9}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 
-    .line 478
     invoke-virtual {v6, v8}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayout;->addView(Landroid/view/View;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 479
     const/4 v2, 0x1
 
-    .line 485
     .end local v8    # "loadingView":Landroid/view/View;
     :cond_0
     :goto_0
     if-nez v2, :cond_2
 
-    .line 488
     :try_start_2
     iget v9, p0, Landroid/widget/RemoteViewsAdapter$RemoteViewsMetaData;->mFirstViewHeight:I
     :try_end_2
@@ -217,16 +212,13 @@
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 507
     .end local v5    # "firstView":Landroid/view/View;
     :cond_1
     :goto_1
-    const v9, 0x10900bd
+    const v9, #android:layout@remote_views_adapter_default_loading_view#t
 
-    .line 508
     const/4 v10, 0x0
 
-    .line 506
     :try_start_4
     move-object/from16 v0, p5
 

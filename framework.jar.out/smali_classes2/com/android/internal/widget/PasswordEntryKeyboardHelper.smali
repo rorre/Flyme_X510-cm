@@ -125,61 +125,44 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 44
     iput v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mKeyboardMode:I
 
-    .line 45
     iput v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mKeyboardState:I
 
-    .line 55
     iput-boolean v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mEnableHaptics:Z
 
-    .line 64
-    const v1, 0x1110009
+    const v1, #android:xml@password_kbd_numeric#t
 
-    .line 65
-    const v2, 0x111000b
+    const v2, #android:xml@password_kbd_qwerty#t
 
-    .line 66
-    const v3, 0x111000c
+    const v3, #android:xml@password_kbd_qwerty_shifted#t
 
-    .line 67
-    const v4, 0x111000d
+    const v4, #android:xml@password_kbd_symbols#t
 
-    .line 68
-    const v5, 0x111000e
+    const v5, #android:xml@password_kbd_symbols_shift#t
 
-    .line 63
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mLayouts:[I
 
-    .line 84
     iput-object p1, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mContext:Landroid/content/Context;
 
-    .line 85
     iput-object p3, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mTargetView:Landroid/view/View;
 
-    .line 86
     iput-object p2, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mKeyboardView:Landroid/inputmethodservice/KeyboardView;
 
-    .line 87
     iget-object v1, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mKeyboardView:Landroid/inputmethodservice/KeyboardView;
 
     invoke-virtual {v1, p0}, Landroid/inputmethodservice/KeyboardView;->setOnKeyboardActionListener(Landroid/inputmethodservice/KeyboardView$OnKeyboardActionListener;)V
 
-    .line 88
     iput-boolean p4, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mUsingScreenWidth:Z
 
-    .line 89
     if-eqz p5, :cond_1
 
-    .line 90
     array-length v1, p5
 
     iget-object v2, p0, Lcom/android/internal/widget/PasswordEntryKeyboardHelper;->mLayouts:[I
@@ -234,7 +217,7 @@
     .locals 6
 
     .prologue
-    const v5, 0x102041f
+    const v5, #android:id@mode_normal#t
 
     const/4 v4, 0x1
 
@@ -351,7 +334,7 @@
     .param p2, "height"    # I
 
     .prologue
-    const v3, 0x102041f
+    const v3, #android:id@mode_normal#t
 
     const/4 v6, 0x1
 

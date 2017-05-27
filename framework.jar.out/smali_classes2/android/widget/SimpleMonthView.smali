@@ -223,12 +223,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 140
-    const v0, 0x101035c
+    const v0, #android:attr@datePickerStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/SimpleMonthView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 139
     return-void
 .end method
 
@@ -339,7 +337,7 @@
 
     .line 151
     .local v1, "res":Landroid/content/res/Resources;
-    const v3, 0x1050125
+    const v3, #android:dimen@date_picker_month_height#t
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -347,8 +345,7 @@
 
     iput v3, p0, Landroid/widget/SimpleMonthView;->mDesiredMonthHeight:I
 
-    .line 152
-    const v3, 0x1050126
+    const v3, #android:dimen@date_picker_day_of_week_height#t
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -356,8 +353,7 @@
 
     iput v3, p0, Landroid/widget/SimpleMonthView;->mDesiredDayOfWeekHeight:I
 
-    .line 153
-    const v3, 0x1050127
+    const v3, #android:dimen@date_picker_day_height#t
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -365,8 +361,7 @@
 
     iput v3, p0, Landroid/widget/SimpleMonthView;->mDesiredDayHeight:I
 
-    .line 154
-    const v3, 0x1050128
+    const v3, #android:dimen@date_picker_day_width#t
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -374,47 +369,39 @@
 
     iput v3, p0, Landroid/widget/SimpleMonthView;->mDesiredCellWidth:I
 
-    .line 156
-    const v3, 0x1050129
+    const v3, #android:dimen@date_picker_day_selector_radius#t
 
-    .line 155
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
     iput v3, p0, Landroid/widget/SimpleMonthView;->mDesiredDaySelectorRadius:I
 
-    .line 159
     new-instance v3, Landroid/widget/SimpleMonthView$MonthViewTouchHelper;
 
     invoke-direct {v3, p0, p0}, Landroid/widget/SimpleMonthView$MonthViewTouchHelper;-><init>(Landroid/widget/SimpleMonthView;Landroid/view/View;)V
 
     iput-object v3, p0, Landroid/widget/SimpleMonthView;->mTouchHelper:Landroid/widget/SimpleMonthView$MonthViewTouchHelper;
 
-    .line 160
     iget-object v3, p0, Landroid/widget/SimpleMonthView;->mTouchHelper:Landroid/widget/SimpleMonthView$MonthViewTouchHelper;
 
     invoke-virtual {p0, v3}, Landroid/widget/SimpleMonthView;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    .line 161
     invoke-virtual {p0, v5}, Landroid/widget/SimpleMonthView;->setImportantForAccessibility(I)V
 
-    .line 163
     invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v3
 
     iget-object v0, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    .line 164
     .local v0, "locale":Ljava/util/Locale;
-    const-string/jumbo v3, "MMMMy"
+    const-string v3, "MMMMy"
 
     invoke-static {v0, v3}, Landroid/text/format/DateFormat;->getBestDateTimePattern(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 165
     .local v2, "titleFormat":Ljava/lang/String;
     new-instance v3, Ljava/text/SimpleDateFormat;
 
@@ -1527,16 +1514,14 @@
 
     const/4 v8, 0x1
 
-    .line 242
-    const v6, 0x10405e9
+    const v6, #android:string@date_picker_month_typeface#t
 
     invoke-virtual {p1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 243
     .local v5, "monthTypeface":Ljava/lang/String;
-    const v6, 0x10405ea
+    const v6, #android:string@date_picker_day_of_week_typeface#t
 
     invoke-virtual {p1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1544,53 +1529,44 @@
 
     .line 244
     .local v1, "dayOfWeekTypeface":Ljava/lang/String;
-    const v6, 0x10405eb
+    const v6, #android:string@date_picker_day_typeface#t
 
     invoke-virtual {p1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 247
     .local v3, "dayTypeface":Ljava/lang/String;
-    const v6, 0x1050122
+    const v6, #android:dimen@date_picker_month_text_size#t
 
-    .line 246
     invoke-virtual {p1, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    .line 249
     .local v4, "monthTextSize":I
-    const v6, 0x1050123
+    const v6, #android:dimen@date_picker_day_of_week_text_size#t
 
-    .line 248
     invoke-virtual {p1, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    .line 251
     .local v0, "dayOfWeekTextSize":I
-    const v6, 0x1050124
+    const v6, #android:dimen@date_picker_day_text_size#t
 
-    .line 250
     invoke-virtual {p1, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    .line 253
     .local v2, "dayTextSize":I
     iget-object v6, p0, Landroid/widget/SimpleMonthView;->mMonthPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v6, v8}, Landroid/text/TextPaint;->setAntiAlias(Z)V
 
-    .line 254
     iget-object v6, p0, Landroid/widget/SimpleMonthView;->mMonthPaint:Landroid/text/TextPaint;
 
     int-to-float v7, v4
 
     invoke-virtual {v6, v7}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 255
     iget-object v6, p0, Landroid/widget/SimpleMonthView;->mMonthPaint:Landroid/text/TextPaint;
 
     invoke-static {v5, v9}, Landroid/graphics/Typeface;->create(Ljava/lang/String;I)Landroid/graphics/Typeface;

@@ -297,9 +297,9 @@
     .param p3, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    const v10, 0x1090022
+    const v10, #android:layout@activity_chooser_view_list_item#t
 
-    const v9, 0x1020016
+    const v9, #android:id@title#t
 
     const/4 v8, 0x1
 
@@ -365,22 +365,18 @@
 
     move-result-object v5
 
-    .line 765
-    const v6, 0x1040529
+    const v6, #android:string@activity_chooser_view_see_all#t
 
-    .line 764
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 767
     .end local v4    # "titleView":Landroid/widget/TextView;
     :cond_1
     return-object p2
 
-    .line 769
     :pswitch_1
     if-eqz p2, :cond_2
 
@@ -388,7 +384,7 @@
 
     move-result v5
 
-    const v6, 0x10202f5
+    const v6, #android:id@list_item#t
 
     if-eq v5, v6, :cond_3
 
@@ -422,7 +418,7 @@
 
     .line 775
     .local v3, "packageManager":Landroid/content/pm/PackageManager;
-    const v5, 0x1020006
+    const v5, #android:id@icon#t
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

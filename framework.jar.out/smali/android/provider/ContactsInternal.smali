@@ -207,28 +207,22 @@
     .param p2, "user"    # Landroid/os/UserHandle;
 
     .prologue
-    .line 74
     :try_start_0
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 72
     :goto_0
     return-void
 
-    .line 75
     :catch_0
     move-exception v0
 
-    .line 76
     .local v0, "e":Landroid/content/ActivityNotFoundException;
-    const v1, 0x10402de
+    const v1, #android:string@quick_contacts_not_available#t
 
-    .line 77
     const/4 v2, 0x0
 
-    .line 76
     invoke-static {p0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v1

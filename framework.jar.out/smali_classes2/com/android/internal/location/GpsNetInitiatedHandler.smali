@@ -641,8 +641,7 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 585
-    const v1, 0x10404d6
+    const v1, #android:string@gpsNotifMessage#t
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -698,8 +697,7 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 569
-    const v1, 0x10404d4
+    const v1, #android:string@gpsNotifTicker#t
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -755,8 +753,7 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 578
-    const v1, 0x10404d5
+    const v1, #android:string@gpsNotifTitle#t
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1279,82 +1276,65 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 370
     iget-object v5, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mNiNotificationBuilder:Landroid/app/Notification$Builder;
 
     if-nez v5, :cond_1
 
-    .line 371
     new-instance v5, Landroid/app/Notification$Builder;
 
     iget-object v6, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mContext:Landroid/content/Context;
 
     invoke-direct {v5, v6}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 372
-    const v6, 0x108067f
+    const v6, #android:drawable@stat_sys_gps_on#t
 
-    .line 371
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
-    .line 373
     const-wide/16 v6, 0x0
 
-    .line 371
     invoke-virtual {v5, v6, v7}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
-    .line 374
     const/4 v6, 0x1
 
-    .line 371
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
-    .line 375
     const/4 v6, 0x1
 
-    .line 371
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
-    .line 376
     iget-object v6, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mContext:Landroid/content/Context;
 
-    .line 377
-    const v7, 0x1060070
+    const v7, #android:color@system_notification_accent_color#t
 
-    .line 376
     invoke-virtual {v6, v7}, Landroid/content/Context;->getColor(I)I
 
     move-result v6
 
-    .line 371
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v5
 
     iput-object v5, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mNiNotificationBuilder:Landroid/app/Notification$Builder;
 
-    .line 380
     :cond_1
     iget-boolean v5, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mPlaySounds:Z
 
     if-eqz v5, :cond_2
 
-    .line 381
     iget-object v5, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mNiNotificationBuilder:Landroid/app/Notification$Builder;
 
     const/4 v6, 0x1
 
     invoke-virtual {v5, v6}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
 
-    .line 387
     :goto_0
     iget-boolean v5, p0, Lcom/android/internal/location/GpsNetInitiatedHandler;->mPopupImmediately:Z
 

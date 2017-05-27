@@ -145,12 +145,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 251
-    const v0, 0x1010077
+    const v0, #android:attr@progressBarStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 250
     return-void
 .end method
 
@@ -310,25 +308,19 @@
 
     iput v4, p0, Landroid/widget/ProgressBar;->mBehavior:I
 
-    .line 292
     const/16 v4, 0xd
 
-    .line 293
-    const v5, 0x10a000b
+    const v5, #android:anim@linear_interpolator#t
 
-    .line 291
     invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v3
 
-    .line 294
     .local v3, "resID":I
     if-lez v3, :cond_1
 
-    .line 295
     invoke-virtual {p0, p1, v3}, Landroid/widget/ProgressBar;->setInterpolator(Landroid/content/Context;I)V
 
-    .line 298
     :cond_1
     iget v4, p0, Landroid/widget/ProgressBar;->mMax:I
 
@@ -986,7 +978,7 @@
 
     .line 839
     :cond_0
-    const v1, 0x102000d
+    const v1, #android:id@progress#t
 
     const/4 v2, 0x1
 
@@ -1069,7 +1061,7 @@
 
     .line 864
     :cond_0
-    const/high16 v1, 0x1020000
+    const/high16 v1, #android:id@background#i
 
     const/4 v2, 0x0
 
@@ -1179,7 +1171,7 @@
 
     .line 889
     :cond_0
-    const v1, 0x102000f
+    const v1, #android:id@secondaryProgress#t
 
     const/4 v2, 0x0
 
@@ -1332,7 +1324,7 @@
     :goto_2
     if-eqz p4, :cond_1
 
-    const v5, 0x102000d
+    const v5, #android:id@progress#t
 
     if-ne p1, v5, :cond_1
 
@@ -1789,23 +1781,20 @@
     :goto_0
     if-ge v5, v1, :cond_2
 
-    .line 461
     invoke-virtual {v8, v5}, Landroid/graphics/drawable/LayerDrawable;->getId(I)I
 
     move-result v6
 
-    .line 462
     .local v6, "id":I
     invoke-virtual {v8, v5}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v13
 
-    .line 463
-    const v12, 0x102000d
+    const v12, #android:id@progress#t
 
     if-eq v6, v12, :cond_0
 
-    const v12, 0x102000f
+    const v12, #android:id@secondaryProgress#t
 
     if-ne v6, v12, :cond_1
 
@@ -4056,7 +4045,7 @@
     :cond_1
     iget v0, p0, Landroid/widget/ProgressBar;->mProgress:I
 
-    const v1, 0x102000d
+    const v1, #android:id@progress#t
 
     const/4 v2, 0x0
 
@@ -4164,7 +4153,7 @@
     .line 1361
     iget v0, p0, Landroid/widget/ProgressBar;->mProgress:I
 
-    const v1, 0x102000d
+    const v1, #android:id@progress#t
 
     invoke-direct {p0, v1, v0, p2}, Landroid/widget/ProgressBar;->refreshProgress(IIZ)V
     :try_end_2
@@ -4384,24 +4373,20 @@
 
     invoke-direct {p0, v1, v2}, Landroid/widget/ProgressBar;->updateDrawableBounds(II)V
 
-    .line 814
     invoke-direct {p0}, Landroid/widget/ProgressBar;->updateDrawableState()V
 
-    .line 816
     iget v1, p0, Landroid/widget/ProgressBar;->mProgress:I
 
-    const v2, 0x102000d
+    const v2, #android:id@progress#t
 
     invoke-direct {p0, v2, v1, v3, v3}, Landroid/widget/ProgressBar;->doRefreshProgress(IIZZ)V
 
-    .line 817
     iget v1, p0, Landroid/widget/ProgressBar;->mSecondaryProgress:I
 
-    const v2, 0x102000f
+    const v2, #android:id@secondaryProgress#t
 
     invoke-direct {p0, v2, v1, v3, v3}, Landroid/widget/ProgressBar;->doRefreshProgress(IIZZ)V
 
-    .line 782
     :cond_5
     return-void
 .end method
@@ -4572,7 +4557,7 @@
     .line 1393
     iget v0, p0, Landroid/widget/ProgressBar;->mSecondaryProgress:I
 
-    const v1, 0x102000f
+    const v1, #android:id@secondaryProgress#t
 
     const/4 v2, 0x0
 

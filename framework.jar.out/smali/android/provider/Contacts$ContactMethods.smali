@@ -329,43 +329,34 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1398
-    const-string/jumbo v0, ""
+    const-string v0, ""
 
-    .line 1399
     .local v0, "display":Ljava/lang/CharSequence;
     packed-switch p1, :pswitch_data_0
 
-    .line 1435
-    const v3, 0x104000f
+    const v3, #android:string@untitled#t
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1437
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1401
     :pswitch_0
     if-eqz p2, :cond_1
 
-    .line 1402
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 1403
-    const/high16 v4, 0x1070000
+    const/high16 v4, #android:array@emailAddressTypes#i
 
-    .line 1402
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 1405
     .local v2, "labels":[Ljava/lang/CharSequence;
     add-int/lit8 v3, p2, -0x1
 
@@ -396,29 +387,23 @@
 
     if-nez v3, :cond_0
 
-    .line 1411
     move-object v0, p3
 
     goto :goto_0
 
-    .line 1418
     :pswitch_1
     if-eqz p2, :cond_2
 
-    .line 1419
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 1420
-    const v4, 0x1070004
+    const v4, #android:array@postalAddressTypes#t
 
-    .line 1419
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 1422
     .restart local v2    # "labels":[Ljava/lang/CharSequence;
     add-int/lit8 v3, p2, -0x1
 

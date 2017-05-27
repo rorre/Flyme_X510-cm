@@ -114,22 +114,18 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->mViewFader:Lcom/android/internal/widget/FloatingToolbar$ViewFader;
 
-    .line 1178
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 1179
-    const v1, 0x1090058
+    const v1, #android:layout@floating_popup_close_overflow_button#t
 
-    .line 1178
     invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->mBackButton:Landroid/view/View;
 
-    .line 1180
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->mBackButton:Landroid/view/View;
 
     new-instance v1, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel$1;
@@ -305,15 +301,12 @@
 
     move-result-object v6
 
-    .line 1277
-    const v7, 0x105009e
+    const v7, #android:dimen@floating_toolbar_maximum_overflow_height#t
 
-    .line 1276
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
-    .line 1278
     .local v2, "maxHeight":I
     iget-object v6, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->mContentView:Landroid/widget/LinearLayout;
 
@@ -325,15 +318,12 @@
 
     move-result-object v6
 
-    .line 1279
-    const v7, 0x105009d
+    const v7, #android:dimen@floating_toolbar_minimum_overflow_height#t
 
-    .line 1278
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    .line 1280
     .local v3, "minHeight":I
     iget v6, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->mSuggestedHeight:I
 
@@ -526,15 +516,12 @@
 
     move-result-object v0
 
-    .line 1242
-    const v1, 0x105009d
+    const v1, #android:dimen@floating_toolbar_minimum_overflow_height#t
 
-    .line 1241
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    .line 1243
     iget-object v1, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarOverflowPanel;->mContentView:Landroid/widget/LinearLayout;
 
     invoke-virtual {v1}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;

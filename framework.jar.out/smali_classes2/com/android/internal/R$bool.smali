@@ -15,377 +15,377 @@
 
 
 # static fields
-.field public static final action_bar_embed_tabs:I = 0x1120003
+.field public static final action_bar_embed_tabs:I = #android:bool@action_bar_embed_tabs#t
 
-.field public static final action_bar_embed_tabs_pre_jb:I = 0x1120004
+.field public static final action_bar_embed_tabs_pre_jb:I = #android:bool@action_bar_embed_tabs_pre_jb#t
 
-.field public static final action_bar_expanded_action_views_exclusive:I = 0x1120008
+.field public static final action_bar_expanded_action_views_exclusive:I = #android:bool@action_bar_expanded_action_views_exclusive#t
 
-.field public static final allow_stacked_button_bar:I = 0x112000a
+.field public static final allow_stacked_button_bar:I = #android:bool@allow_stacked_button_bar#t
 
-.field public static final config_LTE_eri_for_network_name:I = 0x11200ac
+.field public static final config_LTE_eri_for_network_name:I = #android:bool@config_LTE_eri_for_network_name#t
 
-.field public static final config_allowActionMenuItemTextWithIcon:I = 0x1120075
+.field public static final config_allowActionMenuItemTextWithIcon:I = #android:bool@config_allowActionMenuItemTextWithIcon#t
 
-.field public static final config_allowAllRotations:I = 0x112003d
+.field public static final config_allowAllRotations:I = #android:bool@config_allowAllRotations#t
 
-.field public static final config_allowAnimationsInLowPowerMode:I = 0x11200b2
+.field public static final config_allowAnimationsInLowPowerMode:I = #android:bool@config_allowAnimationsInLowPowerMode#t
 
-.field public static final config_allowAutoBrightnessWhileDozing:I = 0x1120055
+.field public static final config_allowAutoBrightnessWhileDozing:I = #android:bool@config_allowAutoBrightnessWhileDozing#t
 
-.field public static final config_allowTheaterModeWakeFromCameraLens:I = 0x1120032
+.field public static final config_allowTheaterModeWakeFromCameraLens:I = #android:bool@config_allowTheaterModeWakeFromCameraLens#t
 
-.field public static final config_allowTheaterModeWakeFromDock:I = 0x1120038
+.field public static final config_allowTheaterModeWakeFromDock:I = #android:bool@config_allowTheaterModeWakeFromDock#t
 
-.field public static final config_allowTheaterModeWakeFromGesture:I = 0x1120031
+.field public static final config_allowTheaterModeWakeFromGesture:I = #android:bool@config_allowTheaterModeWakeFromGesture#t
 
-.field public static final config_allowTheaterModeWakeFromKey:I = 0x1120034
+.field public static final config_allowTheaterModeWakeFromKey:I = #android:bool@config_allowTheaterModeWakeFromKey#t
 
-.field public static final config_allowTheaterModeWakeFromLidSwitch:I = 0x1120037
+.field public static final config_allowTheaterModeWakeFromLidSwitch:I = #android:bool@config_allowTheaterModeWakeFromLidSwitch#t
 
-.field public static final config_allowTheaterModeWakeFromMotion:I = 0x1120035
+.field public static final config_allowTheaterModeWakeFromMotion:I = #android:bool@config_allowTheaterModeWakeFromMotion#t
 
-.field public static final config_allowTheaterModeWakeFromMotionWhenNotDreaming:I = 0x1120036
+.field public static final config_allowTheaterModeWakeFromMotionWhenNotDreaming:I = #android:bool@config_allowTheaterModeWakeFromMotionWhenNotDreaming#t
 
-.field public static final config_allowTheaterModeWakeFromPowerKey:I = 0x1120033
+.field public static final config_allowTheaterModeWakeFromPowerKey:I = #android:bool@config_allowTheaterModeWakeFromPowerKey#t
 
-.field public static final config_allowTheaterModeWakeFromUnplug:I = 0x1120030
+.field public static final config_allowTheaterModeWakeFromUnplug:I = #android:bool@config_allowTheaterModeWakeFromUnplug#t
 
-.field public static final config_allowTheaterModeWakeFromWindowLayout:I = 0x1120039
+.field public static final config_allowTheaterModeWakeFromWindowLayout:I = #android:bool@config_allowTheaterModeWakeFromWindowLayout#t
 
-.field public static final config_alwaysUseCdmaRssi:I = 0x1120071
+.field public static final config_alwaysUseCdmaRssi:I = #android:bool@config_alwaysUseCdmaRssi#t
 
-.field public static final config_animateScreenLights:I = 0x112002e
+.field public static final config_animateScreenLights:I = #android:bool@config_animateScreenLights#t
 
-.field public static final config_annoy_dianne:I = 0x112002a
+.field public static final config_annoy_dianne:I = #android:bool@config_annoy_dianne#t
 
-.field public static final config_autoBrightnessResetAmbientLuxAfterWarmUp:I = 0x1120056
+.field public static final config_autoBrightnessResetAmbientLuxAfterWarmUp:I = #android:bool@config_autoBrightnessResetAmbientLuxAfterWarmUp#t
 
-.field public static final config_autoPowerModePreferWristTilt:I = 0x1120018
+.field public static final config_autoPowerModePreferWristTilt:I = #android:bool@config_autoPowerModePreferWristTilt#t
 
-.field public static final config_autoPowerModePrefetchLocation:I = 0x1120019
+.field public static final config_autoPowerModePrefetchLocation:I = #android:bool@config_autoPowerModePrefetchLocation#t
 
-.field public static final config_auto_attach_data_on_creation:I = 0x11200a2
+.field public static final config_auto_attach_data_on_creation:I = #android:bool@config_auto_attach_data_on_creation#t
 
-.field public static final config_automatic_brightness_available:I = 0x1120029
+.field public static final config_automatic_brightness_available:I = #android:bool@config_automatic_brightness_available#t
 
-.field public static final config_avoidGfxAccel:I = 0x1120016
+.field public static final config_avoidGfxAccel:I = #android:bool@config_avoidGfxAccel#t
 
-.field public static final config_bluetooth_address_validation:I = 0x1120062
+.field public static final config_bluetooth_address_validation:I = #android:bool@config_bluetooth_address_validation#t
 
-.field public static final config_bluetooth_default_profiles:I = 0x1120069
+.field public static final config_bluetooth_default_profiles:I = #android:bool@config_bluetooth_default_profiles#t
 
-.field public static final config_bluetooth_le_peripheral_mode_supported:I = 0x1120063
+.field public static final config_bluetooth_le_peripheral_mode_supported:I = #android:bool@config_bluetooth_le_peripheral_mode_supported#t
 
-.field public static final config_bluetooth_reload_supported_profiles_when_enabled:I = 0x1120064
+.field public static final config_bluetooth_reload_supported_profiles_when_enabled:I = #android:bool@config_bluetooth_reload_supported_profiles_when_enabled#t
 
-.field public static final config_bluetooth_sco_off_call:I = 0x1120060
+.field public static final config_bluetooth_sco_off_call:I = #android:bool@config_bluetooth_sco_off_call#t
 
-.field public static final config_built_in_sip_phone:I = 0x112006b
+.field public static final config_built_in_sip_phone:I = #android:bool@config_built_in_sip_phone#t
 
-.field public static final config_cameraDoubleTapPowerGestureEnabled:I = 0x11200c0
+.field public static final config_cameraDoubleTapPowerGestureEnabled:I = #android:bool@config_cameraDoubleTapPowerGestureEnabled#t
 
-.field public static final config_camera_sound_forced:I = 0x1120088
+.field public static final config_camera_sound_forced:I = #android:bool@config_camera_sound_forced#t
 
-.field public static final config_carDockEnablesAccelerometer:I = 0x1120042
+.field public static final config_carDockEnablesAccelerometer:I = #android:bool@config_carDockEnablesAccelerometer#t
 
-.field public static final config_carrier_volte_available:I = 0x1120099
+.field public static final config_carrier_volte_available:I = #android:bool@config_carrier_volte_available#t
 
-.field public static final config_carrier_volte_provisioned:I = 0x112009a
+.field public static final config_carrier_volte_provisioned:I = #android:bool@config_carrier_volte_provisioned#t
 
-.field public static final config_carrier_volte_tty_supported:I = 0x112009b
+.field public static final config_carrier_volte_tty_supported:I = #android:bool@config_carrier_volte_tty_supported#t
 
-.field public static final config_carrier_vt_available:I = 0x112009d
+.field public static final config_carrier_vt_available:I = #android:bool@config_carrier_vt_available#t
 
-.field public static final config_carrier_wfc_ims_available:I = 0x112009f
+.field public static final config_carrier_wfc_ims_available:I = #android:bool@config_carrier_wfc_ims_available#t
 
-.field public static final config_cellBroadcastAppLinks:I = 0x112007f
+.field public static final config_cellBroadcastAppLinks:I = #android:bool@config_cellBroadcastAppLinks#t
 
-.field public static final config_defaultInTouchMode:I = 0x11200ad
+.field public static final config_defaultInTouchMode:I = #android:bool@config_defaultInTouchMode#t
 
-.field public static final config_defaultWindowFeatureContextMenu:I = 0x11200a9
+.field public static final config_defaultWindowFeatureContextMenu:I = #android:bool@config_defaultWindowFeatureContextMenu#t
 
-.field public static final config_defaultWindowFeatureOptionsPanel:I = 0x11200a8
+.field public static final config_defaultWindowFeatureOptionsPanel:I = #android:bool@config_defaultWindowFeatureOptionsPanel#t
 
-.field public static final config_deskDockEnablesAccelerometer:I = 0x1120040
+.field public static final config_deskDockEnablesAccelerometer:I = #android:bool@config_deskDockEnablesAccelerometer#t
 
-.field public static final config_deviceHasVariableButtonBrightness:I = 0x1120057
+.field public static final config_deviceHasVariableButtonBrightness:I = #android:bool@config_deviceHasVariableButtonBrightness#t
 
-.field public static final config_device_volte_available:I = 0x1120098
+.field public static final config_device_volte_available:I = #android:bool@config_device_volte_available#t
 
-.field public static final config_device_vt_available:I = 0x112009c
+.field public static final config_device_vt_available:I = #android:bool@config_device_vt_available#t
 
-.field public static final config_device_wfc_ims_available:I = 0x112009e
+.field public static final config_device_wfc_ims_available:I = #android:bool@config_device_wfc_ims_available#t
 
-.field public static final config_disableMenuKeyInLockScreen:I = 0x112004c
+.field public static final config_disableMenuKeyInLockScreen:I = #android:bool@config_disableMenuKeyInLockScreen#t
 
-.field public static final config_disableUsbPermissionDialogs:I = 0x1120082
+.field public static final config_disableUsbPermissionDialogs:I = #android:bool@config_disableUsbPermissionDialogs#t
 
-.field public static final config_dontPreferApn:I = 0x1120089
+.field public static final config_dontPreferApn:I = #android:bool@config_dontPreferApn#t
 
-.field public static final config_dozeAfterScreenOff:I = 0x112007c
+.field public static final config_dozeAfterScreenOff:I = #android:bool@config_dozeAfterScreenOff#t
 
-.field public static final config_dreamsActivatedOnDockByDefault:I = 0x1120079
+.field public static final config_dreamsActivatedOnDockByDefault:I = #android:bool@config_dreamsActivatedOnDockByDefault#t
 
-.field public static final config_dreamsActivatedOnSleepByDefault:I = 0x112007a
+.field public static final config_dreamsActivatedOnSleepByDefault:I = #android:bool@config_dreamsActivatedOnSleepByDefault#t
 
-.field public static final config_dreamsEnabledByDefault:I = 0x1120078
+.field public static final config_dreamsEnabledByDefault:I = #android:bool@config_dreamsEnabledByDefault#t
 
-.field public static final config_dreamsEnabledOnBattery:I = 0x112007b
+.field public static final config_dreamsEnabledOnBattery:I = #android:bool@config_dreamsEnabledOnBattery#t
 
-.field public static final config_dreamsSupported:I = 0x1120077
+.field public static final config_dreamsSupported:I = #android:bool@config_dreamsSupported#t
 
-.field public static final config_duplicate_port_omadm_wappush:I = 0x1120072
+.field public static final config_duplicate_port_omadm_wappush:I = #android:bool@config_duplicate_port_omadm_wappush#t
 
-.field public static final config_eap_sim_based_auth_supported:I = 0x11200b7
+.field public static final config_eap_sim_based_auth_supported:I = #android:bool@config_eap_sim_based_auth_supported#t
 
-.field public static final config_enableActivityRecognitionHardwareOverlay:I = 0x112005f
+.field public static final config_enableActivityRecognitionHardwareOverlay:I = #android:bool@config_enableActivityRecognitionHardwareOverlay#t
 
-.field public static final config_enableAutoPowerModes:I = 0x1120017
+.field public static final config_enableAutoPowerModes:I = #android:bool@config_enableAutoPowerModes#t
 
-.field public static final config_enableBurnInProtection:I = 0x11200ae
+.field public static final config_enableBurnInProtection:I = #android:bool@config_enableBurnInProtection#t
 
-.field public static final config_enableFusedLocationOverlay:I = 0x112005b
+.field public static final config_enableFusedLocationOverlay:I = #android:bool@config_enableFusedLocationOverlay#t
 
-.field public static final config_enableGeocoderOverlay:I = 0x112005d
+.field public static final config_enableGeocoderOverlay:I = #android:bool@config_enableGeocoderOverlay#t
 
-.field public static final config_enableGeofenceOverlay:I = 0x112005e
+.field public static final config_enableGeofenceOverlay:I = #android:bool@config_enableGeofenceOverlay#t
 
-.field public static final config_enableGestureService:I = 0x11200a3
+.field public static final config_enableGestureService:I = #android:bool@config_enableGestureService#t
 
-.field public static final config_enableHardwareFlpOverlay:I = 0x112005c
+.field public static final config_enableHardwareFlpOverlay:I = #android:bool@config_enableHardwareFlpOverlay#t
 
-.field public static final config_enableLockBeforeUnlockScreen:I = 0x112004d
+.field public static final config_enableLockBeforeUnlockScreen:I = #android:bool@config_enableLockBeforeUnlockScreen#t
 
-.field public static final config_enableLockScreenRotation:I = 0x112004e
+.field public static final config_enableLockScreenRotation:I = #android:bool@config_enableLockScreenRotation#t
 
-.field public static final config_enableLockScreenTranslucentDecor:I = 0x112004f
+.field public static final config_enableLockScreenTranslucentDecor:I = #android:bool@config_enableLockScreenTranslucentDecor#t
 
-.field public static final config_enableMultiUserUI:I = 0x1120081
+.field public static final config_enableMultiUserUI:I = #android:bool@config_enableMultiUserUI#t
 
-.field public static final config_enableNetworkLocationOverlay:I = 0x112005a
+.field public static final config_enableNetworkLocationOverlay:I = #android:bool@config_enableNetworkLocationOverlay#t
 
-.field public static final config_enableScreenshotChord:I = 0x112002f
+.field public static final config_enableScreenshotChord:I = #android:bool@config_enableScreenshotChord#t
 
-.field public static final config_enableTranslucentDecor:I = 0x1120050
+.field public static final config_enableTranslucentDecor:I = #android:bool@config_enableTranslucentDecor#t
 
-.field public static final config_enableWallpaperService:I = 0x1120059
+.field public static final config_enableWallpaperService:I = #android:bool@config_enableWallpaperService#t
 
-.field public static final config_enableWifiDisplay:I = 0x1120084
+.field public static final config_enableWifiDisplay:I = #android:bool@config_enableWifiDisplay#t
 
-.field public static final config_enable_emergency_call_while_sim_locked:I = 0x1120053
+.field public static final config_enable_emergency_call_while_sim_locked:I = #android:bool@config_enable_emergency_call_while_sim_locked#t
 
-.field public static final config_enable_puk_unlock_screen:I = 0x1120052
+.field public static final config_enable_puk_unlock_screen:I = #android:bool@config_enable_puk_unlock_screen#t
 
-.field public static final config_fetch_apn_from_omh_card:I = 0x11200c5
+.field public static final config_fetch_apn_from_omh_card:I = #android:bool@config_fetch_apn_from_omh_card#t
 
-.field public static final config_fingerprintRestrictedToSystemAndOwner:I = 0x11200af
+.field public static final config_fingerprintRestrictedToSystemAndOwner:I = #android:bool@config_fingerprintRestrictedToSystemAndOwner#t
 
-.field public static final config_forceAnalogCarDock:I = 0x1120043
+.field public static final config_forceAnalogCarDock:I = #android:bool@config_forceAnalogCarDock#t
 
-.field public static final config_forceAnalogDeskDock:I = 0x1120041
+.field public static final config_forceAnalogDeskDock:I = #android:bool@config_forceAnalogDeskDock#t
 
-.field public static final config_forceDefaultOrientation:I = 0x112008e
+.field public static final config_forceDefaultOrientation:I = #android:bool@config_forceDefaultOrientation#t
 
-.field public static final config_goToSleepOnButtonPressTheaterMode:I = 0x112003a
+.field public static final config_goToSleepOnButtonPressTheaterMode:I = #android:bool@config_goToSleepOnButtonPressTheaterMode#t
 
-.field public static final config_hasPermanentDpad:I = 0x1120090
+.field public static final config_hasPermanentDpad:I = #android:bool@config_hasPermanentDpad#t
 
-.field public static final config_hasRecents:I = 0x1120092
+.field public static final config_hasRecents:I = #android:bool@config_hasRecents#t
 
-.field public static final config_hasRemovableLid:I = 0x11200be
+.field public static final config_hasRemovableLid:I = #android:bool@config_hasRemovableLid#t
 
-.field public static final config_hotswapCapable:I = 0x1120051
+.field public static final config_hotswapCapable:I = #android:bool@config_hotswapCapable#t
 
-.field public static final config_intrusiveBatteryLed:I = 0x1120049
+.field public static final config_intrusiveBatteryLed:I = #android:bool@config_intrusiveBatteryLed#t
 
-.field public static final config_intrusiveNotificationLed:I = 0x1120047
+.field public static final config_intrusiveNotificationLed:I = #android:bool@config_intrusiveNotificationLed#t
 
-.field public static final config_ledCanPulse:I = 0x112004b
+.field public static final config_ledCanPulse:I = #android:bool@config_ledCanPulse#t
 
-.field public static final config_lidControlsSleep:I = 0x112003f
+.field public static final config_lidControlsSleep:I = #android:bool@config_lidControlsSleep#t
 
-.field public static final config_mainBuiltInDisplayIsRound:I = 0x11200b4
+.field public static final config_mainBuiltInDisplayIsRound:I = #android:bool@config_mainBuiltInDisplayIsRound#t
 
-.field public static final config_mms_content_disposition_support:I = 0x1120070
+.field public static final config_mms_content_disposition_support:I = #android:bool@config_mms_content_disposition_support#t
 
-.field public static final config_multiColorBatteryLed:I = 0x112004a
+.field public static final config_multiColorBatteryLed:I = #android:bool@config_multiColorBatteryLed#t
 
-.field public static final config_multiColorNotificationLed:I = 0x1120048
+.field public static final config_multiColorNotificationLed:I = #android:bool@config_multiColorNotificationLed#t
 
-.field public static final config_networkSamplingWakesDevice:I = 0x11200a0
+.field public static final config_networkSamplingWakesDevice:I = #android:bool@config_networkSamplingWakesDevice#t
 
-.field public static final config_overrideRemoteViewsActivityTransition:I = 0x11200aa
+.field public static final config_overrideRemoteViewsActivityTransition:I = #android:bool@config_overrideRemoteViewsActivityTransition#t
 
-.field public static final config_persistUsbDriveNotification:I = 0x11200c4
+.field public static final config_persistUsbDriveNotification:I = #android:bool@config_persistUsbDriveNotification#t
 
-.field public static final config_powerDecoupleAutoSuspendModeFromDisplay:I = 0x112007d
+.field public static final config_powerDecoupleAutoSuspendModeFromDisplay:I = #android:bool@config_powerDecoupleAutoSuspendModeFromDisplay#t
 
-.field public static final config_powerDecoupleInteractiveModeFromDisplay:I = 0x112007e
+.field public static final config_powerDecoupleInteractiveModeFromDisplay:I = #android:bool@config_powerDecoupleInteractiveModeFromDisplay#t
 
-.field public static final config_protocol_errors_perm_failure:I = 0x11200bb
+.field public static final config_protocol_errors_perm_failure:I = #android:bool@config_protocol_errors_perm_failure#t
 
-.field public static final config_reject_ggsn_perm_failure:I = 0x11200ba
+.field public static final config_reject_ggsn_perm_failure:I = #android:bool@config_reject_ggsn_perm_failure#t
 
-.field public static final config_requireCallCapableAccountForHandle:I = 0x1120066
+.field public static final config_requireCallCapableAccountForHandle:I = #android:bool@config_requireCallCapableAccountForHandle#t
 
-.field public static final config_requireRadioPowerOffOnSimRefreshReset:I = 0x112008b
+.field public static final config_requireRadioPowerOffOnSimRefreshReset:I = #android:bool@config_requireRadioPowerOffOnSimRefreshReset#t
 
-.field public static final config_restartRadioAfterProvisioning:I = 0x112008a
+.field public static final config_restartRadioAfterProvisioning:I = #android:bool@config_restartRadioAfterProvisioning#t
 
-.field public static final config_restart_radio_on_pdp_fail_regular_deactivation:I = 0x11200a5
+.field public static final config_restart_radio_on_pdp_fail_regular_deactivation:I = #android:bool@config_restart_radio_on_pdp_fail_regular_deactivation#t
 
-.field public static final config_reverseDefaultRotation:I = 0x112003e
+.field public static final config_reverseDefaultRotation:I = #android:bool@config_reverseDefaultRotation#t
 
-.field public static final config_safe_media_volume_enabled:I = 0x1120086
+.field public static final config_safe_media_volume_enabled:I = #android:bool@config_safe_media_volume_enabled#t
 
-.field public static final config_samsung_stk:I = 0x11200bd
+.field public static final config_samsung_stk:I = #android:bool@config_samsung_stk#t
 
-.field public static final config_sendAudioBecomingNoisy:I = 0x1120013
+.field public static final config_sendAudioBecomingNoisy:I = #android:bool@config_sendAudioBecomingNoisy#t
 
-.field public static final config_send_sms1x_on_voice_call:I = 0x1120083
+.field public static final config_send_sms1x_on_voice_call:I = #android:bool@config_send_sms1x_on_voice_call#t
 
-.field public static final config_sf_limitedAlpha:I = 0x112000f
+.field public static final config_sf_limitedAlpha:I = #android:bool@config_sf_limitedAlpha#t
 
-.field public static final config_sf_slowBlur:I = 0x1120011
+.field public static final config_sf_slowBlur:I = #android:bool@config_sf_slowBlur#t
 
-.field public static final config_showBatteryFullyChargedNotification:I = 0x11200c2
+.field public static final config_showBatteryFullyChargedNotification:I = #android:bool@config_showBatteryFullyChargedNotification#t
 
-.field public static final config_showMenuShortcutsWhenKeyboardPresent:I = 0x112006d
+.field public static final config_showMenuShortcutsWhenKeyboardPresent:I = #android:bool@config_showMenuShortcutsWhenKeyboardPresent#t
 
-.field public static final config_showNavigationBar:I = 0x1120073
+.field public static final config_showNavigationBar:I = #android:bool@config_showNavigationBar#t
 
-.field public static final config_show_cmIMESwitcher:I = 0x11200bc
+.field public static final config_show_cmIMESwitcher:I = #android:bool@config_show_cmIMESwitcher#t
 
-.field public static final config_singleStageCameraKey:I = 0x1120054
+.field public static final config_singleStageCameraKey:I = #android:bool@config_singleStageCameraKey#t
 
-.field public static final config_sip_wifi_only:I = 0x112006a
+.field public static final config_sip_wifi_only:I = #android:bool@config_sip_wifi_only#t
 
-.field public static final config_sms_capable:I = 0x1120068
+.field public static final config_sms_capable:I = #android:bool@config_sms_capable#t
 
-.field public static final config_sms_decode_gsm_8bit_data:I = 0x11200a1
+.field public static final config_sms_decode_gsm_8bit_data:I = #android:bool@config_sms_decode_gsm_8bit_data#t
 
-.field public static final config_sms_force_7bit_encoding:I = 0x11200a7
+.field public static final config_sms_force_7bit_encoding:I = #android:bool@config_sms_force_7bit_encoding#t
 
-.field public static final config_sms_ringtone_incall:I = 0x11200b8
+.field public static final config_sms_ringtone_incall:I = #android:bool@config_sms_ringtone_incall#t
 
-.field public static final config_sms_utf8_support:I = 0x112006f
+.field public static final config_sms_utf8_support:I = #android:bool@config_sms_utf8_support#t
 
-.field public static final config_softap_extention:I = 0x112000b
+.field public static final config_softap_extention:I = #android:bool@config_softap_extention#t
 
-.field public static final config_speed_up_audio_on_mt_calls:I = 0x112008c
+.field public static final config_speed_up_audio_on_mt_calls:I = #android:bool@config_speed_up_audio_on_mt_calls#t
 
-.field public static final config_stkNoAlphaUsrCnf:I = 0x112008f
+.field public static final config_stkNoAlphaUsrCnf:I = #android:bool@config_stkNoAlphaUsrCnf#t
 
-.field public static final config_stylusGestures:I = 0x11200bf
+.field public static final config_stylusGestures:I = #android:bool@config_stylusGestures#t
 
-.field public static final config_supportAutoRotation:I = 0x112003c
+.field public static final config_supportAutoRotation:I = #android:bool@config_supportAutoRotation#t
 
-.field public static final config_supportDoubleTapWake:I = 0x11200b3
+.field public static final config_supportDoubleTapWake:I = #android:bool@config_supportDoubleTapWake#t
 
-.field public static final config_supportLongPressPowerWhenNonInteractive:I = 0x112003b
+.field public static final config_supportLongPressPowerWhenNonInteractive:I = #android:bool@config_supportLongPressPowerWhenNonInteractive#t
 
-.field public static final config_supportMicNearUltrasound:I = 0x11200b5
+.field public static final config_supportMicNearUltrasound:I = #android:bool@config_supportMicNearUltrasound#t
 
-.field public static final config_supportSpeakerNearUltrasound:I = 0x11200b6
+.field public static final config_supportSpeakerNearUltrasound:I = #android:bool@config_supportSpeakerNearUltrasound#t
 
-.field public static final config_suspendWhenScreenOffDueToProximity:I = 0x1120044
+.field public static final config_suspendWhenScreenOffDueToProximity:I = #android:bool@config_suspendWhenScreenOffDueToProximity#t
 
-.field public static final config_swipeDisambiguation:I = 0x1120058
+.field public static final config_swipeDisambiguation:I = #android:bool@config_swipeDisambiguation#t
 
-.field public static final config_switch_phone_on_voice_reg_state_change:I = 0x11200a6
+.field public static final config_switch_phone_on_voice_reg_state_change:I = #android:bool@config_switch_phone_on_voice_reg_state_change#t
 
-.field public static final config_syncstorageengine_masterSyncAutomatically:I = 0x1120080
+.field public static final config_syncstorageengine_masterSyncAutomatically:I = #android:bool@config_syncstorageengine_masterSyncAutomatically#t
 
-.field public static final config_telephony_use_own_number_for_voicemail:I = 0x112006e
+.field public static final config_telephony_use_own_number_for_voicemail:I = #android:bool@config_telephony_use_own_number_for_voicemail#t
 
-.field public static final config_ui_blur_enabled:I = 0x11200c1
+.field public static final config_ui_blur_enabled:I = #android:bool@config_ui_blur_enabled#t
 
-.field public static final config_ui_enableFadingMarquee:I = 0x1120014
+.field public static final config_ui_enableFadingMarquee:I = #android:bool@config_ui_enableFadingMarquee#t
 
-.field public static final config_unplugTurnsOnScreen:I = 0x112002b
+.field public static final config_unplugTurnsOnScreen:I = #android:bool@config_unplugTurnsOnScreen#t
 
-.field public static final config_usbChargingMessage:I = 0x112002c
+.field public static final config_usbChargingMessage:I = #android:bool@config_usbChargingMessage#t
 
-.field public static final config_useAttentionLight:I = 0x112002d
+.field public static final config_useAttentionLight:I = #android:bool@config_useAttentionLight#t
 
-.field public static final config_useDevInputEventForAudioJack:I = 0x1120085
+.field public static final config_useDevInputEventForAudioJack:I = #android:bool@config_useDevInputEventForAudioJack#t
 
-.field public static final config_useFixedVolume:I = 0x112008d
+.field public static final config_useFixedVolume:I = #android:bool@config_useFixedVolume#t
 
-.field public static final config_useSystemClockforRotationSensor:I = 0x11200c3
+.field public static final config_useSystemClockforRotationSensor:I = #android:bool@config_useSystemClockforRotationSensor#t
 
-.field public static final config_useVolumeKeySounds:I = 0x1120012
+.field public static final config_useVolumeKeySounds:I = #android:bool@config_useVolumeKeySounds#t
 
-.field public static final config_use_sim_language_file:I = 0x11200ab
+.field public static final config_use_sim_language_file:I = #android:bool@config_use_sim_language_file#t
 
-.field public static final config_use_strict_phone_number_comparation:I = 0x1120046
+.field public static final config_use_strict_phone_number_comparation:I = #android:bool@config_use_strict_phone_number_comparation#t
 
-.field public static final config_user_notification_of_restrictied_mobile_access:I = 0x1120067
+.field public static final config_user_notification_of_restrictied_mobile_access:I = #android:bool@config_user_notification_of_restrictied_mobile_access#t
 
-.field public static final config_voice_capable:I = 0x1120065
+.field public static final config_voice_capable:I = #android:bool@config_voice_capable#t
 
-.field public static final config_wifiDisplaySupportsProtectedBuffers:I = 0x1120087
+.field public static final config_wifiDisplaySupportsProtectedBuffers:I = #android:bool@config_wifiDisplaySupportsProtectedBuffers#t
 
-.field public static final config_wifi_background_scan_support:I = 0x112001c
+.field public static final config_wifi_background_scan_support:I = #android:bool@config_wifi_background_scan_support#t
 
-.field public static final config_wifi_batched_scan_supported:I = 0x1120025
+.field public static final config_wifi_batched_scan_supported:I = #android:bool@config_wifi_batched_scan_supported#t
 
-.field public static final config_wifi_dual_band_support:I = 0x112001a
+.field public static final config_wifi_dual_band_support:I = #android:bool@config_wifi_dual_band_support#t
 
-.field public static final config_wifi_ecbm_mode_change:I = 0x1120028
+.field public static final config_wifi_ecbm_mode_change:I = #android:bool@config_wifi_ecbm_mode_change#t
 
-.field public static final config_wifi_enable_5GHz_preference:I = 0x112001e
+.field public static final config_wifi_enable_5GHz_preference:I = #android:bool@config_wifi_enable_5GHz_preference#t
 
-.field public static final config_wifi_enable_disconnection_debounce:I = 0x112001d
+.field public static final config_wifi_enable_disconnection_debounce:I = #android:bool@config_wifi_enable_disconnection_debounce#t
 
-.field public static final config_wifi_enable_wifi_firmware_debugging:I = 0x1120020
+.field public static final config_wifi_enable_wifi_firmware_debugging:I = #android:bool@config_wifi_enable_wifi_firmware_debugging#t
 
-.field public static final config_wifi_framework_cellular_handover_enable_user_triggered_adjustment:I = 0x1120022
+.field public static final config_wifi_framework_cellular_handover_enable_user_triggered_adjustment:I = #android:bool@config_wifi_framework_cellular_handover_enable_user_triggered_adjustment#t
 
-.field public static final config_wifi_framework_enable_associated_network_selection:I = 0x1120023
+.field public static final config_wifi_framework_enable_associated_network_selection:I = #android:bool@config_wifi_framework_enable_associated_network_selection#t
 
-.field public static final config_wifi_hal_pno_enable:I = 0x1120026
+.field public static final config_wifi_hal_pno_enable:I = #android:bool@config_wifi_hal_pno_enable#t
 
-.field public static final config_wifi_hotspot2_enabled:I = 0x112001b
+.field public static final config_wifi_hotspot2_enabled:I = #android:bool@config_wifi_hotspot2_enabled#t
 
-.field public static final config_wifi_ipreachability_monitor:I = 0x11200b9
+.field public static final config_wifi_ipreachability_monitor:I = #android:bool@config_wifi_ipreachability_monitor#t
 
-.field public static final config_wifi_only_link_same_credential_configurations:I = 0x1120024
+.field public static final config_wifi_only_link_same_credential_configurations:I = #android:bool@config_wifi_only_link_same_credential_configurations#t
 
-.field public static final config_wifi_revert_country_code_on_cellular_loss:I = 0x112001f
+.field public static final config_wifi_revert_country_code_on_cellular_loss:I = #android:bool@config_wifi_revert_country_code_on_cellular_loss#t
 
-.field public static final config_wifi_ssid_white_list_enable:I = 0x1120027
+.field public static final config_wifi_ssid_white_list_enable:I = #android:bool@config_wifi_ssid_white_list_enable#t
 
-.field public static final config_wifi_turn_off_during_emergency_call:I = 0x1120021
+.field public static final config_wifi_turn_off_during_emergency_call:I = #android:bool@config_wifi_turn_off_during_emergency_call#t
 
-.field public static final config_wimaxEnabled:I = 0x1120076
+.field public static final config_wimaxEnabled:I = #android:bool@config_wimaxEnabled#t
 
-.field public static final config_windowEnableCircularEmulatorDisplayOverlay:I = 0x1120094
+.field public static final config_windowEnableCircularEmulatorDisplayOverlay:I = #android:bool@config_windowEnableCircularEmulatorDisplayOverlay#t
 
-.field public static final config_windowShowCircularMask:I = 0x1120093
+.field public static final config_windowShowCircularMask:I = #android:bool@config_windowShowCircularMask#t
 
-.field public static final def_custom_dateformat:I = 0x11200c6
+.field public static final def_custom_dateformat:I = #android:bool@def_custom_dateformat#t
 
-.field public static final editable_voicemailnumber:I = 0x11200a4
+.field public static final editable_voicemailnumber:I = #android:bool@editable_voicemailnumber#t
 
-.field public static final imsServiceAllowTurnOff:I = 0x1120097
+.field public static final imsServiceAllowTurnOff:I = #android:bool@imsServiceAllowTurnOff#t
 
-.field public static final preferences_prefer_dual_pane:I = 0x1120006
+.field public static final preferences_prefer_dual_pane:I = #android:bool@preferences_prefer_dual_pane#t
 
-.field public static final show_ongoing_ime_switcher:I = 0x1120007
+.field public static final show_ongoing_ime_switcher:I = #android:bool@show_ongoing_ime_switcher#t
 
-.field public static final skipHoldBeforeMerge:I = 0x1120095
+.field public static final skipHoldBeforeMerge:I = #android:bool@skipHoldBeforeMerge#t
 
-.field public static final skip_restoring_network_selection:I = 0x112006c
+.field public static final skip_restoring_network_selection:I = #android:bool@skip_restoring_network_selection#t
 
-.field public static final split_action_bar_is_narrow:I = 0x1120005
+.field public static final split_action_bar_is_narrow:I = #android:bool@split_action_bar_is_narrow#t
 
-.field public static final target_honeycomb_needs_options_menu:I = 0x1120009
+.field public static final target_honeycomb_needs_options_menu:I = #android:bool@target_honeycomb_needs_options_menu#t
 
-.field public static final useImsAlwaysForEmergencyCall:I = 0x1120096
+.field public static final useImsAlwaysForEmergencyCall:I = #android:bool@useImsAlwaysForEmergencyCall#t
 
-.field public static final wifi_autocon:I = 0x112000c
+.field public static final wifi_autocon:I = #android:bool@wifi_autocon#t
 
 
 # direct methods

@@ -108,45 +108,36 @@
     .param p2, "alsaManager"    # Lcom/android/server/usb/UsbAlsaManager;
 
     .prologue
-    .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/usb/UsbHostManager;->mDevices:Ljava/util/HashMap;
 
-    .line 52
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/usb/UsbHostManager;->mLock:Ljava/lang/Object;
 
-    .line 67
     iput-object p1, p0, Lcom/android/server/usb/UsbHostManager;->mContext:Landroid/content/Context;
 
-    .line 68
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 69
-    const v1, 0x1070020
+    const v1, #android:array@config_usbHostBlacklist#t
 
-    .line 68
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/usb/UsbHostManager;->mHostBlacklist:[Ljava/lang/String;
 
-    .line 70
     iput-object p2, p0, Lcom/android/server/usb/UsbHostManager;->mUsbAlsaManager:Lcom/android/server/usb/UsbAlsaManager;
 
-    .line 66
     return-void
 .end method
 

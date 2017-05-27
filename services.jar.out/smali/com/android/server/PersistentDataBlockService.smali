@@ -1219,22 +1219,18 @@
     .param p1, "userHandle"    # I
 
     .prologue
-    .line 91
     iget-object v4, p0, Lcom/android/server/PersistentDataBlockService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 92
-    const v5, 0x10400ca
+    const v5, #android:string@config_persistentDataPackageName#t
 
-    .line 91
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 93
     .local v0, "allowedPackage":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/server/PersistentDataBlockService;->mContext:Landroid/content/Context;
 

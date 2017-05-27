@@ -34,7 +34,6 @@
 
 .field final synthetic val$userIds:[I
 
-
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;[ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;Landroid/content/IIntentReceiver;)V
     .locals 0
@@ -335,5 +334,35 @@
 
     .line 10437
     :cond_8
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/server/pm/PackageManagerService;[ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Landroid/content/IIntentReceiver;)V
+    .locals 0
+    .param p1, "this$0"    # Lcom/android/server/pm/PackageManagerService;
+    .param p2, "val$userIds"    # [I
+    .param p3, "val$action"    # Ljava/lang/String;
+    .param p4, "val$pkg"    # Ljava/lang/String;
+    .param p5, "val$extras"    # Landroid/os/Bundle;
+    .param p6, "val$targetPkg"    # Ljava/lang/String;
+    .param p7, "val$finishedReceiver"    # Landroid/content/IIntentReceiver;
+
+    .prologue
+    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$8;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$8;->val$userIds:[I
+
+    iput-object p3, p0, Lcom/android/server/pm/PackageManagerService$8;->val$action:Ljava/lang/String;
+
+    iput-object p4, p0, Lcom/android/server/pm/PackageManagerService$8;->val$pkg:Ljava/lang/String;
+
+    iput-object p5, p0, Lcom/android/server/pm/PackageManagerService$8;->val$extras:Landroid/os/Bundle;
+
+    iput-object p6, p0, Lcom/android/server/pm/PackageManagerService$8;->val$targetPkg:Ljava/lang/String;
+
+    iput-object p7, p0, Lcom/android/server/pm/PackageManagerService$8;->val$finishedReceiver:Landroid/content/IIntentReceiver;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
 .end method

@@ -69,45 +69,36 @@
     .param p3, "userProfiles"    # Lcom/android/server/notification/ManagedServices$UserProfiles;
 
     .prologue
-    .line 53
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     invoke-direct {p0, p1, p2, v0, p3}, Lcom/android/server/notification/ManagedServices;-><init>(Landroid/content/Context;Landroid/os/Handler;Ljava/lang/Object;Lcom/android/server/notification/ManagedServices$UserProfiles;)V
 
-    .line 44
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/notification/ConditionProviders;->mRecords:Ljava/util/ArrayList;
 
-    .line 45
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/notification/ConditionProviders;->mListeners:Landroid/util/ArrayMap;
 
-    .line 48
     new-instance v0, Landroid/util/ArraySet;
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    .line 47
     iput-object v0, p0, Lcom/android/server/notification/ConditionProviders;->mSystemConditionProviders:Landroid/util/ArraySet;
 
-    .line 54
     iget-object v0, p0, Lcom/android/server/notification/ConditionProviders;->mContext:Landroid/content/Context;
 
-    .line 55
-    const-string/jumbo v1, "system.condition.providers"
+    const-string v1, "system.condition.providers"
 
-    .line 56
-    const v2, 0x1070049
+    const v2, #android:array@config_system_condition_providers#t
 
-    .line 54
     invoke-static {v0, v1, v2}, Lcom/android/server/notification/PropConfig;->getStringArray(Landroid/content/Context;Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v0
@@ -1354,43 +1345,35 @@
     .locals 2
 
     .prologue
-    .line 79
     new-instance v0, Lcom/android/server/notification/ManagedServices$Config;
 
     invoke-direct {v0}, Lcom/android/server/notification/ManagedServices$Config;-><init>()V
 
-    .line 80
     .local v0, "c":Lcom/android/server/notification/ManagedServices$Config;
-    const-string/jumbo v1, "condition provider"
+    const-string v1, "condition provider"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->caption:Ljava/lang/String;
 
-    .line 81
-    const-string/jumbo v1, "android.service.notification.ConditionProviderService"
+    const-string v1, "android.service.notification.ConditionProviderService"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->serviceInterface:Ljava/lang/String;
 
-    .line 82
-    const-string/jumbo v1, "enabled_condition_providers"
+    const-string v1, "enabled_condition_providers"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->secureSettingName:Ljava/lang/String;
 
-    .line 83
-    const-string/jumbo v1, "android.permission.BIND_CONDITION_PROVIDER_SERVICE"
+    const-string v1, "android.permission.BIND_CONDITION_PROVIDER_SERVICE"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->bindPermission:Ljava/lang/String;
 
-    .line 84
-    const-string/jumbo v1, "android.settings.ACTION_CONDITION_PROVIDER_SETTINGS"
+    const-string v1, "android.settings.ACTION_CONDITION_PROVIDER_SETTINGS"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->settingsAction:Ljava/lang/String;
 
-    .line 85
-    const v1, 0x10404b6
+    const v1, #android:string@condition_provider_service_binding_label#t
 
     iput v1, v0, Lcom/android/server/notification/ManagedServices$Config;->clientLabel:I
 
-    .line 86
     return-object v0
 .end method
 

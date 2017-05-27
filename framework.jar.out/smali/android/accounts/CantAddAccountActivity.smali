@@ -37,14 +37,11 @@
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 34
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 35
-    const v0, 0x1090033
+    const v0, #android:layout@app_not_authorized#t
 
     invoke-virtual {p0, v0}, Landroid/accounts/CantAddAccountActivity;->setContentView(I)V
 
-    .line 33
     return-void
 .end method

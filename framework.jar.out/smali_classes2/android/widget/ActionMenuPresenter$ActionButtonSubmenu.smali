@@ -30,14 +30,11 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 931
     iput-object p1, p0, Landroid/widget/ActionMenuPresenter$ActionButtonSubmenu;->this$0:Landroid/widget/ActionMenuPresenter;
 
-    .line 932
     const/4 v4, 0x0
 
-    .line 933
-    const v5, 0x1010444
+    const v5, #android:attr@actionOverflowMenuStyle#t
 
     move-object v0, p0
 

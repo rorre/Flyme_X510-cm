@@ -1008,20 +1008,16 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 207
     :cond_0
-    const v0, 0x103048d
+    const v0, #android:style@Theme.DeviceDefault.Dialog.NoFrame#t
 
     iput v0, p0, Landroid/app/DialogFragment;->mTheme:I
 
-    .line 209
     :cond_1
     if-eqz p2, :cond_2
 
-    .line 210
     iput p2, p0, Landroid/app/DialogFragment;->mTheme:I
 
-    .line 204
     :cond_2
     return-void
 .end method

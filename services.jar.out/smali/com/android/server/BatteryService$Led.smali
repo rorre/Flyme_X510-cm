@@ -46,97 +46,78 @@
 
     iput-object v0, p0, Lcom/android/server/BatteryService$Led;->mBatteryLight:Lcom/android/server/lights/Light;
 
-    .line 1037
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1038
-    const v1, 0x112004a
+    const v1, #android:bool@config_multiColorBatteryLed#t
 
-    .line 1037
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     invoke-static {p1, v0}, Lcom/android/server/BatteryService;->-set7(Lcom/android/server/BatteryService;Z)Z
 
-    .line 1041
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1042
     const v1, 0x3f070008
 
-    .line 1041
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     invoke-static {p1, v0}, Lcom/android/server/BatteryService;->-set0(Lcom/android/server/BatteryService;Z)Z
 
-    .line 1045
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1046
     const v1, 0x3f070009
 
-    .line 1045
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     invoke-static {p1, v0}, Lcom/android/server/BatteryService;->-set9(Lcom/android/server/BatteryService;Z)Z
 
-    .line 1048
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1049
-    const v1, 0x10e005b
+    const v1, #android:integer@config_notificationsBatteryLedOn#t
 
-    .line 1048
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/BatteryService$Led;->mBatteryLedOn:I
 
-    .line 1050
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1051
-    const v1, 0x10e005c
+    const v1, #android:integer@config_notificationsBatteryLedOff#t
 
-    .line 1050
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/BatteryService$Led;->mBatteryLedOff:I
 
-    .line 1055
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1056
     const v1, 0x3f07000a
 
-    .line 1055
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     invoke-static {p1, v0}, Lcom/android/server/BatteryService;->-set11(Lcom/android/server/BatteryService;Z)Z
 
-    .line 1033
     return-void
 .end method
 

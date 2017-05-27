@@ -124,95 +124,66 @@
 
     const/4 v4, 0x1
 
-    .line 108
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
-    .line 107
     sput-object v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->sAvailableCapabilityInfos:Landroid/util/SparseArray;
 
-    .line 110
     sget-object v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->sAvailableCapabilityInfos:Landroid/util/SparseArray;
 
-    .line 111
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    .line 112
-    const v2, 0x10401b5
+    const v2, #android:string@capability_title_canRetrieveWindowContent#t
 
-    .line 113
-    const v3, 0x10401b6
+    const v3, #android:string@capability_desc_canRetrieveWindowContent#t
 
-    .line 111
     invoke-direct {v1, v4, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 
-    .line 110
     invoke-virtual {v0, v4, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 114
     sget-object v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->sAvailableCapabilityInfos:Landroid/util/SparseArray;
 
-    .line 115
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    .line 116
-    const v2, 0x10401b7
+    const v2, #android:string@capability_title_canRequestTouchExploration#t
 
-    .line 117
-    const v3, 0x10401b8
+    const v3, #android:string@capability_desc_canRequestTouchExploration#t
 
-    .line 115
     invoke-direct {v1, v5, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 
-    .line 114
     invoke-virtual {v0, v5, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 118
     sget-object v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->sAvailableCapabilityInfos:Landroid/util/SparseArray;
 
-    .line 119
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    .line 120
-    const v2, 0x10401b9
+    const v2, #android:string@capability_title_canRequestEnhancedWebAccessibility#t
 
-    .line 121
-    const v3, 0x10401ba
+    const v3, #android:string@capability_desc_canRequestEnhancedWebAccessibility#t
 
-    .line 119
     invoke-direct {v1, v6, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 
-    .line 118
     invoke-virtual {v0, v6, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 122
     sget-object v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->sAvailableCapabilityInfos:Landroid/util/SparseArray;
 
-    .line 123
     new-instance v1, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;
 
-    .line 124
-    const v2, 0x10401bb
+    const v2, #android:string@capability_title_canRequestFilterKeyEvents#t
 
-    .line 125
-    const v3, 0x10401bc
+    const v3, #android:string@capability_desc_canRequestFilterKeyEvents#t
 
-    .line 123
     invoke-direct {v1, v7, v2, v3}, Landroid/accessibilityservice/AccessibilityServiceInfo$CapabilityInfo;-><init>(III)V
 
-    .line 122
     invoke-virtual {v0, v7, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 965
     new-instance v0, Landroid/accessibilityservice/AccessibilityServiceInfo$1;
 
     invoke-direct {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo$1;-><init>()V
 
-    .line 964
     sput-object v0, Landroid/accessibilityservice/AccessibilityServiceInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 77
     return-void
 .end method
 

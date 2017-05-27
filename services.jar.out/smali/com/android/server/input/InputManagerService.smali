@@ -486,7 +486,7 @@
 
     move-result-object v0
 
-    const v1, 0x1120085
+    const v1, #android:bool@config_useDevInputEventForAudioJack#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2167,17 +2167,14 @@
     .locals 2
 
     .prologue
-    .line 1674
     iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1675
-    const v1, 0x10e0072
+    const v1, #android:integer@config_virtualKeyQuietTimeMillis#t
 
-    .line 1674
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
@@ -2378,32 +2375,24 @@
     .locals 4
 
     .prologue
-    .line 934
     iget-boolean v0, p0, Lcom/android/server/input/InputManagerService;->mKeyboardLayoutNotificationShown:Z
 
     if-eqz v0, :cond_0
 
-    .line 935
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/input/InputManagerService;->mKeyboardLayoutNotificationShown:Z
 
-    .line 936
     iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 938
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    .line 936
     const/4 v2, 0x0
 
-    .line 937
-    const v3, 0x104046c
+    const v3, #android:string@select_keyboard_layout_notification_title#t
 
-    .line 936
     invoke-virtual {v0, v2, v3, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
-    .line 933
     :cond_0
     return-void
 .end method
@@ -3348,7 +3337,7 @@
     .param p1, "device"    # Landroid/view/InputDevice;
 
     .prologue
-    const v9, 0x104046c
+    const v9, #android:string@select_keyboard_layout_notification_title#t
 
     const/4 v1, 0x0
 
@@ -3414,25 +3403,20 @@
 
     invoke-direct {v0, v1}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 915
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 914
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 918
-    const v1, 0x104046d
+    const v1, #android:string@select_keyboard_layout_notification_message#t
 
-    .line 917
     invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 914
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v0
@@ -3441,34 +3425,26 @@
 
     move-result-object v0
 
-    .line 920
-    const v1, 0x1080427
+    const v1, #android:drawable@ic_settings_language#t
 
-    .line 914
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 921
     const/4 v1, -0x1
 
-    .line 914
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setPriority(I)Landroid/app/Notification$Builder;
 
     move-result-object v0
 
-    .line 922
     iget-object v1, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
 
-    .line 923
-    const v3, 0x1060070
+    const v3, #android:color@system_notification_accent_color#t
 
-    .line 922
     invoke-virtual {v1, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v1
 
-    .line 914
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v0

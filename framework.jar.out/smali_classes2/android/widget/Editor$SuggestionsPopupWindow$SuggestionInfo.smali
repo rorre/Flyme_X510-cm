@@ -63,15 +63,12 @@
 
     move-result-object v1
 
-    .line 2711
-    const v2, 0x1030118
+    const v2, #android:style@TextAppearance.SuggestionHighlight#t
 
-    .line 2710
     invoke-direct {v0, v1, v2}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
     iput-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->highlightSpan:Landroid/text/style/TextAppearanceSpan;
 
-    .line 2705
     return-void
 .end method
 

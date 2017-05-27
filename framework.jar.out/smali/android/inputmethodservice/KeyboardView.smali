@@ -366,7 +366,7 @@
     .line 134
     new-array v0, v3, [I
 
-    const v1, 0x101023c
+    const v1, #android:attr@state_long_pressable#t
 
     aput v1, v0, v2
 
@@ -394,12 +394,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 280
-    const v0, 0x1160086
+    const v0, #android:^attr-private@keyboardViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/inputmethodservice/KeyboardView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 279
     return-void
 .end method
 
@@ -896,30 +894,25 @@
 
     iput v6, p0, Landroid/inputmethodservice/KeyboardView;->mSwipeThreshold:I
 
-    .line 376
     invoke-virtual {p0}, Landroid/inputmethodservice/KeyboardView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    .line 377
-    const v7, 0x1120058
+    const v7, #android:bool@config_swipeDisambiguation#t
 
-    .line 376
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v6
 
     iput-boolean v6, p0, Landroid/inputmethodservice/KeyboardView;->mDisambiguateSwipe:Z
 
-    .line 379
     invoke-static {p1}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
 
     move-result-object v6
 
     iput-object v6, p0, Landroid/inputmethodservice/KeyboardView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    .line 380
-    const-string/jumbo v6, "audio"
+    const-string v6, "audio"
 
     invoke-virtual {p1, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -3566,7 +3559,7 @@
     :sswitch_0
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404f3
+    const v4, #android:string@keyboardview_keycode_alt#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3580,7 +3573,7 @@
     :sswitch_1
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404f4
+    const v4, #android:string@keyboardview_keycode_cancel#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3594,7 +3587,7 @@
     :sswitch_2
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404f5
+    const v4, #android:string@keyboardview_keycode_delete#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3608,7 +3601,7 @@
     :sswitch_3
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404f6
+    const v4, #android:string@keyboardview_keycode_done#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3622,7 +3615,7 @@
     :sswitch_4
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404f7
+    const v4, #android:string@keyboardview_keycode_mode_change#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3636,7 +3629,7 @@
     :sswitch_5
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404f8
+    const v4, #android:string@keyboardview_keycode_shift#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3650,7 +3643,7 @@
     :sswitch_6
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x10404f9
+    const v4, #android:string@keyboardview_keycode_enter#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3680,7 +3673,7 @@
     :cond_4
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040500
+    const v4, #android:string@keyboard_headset_required_to_hear_password#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3694,7 +3687,7 @@
     :cond_5
     iget-object v3, p0, Landroid/inputmethodservice/KeyboardView;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040501
+    const v4, #android:string@keyboard_password_character_no_headset#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4844,7 +4837,7 @@
     .param p1, "popupKey"    # Landroid/inputmethodservice/Keyboard$Key;
 
     .prologue
-    const v5, 0x1020026
+    const v5, #android:id@keyboardView#t
 
     const/high16 v12, -0x80000000
 
@@ -4913,24 +4906,19 @@
 
     iput-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboard:Landroid/inputmethodservice/KeyboardView;
 
-    .line 1100
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboardContainer:Landroid/view/View;
 
-    .line 1101
-    const v3, 0x1020027
+    const v3, #android:id@closeButton#t
 
-    .line 1100
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    .line 1102
     .local v6, "closeButton":Landroid/view/View;
     if-eqz v6, :cond_0
 
     invoke-virtual {v6, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1103
     :cond_0
     iget-object v1, p0, Landroid/inputmethodservice/KeyboardView;->mMiniKeyboard:Landroid/inputmethodservice/KeyboardView;
 

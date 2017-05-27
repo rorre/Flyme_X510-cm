@@ -2392,7 +2392,7 @@
 
     move-result-object v5
 
-    const v6, 0x10e009c
+    const v6, #android:integer@config_LTE_RSRP_threshold_type#t
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2452,7 +2452,7 @@
 
     move-result-object v5
 
-    const v6, 0x1070051
+    const v6, #android:array@config_LTE_RSRP_custom_levels#t
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getIntArray(I)[I
 

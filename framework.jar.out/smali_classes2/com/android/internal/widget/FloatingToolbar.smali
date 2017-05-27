@@ -284,7 +284,7 @@
     .line 1518
     new-array v3, v6, [I
 
-    const/high16 v4, 0x1160000
+    const/high16 v4, #android:^attr-private@isLightTheme#i
 
     aput v4, v3, v5
 
@@ -292,34 +292,29 @@
 
     move-result-object v0
 
-    .line 1519
     .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v5, v6}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
-    .line 1520
     .local v1, "isLightTheme":Z
     if-eqz v1, :cond_0
 
-    const v2, 0x1030237
+    const v2, #android:style@Theme.Material.Light#t
 
-    .line 1521
     .local v2, "themeId":I
     :goto_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 1522
     new-instance v3, Landroid/view/ContextThemeWrapper;
 
     invoke-direct {v3, p0, v2}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
     return-object v3
 
-    .line 1520
     .end local v2    # "themeId":I
     :cond_0
-    const v2, 0x1030224
+    const v2, #android:style@Theme.Material#t
 
     .restart local v2    # "themeId":I
     goto :goto_0
@@ -330,17 +325,14 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1463
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 1464
-    const v1, 0x1090059
+    const v1, #android:layout@floating_popup_container#t
 
     const/4 v2, 0x0
 
-    .line 1463
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
@@ -495,66 +487,53 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1438
     invoke-static {p1}, Lcom/android/internal/widget/FloatingToolbar;->isIconOnlyMenuItem(Landroid/view/MenuItem;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 1439
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    .line 1440
-    const v3, 0x109005b
+    const v3, #android:layout@floating_popup_menu_image_button#t
 
-    .line 1439
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1442
     .local v0, "imageMenuItemButton":Landroid/view/View;
-    const v2, 0x1020054
+    const v2, #android:id@floating_toolbar_menu_item_image_button#t
 
-    .line 1441
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/ImageButton;
 
-    .line 1443
     invoke-interface {p1}, Landroid/view/MenuItem;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    .line 1441
     invoke-virtual {v2, v3}, Landroid/widget/ImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1444
     return-object v0
 
-    .line 1447
     .end local v0    # "imageMenuItemButton":Landroid/view/View;
     :cond_0
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v2
 
-    .line 1448
-    const v3, 0x109005a
+    const v3, #android:layout@floating_popup_menu_button#t
 
-    .line 1447
     invoke-virtual {v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/Button;
 
-    .line 1449
     .local v1, "menuItemButton":Landroid/widget/Button;
     invoke-interface {p1}, Landroid/view/MenuItem;->getTitle()Ljava/lang/CharSequence;
 
@@ -578,17 +557,14 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1458
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 1459
-    const v1, 0x109005e
+    const v1, #android:layout@floating_popup_overflow_list_item#t
 
     const/4 v2, 0x0
 
-    .line 1458
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
@@ -661,15 +637,12 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1530
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 1531
-    const v1, 0x105009b
+    const v1, #android:dimen@floating_toolbar_menu_button_minimum_width#t
 
-    .line 1530
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
@@ -687,7 +660,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050094
+    const v1, #android:dimen@floating_toolbar_height#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

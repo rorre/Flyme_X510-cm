@@ -95,11 +95,9 @@
 
     move-result-object v0
 
-    .line 1241
     .local v0, "res":Landroid/content/res/Resources;
-    const v1, 0x1050086
+    const v1, #android:dimen@subtitle_outline_width#t
 
-    .line 1240
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
@@ -108,10 +106,8 @@
 
     iput v1, p0, Landroid/media/ClosedCaptionWidget$CCLineBox;->mOutlineWidth:F
 
-    .line 1243
-    const v1, 0x1050084
+    const v1, #android:dimen@subtitle_shadow_radius#t
 
-    .line 1242
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
@@ -120,10 +116,8 @@
 
     iput v1, p0, Landroid/media/ClosedCaptionWidget$CCLineBox;->mShadowRadius:F
 
-    .line 1245
-    const v1, 0x1050085
+    const v1, #android:dimen@subtitle_shadow_offset#t
 
-    .line 1244
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1

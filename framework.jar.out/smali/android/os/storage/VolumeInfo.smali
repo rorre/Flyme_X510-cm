@@ -151,218 +151,191 @@
 
     const/4 v3, 0x0
 
-    .line 97
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    .line 98
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
     sput-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    .line 99
     new-instance v0, Landroid/util/SparseIntArray;
 
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
     sput-object v0, Landroid/os/storage/VolumeInfo;->sStateToDescrip:Landroid/util/SparseIntArray;
 
-    .line 102
     new-instance v0, Landroid/os/storage/VolumeInfo$1;
 
     invoke-direct {v0}, Landroid/os/storage/VolumeInfo$1;-><init>()V
 
     sput-object v0, Landroid/os/storage/VolumeInfo;->sDescriptionComparator:Ljava/util/Comparator;
 
-    .line 118
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "unmounted"
+    const-string v1, "unmounted"
 
     invoke-virtual {v0, v3, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 119
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "checking"
+    const-string v1, "checking"
 
     invoke-virtual {v0, v4, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 120
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "mounted"
+    const-string v1, "mounted"
 
     invoke-virtual {v0, v5, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 121
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "mounted_ro"
+    const-string v1, "mounted_ro"
 
     invoke-virtual {v0, v6, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 122
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "unmounted"
+    const-string v1, "unmounted"
 
     invoke-virtual {v0, v7, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 123
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "ejecting"
+    const-string v1, "ejecting"
 
     const/4 v2, 0x5
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 124
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "unmountable"
+    const-string v1, "unmountable"
 
     const/4 v2, 0x6
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 125
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "removed"
+    const-string v1, "removed"
 
     const/4 v2, 0x7
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 126
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToEnvironment:Landroid/util/SparseArray;
 
-    const-string/jumbo v1, "bad_removal"
+    const-string v1, "bad_removal"
 
     const/16 v2, 0x8
 
     invoke-virtual {v0, v2, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 128
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "unmounted"
+    const-string v1, "unmounted"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_UNMOUNTED"
+    const-string v2, "android.intent.action.MEDIA_UNMOUNTED"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 129
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "checking"
+    const-string v1, "checking"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_CHECKING"
+    const-string v2, "android.intent.action.MEDIA_CHECKING"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 130
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "mounted"
+    const-string v1, "mounted"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_MOUNTED"
+    const-string v2, "android.intent.action.MEDIA_MOUNTED"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 131
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "mounted_ro"
+    const-string v1, "mounted_ro"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_MOUNTED"
+    const-string v2, "android.intent.action.MEDIA_MOUNTED"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 132
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "ejecting"
+    const-string v1, "ejecting"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_EJECT"
+    const-string v2, "android.intent.action.MEDIA_EJECT"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 133
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "unmountable"
+    const-string v1, "unmountable"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_UNMOUNTABLE"
+    const-string v2, "android.intent.action.MEDIA_UNMOUNTABLE"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 134
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "removed"
+    const-string v1, "removed"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_REMOVED"
+    const-string v2, "android.intent.action.MEDIA_REMOVED"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 135
     sget-object v0, Landroid/os/storage/VolumeInfo;->sEnvironmentToBroadcast:Landroid/util/ArrayMap;
 
-    const-string/jumbo v1, "bad_removal"
+    const-string v1, "bad_removal"
 
-    const-string/jumbo v2, "android.intent.action.MEDIA_BAD_REMOVAL"
+    const-string v2, "android.intent.action.MEDIA_BAD_REMOVAL"
 
     invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 137
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToDescrip:Landroid/util/SparseIntArray;
 
-    const v1, 0x104048b
+    const v1, #android:string@ext_media_status_unmounted#t
 
     invoke-virtual {v0, v3, v1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 138
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToDescrip:Landroid/util/SparseIntArray;
 
-    const v1, 0x104048c
+    const v1, #android:string@ext_media_status_checking#t
 
     invoke-virtual {v0, v4, v1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 139
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToDescrip:Landroid/util/SparseIntArray;
 
-    const v1, 0x104048d
+    const v1, #android:string@ext_media_status_mounted#t
 
     invoke-virtual {v0, v5, v1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 140
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToDescrip:Landroid/util/SparseIntArray;
 
-    const v1, 0x104048e
+    const v1, #android:string@ext_media_status_mounted_ro#t
 
     invoke-virtual {v0, v6, v1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 141
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToDescrip:Landroid/util/SparseIntArray;
 
-    const v1, 0x1040493
+    const v1, #android:string@ext_media_status_formatting#t
 
     invoke-virtual {v0, v7, v1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 142
     sget-object v0, Landroid/os/storage/VolumeInfo;->sStateToDescrip:Landroid/util/SparseIntArray;
 
     const/4 v1, 0x5
 
-    const v2, 0x1040492
+    const v2, #android:string@ext_media_status_ejecting#t
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
@@ -371,7 +344,7 @@
 
     const/4 v1, 0x6
 
-    const v2, 0x1040490
+    const v2, #android:string@ext_media_status_unmountable#t
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
@@ -380,7 +353,7 @@
 
     const/4 v1, 0x7
 
-    const v2, 0x104048a
+    const v2, #android:string@ext_media_status_removed#t
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
@@ -389,7 +362,7 @@
 
     const/16 v1, 0x8
 
-    const v2, 0x104048f
+    const v2, #android:string@ext_media_status_bad_removal#t
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
@@ -972,18 +945,15 @@
 
     if-eqz v2, :cond_6
 
-    .line 365
     const/4 v8, 0x0
 
-    .line 392
     .end local v19    # "privateVol":Landroid/os/storage/VolumeInfo;
     .local v8, "removable":Z
     :cond_3
     :goto_1
     if-nez v6, :cond_4
 
-    .line 393
-    const v2, 0x104000e
+    const v2, #android:string@unknownName#t
 
     move-object/from16 v0, p1
 
@@ -1458,7 +1428,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040507
+    const v1, #android:string@storage_internal#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

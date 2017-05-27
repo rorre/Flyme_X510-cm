@@ -14,27 +14,22 @@
     .locals 2
 
     .prologue
-    .line 45
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
-    .line 35
-    const-string/jumbo v0, "routeTypes"
+    const-string v0, "routeTypes"
 
     iput-object v0, p0, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->ARGUMENT_ROUTE_TYPES:Ljava/lang/String;
 
-    .line 46
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->setCancelable(Z)V
 
-    .line 47
     const/4 v0, 0x0
 
-    const v1, 0x103012e
+    const v1, #android:style@Theme.DeviceDefault.Dialog#t
 
     invoke-virtual {p0, v0, v1}, Lcom/android/internal/app/MediaRouteChooserDialogFragment;->setStyle(II)V
 
-    .line 45
     return-void
 .end method
 

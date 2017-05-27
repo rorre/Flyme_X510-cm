@@ -201,75 +201,61 @@
 
     const/4 v6, 0x0
 
-    .line 116
     if-nez p0, :cond_0
 
-    .line 117
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v5, "context must not be null"
+    const-string v5, "context must not be null"
 
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
-    .line 120
     :cond_0
     if-nez p1, :cond_1
 
-    .line 121
     sget-object v4, Landroid/view/PointerIcon;->gNullIcon:Landroid/view/PointerIcon;
 
     return-object v4
 
-    .line 124
     :cond_1
     invoke-static {p1}, Landroid/view/PointerIcon;->getSystemIconStyleIndex(I)I
 
     move-result v3
 
-    .line 125
     .local v3, "styleIndex":I
     if-nez v3, :cond_2
 
-    .line 126
     invoke-static {v7}, Landroid/view/PointerIcon;->getSystemIconStyleIndex(I)I
 
     move-result v3
 
-    .line 130
     :cond_2
     sget-object v4, Lcom/android/internal/R$styleable;->Pointer:[I
 
-    .line 131
-    const v5, 0x1160030
+    const v5, #android:^attr-private@pointerStyle#t
 
-    .line 129
     invoke-virtual {p0, v9, v4, v5, v6}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 132
     .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v3, v8}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v2
 
-    .line 133
     .local v2, "resourceId":I
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 135
     if-ne v2, v8, :cond_4
 
-    .line 136
-    const-string/jumbo v4, "PointerIcon"
+    const-string v4, "PointerIcon"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "Missing theme resources for pointer icon style "
+    const-string v6, "Missing theme resources for pointer icon style "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

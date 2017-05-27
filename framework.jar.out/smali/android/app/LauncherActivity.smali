@@ -36,8 +36,7 @@
     .locals 2
 
     .prologue
-    .line 368
-    const v1, 0x10202f9
+    const v1, #android:id@alertTitle#t
 
     invoke-virtual {p0, v1}, Landroid/app/LauncherActivity;->findViewById(I)Landroid/view/View;
 
@@ -65,8 +64,7 @@
     .locals 2
 
     .prologue
-    .line 375
-    const v1, 0x1020019
+    const v1, #android:id@button1#t
 
     invoke-virtual {p0, v1}, Landroid/app/LauncherActivity;->findViewById(I)Landroid/view/View;
 
@@ -395,12 +393,10 @@
     .locals 1
 
     .prologue
-    .line 402
-    const v0, 0x1090023
+    const v0, #android:layout@activity_list#t
 
     invoke-virtual {p0, v0}, Landroid/app/LauncherActivity;->setContentView(I)V
 
-    .line 401
     return-void
 .end method
 

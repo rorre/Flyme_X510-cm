@@ -127,7 +127,7 @@
 
     move-result-object v1
 
-    const v2, 0x101048d
+    const v2, #android:attr@actionBarPopupTheme#t
 
     const/4 v3, 0x1
 
@@ -429,25 +429,20 @@
 
     const/4 v4, 0x0
 
-    .line 83
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 87
     invoke-virtual {p0}, Lcom/android/internal/widget/AbsActionBarView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     sget-object v2, Lcom/android/internal/R$styleable;->ActionBar:[I
 
-    .line 88
-    const v3, 0x10102ce
+    const v3, #android:attr@actionBarStyle#t
 
-    .line 87
     invoke-virtual {v1, v5, v2, v3, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 89
     .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x4
 
@@ -474,28 +469,23 @@
 
     move-result-object v1
 
-    .line 93
-    const v2, 0x1120005
+    const v2, #android:bool@split_action_bar_is_narrow#t
 
-    .line 92
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/android/internal/widget/AbsActionBarView;->setSplitToolbar(Z)V
 
-    .line 95
     :cond_0
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Landroid/widget/ActionMenuPresenter;
 
     if-eqz v1, :cond_1
 
-    .line 96
     iget-object v1, p0, Lcom/android/internal/widget/AbsActionBarView;->mActionMenuPresenter:Landroid/widget/ActionMenuPresenter;
 
     invoke-virtual {v1, p1}, Landroid/widget/ActionMenuPresenter;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 82
     :cond_1
     return-void
 .end method

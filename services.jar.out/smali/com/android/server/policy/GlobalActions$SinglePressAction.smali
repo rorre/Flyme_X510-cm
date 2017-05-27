@@ -126,16 +126,14 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 1028
-    const v5, 0x1090062
+    const v5, #android:layout@global_actions_item#t
 
     invoke-virtual {p4, v5, p3, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v4
 
-    .line 1030
     .local v4, "v":Landroid/view/View;
-    const v5, 0x1020006
+    const v5, #android:id@icon#t
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -145,7 +143,7 @@
 
     .line 1031
     .local v0, "icon":Landroid/widget/ImageView;
-    const v5, 0x102000b
+    const v5, #android:id@message#t
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -155,7 +153,7 @@
 
     .line 1033
     .local v1, "messageView":Landroid/widget/TextView;
-    const v5, 0x1020333
+    const v5, #android:id@status#t
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

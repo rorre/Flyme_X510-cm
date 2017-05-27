@@ -49,10 +49,9 @@
     .end annotation
 
     .prologue
-    .line 170
-    const v0, 0x1090078
+    const v0, #android:layout@locale_picker_item#t
 
-    const v1, 0x10201d2
+    const v1, #android:id@locale#t
 
     invoke-static {p0, v0, v1}, Lcom/android/internal/app/LocalePicker;->constructAdapter(Landroid/content/Context;II)Landroid/widget/ArrayAdapter;
 
@@ -180,40 +179,33 @@
 
     move-result-object v6
 
-    .line 106
     .local v6, "locales":[Ljava/lang/String;
     invoke-static {v6, v8}, Lcom/android/internal/app/LocalePicker;->getLocaleArray([Ljava/lang/String;Landroid/content/res/Resources;)Ljava/util/ArrayList;
 
     move-result-object v5
 
-    .line 109
     .local v5, "localeList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     if-nez p1, :cond_0
 
-    .line 110
-    const-string/jumbo v11, "ar-XB"
+    const-string v11, "ar-XB"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 111
-    const-string/jumbo v11, "en-XA"
+    const-string v11, "en-XA"
 
     invoke-virtual {v5, v11}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 114
     :cond_0
     invoke-static {v5}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
-    .line 115
-    const v11, 0x1070008
+    const v11, #android:array@special_locale_codes#t
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v9
 
-    .line 116
     .local v9, "specialLocaleCodes":[Ljava/lang/String;
-    const v11, 0x1070009
+    const v11, #android:array@special_locale_names#t
 
     invoke-virtual {v8, v11}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -510,22 +502,19 @@
     .end annotation
 
     .prologue
-    .line 91
-    const v3, 0x10400d6
+    const v3, #android:string@locale_codes#t
 
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 92
     .local v2, "locale_codes":Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 93
     .local v0, "localeCodesArray":[Ljava/lang/String;
     if-eqz v2, :cond_0
 
-    const-string/jumbo v3, ""
+    const-string v3, ""
 
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 

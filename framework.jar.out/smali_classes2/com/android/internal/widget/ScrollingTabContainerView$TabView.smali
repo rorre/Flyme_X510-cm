@@ -38,32 +38,25 @@
     .param p4, "forList"    # Z
 
     .prologue
-    .line 369
     iput-object p1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
-    .line 370
     const/4 v0, 0x0
 
-    const v1, 0x10102f3
+    const v1, #android:attr@actionBarTabStyle#t
 
     invoke-direct {p0, p2, v0, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 371
     iput-object p3, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->mTab:Landroid/app/ActionBar$Tab;
 
-    .line 373
     if-eqz p4, :cond_0
 
-    .line 374
     const v0, 0x800013
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->setGravity(I)V
 
-    .line 377
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->update()V
 
-    .line 369
     return-void
 .end method
 
@@ -446,54 +439,42 @@
 
     const/4 v2, 0x0
 
-    .line 453
     .local v2, "hasText":Z
     :goto_2
     if-eqz v2, :cond_e
 
-    .line 454
     iget-object v9, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
     if-nez v9, :cond_8
 
-    .line 455
     new-instance v8, Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->getContext()Landroid/content/Context;
 
     move-result-object v9
 
-    .line 456
-    const v10, 0x10102f5
+    const v10, #android:attr@actionBarTabTextStyle#t
 
-    .line 455
     invoke-direct {v8, v9, v11, v10}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 457
     .local v8, "textView":Landroid/widget/TextView;
     sget-object v9, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    .line 458
     new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v5, v12, v12}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 460
     .restart local v5    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     iput v14, v5, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 461
     invoke-virtual {v8, v5}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 462
     invoke-virtual {p0, v8}, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->addView(Landroid/view/View;)V
 
-    .line 463
     iput-object v8, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
-    .line 465
     .end local v5    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     .end local v8    # "textView":Landroid/widget/TextView;
     :cond_8

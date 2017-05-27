@@ -60,54 +60,45 @@
 
     const/4 v2, 0x0
 
-    const v10, 0x10403d5
+    const v10, #android:string@whichSendApplicationNamed#t
 
-    const v9, 0x10403d4
+    const v9, #android:string@whichSendApplication#t
 
-    .line 121
     new-instance v0, Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    const-string/jumbo v1, "VIEW"
+    const-string v1, "VIEW"
 
-    const-string/jumbo v3, "android.intent.action.VIEW"
+    const-string v3, "android.intent.action.VIEW"
 
-    .line 122
-    const v4, 0x10403d0
+    const v4, #android:string@whichViewApplication#t
 
-    .line 123
-    const v5, 0x10403d1
+    const v5, #android:string@whichViewApplicationNamed#t
 
-    .line 121
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/app/ResolverActivity$ActionTitle;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
     sput-object v0, Lcom/android/internal/app/ResolverActivity$ActionTitle;->VIEW:Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    .line 124
     new-instance v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    const-string/jumbo v4, "EDIT"
+    const-string v4, "EDIT"
 
-    const-string/jumbo v6, "android.intent.action.EDIT"
+    const-string v6, "android.intent.action.EDIT"
 
-    .line 125
-    const v7, 0x10403d2
+    const v7, #android:string@whichEditApplication#t
 
-    .line 126
-    const v8, 0x10403d3
+    const v8, #android:string@whichEditApplicationNamed#t
 
     move v5, v11
 
-    .line 124
     invoke-direct/range {v3 .. v8}, Lcom/android/internal/app/ResolverActivity$ActionTitle;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
     sput-object v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;->EDIT:Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    .line 127
     new-instance v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    const-string/jumbo v4, "SEND"
+    const-string v4, "SEND"
 
-    const-string/jumbo v6, "android.intent.action.SEND"
+    const-string v6, "android.intent.action.SEND"
 
     move v5, v12
 
@@ -153,47 +144,38 @@
 
     sput-object v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;->SEND_MULTIPLE:Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    .line 136
     new-instance v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    const-string/jumbo v4, "DEFAULT"
+    const-string v4, "DEFAULT"
 
     const/4 v5, 0x5
 
     const/4 v6, 0x0
 
-    .line 137
-    const v7, 0x10403ce
+    const v7, #android:string@whichApplication#t
 
-    .line 138
-    const v8, 0x10403cf
+    const v8, #android:string@whichApplicationNamed#t
 
-    .line 136
     invoke-direct/range {v3 .. v8}, Lcom/android/internal/app/ResolverActivity$ActionTitle;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
     sput-object v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;->DEFAULT:Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    .line 139
     new-instance v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    const-string/jumbo v4, "HOME"
+    const-string v4, "HOME"
 
-    const-string/jumbo v6, "android.intent.action.MAIN"
+    const-string v6, "android.intent.action.MAIN"
 
     const/4 v5, 0x6
 
-    .line 140
-    const v7, 0x10403d6
+    const v7, #android:string@whichHomeApplication#t
 
-    .line 141
-    const v8, 0x10403d7
+    const v8, #android:string@whichHomeApplicationNamed#t
 
-    .line 139
     invoke-direct/range {v3 .. v8}, Lcom/android/internal/app/ResolverActivity$ActionTitle;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
     sput-object v3, Lcom/android/internal/app/ResolverActivity$ActionTitle;->HOME:Lcom/android/internal/app/ResolverActivity$ActionTitle;
 
-    .line 120
     const/4 v0, 0x7
 
     new-array v0, v0, [Lcom/android/internal/app/ResolverActivity$ActionTitle;

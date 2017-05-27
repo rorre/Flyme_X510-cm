@@ -603,17 +603,14 @@
 
     invoke-direct {p0, v8}, Landroid/accounts/ChooseAccountTypeActivity;->setResultAndFinish(Ljava/lang/String;)V
 
-    .line 97
     return-void
 
-    .line 100
     :cond_6
-    const v8, 0x1090040
+    const v8, #android:layout@choose_account_type#t
 
     invoke-virtual {p0, v8}, Landroid/accounts/ChooseAccountTypeActivity;->setContentView(I)V
 
-    .line 102
-    const v8, 0x102000a
+    const v8, #android:id@list#t
 
     invoke-virtual {p0, v8}, Landroid/accounts/ChooseAccountTypeActivity;->findViewById(I)Landroid/view/View;
 
@@ -621,33 +618,26 @@
 
     check-cast v4, Landroid/widget/ListView;
 
-    .line 104
     .local v4, "list":Landroid/widget/ListView;
     new-instance v8, Landroid/accounts/ChooseAccountTypeActivity$AccountArrayAdapter;
 
-    .line 105
     iget-object v10, p0, Landroid/accounts/ChooseAccountTypeActivity;->mAuthenticatorInfosToDisplay:Ljava/util/ArrayList;
 
-    const v11, 0x1090003
+    const v11, #android:layout@simple_list_item_1#t
 
-    .line 104
     invoke-direct {v8, p0, v11, v10}, Landroid/accounts/ChooseAccountTypeActivity$AccountArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/ArrayList;)V
 
     invoke-virtual {v4, v8}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 106
     invoke-virtual {v4, v9}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 107
     invoke-virtual {v4, v9}, Landroid/widget/ListView;->setTextFilterEnabled(Z)V
 
-    .line 108
     new-instance v8, Landroid/accounts/ChooseAccountTypeActivity$1;
 
     invoke-direct {v8, p0}, Landroid/accounts/ChooseAccountTypeActivity$1;-><init>(Landroid/accounts/ChooseAccountTypeActivity;)V
 
     invoke-virtual {v4, v8}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 52
     return-void
 .end method

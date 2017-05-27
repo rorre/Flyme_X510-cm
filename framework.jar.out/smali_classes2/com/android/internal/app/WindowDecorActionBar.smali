@@ -358,15 +358,12 @@
 
     move-result v1
 
-    .line 170
     .local v1, "overlayMode":Z
     invoke-direct {p0, v0}, Lcom/android/internal/app/WindowDecorActionBar;->init(Landroid/view/View;)V
 
-    .line 171
     if-nez v1, :cond_0
 
-    .line 172
-    const v3, 0x1020002
+    const v3, #android:id@content#t
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -894,10 +891,8 @@
 
     const/4 v7, 0x0
 
-    .line 192
-    const v5, 0x10203bc
+    const v5, #android:id@decor_content_parent#t
 
-    .line 191
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
@@ -918,7 +913,7 @@
 
     .line 196
     :cond_0
-    const v5, 0x10203be
+    const v5, #android:id@action_bar#t
 
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -930,10 +925,8 @@
 
     iput-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
-    .line 198
-    const v5, 0x10203bf
+    const v5, #android:id@action_context_bar#t
 
-    .line 197
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
@@ -942,10 +935,8 @@
 
     iput-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mContextView:Lcom/android/internal/widget/ActionBarContextView;
 
-    .line 200
-    const v5, 0x10203bd
+    const v5, #android:id@action_bar_container#t
 
-    .line 199
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
@@ -954,10 +945,8 @@
 
     iput-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
 
-    .line 202
-    const v5, 0x10203c0
+    const v5, #android:id@split_action_bar#t
 
-    .line 201
     invoke-virtual {p1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v5
@@ -1089,28 +1078,22 @@
     :goto_2
     invoke-virtual {p0, v4}, Lcom/android/internal/app/WindowDecorActionBar;->setHomeButtonEnabled(Z)V
 
-    .line 222
     invoke-virtual {v1}, Lcom/android/internal/view/ActionBarPolicy;->hasEmbeddedTabs()Z
 
     move-result v5
 
     invoke-direct {p0, v5}, Lcom/android/internal/app/WindowDecorActionBar;->setHasEmbeddedTabs(Z)V
 
-    .line 224
     iget-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mContext:Landroid/content/Context;
 
-    .line 225
     sget-object v8, Lcom/android/internal/R$styleable;->ActionBar:[I
 
-    .line 226
-    const v9, 0x10102ce
+    const v9, #android:attr@actionBarStyle#t
 
-    .line 224
     invoke-virtual {v5, v10, v8, v9, v7}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 227
     .local v0, "a":Landroid/content/res/TypedArray;
     const/16 v5, 0x15
 
@@ -1911,44 +1894,35 @@
 
     aput v8, v7, v9
 
-    .line 845
     invoke-static {v5, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v5
 
     invoke-virtual {v2, v5}, Landroid/animation/AnimatorSet$Builder;->with(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
-    .line 848
     :cond_4
     iget-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mContext:Landroid/content/Context;
 
-    .line 849
-    const v6, 0x10c0002
+    const v6, #android:interpolator@accelerate_cubic#t
 
-    .line 848
     invoke-static {v5, v6}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
     move-result-object v5
 
     invoke-virtual {v1, v5}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    .line 850
     const-wide/16 v6, 0xfa
 
     invoke-virtual {v1, v6, v7}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    .line 851
     iget-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mHideListener:Landroid/animation/Animator$AnimatorListener;
 
     invoke-virtual {v1, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 852
     iput-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mCurrentShowAnim:Landroid/animation/Animator;
 
-    .line 853
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
-    .line 820
     .end local v0    # "a":Landroid/animation/ObjectAnimator;
     .end local v1    # "anim":Landroid/animation/AnimatorSet;
     .end local v2    # "b":Landroid/animation/AnimatorSet$Builder;
@@ -2157,37 +2131,29 @@
 
     invoke-virtual {v2, v5}, Landroid/animation/AnimatorSet$Builder;->with(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
-    .line 789
     :cond_4
     iget-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mContext:Landroid/content/Context;
 
-    .line 790
-    const v6, 0x10c0003
+    const v6, #android:interpolator@decelerate_cubic#t
 
-    .line 789
     invoke-static {v5, v6}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
     move-result-object v5
 
     invoke-virtual {v1, v5}, Landroid/animation/AnimatorSet;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    .line 791
     const-wide/16 v6, 0xfa
 
     invoke-virtual {v1, v6, v7}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    .line 799
     iget-object v5, p0, Lcom/android/internal/app/WindowDecorActionBar;->mShowListener:Landroid/animation/Animator$AnimatorListener;
 
     invoke-virtual {v1, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    .line 800
     iput-object v1, p0, Lcom/android/internal/app/WindowDecorActionBar;->mCurrentShowAnim:Landroid/animation/Animator;
 
-    .line 801
     invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
 
-    .line 815
     .end local v0    # "a":Landroid/animation/ObjectAnimator;
     .end local v1    # "anim":Landroid/animation/AnimatorSet;
     .end local v2    # "b":Landroid/animation/AnimatorSet$Builder;
@@ -2539,20 +2505,15 @@
 
     move-result-object v0
 
-    .line 894
     .local v0, "currentTheme":Landroid/content/res/Resources$Theme;
-    const v3, 0x1010397
+    const v3, #android:attr@actionBarWidgetTheme#t
 
-    .line 895
     const/4 v4, 0x1
 
-    .line 894
     invoke-virtual {v0, v3, v1, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 896
     iget v2, v1, Landroid/util/TypedValue;->resourceId:I
 
-    .line 898
     .local v2, "targetThemeRes":I
     if-eqz v2, :cond_1
 

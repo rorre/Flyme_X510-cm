@@ -995,21 +995,17 @@
 
     move-result-object v3
 
-    .line 390
     .local v3, "res":Landroid/content/res/Resources;
     iget-object v4, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    .line 391
-    const v5, 0x1040545
+    const v5, #android:string@display_manager_built_in_display_name#t
 
-    .line 390
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     iput-object v5, v4, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
 
-    .line 392
     iget-object v4, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v5, v4, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
@@ -1018,8 +1014,7 @@
 
     iput v5, v4, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    .line 394
-    const v4, 0x11200b4
+    const v4, #android:bool@config_mainBuiltInDisplayIsRound#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1140,22 +1135,18 @@
 
     move-result-object v5
 
-    .line 408
-    const v6, 0x1040546
+    const v6, #android:string@display_manager_hdmi_display_name#t
 
-    .line 407
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
     iput-object v5, v4, Lcom/android/server/display/DisplayDeviceInfo;->name:Ljava/lang/String;
 
-    .line 409
     iget-object v4, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iput v10, v4, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
 
-    .line 410
     iget-object v4, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iget v5, v1, Landroid/view/SurfaceControl$PhysicalDisplayInfo;->width:I

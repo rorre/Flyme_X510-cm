@@ -34,56 +34,45 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 256
     iput-object p1, p0, Landroid/app/LauncherActivity$IconResizer;->this$0:Landroid/app/LauncherActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 250
     iput v1, p0, Landroid/app/LauncherActivity$IconResizer;->mIconWidth:I
 
-    .line 251
     iput v1, p0, Landroid/app/LauncherActivity$IconResizer;->mIconHeight:I
 
-    .line 253
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Landroid/app/LauncherActivity$IconResizer;->mOldBounds:Landroid/graphics/Rect;
 
-    .line 254
     new-instance v1, Landroid/graphics/Canvas;
 
     invoke-direct {v1}, Landroid/graphics/Canvas;-><init>()V
 
     iput-object v1, p0, Landroid/app/LauncherActivity$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
-    .line 257
     iget-object v1, p0, Landroid/app/LauncherActivity$IconResizer;->mCanvas:Landroid/graphics/Canvas;
 
     new-instance v2, Landroid/graphics/PaintFlagsDrawFilter;
 
     const/4 v3, 0x4
 
-    .line 258
     const/4 v4, 0x2
 
-    .line 257
     invoke-direct {v2, v3, v4}, Landroid/graphics/PaintFlagsDrawFilter;-><init>(II)V
 
     invoke-virtual {v1, v2}, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
 
-    .line 260
     invoke-virtual {p1}, Landroid/app/LauncherActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 262
     .local v0, "resources":Landroid/content/res/Resources;
-    const/high16 v1, 0x1050000
+    const/high16 v1, #android:dimen@app_icon_size#i
 
-    .line 261
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1

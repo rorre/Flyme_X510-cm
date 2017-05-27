@@ -155,40 +155,32 @@
 
     iput-object v4, p0, Lcom/android/server/policy/WindowOrientationListener;->mSensorManager:Landroid/hardware/SensorManager;
 
-    .line 90
     iput p3, p0, Lcom/android/server/policy/WindowOrientationListener;->mRate:I
 
-    .line 92
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 93
-    const v5, 0x104009c
+    const v5, #android:string@config_orientationSensorType#t
 
-    .line 92
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     iput-object v4, p0, Lcom/android/server/policy/WindowOrientationListener;->mSensorType:Ljava/lang/String;
 
-    .line 94
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 95
-    const v5, 0x11200c3
+    const v5, #android:bool@config_useSystemClockforRotationSensor#t
 
-    .line 94
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v4
 
     iput-boolean v4, p0, Lcom/android/server/policy/WindowOrientationListener;->mUseSystemClockforRotationSensor:Z
 
-    .line 97
     iget-object v4, p0, Lcom/android/server/policy/WindowOrientationListener;->mSensorType:Ljava/lang/String;
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z

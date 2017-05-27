@@ -70,39 +70,32 @@
     .end annotation
 
     .prologue
-    .line 1642
     packed-switch p0, :pswitch_data_0
 
-    .line 1658
-    const v0, 0x108006a
+    const v0, #android:drawable@presence_offline#t
 
     return v0
 
-    .line 1644
     :pswitch_0
-    const v0, 0x108006b
+    const v0, #android:drawable@presence_online#t
 
     return v0
 
-    .line 1648
     :pswitch_1
-    const v0, 0x1080067
+    const v0, #android:drawable@presence_away#t
 
     return v0
 
-    .line 1651
     :pswitch_2
-    const v0, 0x1080068
+    const v0, #android:drawable@presence_busy#t
 
     return v0
 
-    .line 1654
     :pswitch_3
-    const v0, 0x1080069
+    const v0, #android:drawable@presence_invisible#t
 
     return v0
 
-    .line 1642
     nop
 
     :pswitch_data_0

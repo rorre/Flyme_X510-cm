@@ -326,15 +326,12 @@
 
     move-result-object v2
 
-    .line 302
-    const v3, 0x10400ad
+    const v3, #android:string@config_default_dns_server#t
 
-    .line 301
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 305
     :cond_1
     :try_start_0
     invoke-static {v0}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;

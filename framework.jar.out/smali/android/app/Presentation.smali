@@ -139,67 +139,55 @@
     .param p2, "theme"    # I
 
     .prologue
-    .line 291
     if-nez p0, :cond_0
 
-    .line 292
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v5, "outerContext must not be null"
+    const-string v5, "outerContext must not be null"
 
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
-    .line 294
     :cond_0
     if-nez p1, :cond_1
 
-    .line 295
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v5, "display must not be null"
+    const-string v5, "display must not be null"
 
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
-    .line 298
     :cond_1
     invoke-virtual {p0, p1}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
 
     move-result-object v0
 
-    .line 299
     .local v0, "displayContext":Landroid/content/Context;
     if-nez p2, :cond_2
 
-    .line 300
     new-instance v2, Landroid/util/TypedValue;
 
     invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
 
-    .line 301
     .local v2, "outValue":Landroid/util/TypedValue;
     invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v4
 
-    .line 302
-    const v5, 0x10103c0
+    const v5, #android:attr@presentationTheme#t
 
     const/4 v6, 0x1
 
-    .line 301
     invoke-virtual {v4, v5, v2, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 303
     iget p2, v2, Landroid/util/TypedValue;->resourceId:I
 
-    .line 311
     .end local v2    # "outValue":Landroid/util/TypedValue;
     :cond_2
-    const-string/jumbo v4, "window"
+    const-string v4, "window"
 
     invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

@@ -1404,57 +1404,45 @@
 
     move-result-object v1
 
-    .line 477
     .local v1, "r":Landroid/content/res/Resources;
-    const-string/jumbo v2, "name"
+    const-string v2, "name"
 
-    .line 478
-    const v3, 0x104060d
+    const v3, #android:string@usb_midi_peripheral_name#t
 
-    .line 477
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 479
-    const-string/jumbo v2, "manufacturer"
+    const-string v2, "manufacturer"
 
-    .line 480
-    const v3, 0x104060e
+    const v3, #android:string@usb_midi_peripheral_manufacturer_name#t
 
-    .line 479
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 481
-    const-string/jumbo v2, "product"
+    const-string v2, "product"
 
-    .line 482
-    const v3, 0x104060f
+    const v3, #android:string@usb_midi_peripheral_product_name#t
 
-    .line 481
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 483
-    const-string/jumbo v2, "alsa_card"
+    const-string v2, "alsa_card"
 
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 484
-    const-string/jumbo v2, "alsa_device"
+    const-string v2, "alsa_device"
 
     invoke-virtual {v0, v2, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 485
     iget-object v2, p0, Lcom/android/server/usb/UsbAlsaManager;->mContext:Landroid/content/Context;
 
     invoke-static {v2, v0, p2, p3}, Lcom/android/server/usb/UsbMidiDevice;->create(Landroid/content/Context;Landroid/os/Bundle;II)Lcom/android/server/usb/UsbMidiDevice;

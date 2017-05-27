@@ -199,7 +199,7 @@
 
     move-result-object v4
 
-    const v5, 0x1010479
+    const v5, #android:attr@actionModeShareDrawable#t
 
     const/4 v6, 0x1
 
@@ -214,26 +214,19 @@
 
     move-result-object v2
 
-    .line 174
     .local v2, "drawable":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v0, v2}, Landroid/widget/ActivityChooserView;->setExpandActivityOverflowButtonDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 175
     invoke-virtual {v0, p0}, Landroid/widget/ActivityChooserView;->setProvider(Landroid/view/ActionProvider;)V
 
-    .line 179
-    const v4, 0x10404fd
+    const v4, #android:string@shareactionprovider_share_with_application#t
 
-    .line 178
     invoke-virtual {v0, v4}, Landroid/widget/ActivityChooserView;->setDefaultActionButtonContentDescription(I)V
 
-    .line 181
-    const v4, 0x10404fc
+    const v4, #android:string@shareactionprovider_share_with#t
 
-    .line 180
     invoke-virtual {v0, v4}, Landroid/widget/ActivityChooserView;->setExpandActivityOverflowButtonContentDescription(I)V
 
-    .line 183
     return-object v0
 .end method
 
@@ -330,7 +323,7 @@
     .line 220
     iget-object v7, p0, Landroid/widget/ShareActionProvider;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040529
+    const v8, #android:string@activity_chooser_view_see_all#t
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

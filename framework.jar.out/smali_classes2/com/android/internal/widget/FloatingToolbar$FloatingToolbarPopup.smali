@@ -310,73 +310,58 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mPopupWindow:Landroid/widget/PopupWindow;
 
-    .line 377
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContentContainer:Landroid/view/ViewGroup;
 
-    .line 379
     new-instance v1, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$6;
 
     invoke-direct {v1, p0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$6;-><init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
-    .line 378
     const/16 v2, 0x96
 
-    .line 376
     invoke-static {v0, v2, v1}, Lcom/android/internal/widget/FloatingToolbar;->-wrap1(Landroid/view/View;ILandroid/animation/Animator$AnimatorListener;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mDismissAnimation:Landroid/animation/AnimatorSet;
 
-    .line 387
     iget-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mContentContainer:Landroid/view/ViewGroup;
 
-    .line 389
     new-instance v1, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;
 
     invoke-direct {v1, p0}, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup$7;-><init>(Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;)V
 
-    .line 388
     const/4 v2, 0x0
 
-    .line 386
     invoke-static {v0, v2, v1}, Lcom/android/internal/widget/FloatingToolbar;->-wrap1(Landroid/view/View;ILandroid/animation/Animator$AnimatorListener;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mHideAnimation:Landroid/animation/AnimatorSet;
 
-    .line 395
     invoke-virtual {p2}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 396
-    const v1, 0x105009f
+    const v1, #android:dimen@floating_toolbar_horizontal_margin#t
 
-    .line 395
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mMarginHorizontal:I
 
-    .line 397
     invoke-virtual {p2}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 398
-    const v1, 0x10500a0
+    const v1, #android:dimen@floating_toolbar_vertical_margin#t
 
-    .line 397
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mMarginVertical:I
 
-    .line 371
     return-void
 .end method
 
@@ -789,10 +774,8 @@
 
     move-result-object v3
 
-    .line 952
-    const v4, 0x105009f
+    const v4, #android:dimen@floating_toolbar_horizontal_margin#t
 
-    .line 951
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
@@ -801,26 +784,21 @@
 
     sub-int v0, v2, v3
 
-    .line 953
     .local v0, "maximumWidth":I
     if-gtz v1, :cond_0
 
-    .line 954
     iget-object v2, p0, Lcom/android/internal/widget/FloatingToolbar$FloatingToolbarPopup;->mParent:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 955
-    const v3, 0x105009c
+    const v3, #android:dimen@floating_toolbar_preferred_width#t
 
-    .line 954
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 957
     :cond_0
     invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
 

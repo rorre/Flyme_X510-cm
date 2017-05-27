@@ -101,7 +101,7 @@
 
     .line 577
     .local v2, "tabIndicator":Landroid/view/View;
-    const v4, 0x1020016
+    const v4, #android:id@title#t
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -126,13 +126,11 @@
 
     if-gt v4, v5, :cond_0
 
-    .line 582
-    const v4, 0x10806e7
+    const v4, #android:drawable@tab_indicator_v4#t
 
     invoke-virtual {v2, v4}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 583
-    const v4, 0x106013d
+    const v4, #android:color@tab_indicator_text_v4#t
 
     invoke-virtual {v0, v4}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

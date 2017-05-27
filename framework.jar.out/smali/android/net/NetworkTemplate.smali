@@ -68,34 +68,28 @@
     .locals 2
 
     .prologue
-    .line 68
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 69
-    const v1, 0x1070015
+    const v1, #android:array@config_data_usage_network_types#t
 
-    .line 68
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v0
 
     sput-object v0, Landroid/net/NetworkTemplate;->DATA_USAGE_NETWORK_TYPES:[I
 
-    .line 72
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/net/NetworkTemplate;->sForceAllNetworkTypes:Z
 
-    .line 435
     new-instance v0, Landroid/net/NetworkTemplate$1;
 
     invoke-direct {v0}, Landroid/net/NetworkTemplate$1;-><init>()V
 
     sput-object v0, Landroid/net/NetworkTemplate;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 49
     return-void
 .end method
 

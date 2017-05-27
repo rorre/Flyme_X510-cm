@@ -78,27 +78,21 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1763
-    const-string/jumbo v0, ""
+    const-string v0, ""
 
-    .line 1765
     .local v0, "display":Ljava/lang/CharSequence;
     if-eqz p1, :cond_1
 
-    .line 1766
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 1767
-    const v4, 0x1070002
+    const v4, #android:array@organizationTypes#t
 
-    .line 1766
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getTextArray(I)[Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 1769
     .local v2, "labels":[Ljava/lang/CharSequence;
     add-int/lit8 v3, p1, -0x1
 

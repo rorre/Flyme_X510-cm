@@ -77,14 +77,12 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 93
-    const/high16 v0, 0x10a0000
+    const/high16 v0, #android:anim@fade_in#i
 
-    const v1, 0x10a0001
+    const v1, #android:anim@fade_out#t
 
     invoke-direct {p0, p1, v0, v1}, Landroid/appwidget/AppWidgetHostView;-><init>(Landroid/content/Context;II)V
 
-    .line 92
     return-void
 .end method
 
@@ -138,17 +136,14 @@
     .param p2, "handler"    # Landroid/widget/RemoteViews$OnClickHandler;
 
     .prologue
-    .line 100
-    const/high16 v0, 0x10a0000
+    const/high16 v0, #android:anim@fade_in#i
 
-    const v1, 0x10a0001
+    const v1, #android:anim@fade_out#t
 
     invoke-direct {p0, p1, v0, v1}, Landroid/appwidget/AppWidgetHostView;-><init>(Landroid/content/Context;II)V
 
-    .line 101
     iput-object p2, p0, Landroid/appwidget/AppWidgetHostView;->mOnClickHandler:Landroid/widget/RemoteViews$OnClickHandler;
 
-    .line 99
     return-void
 .end method
 
@@ -229,7 +224,7 @@
 
     .line 186
     .local v3, "r":Landroid/content/res/Resources;
-    const v4, 0x1050053
+    const v4, #android:dimen@default_app_widget_padding_left#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -237,8 +232,7 @@
 
     iput v4, p2, Landroid/graphics/Rect;->left:I
 
-    .line 188
-    const v4, 0x1050055
+    const v4, #android:dimen@default_app_widget_padding_right#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -246,8 +240,7 @@
 
     iput v4, p2, Landroid/graphics/Rect;->right:I
 
-    .line 190
-    const v4, 0x1050054
+    const v4, #android:dimen@default_app_widget_padding_top#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -255,8 +248,7 @@
 
     iput v4, p2, Landroid/graphics/Rect;->top:I
 
-    .line 192
-    const v4, 0x1050056
+    const v4, #android:dimen@default_app_widget_padding_bottom#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -815,20 +807,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 582
     new-instance v0, Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/appwidget/AppWidgetHostView;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 583
     .local v0, "tv":Landroid/widget/TextView;
-    const v1, 0x104049d
+    const v1, #android:string@gadget_host_error_inflating#t
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 585
     const/16 v1, 0x7f
 
     invoke-static {v1, v2, v2, v2}, Landroid/graphics/Color;->argb(IIII)I

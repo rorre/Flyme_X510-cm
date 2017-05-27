@@ -144,22 +144,18 @@
 
     move-result-object v4
 
-    .line 84
     .local v4, "a":Landroid/content/res/TypedArray;
     const/16 v12, 0xc
 
-    const v13, 0x10900f3
+    const v13, #android:layout@time_picker_legacy#t
 
-    .line 83
     invoke-virtual {v4, v12, v13}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v9
 
-    .line 85
     .local v9, "layoutResourceId":I
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 87
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mContext:Landroid/content/Context;
@@ -178,8 +174,7 @@
 
     invoke-virtual {v8, v9, v12, v13}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 91
-    const v12, 0x10203ff
+    const v12, #android:id@hour#t
 
     move-object/from16 v0, p1
 
@@ -211,7 +206,7 @@
 
     iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    const v13, 0x102038b
+    const v13, #android:id@numberpicker_input#t
 
     invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->findViewById(I)Landroid/view/View;
 
@@ -237,7 +232,7 @@
 
     iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    const v13, 0x1020402
+    const v13, #android:id@divider#t
 
     invoke-virtual {v12, v13}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
 
@@ -265,7 +260,7 @@
 
     iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    const v13, 0x1020400
+    const v13, #android:id@minute#t
 
     invoke-virtual {v12, v13}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
 
@@ -333,7 +328,7 @@
 
     iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    const v13, 0x102038b
+    const v13, #android:id@numberpicker_input#t
 
     invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->findViewById(I)Landroid/view/View;
 
@@ -368,7 +363,7 @@
 
     iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mDelegator:Landroid/widget/TimePicker;
 
-    const v13, 0x1020401
+    const v13, #android:id@amPm#t
 
     invoke-virtual {v12, v13}, Landroid/widget/TimePicker;->findViewById(I)Landroid/view/View;
 
@@ -424,8 +419,7 @@
 
     if-eqz v12, :cond_1
 
-    .line 184
-    const v12, 0x10203fe
+    const v12, #android:id@timePickerLayout#t
 
     move-object/from16 v0, p1
 
@@ -626,7 +620,7 @@
 
     iget-object v12, v0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    const v13, 0x102038b
+    const v13, #android:id@numberpicker_input#t
 
     invoke-virtual {v12, v13}, Landroid/widget/NumberPicker;->findViewById(I)Landroid/view/View;
 
@@ -919,70 +913,50 @@
     .locals 4
 
     .prologue
-    const v3, 0x102038c
+    const v3, #android:id@decrement#t
 
-    const v2, 0x102038a
+    const v2, #android:id@increment#t
 
-    .line 521
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    .line 522
-    const v1, 0x10404e5
+    const v1, #android:string@time_picker_increment_minute_button#t
 
-    .line 521
     invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
-    .line 523
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mMinuteSpinner:Landroid/widget/NumberPicker;
 
-    .line 524
-    const v1, 0x10404e6
+    const v1, #android:string@time_picker_decrement_minute_button#t
 
-    .line 523
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
-    .line 526
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    .line 527
-    const v1, 0x10404e7
+    const v1, #android:string@time_picker_increment_hour_button#t
 
-    .line 526
     invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
-    .line 528
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mHourSpinner:Landroid/widget/NumberPicker;
 
-    .line 529
-    const v1, 0x10404e8
+    const v1, #android:string@time_picker_decrement_hour_button#t
 
-    .line 528
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
-    .line 531
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
     if-eqz v0, :cond_0
 
-    .line 532
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    .line 533
-    const v1, 0x10404e9
+    const v1, #android:string@time_picker_increment_set_pm_button#t
 
-    .line 532
     invoke-direct {p0, v0, v2, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
-    .line 534
     iget-object v0, p0, Landroid/widget/TimePickerSpinnerDelegate;->mAmPmSpinner:Landroid/widget/NumberPicker;
 
-    .line 535
-    const v1, 0x10404ea
+    const v1, #android:string@time_picker_decrement_set_am_button#t
 
-    .line 534
     invoke-direct {p0, v0, v3, v1}, Landroid/widget/TimePickerSpinnerDelegate;->trySetContentDescription(Landroid/view/View;II)V
 
-    .line 519
     :cond_0
     return-void
 .end method

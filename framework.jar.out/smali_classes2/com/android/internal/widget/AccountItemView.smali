@@ -47,7 +47,7 @@
 
     .line 56
     .local v0, "inflator":Landroid/view/LayoutInflater;
-    const v2, 0x10900dc
+    const v2, #android:layout@simple_account_item#t
 
     const/4 v3, 0x0
 
@@ -71,8 +71,7 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 62
-    const v0, 0x1020006
+    const v0, #android:id@icon#t
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,8 +81,7 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/AccountItemView;->mAccountIcon:Landroid/widget/ImageView;
 
-    .line 63
-    const v0, 0x1020016
+    const v0, #android:id@title#t
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -93,8 +91,7 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/AccountItemView;->mAccountName:Landroid/widget/TextView;
 
-    .line 64
-    const v0, 0x1020010
+    const v0, #android:id@summary#t
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -47,12 +47,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 44
-    const v0, 0x1010074
+    const v0, #android:attr@listViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/YearPickerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 43
     return-void
 .end method
 
@@ -105,7 +103,7 @@
 
     .line 59
     .local v1, "res":Landroid/content/res/Resources;
-    const v2, 0x105012d
+    const v2, #android:dimen@datepicker_view_animator_height#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -113,8 +111,7 @@
 
     iput v2, p0, Landroid/widget/YearPickerView;->mViewSize:I
 
-    .line 60
-    const v2, 0x1050116
+    const v2, #android:dimen@datepicker_year_label_height#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

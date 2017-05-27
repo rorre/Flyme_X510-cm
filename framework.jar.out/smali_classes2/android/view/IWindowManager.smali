@@ -295,14 +295,6 @@
     .end annotation
 .end method
 
-.method public abstract keyguardGoingAway(ZZZ)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract lockNow(Landroid/os/Bundle;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -680,6 +672,14 @@
 .end method
 
 .method public abstract watchRotation(Landroid/view/IRotationWatcher;)I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract keyguardGoingAway(ZZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

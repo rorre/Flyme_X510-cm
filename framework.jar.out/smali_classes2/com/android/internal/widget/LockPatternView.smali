@@ -436,25 +436,20 @@
 
     if-eqz v5, :cond_0
 
-    .line 293
     iput v9, p0, Lcom/android/internal/widget/LockPatternView;->mAspect:I
 
-    .line 302
     :goto_0
     invoke-virtual {p0, v8}, Lcom/android/internal/widget/LockPatternView;->setClickable(Z)V
 
-    .line 305
     iget-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mPathPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v5, v8}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 306
     iget-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mPathPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v5, v8}, Landroid/graphics/Paint;->setDither(Z)V
 
-    .line 308
-    const v5, 0x1060061
+    const v5, #android:color@lock_pattern_view_regular_color#t
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -462,8 +457,7 @@
 
     iput v5, p0, Lcom/android/internal/widget/LockPatternView;->mRegularColor:I
 
-    .line 309
-    const v5, 0x1060063
+    const v5, #android:color@lock_pattern_view_error_color#t
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -471,8 +465,7 @@
 
     iput v5, p0, Lcom/android/internal/widget/LockPatternView;->mErrorColor:I
 
-    .line 310
-    const v5, 0x1060062
+    const v5, #android:color@lock_pattern_view_success_color#t
 
     invoke-virtual {p1, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -548,7 +541,7 @@
 
     move-result-object v5
 
-    const v6, 0x105008b
+    const v6, #android:dimen@lock_pattern_dot_line_width#t
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -570,7 +563,7 @@
 
     move-result-object v5
 
-    const v6, 0x105008c
+    const v6, #android:dimen@lock_pattern_dot_size#t
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -578,32 +571,26 @@
 
     iput v5, p0, Lcom/android/internal/widget/LockPatternView;->mDotSize:I
 
-    .line 326
     invoke-virtual {p0}, Lcom/android/internal/widget/LockPatternView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    .line 327
-    const v6, 0x105008d
+    const v6, #android:dimen@lock_pattern_dot_size_activated#t
 
-    .line 326
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v5
 
     iput v5, p0, Lcom/android/internal/widget/LockPatternView;->mDotSizeActivated:I
 
-    .line 329
     iget-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v5, v8}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 330
     iget-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v5, v8}, Landroid/graphics/Paint;->setDither(Z)V
 
-    .line 332
     const-class v5, Lcom/android/internal/widget/LockPatternView$CellState;
 
     new-array v6, v10, [I
@@ -742,41 +729,35 @@
     .line 343
     .end local v3    # "j":I
     :cond_4
-    const v5, 0x10c000d
+    const v5, #android:interpolator@fast_out_slow_in#t
 
     invoke-static {p1, v5}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
     move-result-object v5
 
-    .line 342
     iput-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mFastOutSlowInInterpolator:Landroid/view/animation/Interpolator;
 
-    .line 345
-    const v5, 0x10c000e
+    const v5, #android:interpolator@linear_out_slow_in#t
 
     invoke-static {p1, v5}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
     move-result-object v5
 
-    .line 344
     iput-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mLinearOutSlowInInterpolator:Landroid/view/animation/Interpolator;
 
-    .line 346
     new-instance v5, Lcom/android/internal/widget/LockPatternView$PatternExploreByTouchHelper;
 
     invoke-direct {v5, p0, p0}, Lcom/android/internal/widget/LockPatternView$PatternExploreByTouchHelper;-><init>(Lcom/android/internal/widget/LockPatternView;Landroid/view/View;)V
 
     iput-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mExploreByTouchHelper:Lcom/android/internal/widget/LockPatternView$PatternExploreByTouchHelper;
 
-    .line 347
     iget-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mExploreByTouchHelper:Lcom/android/internal/widget/LockPatternView$PatternExploreByTouchHelper;
 
     invoke-virtual {p0, v5}, Lcom/android/internal/widget/LockPatternView;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    .line 348
     iget-object v5, p0, Lcom/android/internal/widget/LockPatternView;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v6, "audio"
+    const-string v6, "audio"
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2298,22 +2279,18 @@
     .locals 1
 
     .prologue
-    .line 620
-    const v0, 0x104031c
+    const v0, #android:string@lockscreen_access_pattern_cleared#t
 
     invoke-direct {p0, v0}, Lcom/android/internal/widget/LockPatternView;->sendAccessEvent(I)V
 
-    .line 621
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView;->mOnPatternListener:Lcom/android/internal/widget/LockPatternView$OnPatternListener;
 
     if-eqz v0, :cond_0
 
-    .line 622
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView;->mOnPatternListener:Lcom/android/internal/widget/LockPatternView$OnPatternListener;
 
     invoke-interface {v0}, Lcom/android/internal/widget/LockPatternView$OnPatternListener;->onPatternCleared()V
 
-    .line 619
     :cond_0
     return-void
 .end method
@@ -2322,24 +2299,20 @@
     .locals 2
 
     .prologue
-    .line 613
-    const v0, 0x104031f
+    const v0, #android:string@lockscreen_access_pattern_detected#t
 
     invoke-direct {p0, v0}, Lcom/android/internal/widget/LockPatternView;->sendAccessEvent(I)V
 
-    .line 614
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView;->mOnPatternListener:Lcom/android/internal/widget/LockPatternView$OnPatternListener;
 
     if-eqz v0, :cond_0
 
-    .line 615
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView;->mOnPatternListener:Lcom/android/internal/widget/LockPatternView$OnPatternListener;
 
     iget-object v1, p0, Lcom/android/internal/widget/LockPatternView;->mPattern:Ljava/util/ArrayList;
 
     invoke-interface {v0, v1}, Lcom/android/internal/widget/LockPatternView$OnPatternListener;->onPatternDetected(Ljava/util/List;)V
 
-    .line 612
     :cond_0
     return-void
 .end method
@@ -2348,22 +2321,18 @@
     .locals 1
 
     .prologue
-    .line 606
-    const v0, 0x104031b
+    const v0, #android:string@lockscreen_access_pattern_start#t
 
     invoke-direct {p0, v0}, Lcom/android/internal/widget/LockPatternView;->sendAccessEvent(I)V
 
-    .line 607
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView;->mOnPatternListener:Lcom/android/internal/widget/LockPatternView$OnPatternListener;
 
     if-eqz v0, :cond_0
 
-    .line 608
     iget-object v0, p0, Lcom/android/internal/widget/LockPatternView;->mOnPatternListener:Lcom/android/internal/widget/LockPatternView$OnPatternListener;
 
     invoke-interface {v0}, Lcom/android/internal/widget/LockPatternView$OnPatternListener;->onPatternStart()V
 
-    .line 605
     :cond_0
     return-void
 .end method

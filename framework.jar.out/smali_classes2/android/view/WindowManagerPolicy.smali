@@ -358,3 +358,6 @@
 
 .method public abstract windowTypeToLayerLw(I)I
 .end method
+
+.method public abstract showBootMessage(Ljava/lang/CharSequence;Z)V
+.end method

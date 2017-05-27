@@ -15,37 +15,37 @@
 
 
 # static fields
-.field public static final accelerate_cubic:I = 0x10c0002
+.field public static final accelerate_cubic:I = #android:interpolator@accelerate_cubic#t
 
-.field public static final accelerate_decelerate:I = 0x10c0006
+.field public static final accelerate_decelerate:I = #android:interpolator@accelerate_decelerate#t
 
-.field public static final accelerate_quad:I = 0x10c0000
+.field public static final accelerate_quad:I = #android:interpolator@accelerate_quad#t
 
-.field public static final accelerate_quint:I = 0x10c0004
+.field public static final accelerate_quint:I = #android:interpolator@accelerate_quint#t
 
-.field public static final anticipate:I = 0x10c0007
+.field public static final anticipate:I = #android:interpolator@anticipate#t
 
-.field public static final anticipate_overshoot:I = 0x10c0009
+.field public static final anticipate_overshoot:I = #android:interpolator@anticipate_overshoot#t
 
-.field public static final bounce:I = 0x10c000a
+.field public static final bounce:I = #android:interpolator@bounce#t
 
-.field public static final cycle:I = 0x10c000c
+.field public static final cycle:I = #android:interpolator@cycle#t
 
-.field public static final decelerate_cubic:I = 0x10c0003
+.field public static final decelerate_cubic:I = #android:interpolator@decelerate_cubic#t
 
-.field public static final decelerate_quad:I = 0x10c0001
+.field public static final decelerate_quad:I = #android:interpolator@decelerate_quad#t
 
-.field public static final decelerate_quint:I = 0x10c0005
+.field public static final decelerate_quint:I = #android:interpolator@decelerate_quint#t
 
-.field public static final fast_out_linear_in:I = 0x10c000f
+.field public static final fast_out_linear_in:I = #android:interpolator@fast_out_linear_in#t
 
-.field public static final fast_out_slow_in:I = 0x10c000d
+.field public static final fast_out_slow_in:I = #android:interpolator@fast_out_slow_in#t
 
-.field public static final linear:I = 0x10c000b
+.field public static final linear:I = #android:interpolator@linear#t
 
-.field public static final linear_out_slow_in:I = 0x10c000e
+.field public static final linear_out_slow_in:I = #android:interpolator@linear_out_slow_in#t
 
-.field public static final overshoot:I = 0x10c0008
+.field public static final overshoot:I = #android:interpolator@overshoot#t
 
 
 # direct methods

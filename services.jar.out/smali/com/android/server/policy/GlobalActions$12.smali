@@ -64,24 +64,20 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    .line 573
     sget-object v2, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
 
     const/4 v3, 0x0
 
     aput-object v2, v1, v3
 
-    .line 574
     sget-object v2, Landroid/os/Build;->ID:Ljava/lang/String;
 
     const/4 v3, 0x1
 
     aput-object v2, v1, v3
 
-    .line 572
-    const v2, 0x1040194
+    const v2, #android:string@bugreport_status#t
 
-    .line 571
     invoke-virtual {v0, v2, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -104,40 +100,33 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 530
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
-    const v2, 0x1040192
+    const v2, #android:string@bugreport_title#t
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 531
-    const v2, 0x1040193
+    const v2, #android:string@bugreport_message#t
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 532
-    const/high16 v2, 0x1040000
+    const/high16 v2, #android:string@cancel#i
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 534
     new-instance v2, Lcom/android/server/policy/GlobalActions$12$1;
 
     invoke-direct {v2, p0}, Lcom/android/server/policy/GlobalActions$12$1;-><init>(Lcom/android/server/policy/GlobalActions$12;)V
 
-    .line 533
-    const v3, 0x10403e7
+    const v3, #android:string@report#t
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 556
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
-    .line 557
     .local v1, "dialog":Landroid/app/AlertDialog;
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 

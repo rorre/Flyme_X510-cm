@@ -43,19 +43,17 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1226
     iput-object p1, p0, Lcom/android/server/policy/GlobalActions$SilentModeTriStateAction;->this$0:Lcom/android/server/policy/GlobalActions;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1214
-    const v0, 0x1020334
+    const v0, #android:id@option1#t
 
-    const v1, 0x1020335
+    const v1, #android:id@option2#t
 
-    const v2, 0x1020336
+    const v2, #android:id@option3#t
 
-    const v3, 0x1020337
+    const v3, #android:id@option4#t
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -138,14 +136,12 @@
 
     const/4 v8, 0x0
 
-    .line 1250
-    const v6, 0x1090063
+    const v6, #android:layout@global_actions_silent_mode#t
 
     invoke-virtual {p4, v6, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v4
 
-    .line 1252
     .local v4, "v":Landroid/view/View;
     iget-object v6, p0, Lcom/android/server/policy/GlobalActions$SilentModeTriStateAction;->mAudioManager:Landroid/media/AudioManager;
 

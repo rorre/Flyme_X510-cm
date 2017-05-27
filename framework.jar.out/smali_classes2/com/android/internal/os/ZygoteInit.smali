@@ -1803,53 +1803,44 @@
 
     sput-object v6, Lcom/android/internal/os/ZygoteInit;->mResources:Landroid/content/res/Resources;
 
-    .line 331
     sget-object v6, Lcom/android/internal/os/ZygoteInit;->mResources:Landroid/content/res/Resources;
 
     invoke-virtual {v6}, Landroid/content/res/Resources;->startPreloading()V
 
-    .line 333
-    const-string/jumbo v6, "Zygote"
+    const-string v6, "Zygote"
 
-    const-string/jumbo v7, "Preloading resources..."
+    const-string v7, "Preloading resources..."
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 335
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 336
     .local v4, "startTime":J
     sget-object v6, Lcom/android/internal/os/ZygoteInit;->mResources:Landroid/content/res/Resources;
 
-    .line 337
-    const v7, 0x1070006
+    const v7, #android:array@preloaded_drawables#t
 
-    .line 336
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 
     move-result-object v1
 
-    .line 338
     .local v1, "ar":Landroid/content/res/TypedArray;
     invoke-static {v3, v1}, Lcom/android/internal/os/ZygoteInit;->preloadDrawables(Ldalvik/system/VMRuntime;Landroid/content/res/TypedArray;)I
 
     move-result v0
 
-    .line 339
     .local v0, "N":I
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 340
-    const-string/jumbo v6, "Zygote"
+    const-string v6, "Zygote"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "...preloaded "
+    const-string v8, "...preloaded "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1891,38 +1882,31 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 343
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
-    .line 344
     sget-object v6, Lcom/android/internal/os/ZygoteInit;->mResources:Landroid/content/res/Resources;
 
-    .line 345
-    const v7, 0x1070007
+    const v7, #android:array@preloaded_color_state_lists#t
 
-    .line 344
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 
     move-result-object v1
 
-    .line 346
     invoke-static {v3, v1}, Lcom/android/internal/os/ZygoteInit;->preloadColorStateLists(Ldalvik/system/VMRuntime;Landroid/content/res/TypedArray;)I
 
     move-result v0
 
-    .line 347
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 348
-    const-string/jumbo v6, "Zygote"
+    const-string v6, "Zygote"
 
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v8, "...preloaded "
+    const-string v8, "...preloaded "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

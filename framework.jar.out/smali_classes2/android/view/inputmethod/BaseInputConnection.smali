@@ -132,58 +132,47 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 582
     iget-object v3, p0, Landroid/view/inputmethod/BaseInputConnection;->mDefaultComposingSpans:[Ljava/lang/Object;
 
     if-nez v3, :cond_0
 
-    .line 584
     iget-object v3, p0, Landroid/view/inputmethod/BaseInputConnection;->mTargetView:Landroid/view/View;
 
     if-eqz v3, :cond_1
 
-    .line 585
     iget-object v3, p0, Landroid/view/inputmethod/BaseInputConnection;->mTargetView:Landroid/view/View;
 
     invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 591
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 592
     invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v3
 
-    .line 593
     const/4 v4, 0x1
 
     new-array v4, v4, [I
 
-    .line 594
-    const v5, 0x1010230
+    const v5, #android:attr@candidatesTextStyleSpans#t
 
     aput v5, v4, v6
 
-    .line 592
     invoke-virtual {v3, v4}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v2
 
-    .line 596
     .local v2, "ta":Landroid/content/res/TypedArray;
     invoke-virtual {v2, v6}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 597
     .local v1, "style":Ljava/lang/CharSequence;
     invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 598
     if-eqz v1, :cond_0
 
     instance-of v3, v1, Landroid/text/Spanned;

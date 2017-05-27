@@ -414,142 +414,116 @@
 
     if-lt v3, v4, :cond_0
 
-    .line 258
     :goto_0
     iput-boolean v2, p0, Landroid/widget/FastScroller;->mMatchDragPosition:Z
 
-    .line 261
     new-instance v2, Landroid/widget/ImageView;
 
     invoke-direct {v2, v0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v2, p0, Landroid/widget/FastScroller;->mTrackImage:Landroid/widget/ImageView;
 
-    .line 262
     iget-object v2, p0, Landroid/widget/FastScroller;->mTrackImage:Landroid/widget/ImageView;
 
     sget-object v3, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 263
     new-instance v2, Landroid/widget/ImageView;
 
     invoke-direct {v2, v0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v2, p0, Landroid/widget/FastScroller;->mThumbImage:Landroid/widget/ImageView;
 
-    .line 264
     iget-object v2, p0, Landroid/widget/FastScroller;->mThumbImage:Landroid/widget/ImageView;
 
     sget-object v3, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 265
     new-instance v2, Landroid/view/View;
 
     invoke-direct {v2, v0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
     iput-object v2, p0, Landroid/widget/FastScroller;->mPreviewImage:Landroid/view/View;
 
-    .line 266
     iget-object v2, p0, Landroid/widget/FastScroller;->mPreviewImage:Landroid/view/View;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setAlpha(F)V
 
-    .line 268
     invoke-direct {p0, v0}, Landroid/widget/FastScroller;->createPreviewTextView(Landroid/content/Context;)Landroid/widget/TextView;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/widget/FastScroller;->mPrimaryText:Landroid/widget/TextView;
 
-    .line 269
     invoke-direct {p0, v0}, Landroid/widget/FastScroller;->createPreviewTextView(Landroid/content/Context;)Landroid/widget/TextView;
 
     move-result-object v2
 
     iput-object v2, p0, Landroid/widget/FastScroller;->mSecondaryText:Landroid/widget/TextView;
 
-    .line 271
     invoke-virtual {p1}, Landroid/widget/AbsListView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 272
-    const v3, 0x1050087
+    const v3, #android:dimen@fast_scroller_minimum_touch_target#t
 
-    .line 271
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
     iput v2, p0, Landroid/widget/FastScroller;->mMinimumTouchTarget:I
 
-    .line 274
     invoke-virtual {p0, p2}, Landroid/widget/FastScroller;->setStyle(I)V
 
-    .line 276
     invoke-virtual {p1}, Landroid/widget/AbsListView;->getOverlay()Landroid/view/ViewGroupOverlay;
 
     move-result-object v1
 
-    .line 277
     .local v1, "overlay":Landroid/view/ViewGroupOverlay;
     iput-object v1, p0, Landroid/widget/FastScroller;->mOverlay:Landroid/view/ViewGroupOverlay;
 
-    .line 278
     iget-object v2, p0, Landroid/widget/FastScroller;->mTrackImage:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    .line 279
     iget-object v2, p0, Landroid/widget/FastScroller;->mThumbImage:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    .line 280
     iget-object v2, p0, Landroid/widget/FastScroller;->mPreviewImage:Landroid/view/View;
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    .line 281
     iget-object v2, p0, Landroid/widget/FastScroller;->mPrimaryText:Landroid/widget/TextView;
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    .line 282
     iget-object v2, p0, Landroid/widget/FastScroller;->mSecondaryText:Landroid/widget/TextView;
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    .line 284
     invoke-direct {p0}, Landroid/widget/FastScroller;->getSectionsFromIndexer()V
 
-    .line 285
     iget v2, p0, Landroid/widget/FastScroller;->mOldChildCount:I
 
     iget v3, p0, Landroid/widget/FastScroller;->mOldItemCount:I
 
     invoke-direct {p0, v2, v3}, Landroid/widget/FastScroller;->updateLongList(II)V
 
-    .line 286
     invoke-virtual {p1}, Landroid/widget/AbsListView;->getVerticalScrollbarPosition()I
 
     move-result v2
 
     invoke-virtual {p0, v2}, Landroid/widget/FastScroller;->setScrollbarPosition(I)V
 
-    .line 287
     invoke-direct {p0}, Landroid/widget/FastScroller;->postAutoHide()V
 
-    .line 247
     return-void
 
-    .line 259
     .end local v1    # "overlay":Landroid/view/ViewGroupOverlay;
     :cond_0
     const/4 v2, 0x0
@@ -5951,35 +5925,28 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 335
     iget-object v5, p0, Landroid/widget/FastScroller;->mList:Landroid/widget/AbsListView;
 
     invoke-virtual {v5}, Landroid/widget/AbsListView;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 337
     .local v1, "context":Landroid/content/Context;
     sget-object v5, Lcom/android/internal/R$styleable;->FastScroll:[I
 
-    .line 336
     const/4 v6, 0x0
 
-    .line 337
-    const v7, 0x10103f7
+    const v7, #android:attr@fastScrollStyle#t
 
-    .line 336
     invoke-virtual {v1, v6, v5, v7, p1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v4
 
-    .line 338
     .local v4, "ta":Landroid/content/res/TypedArray;
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v0
 
-    .line 339
     .local v0, "N":I
     const/4 v2, 0x0
 

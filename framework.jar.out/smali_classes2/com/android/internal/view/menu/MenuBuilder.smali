@@ -998,25 +998,19 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 741
     iget-object v0, p0, Lcom/android/internal/view/menu/MenuBuilder;->mResources:Landroid/content/res/Resources;
 
-    .line 742
-    const v1, 0x112006d
+    const v1, #android:bool@config_showMenuShortcutsWhenKeyboardPresent#t
 
-    .line 741
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    .line 739
     :goto_0
     iput-boolean v0, p0, Lcom/android/internal/view/menu/MenuBuilder;->mShortcutsVisible:Z
 
-    .line 738
     return-void
 
-    .line 739
     :cond_0
     const/4 v0, 0x0
 

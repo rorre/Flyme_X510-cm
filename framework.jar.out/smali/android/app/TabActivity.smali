@@ -42,17 +42,14 @@
     .locals 1
 
     .prologue
-    .line 139
     iget-object v0, p0, Landroid/app/TabActivity;->mTabHost:Landroid/widget/TabHost;
 
     if-nez v0, :cond_0
 
-    .line 140
-    const v0, 0x10900e4
+    const v0, #android:layout@tab_content#t
 
     invoke-virtual {p0, v0}, Landroid/app/TabActivity;->setContentView(I)V
 
-    .line 138
     :cond_0
     return-void
 .end method
@@ -133,11 +130,9 @@
     .locals 2
 
     .prologue
-    .line 127
     invoke-super {p0}, Landroid/app/ActivityGroup;->onContentChanged()V
 
-    .line 128
-    const v0, 0x1020012
+    const v0, #android:id@tabhost#t
 
     invoke-virtual {p0, v0}, Landroid/app/TabActivity;->findViewById(I)Landroid/view/View;
 

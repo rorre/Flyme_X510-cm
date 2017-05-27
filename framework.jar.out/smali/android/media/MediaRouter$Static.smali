@@ -200,43 +200,34 @@
 
     iput-object v1, p0, Landroid/media/MediaRouter$Static;->mDisplayService:Landroid/hardware/display/DisplayManager;
 
-    .line 120
-    const-string/jumbo v1, "media_router"
+    const-string v1, "media_router"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    .line 119
     invoke-static {v1}, Landroid/media/IMediaRouterService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IMediaRouterService;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/media/MediaRouter$Static;->mMediaRouterService:Landroid/media/IMediaRouterService;
 
-    .line 122
     new-instance v1, Landroid/media/MediaRouter$RouteCategory;
 
-    .line 123
-    const v4, 0x1040537
+    const v4, #android:string@default_audio_route_category_name#t
 
-    .line 124
     const/4 v5, 0x3
 
-    .line 122
     invoke-direct {v1, v4, v5, v3}, Landroid/media/MediaRouter$RouteCategory;-><init>(IIZ)V
 
     iput-object v1, p0, Landroid/media/MediaRouter$Static;->mSystemCategory:Landroid/media/MediaRouter$RouteCategory;
 
-    .line 125
     iget-object v1, p0, Landroid/media/MediaRouter$Static;->mSystemCategory:Landroid/media/MediaRouter$RouteCategory;
 
     iput-boolean v2, v1, Landroid/media/MediaRouter$RouteCategory;->mIsSystem:Z
 
-    .line 131
-    const-string/jumbo v1, "android.permission.CONFIGURE_WIFI_DISPLAY"
+    const-string v1, "android.permission.CONFIGURE_WIFI_DISPLAY"
 
-    .line 132
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v4
@@ -904,31 +895,26 @@
 
     iput-object v2, p0, Landroid/media/MediaRouter$Static;->mDefaultAudioVideo:Landroid/media/MediaRouter$RouteInfo;
 
-    .line 138
     iget-object v2, p0, Landroid/media/MediaRouter$Static;->mDefaultAudioVideo:Landroid/media/MediaRouter$RouteInfo;
 
-    const v3, 0x1040533
+    const v3, #android:string@default_audio_route_name#t
 
     iput v3, v2, Landroid/media/MediaRouter$RouteInfo;->mNameResId:I
 
-    .line 139
     iget-object v2, p0, Landroid/media/MediaRouter$Static;->mDefaultAudioVideo:Landroid/media/MediaRouter$RouteInfo;
 
     const/4 v3, 0x3
 
     iput v3, v2, Landroid/media/MediaRouter$RouteInfo;->mSupportedTypes:I
 
-    .line 140
     iget-object v2, p0, Landroid/media/MediaRouter$Static;->mDefaultAudioVideo:Landroid/media/MediaRouter$RouteInfo;
 
     invoke-virtual {v2}, Landroid/media/MediaRouter$RouteInfo;->updatePresentationDisplay()Z
 
-    .line 141
     iget-object v2, p0, Landroid/media/MediaRouter$Static;->mDefaultAudioVideo:Landroid/media/MediaRouter$RouteInfo;
 
     invoke-static {v2}, Landroid/media/MediaRouter;->addRouteStatic(Landroid/media/MediaRouter$RouteInfo;)V
 
-    .line 144
     iget-object v2, p0, Landroid/media/MediaRouter$Static;->mDisplayService:Landroid/hardware/display/DisplayManager;
 
     invoke-virtual {v2}, Landroid/hardware/display/DisplayManager;->getWifiDisplayStatus()Landroid/hardware/display/WifiDisplayStatus;
@@ -1047,32 +1033,27 @@
 
     if-eq v4, v5, :cond_1
 
-    .line 177
     iget-object v4, p0, Landroid/media/MediaRouter$Static;->mCurAudioRoutesInfo:Landroid/media/AudioRoutesInfo;
 
     iget v5, p1, Landroid/media/AudioRoutesInfo;->mainType:I
 
     iput v5, v4, Landroid/media/AudioRoutesInfo;->mainType:I
 
-    .line 179
     iget v4, p1, Landroid/media/AudioRoutesInfo;->mainType:I
 
     and-int/lit8 v4, v4, 0x2
 
     if-nez v4, :cond_0
 
-    .line 180
     iget v4, p1, Landroid/media/AudioRoutesInfo;->mainType:I
 
     and-int/lit8 v4, v4, 0x1
 
     if-eqz v4, :cond_6
 
-    .line 181
     :cond_0
-    const v3, 0x1040534
+    const v3, #android:string@default_audio_route_name_headphones#t
 
-    .line 189
     .local v3, "name":I
     :goto_0
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
@@ -1147,37 +1128,30 @@
 
     iput-object v4, v1, Landroid/media/MediaRouter$RouteInfo;->mName:Ljava/lang/CharSequence;
 
-    .line 201
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v4, v4, Landroid/media/MediaRouter$Static;->mResources:Landroid/content/res/Resources;
 
-    .line 202
-    const v5, 0x1040538
+    const v5, #android:string@bluetooth_a2dp_audio_route_name#t
 
-    .line 201
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v4
 
     iput-object v4, v1, Landroid/media/MediaRouter$RouteInfo;->mDescription:Ljava/lang/CharSequence;
 
-    .line 203
     iput v8, v1, Landroid/media/MediaRouter$RouteInfo;->mSupportedTypes:I
 
-    .line 204
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iput-object v1, v4, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
-    .line 205
     sget-object v4, Landroid/media/MediaRouter;->sStatic:Landroid/media/MediaRouter$Static;
 
     iget-object v4, v4, Landroid/media/MediaRouter$Static;->mBluetoothA2dpRoute:Landroid/media/MediaRouter$RouteInfo;
 
     invoke-static {v4}, Landroid/media/MediaRouter;->addRouteStatic(Landroid/media/MediaRouter$RouteInfo;)V
 
-    .line 216
     .end local v1    # "info":Landroid/media/MediaRouter$RouteInfo;
     :cond_2
     :goto_1
@@ -1238,13 +1212,11 @@
 
     if-eqz v4, :cond_7
 
-    .line 183
-    const v3, 0x1040535
+    const v3, #android:string@default_audio_route_name_dock_speakers#t
 
     .restart local v3    # "name":I
     goto/16 :goto_0
 
-    .line 184
     .end local v3    # "name":I
     :cond_7
     iget v4, p1, Landroid/media/AudioRoutesInfo;->mainType:I
@@ -1253,16 +1225,14 @@
 
     if-eqz v4, :cond_8
 
-    .line 185
-    const v3, 0x1040536
+    const v3, #android:string@default_media_route_name_hdmi#t
 
     .restart local v3    # "name":I
     goto/16 :goto_0
 
-    .line 187
     .end local v3    # "name":I
     :cond_8
-    const v3, 0x1040533
+    const v3, #android:string@default_audio_route_name#t
 
     .restart local v3    # "name":I
     goto/16 :goto_0

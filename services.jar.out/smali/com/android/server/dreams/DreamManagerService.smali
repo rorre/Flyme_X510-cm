@@ -1105,22 +1105,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 374
     iget-object v2, p0, Lcom/android/server/dreams/DreamManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 375
-    const v3, 0x10400bf
+    const v3, #android:string@config_dozeComponent#t
 
-    .line 374
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 377
     :cond_0
     iget-object v2, p0, Lcom/android/server/dreams/DreamManagerService;->mContext:Landroid/content/Context;
 

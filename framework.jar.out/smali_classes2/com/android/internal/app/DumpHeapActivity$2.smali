@@ -111,7 +111,7 @@
     .line 109
     iget-object v3, p0, Lcom/android/internal/app/DumpHeapActivity$2;->this$0:Lcom/android/internal/app/DumpHeapActivity;
 
-    const v4, 0x1040403
+    const v4, #android:string@dump_heap_title#t
 
     invoke-virtual {v3, v4}, Lcom/android/internal/app/DumpHeapActivity;->getText(I)Ljava/lang/CharSequence;
 

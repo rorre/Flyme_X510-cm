@@ -1048,81 +1048,65 @@
 
     if-eqz v3, :cond_0
 
-    .line 459
-    const-string/jumbo v3, "android.settings.INTERNAL_STORAGE_SETTINGS"
+    const-string v3, "android.settings.INTERNAL_STORAGE_SETTINGS"
 
-    .line 458
     :goto_0
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 461
     .local v2, "lowMemIntent":Landroid/content/Intent;
-    const-string/jumbo v3, "memory"
+    const-string v3, "memory"
 
     iget-wide v12, p0, Lcom/android/server/storage/DeviceStorageMonitorService;->mFreeMem:J
 
     invoke-virtual {v2, v3, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    .line 462
     const/high16 v3, 0x10000000
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 465
-    const-string/jumbo v3, "notification"
+    const-string v3, "notification"
 
-    .line 464
     invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v8
 
     check-cast v8, Landroid/app/NotificationManager;
 
-    .line 467
     .local v8, "mNotificationMgr":Landroid/app/NotificationManager;
-    const v3, 0x10403c6
+    const v3, #android:string@low_internal_storage_view_title#t
 
-    .line 466
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v10
 
-    .line 468
     .local v10, "title":Ljava/lang/CharSequence;
     iget-boolean v3, p0, Lcom/android/server/storage/DeviceStorageMonitorService;->mIsBootImageOnDisk:Z
 
     if-eqz v3, :cond_1
 
-    .line 469
-    const v3, 0x10403c7
+    const v3, #android:string@low_internal_storage_view_text#t
 
-    .line 468
     :goto_1
     invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v6
 
-    .line 472
     .local v6, "details":Ljava/lang/CharSequence;
     sget-object v5, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
     move v3, v1
 
-    .line 471
     invoke-static/range {v0 .. v5}, Landroid/app/PendingIntent;->getActivityAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/Bundle;Landroid/os/UserHandle;)Landroid/app/PendingIntent;
 
     move-result-object v7
 
-    .line 473
     .local v7, "intent":Landroid/app/PendingIntent;
     new-instance v1, Landroid/app/Notification$Builder;
 
     invoke-direct {v1, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 474
-    const v3, 0x108064c
+    const v3, #android:drawable@stat_notify_disk_full#t
 
-    .line 473
     invoke-virtual {v1, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v1
@@ -1131,15 +1115,12 @@
 
     move-result-object v1
 
-    .line 477
-    const v3, 0x1060070
+    const v3, #android:color@system_notification_accent_color#t
 
-    .line 476
     invoke-virtual {v0, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
-    .line 473
     invoke-virtual {v1, v3}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v1
@@ -1227,7 +1208,7 @@
     .restart local v8    # "mNotificationMgr":Landroid/app/NotificationManager;
     .restart local v10    # "title":Ljava/lang/CharSequence;
     :cond_1
-    const v3, 0x10403c8
+    const v3, #android:string@low_internal_storage_view_text_no_boot#t
 
     goto :goto_1
 .end method

@@ -485,17 +485,14 @@
 
     move-result-object v3
 
-    .line 471
-    const v4, 0x10404e0
+    const v4, #android:string@add_account_button_label#t
 
-    .line 470
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     aput-object v3, v1, v2
 
-    .line 473
     :cond_2
     return-object v1
 .end method
@@ -638,8 +635,7 @@
     .param p1, "descriptionOverride"    # Ljava/lang/String;
 
     .prologue
-    .line 544
-    const v1, 0x102030c
+    const v1, #android:id@description#t
 
     invoke-virtual {p0, v1}, Landroid/accounts/ChooseTypeAndAccountActivity;->findViewById(I)Landroid/view/View;
 
@@ -678,8 +674,7 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 557
-    const v1, 0x102000a
+    const v1, #android:id@list#t
 
     invoke-virtual {p0, v1}, Landroid/accounts/ChooseTypeAndAccountActivity;->findViewById(I)Landroid/view/View;
 
@@ -687,48 +682,38 @@
 
     check-cast v0, Landroid/widget/ListView;
 
-    .line 558
     .local v0, "list":Landroid/widget/ListView;
     new-instance v1, Landroid/widget/ArrayAdapter;
 
-    .line 559
-    const v2, 0x109000f
+    const v2, #android:layout@simple_list_item_single_choice#t
 
-    .line 558
     invoke-direct {v1, p0, v2, p1}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I[Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 560
     invoke-virtual {v0, v3}, Landroid/widget/ListView;->setChoiceMode(I)V
 
-    .line 561
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 563
     new-instance v1, Landroid/accounts/ChooseTypeAndAccountActivity$1;
 
     invoke-direct {v1, p0}, Landroid/accounts/ChooseTypeAndAccountActivity$1;-><init>(Landroid/accounts/ChooseTypeAndAccountActivity;)V
 
-    .line 562
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 570
     iget v1, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mSelectedItemIndex:I
 
     const/4 v2, -0x1
 
     if-eq v1, v2, :cond_0
 
-    .line 571
     iget v1, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mSelectedItemIndex:I
 
     invoke-virtual {v0, v1, v3}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    .line 572
-    const-string/jumbo v1, "AccountChooser"
+    const-string v1, "AccountChooser"
 
     const/4 v2, 0x2
 
@@ -779,15 +764,12 @@
     .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .prologue
-    .line 402
-    const v0, 0x103023c
+    const v0, #android:style@Theme.Material.Light.Dialog.NoActionBar#t
 
     invoke-virtual {p0, v0}, Landroid/accounts/ChooseTypeAndAccountActivity;->setTheme(I)V
 
-    .line 403
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 401
     return-void
 .end method
 
@@ -1629,41 +1611,31 @@
 
     if-eqz v7, :cond_4
 
-    .line 195
     iget-boolean v7, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mDisallowAddAccounts:Z
 
-    .line 194
     if-eqz v7, :cond_4
 
-    .line 196
     invoke-virtual {p0, v8}, Landroid/accounts/ChooseTypeAndAccountActivity;->requestWindowFeature(I)Z
 
-    .line 197
-    const v7, 0x1090033
+    const v7, #android:layout@app_not_authorized#t
 
     invoke-virtual {p0, v7}, Landroid/accounts/ChooseTypeAndAccountActivity;->setContentView(I)V
 
-    .line 198
     iput-boolean v8, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mDontShowPicker:Z
 
-    .line 201
     :cond_4
     iget-boolean v7, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mDontShowPicker:Z
 
     if-eqz v7, :cond_6
 
-    .line 202
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 203
     return-void
 
-    .line 153
     .end local v1    # "intent":Landroid/content/Intent;
     :catch_0
     move-exception v4
 
-    .line 155
     .local v4, "re":Landroid/os/RemoteException;
     invoke-virtual {p0}, Landroid/accounts/ChooseTypeAndAccountActivity;->getClass()Ljava/lang/Class;
 
@@ -1784,31 +1756,25 @@
 
     iget-boolean v11, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mSelectedAddNewAccount:Z
 
-    .line 224
     invoke-direct {p0, v7, v10, v11}, Landroid/accounts/ChooseTypeAndAccountActivity;->getItemIndexToSelect(Ljava/util/ArrayList;Ljava/lang/String;Z)I
 
     move-result v7
 
     iput v7, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mSelectedItemIndex:I
 
-    .line 227
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 228
-    const v7, 0x1090041
+    const v7, #android:layout@choose_type_and_account#t
 
     invoke-virtual {p0, v7}, Landroid/accounts/ChooseTypeAndAccountActivity;->setContentView(I)V
 
-    .line 229
     iget-object v7, p0, Landroid/accounts/ChooseTypeAndAccountActivity;->mDescriptionOverride:Ljava/lang/String;
 
     invoke-direct {p0, v7}, Landroid/accounts/ChooseTypeAndAccountActivity;->overrideDescriptionIfSupplied(Ljava/lang/String;)V
 
-    .line 230
     invoke-direct {p0, v2}, Landroid/accounts/ChooseTypeAndAccountActivity;->populateUIAccountList([Ljava/lang/String;)V
 
-    .line 233
-    const v7, 0x102001a
+    const v7, #android:id@button2#t
 
     invoke-virtual {p0, v7}, Landroid/accounts/ChooseTypeAndAccountActivity;->findViewById(I)Landroid/view/View;
 

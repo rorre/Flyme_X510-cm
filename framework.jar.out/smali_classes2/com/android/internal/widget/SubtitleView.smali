@@ -243,7 +243,7 @@
 
     .line 121
     .local v4, "res":Landroid/content/res/Resources;
-    const v7, 0x1050083
+    const v7, #android:dimen@subtitle_corner_radius#t
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -253,8 +253,7 @@
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mCornerRadius:F
 
-    .line 122
-    const v7, 0x1050086
+    const v7, #android:dimen@subtitle_outline_width#t
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -264,8 +263,7 @@
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mOutlineWidth:F
 
-    .line 123
-    const v7, 0x1050084
+    const v7, #android:dimen@subtitle_shadow_radius#t
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -275,8 +273,7 @@
 
     iput v7, p0, Lcom/android/internal/widget/SubtitleView;->mShadowRadius:F
 
-    .line 124
-    const v7, 0x1050085
+    const v7, #android:dimen@subtitle_shadow_offset#t
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

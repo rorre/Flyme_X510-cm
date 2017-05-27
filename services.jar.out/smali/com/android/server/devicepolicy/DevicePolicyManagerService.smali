@@ -84,7 +84,7 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "DevicePolicyManagerService"
 
-.field private static final MONITORING_CERT_NOTIFICATION_ID:I = 0x104016d
+.field private static final MONITORING_CERT_NOTIFICATION_ID:I = #android:string@ssl_ca_cert_warning#t
 
 .field private static final MS_PER_DAY:J = 0x5265c00L
 
@@ -6987,7 +6987,7 @@
     .line 3412
     iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040174
+    const v3, #android:string@work_profile_deleted_description_dpm_wipe#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -7001,18 +7001,15 @@
 
     invoke-direct {v2, v3}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 3414
-    const v3, 0x108008a
+    const v3, #android:drawable@stat_sys_warning#t
 
-    .line 3413
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 3415
     iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040171
+    const v4, #android:string@work_profile_deleted#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -7030,7 +7027,7 @@
     .line 3417
     iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x1060070
+    const v4, #android:color@system_notification_accent_color#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getColor(I)I
 

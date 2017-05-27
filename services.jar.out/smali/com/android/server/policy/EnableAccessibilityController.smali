@@ -179,22 +179,18 @@
 
     iput-object v0, p0, Lcom/android/server/policy/EnableAccessibilityController;->mTone:Landroid/media/Ringtone;
 
-    .line 114
     iget-object v0, p0, Lcom/android/server/policy/EnableAccessibilityController;->mTone:Landroid/media/Ringtone;
 
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/media/Ringtone;->setStreamType(I)V
 
-    .line 115
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 116
-    const v1, 0x1050076
+    const v1, #android:dimen@accessibility_touch_slop#t
 
-    .line 115
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0

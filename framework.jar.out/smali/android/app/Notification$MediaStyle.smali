@@ -70,7 +70,7 @@
     .prologue
     const/4 v3, -0x1
 
-    const v1, 0x102036f
+    const v1, #android:id@action0#t
 
     .line 4485
     iget-object v2, p1, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
@@ -94,13 +94,10 @@
 
     move-result-object v2
 
-    .line 4487
-    const v4, 0x1090083
+    const v4, #android:layout@notification_material_media_action#t
 
-    .line 4486
     invoke-direct {v0, v2, v4}, Landroid/app/Notification$BuilderRemoteViews;-><init>(Landroid/content/pm/ApplicationInfo;I)V
 
-    .line 4488
     .local v0, "button":Landroid/widget/RemoteViews;
     invoke-virtual {p1}, Landroid/app/Notification$Action;->getIcon()Landroid/graphics/drawable/Icon;
 
@@ -152,19 +149,16 @@
     .param p1, "actionCount"    # I
 
     .prologue
-    .line 4546
     const/4 v0, 0x3
 
     if-gt p1, v0, :cond_0
 
-    .line 4547
-    const v0, 0x1090088
+    const v0, #android:layout@notification_template_material_big_media_narrow#t
 
     return v0
 
-    .line 4549
     :cond_0
-    const v0, 0x1090087
+    const v0, #android:layout@notification_template_material_big_media#t
 
     return v0
 .end method
@@ -174,14 +168,12 @@
     .param p1, "contentView"    # Landroid/widget/RemoteViews;
 
     .prologue
-    .line 4554
-    const v0, 0x1020040
+    const v0, #android:id@right_icon#t
 
     const/16 v1, 0x8
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 4553
     return-void
 .end method
 
@@ -189,7 +181,7 @@
     .locals 8
 
     .prologue
-    const v7, 0x1020378
+    const v7, #android:id@media_actions#t
 
     const/4 v6, 0x0
 
@@ -253,35 +245,28 @@
 
     move-result-object v2
 
-    .line 4535
     .local v2, "button":Landroid/widget/RemoteViews;
     invoke-virtual {v1, v7, v2}, Landroid/widget/RemoteViews;->addView(ILandroid/widget/RemoteViews;)V
 
-    .line 4533
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 4538
     .end local v2    # "button":Landroid/widget/RemoteViews;
     .end local v3    # "i":I
     :cond_0
     invoke-direct {p0, v1}, Landroid/app/Notification$MediaStyle;->styleText(Landroid/widget/RemoteViews;)V
 
-    .line 4539
     invoke-direct {p0, v1}, Landroid/app/Notification$MediaStyle;->hideRightIcon(Landroid/widget/RemoteViews;)V
 
-    .line 4540
     invoke-virtual {p0, v1}, Landroid/app/Notification$MediaStyle;->applyTopPadding(Landroid/widget/RemoteViews;)V
 
-    .line 4541
-    const v4, 0x102000d
+    const v4, #android:id@progress#t
 
     const/16 v5, 0x8
 
     invoke-virtual {v1, v4, v5}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
-    .line 4542
     return-object v1
 .end method
 
@@ -289,22 +274,18 @@
     .locals 11
 
     .prologue
-    const v8, 0x1020378
+    const v8, #android:id@media_actions#t
 
     const/4 v10, 0x0
 
-    .line 4500
     iget-object v6, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
-    .line 4501
-    const v7, 0x109008c
+    const v7, #android:layout@notification_template_material_media#t
 
-    .line 4500
     invoke-static {v6, v7, v10}, Landroid/app/Notification$Builder;->-wrap1(Landroid/app/Notification$Builder;IZ)Landroid/widget/RemoteViews;
 
     move-result-object v5
 
-    .line 4503
     .local v5, "view":Landroid/widget/RemoteViews;
     iget-object v6, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
@@ -450,22 +431,18 @@
     .param p1, "contentView"    # Landroid/widget/RemoteViews;
 
     .prologue
-    .line 4561
     iget-object v2, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
     invoke-static {v2}, Landroid/app/Notification$Builder;->-get3(Landroid/app/Notification$Builder;)Landroid/content/Context;
 
     move-result-object v2
 
-    .line 4562
-    const v3, 0x1060068
+    const v3, #android:color@notification_media_primary_color#t
 
-    .line 4561
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v0
 
-    .line 4563
     .local v0, "primaryColor":I
     iget-object v2, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
@@ -473,21 +450,17 @@
 
     move-result-object v2
 
-    .line 4564
-    const v3, 0x1060069
+    const v3, #android:color@notification_media_secondary_color#t
 
-    .line 4563
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v1
 
-    .line 4565
     .local v1, "secondaryColor":I
-    const v2, 0x1020016
+    const v2, #android:id@title#t
 
     invoke-virtual {p1, v2, v0}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    .line 4566
     iget-object v2, p0, Landroid/app/Notification$MediaStyle;->mBuilder:Landroid/app/Notification$Builder;
 
     invoke-static {v2}, Landroid/app/Notification$Builder;->-wrap3(Landroid/app/Notification$Builder;)Z
@@ -505,34 +478,28 @@
 
     if-eqz v2, :cond_1
 
-    .line 4568
-    const v2, 0x1020384
+    const v2, #android:id@chronometer#t
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    .line 4573
     :cond_0
     :goto_0
-    const v2, 0x1020015
+    const v2, #android:id@text2#t
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    .line 4574
-    const v2, 0x1020075
+    const v2, #android:id@text#t
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    .line 4575
-    const v2, 0x1020388
+    const v2, #android:id@info#t
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setTextColor(II)V
 
-    .line 4560
     return-void
 
-    .line 4570
     :cond_1
-    const v2, 0x102008c
+    const v2, #android:id@time#t
 
     invoke-virtual {p1, v2, v1}, Landroid/widget/RemoteViews;->setTextColor(II)V
 

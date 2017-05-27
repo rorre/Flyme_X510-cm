@@ -15,6 +15,8 @@ import /init.cm.rc
 import /init.performance.rc
 import /init.modem.rc
 
+import /init.flyme.rc
+
 on early-init
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_score_adj -1000

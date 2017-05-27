@@ -875,10 +875,8 @@
 
     move-result-object v32
 
-    .line 2940
-    const v33, 0x10403c2
+    const v33, #android:string@addToDictionary#t
 
-    .line 2939
     invoke-virtual/range {v32 .. v33}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v32
@@ -1003,7 +1001,7 @@
 
     move-result-object v32
 
-    const v33, 0x10403c3
+    const v33, #android:string@deleteText#t
 
     invoke-virtual/range {v32 .. v33}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1283,36 +1281,30 @@
 
     move-result-object v1
 
-    .line 2676
-    const v2, 0x1010373
+    const v2, #android:attr@textSuggestionsWindowStyle#t
 
-    .line 2675
     invoke-direct {v0, p0, v1, v2}, Landroid/widget/Editor$SuggestionsPopupWindow$CustomPopupWindow;-><init>(Landroid/widget/Editor$SuggestionsPopupWindow;Landroid/content/Context;I)V
 
     iput-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
 
-    .line 2677
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setInputMethodMode(I)V
 
-    .line 2678
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setFocusable(Z)V
 
-    .line 2679
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setClippingEnabled(Z)V
 
-    .line 2674
     return-void
 .end method
 

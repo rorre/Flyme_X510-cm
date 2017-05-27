@@ -96,27 +96,22 @@
 
     move-result-object v19
 
-    .line 99
-    const v20, 0x1110003
+    const v20, #android:xml@bookmarks#t
 
-    .line 98
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
 
     move-result-object v14
 
-    .line 100
     .local v14, "parser":Landroid/content/res/XmlResourceParser;
-    const-string/jumbo v19, "bookmarks"
+    const-string v19, "bookmarks"
 
     move-object/from16 v0, v19
 
     invoke-static {v14, v0}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
-    .line 103
     :goto_0
     invoke-static {v14}, Lcom/android/internal/util/XmlUtils;->nextElement(Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 105
     invoke-interface {v14}, Landroid/content/res/XmlResourceParser;->getEventType()I
 
     move-result v19

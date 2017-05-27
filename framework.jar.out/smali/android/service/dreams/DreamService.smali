@@ -525,42 +525,34 @@
 
     move-result-object v2
 
-    .line 976
     .local v2, "lp":Landroid/view/WindowManager$LayoutParams;
     iput v10, v2, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 977
     iput-object p1, v2, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 978
-    const v3, 0x10302f9
+    const v3, #android:style@Animation.Dream#t
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 979
     iget v6, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 984
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mFullscreen:Z
 
     if-eqz v3, :cond_8
 
     const/16 v3, 0x400
 
-    .line 979
     :goto_1
     const v7, 0x490101
 
     or-int/2addr v7, v3
 
-    .line 985
     iget-boolean v3, p0, Landroid/service/dreams/DreamService;->mScreenBright:Z
 
     if-eqz v3, :cond_9
 
     const/16 v3, 0x80
 
-    .line 979
     :goto_2
     or-int/2addr v3, v7
 

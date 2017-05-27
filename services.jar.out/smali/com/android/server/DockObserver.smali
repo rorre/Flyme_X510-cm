@@ -196,32 +196,26 @@
 
     iput-object v0, p0, Lcom/android/server/DockObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 75
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 76
-    const v1, 0x1120038
+    const v1, #android:bool@config_allowTheaterModeWakeFromDock#t
 
-    .line 75
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/server/DockObserver;->mAllowTheaterModeWakeFromDock:Z
 
-    .line 78
     invoke-direct {p0}, Lcom/android/server/DockObserver;->init()V
 
-    .line 80
     iget-object v0, p0, Lcom/android/server/DockObserver;->mObserver:Landroid/os/UEventObserver;
 
-    const-string/jumbo v1, "DEVPATH=/devices/virtual/switch/dock"
+    const-string v1, "DEVPATH=/devices/virtual/switch/dock"
 
     invoke-virtual {v0, v1}, Landroid/os/UEventObserver;->startObserving(Ljava/lang/String;)V
 
-    .line 70
     return-void
 .end method
 

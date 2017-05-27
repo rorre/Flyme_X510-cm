@@ -241,37 +241,31 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 51
     invoke-static {p0}, Landroid/net/wimax/WimaxHelper;->isWimaxSupported(Landroid/content/Context;)Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    .line 52
     sget-object v2, Landroid/net/wimax/WimaxHelper;->sWimaxClassLoader:Ldalvik/system/DexClassLoader;
 
     if-nez v2, :cond_1
 
-    .line 53
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 54
-    const v3, 0x10400bb
+    const v3, #android:string@config_wimaxManagerClassname#t
 
-    .line 53
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     sput-object v2, Landroid/net/wimax/WimaxHelper;->sWimaxManagerClassname:Ljava/lang/String;
 
-    .line 60
     sget-object v2, Landroid/net/wimax/WimaxHelper;->sWimaxManagerClassname:Ljava/lang/String;
 
-    const-string/jumbo v3, "com.htc.net.wimax.WimaxController"
+    const-string v3, "com.htc.net.wimax.WimaxController"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -279,55 +273,44 @@
 
     if-eqz v2, :cond_2
 
-    .line 61
-    const-string/jumbo v2, "isWimaxEnabled"
+    const-string v2, "isWimaxEnabled"
 
     sput-object v2, Landroid/net/wimax/WimaxHelper;->sIsWimaxEnabledMethodname:Ljava/lang/String;
 
-    .line 62
-    const-string/jumbo v2, "setWimaxEnabled"
+    const-string v2, "setWimaxEnabled"
 
     sput-object v2, Landroid/net/wimax/WimaxHelper;->sSetWimaxEnabledMethodname:Ljava/lang/String;
 
-    .line 63
-    const-string/jumbo v2, "getWimaxState"
+    const-string v2, "getWimaxState"
 
     sput-object v2, Landroid/net/wimax/WimaxHelper;->sGetWimaxStateMethodname:Ljava/lang/String;
 
-    .line 70
     :cond_0
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 71
-    const v3, 0x10400b9
+    const v3, #android:string@config_wimaxServiceJarLocation#t
 
-    .line 70
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 72
     .local v0, "wimaxJarLocation":Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 73
-    const v3, 0x10400ba
+    const v3, #android:string@config_wimaxNativeLibLocation#t
 
-    .line 72
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 74
     .local v1, "wimaxLibLocation":Ljava/lang/String;
     new-instance v2, Ldalvik/system/DexClassLoader;
 
-    .line 75
     new-instance v3, Landroid/content/ContextWrapper;
 
     invoke-direct {v3, p0}, Landroid/content/ContextWrapper;-><init>(Landroid/content/Context;)V
@@ -611,15 +594,12 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 46
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 47
-    const v1, 0x1120076
+    const v1, #android:bool@config_wimaxEnabled#t
 
-    .line 46
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0

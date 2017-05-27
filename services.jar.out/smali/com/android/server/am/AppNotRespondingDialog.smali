@@ -128,19 +128,15 @@
     .local v2, "name2":Ljava/lang/CharSequence;
     if-eqz v2, :cond_4
 
-    .line 57
     if-eqz v1, :cond_3
 
-    .line 58
-    const v4, 0x10403e2
+    const v4, #android:string@anr_activity_application#t
 
-    .line 74
     .end local v2    # "name2":Ljava/lang/CharSequence;
     .local v4, "resid":I
     :goto_1
     if-eqz v2, :cond_6
 
-    .line 75
     new-array v5, v9, [Ljava/lang/Object;
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -159,61 +155,51 @@
 
     move-result-object v5
 
-    .line 74
     :goto_2
     invoke-virtual {p0, v5}, Lcom/android/server/am/AppNotRespondingDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    .line 79
-    const v5, 0x10403e6
+    const v5, #android:string@force_close#t
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v5
 
-    .line 80
     iget-object v6, p0, Lcom/android/server/am/AppNotRespondingDialog;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v6, v7}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v6
 
-    .line 78
     const/4 v7, -0x1
 
     invoke-virtual {p0, v7, v5, v6}, Lcom/android/server/am/AppNotRespondingDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
-    .line 82
-    const v5, 0x10403e8
+    const v5, #android:string@wait#t
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v5
 
-    .line 83
     iget-object v6, p0, Lcom/android/server/am/AppNotRespondingDialog;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v6, v9}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v6
 
-    .line 81
     const/4 v7, -0x2
 
     invoke-virtual {p0, v7, v5, v6}, Lcom/android/server/am/AppNotRespondingDialog;->setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
 
-    .line 85
     iget-object v5, p3, Lcom/android/server/am/ProcessRecord;->errorReportReceiver:Landroid/content/ComponentName;
 
     if-eqz v5, :cond_0
 
-    .line 87
-    const v5, 0x10403e7
+    const v5, #android:string@report#t
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v5
 
-    .line 88
     iget-object v6, p0, Lcom/android/server/am/AppNotRespondingDialog;->mHandler:Landroid/os/Handler;
 
     const/4 v7, 0x3
@@ -229,7 +215,7 @@
 
     .line 91
     :cond_0
-    const v5, 0x10403e1
+    const v5, #android:string@anr_title#t
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -309,53 +295,44 @@
     .local v1, "name1":Ljava/lang/CharSequence;
     goto/16 :goto_0
 
-    .line 60
     .end local v1    # "name1":Ljava/lang/CharSequence;
     .restart local v2    # "name2":Ljava/lang/CharSequence;
     :cond_3
     move-object v1, v2
 
-    .line 61
     .local v1, "name1":Ljava/lang/CharSequence;
     iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    .line 62
-    const v4, 0x10403e4
+    const v4, #android:string@anr_application_process#t
 
     .restart local v4    # "resid":I
     goto/16 :goto_1
 
-    .line 65
     .end local v1    # "name1":Ljava/lang/CharSequence;
     .end local v2    # "name2":Ljava/lang/CharSequence;
     .end local v4    # "resid":I
     :cond_4
     if-eqz v1, :cond_5
 
-    .line 66
     iget-object v2, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    .line 67
     .restart local v2    # "name2":Ljava/lang/CharSequence;
-    const v4, 0x10403e3
+    const v4, #android:string@anr_activity_process#t
 
     .restart local v4    # "resid":I
     goto/16 :goto_1
 
-    .line 69
     .end local v2    # "name2":Ljava/lang/CharSequence;
     .end local v4    # "resid":I
     :cond_5
     iget-object v1, p3, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    .line 70
     .restart local v1    # "name1":Ljava/lang/CharSequence;
-    const v4, 0x10403e5
+    const v4, #android:string@anr_process#t
 
     .restart local v4    # "resid":I
     goto/16 :goto_1
 
-    .line 76
     .end local v1    # "name1":Ljava/lang/CharSequence;
     :cond_6
     new-array v5, v7, [Ljava/lang/Object;

@@ -26,30 +26,24 @@
     .param p1, "e"    # Landroid/database/sqlite/SQLiteException;
 
     .prologue
-    .line 48
     invoke-static {p1}, Landroid/database/sqlite/SqliteWrapper;->isLowMemory(Landroid/database/sqlite/SQLiteException;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 49
-    const v0, 0x104016c
+    const v0, #android:string@low_memory#t
 
-    .line 50
     const/4 v1, 0x0
 
-    .line 49
     invoke-static {p0, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 47
     return-void
 
-    .line 52
     :cond_0
     throw p1
 .end method

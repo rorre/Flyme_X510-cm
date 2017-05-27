@@ -888,15 +888,12 @@
     .param p1, "parent"    # Landroid/view/ViewGroup;
 
     .prologue
-    .line 792
     iget-object v0, p0, Lcom/android/internal/app/ChooserActivity$ChooserListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 793
-    const v1, 0x10900be
+    const v1, #android:layout@resolve_grid_item#t
 
     const/4 v2, 0x0
 
-    .line 792
     invoke-virtual {v0, v1, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0

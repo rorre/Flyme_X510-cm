@@ -126,23 +126,19 @@
 
     aput-object v7, v6, v8
 
-    .line 1828
-    const v7, 0x1040570
+    const v7, #android:string@user_switched#t
 
     invoke-virtual {v4, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1831
     .local v1, "message":Ljava/lang/String;
     const/16 v4, 0x4000
 
-    .line 1830
     invoke-static {v4}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
 
     move-result-object v0
 
-    .line 1832
     .local v0, "event":Landroid/view/accessibility/AccessibilityEvent;
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
 

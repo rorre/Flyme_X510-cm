@@ -10154,7 +10154,7 @@
 
     iget-object v4, v0, Lcom/android/server/MountService;->mContext:Landroid/content/Context;
 
-    const v5, 0x104000e
+    const v5, #android:string@unknownName#t
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

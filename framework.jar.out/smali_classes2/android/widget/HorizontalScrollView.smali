@@ -86,12 +86,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 150
-    const v0, 0x1010353
+    const v0, #android:attr@horizontalScrollViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/HorizontalScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 149
     return-void
 .end method
 

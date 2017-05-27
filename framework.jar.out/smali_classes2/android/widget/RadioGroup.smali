@@ -122,55 +122,42 @@
 
     const/4 v5, -0x1
 
-    .line 76
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 55
     iput v5, p0, Landroid/widget/RadioGroup;->mCheckedId:I
 
-    .line 59
     iput-boolean v6, p0, Landroid/widget/RadioGroup;->mProtectFromCheckedChange:Z
 
-    .line 81
     sget-object v3, Lcom/android/internal/R$styleable;->RadioGroup:[I
 
-    const v4, 0x101007e
+    const v4, #android:attr@radioButtonStyle#t
 
-    .line 80
     invoke-virtual {p1, p2, v3, v4, v6}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 83
     .local v0, "attributes":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v7, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v2
 
-    .line 84
     .local v2, "value":I
     if-eq v2, v5, :cond_0
 
-    .line 85
     iput v2, p0, Landroid/widget/RadioGroup;->mCheckedId:I
 
-    .line 88
     :cond_0
     invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
 
-    .line 89
     .local v1, "index":I
     invoke-virtual {p0, v1}, Landroid/widget/RadioGroup;->setOrientation(I)V
 
-    .line 91
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 92
     invoke-direct {p0}, Landroid/widget/RadioGroup;->init()V
 
-    .line 75
     return-void
 .end method
 

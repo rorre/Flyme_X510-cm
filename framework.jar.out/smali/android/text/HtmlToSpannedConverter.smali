@@ -1637,47 +1637,38 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 637
-    const-string/jumbo v3, ""
+    const-string v3, ""
 
-    const-string/jumbo v4, "src"
+    const-string v4, "src"
 
     invoke-interface {p1, v3, v4}, Lorg/xml/sax/Attributes;->getValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 638
     .local v2, "src":Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 640
     .local v0, "d":Landroid/graphics/drawable/Drawable;
     if-eqz p2, :cond_0
 
-    .line 641
     invoke-interface {p2, v2}, Landroid/text/Html$ImageGetter;->getDrawable(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 644
     .end local v0    # "d":Landroid/graphics/drawable/Drawable;
     :cond_0
     if-nez v0, :cond_1
 
-    .line 645
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 646
-    const v4, 0x1080745
+    const v4, #android:drawable@unknown_image#t
 
-    .line 645
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 647
     .local v0, "d":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 

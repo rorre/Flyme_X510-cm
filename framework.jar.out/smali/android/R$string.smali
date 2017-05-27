@@ -15,55 +15,55 @@
 
 
 # static fields
-.field public static final VideoView_error_button:I = 0x1040010
+.field public static final VideoView_error_button:I = #android:string@VideoView_error_button#t
 
-.field public static final VideoView_error_text_invalid_progressive_playback:I = 0x1040015
+.field public static final VideoView_error_text_invalid_progressive_playback:I = #android:string@VideoView_error_text_invalid_progressive_playback#t
 
-.field public static final VideoView_error_text_unknown:I = 0x1040011
+.field public static final VideoView_error_text_unknown:I = #android:string@VideoView_error_text_unknown#t
 
-.field public static final VideoView_error_title:I = 0x1040012
+.field public static final VideoView_error_title:I = #android:string@VideoView_error_title#t
 
-.field public static final cancel:I = 0x1040000
+.field public static final cancel:I = #android:string@cancel#t
 
-.field public static final copy:I = 0x1040001
+.field public static final copy:I = #android:string@copy#t
 
-.field public static final copyUrl:I = 0x1040002
+.field public static final copyUrl:I = #android:string@copyUrl#t
 
-.field public static final cut:I = 0x1040003
+.field public static final cut:I = #android:string@cut#t
 
-.field public static final defaultMsisdnAlphaTag:I = 0x1040005
+.field public static final defaultMsisdnAlphaTag:I = #android:string@defaultMsisdnAlphaTag#t
 
-.field public static final defaultVoiceMailAlphaTag:I = 0x1040004
+.field public static final defaultVoiceMailAlphaTag:I = #android:string@defaultVoiceMailAlphaTag#t
 
-.field public static final dialog_alert_title:I = 0x1040014
+.field public static final dialog_alert_title:I = #android:string@dialog_alert_title#t
 
-.field public static final emptyPhoneNumber:I = 0x1040006
+.field public static final emptyPhoneNumber:I = #android:string@emptyPhoneNumber#t
 
-.field public static final fingerprint_icon_content_description:I = 0x1040018
+.field public static final fingerprint_icon_content_description:I = #android:string@fingerprint_icon_content_description#t
 
-.field public static final httpErrorBadUrl:I = 0x1040007
+.field public static final httpErrorBadUrl:I = #android:string@httpErrorBadUrl#t
 
-.field public static final httpErrorUnsupportedScheme:I = 0x1040008
+.field public static final httpErrorUnsupportedScheme:I = #android:string@httpErrorUnsupportedScheme#t
 
-.field public static final no:I = 0x1040009
+.field public static final no:I = #android:string@no#t
 
-.field public static final ok:I = 0x104000a
+.field public static final ok:I = #android:string@ok#t
 
-.field public static final paste:I = 0x104000b
+.field public static final paste:I = #android:string@paste#t
 
-.field public static final search_go:I = 0x104000c
+.field public static final search_go:I = #android:string@search_go#t
 
-.field public static final selectAll:I = 0x104000d
+.field public static final selectAll:I = #android:string@selectAll#t
 
-.field public static final selectTextMode:I = 0x1040016
+.field public static final selectTextMode:I = #android:string@selectTextMode#t
 
-.field public static final status_bar_notification_info_overflow:I = 0x1040017
+.field public static final status_bar_notification_info_overflow:I = #android:string@status_bar_notification_info_overflow#t
 
-.field public static final unknownName:I = 0x104000e
+.field public static final unknownName:I = #android:string@unknownName#t
 
-.field public static final untitled:I = 0x104000f
+.field public static final untitled:I = #android:string@untitled#t
 
-.field public static final yes:I = 0x1040013
+.field public static final yes:I = #android:string@yes#t
 
 
 # direct methods

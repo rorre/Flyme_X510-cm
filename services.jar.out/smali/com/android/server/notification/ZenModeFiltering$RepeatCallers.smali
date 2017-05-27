@@ -108,7 +108,7 @@
 
     move-result-object v8
 
-    const v9, 0x10e009d
+    const v9, #android:integer@config_zen_repeat_callers_threshold#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 

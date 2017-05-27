@@ -128,34 +128,27 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 73
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    .line 74
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 76
     .local v2, "res":Landroid/content/res/Resources;
-    const v3, 0x1120075
+    const v3, #android:bool@config_allowActionMenuItemTextWithIcon#t
 
-    .line 75
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v3
 
     iput-boolean v3, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mAllowTextWithIcon:Z
 
-    .line 78
     sget-object v3, Lcom/android/internal/R$styleable;->ActionMenuItemView:[I
 
-    .line 77
     invoke-virtual {p1, p2, v3, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 79
     .local v0, "a":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v4, v4}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -497,20 +490,16 @@
 
     move-result-object v0
 
-    .line 97
-    const v1, 0x1120075
+    const v1, #android:bool@config_allowActionMenuItemTextWithIcon#t
 
-    .line 96
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/internal/view/menu/ActionMenuItemView;->mAllowTextWithIcon:Z
 
-    .line 98
     invoke-direct {p0}, Lcom/android/internal/view/menu/ActionMenuItemView;->updateTextButtonVisibility()V
 
-    .line 93
     return-void
 .end method
 

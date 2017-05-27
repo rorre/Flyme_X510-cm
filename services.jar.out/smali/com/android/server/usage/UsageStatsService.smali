@@ -3420,40 +3420,33 @@
 
     move-result-object v0
 
-    .line 184
-    const v1, 0x1120017
+    const v1, #android:bool@config_enableAutoPowerModes#t
 
-    .line 183
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/server/usage/UsageStatsService;->mAppIdleEnabled:Z
 
-    .line 185
     iget-boolean v0, p0, Lcom/android/server/usage/UsageStatsService;->mAppIdleEnabled:Z
 
     if-eqz v0, :cond_1
 
-    .line 186
     new-instance v6, Landroid/content/IntentFilter;
 
-    const-string/jumbo v0, "android.os.action.CHARGING"
+    const-string v0, "android.os.action.CHARGING"
 
     invoke-direct {v6, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 187
     .local v6, "deviceStates":Landroid/content/IntentFilter;
-    const-string/jumbo v0, "android.os.action.DISCHARGING"
+    const-string v0, "android.os.action.DISCHARGING"
 
     invoke-virtual {v6, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 188
-    const-string/jumbo v0, "android.os.action.DEVICE_IDLE_MODE_CHANGED"
+    const-string v0, "android.os.action.DEVICE_IDLE_MODE_CHANGED"
 
     invoke-virtual {v6, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 189
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService;->getContext()Landroid/content/Context;
 
     move-result-object v0

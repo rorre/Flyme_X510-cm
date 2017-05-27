@@ -305,16 +305,13 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 200
-    const v10, 0x111000f
+    const v10, #android:xml@power_profile#t
 
-    .line 201
     .local v10, "id":I
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v16
 
-    .line 202
     .local v16, "resources":Landroid/content/res/Resources;
     move-object/from16 v0, v16
 
@@ -823,14 +820,14 @@
     .line 255
     :array_0
     .array-data 4
-        0x10e0075
-        0x10e0076
-        0x10e0077
-        0x10e0078
-        0x10e003f
-        0x10e0040
-        0x10e0041
-        0x10e0042
+        #android:integer@config_bluetooth_idle_cur_ma#t
+        #android:integer@config_bluetooth_rx_cur_ma#t
+        #android:integer@config_bluetooth_tx_cur_ma#t
+        #android:integer@config_bluetooth_operating_voltage_mv#t
+        #android:integer@config_wifi_idle_receive_cur_ma#t
+        #android:integer@config_wifi_active_rx_cur_ma#t
+        #android:integer@config_wifi_tx_cur_ma#t
+        #android:integer@config_wifi_operating_voltage_mv#t
     .end array-data
 .end method
 

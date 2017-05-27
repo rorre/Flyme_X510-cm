@@ -101,7 +101,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00aa
+    const v1, #android:integer@max_action_buttons#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -114,17 +114,14 @@
     .locals 2
 
     .prologue
-    .line 86
     iget-object v0, p0, Lcom/android/internal/view/ActionBarPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 87
-    const v1, 0x1050059
+    const v1, #android:dimen@action_bar_stacked_tab_max_width#t
 
-    .line 86
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
@@ -138,22 +135,18 @@
     .prologue
     const/4 v7, 0x0
 
-    .line 65
     iget-object v3, p0, Lcom/android/internal/view/ActionBarPolicy;->mContext:Landroid/content/Context;
 
     sget-object v4, Lcom/android/internal/R$styleable;->ActionBar:[I
 
     const/4 v5, 0x0
 
-    .line 66
-    const v6, 0x10102ce
+    const v6, #android:attr@actionBarStyle#t
 
-    .line 65
     invoke-virtual {v3, v5, v4, v6, v7}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 67
     .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v3, 0x4
 
@@ -177,23 +170,19 @@
 
     if-nez v3, :cond_0
 
-    .line 72
-    const v3, 0x1050058
+    const v3, #android:dimen@action_bar_stacked_max_height#t
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    .line 71
     invoke-static {v1, v3}, Ljava/lang/Math;->min(II)I
 
     move-result v1
 
-    .line 74
     :cond_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 75
     return v1
 .end method
 
@@ -223,7 +212,7 @@
 
     move-result-object v1
 
-    const v2, 0x1120003
+    const v2, #android:bool@action_bar_embed_tabs#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -239,7 +228,7 @@
 
     move-result-object v1
 
-    const v2, 0x1120004
+    const v2, #android:bool@action_bar_embed_tabs_pre_jb#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

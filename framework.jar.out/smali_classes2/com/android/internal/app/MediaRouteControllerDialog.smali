@@ -162,54 +162,44 @@
 
     if-eqz v0, :cond_1
 
-    .line 258
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mMediaRouteConnectingDrawable:Landroid/graphics/drawable/Drawable;
 
     if-nez v0, :cond_0
 
-    .line 259
     invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteControllerDialog;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 260
-    const v1, 0x108039c
+    const v1, #android:drawable@ic_media_route_connecting_holo_dark#t
 
-    .line 259
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mMediaRouteConnectingDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 262
     :cond_0
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mMediaRouteConnectingDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 
-    .line 264
     :cond_1
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mMediaRouteOnDrawable:Landroid/graphics/drawable/Drawable;
 
     if-nez v0, :cond_2
 
-    .line 265
     invoke-virtual {p0}, Lcom/android/internal/app/MediaRouteControllerDialog;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 266
-    const v1, 0x10803b1
+    const v1, #android:drawable@ic_media_route_on_holo_dark#t
 
-    .line 265
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mMediaRouteOnDrawable:Landroid/graphics/drawable/Drawable;
 
-    .line 268
     :cond_2
     iget-object v0, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mMediaRouteOnDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -454,13 +444,11 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->requestFeature(I)Z
 
-    .line 139
-    const v1, 0x109007b
+    const v1, #android:layout@media_route_controller_dialog#t
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/MediaRouteControllerDialog;->setContentView(I)V
 
-    .line 141
-    const v1, 0x1020368
+    const v1, #android:id@media_route_volume_layout#t
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/MediaRouteControllerDialog;->findViewById(I)Landroid/view/View;
 
@@ -470,8 +458,7 @@
 
     iput-object v1, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mVolumeLayout:Landroid/widget/LinearLayout;
 
-    .line 142
-    const v1, 0x1020369
+    const v1, #android:id@media_route_volume_slider#t
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/MediaRouteControllerDialog;->findViewById(I)Landroid/view/View;
 
@@ -490,8 +477,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
 
-    .line 179
-    const v1, 0x102036b
+    const v1, #android:id@media_route_disconnect_button#t
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/MediaRouteControllerDialog;->findViewById(I)Landroid/view/View;
 
@@ -510,27 +496,23 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 190
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mCreated:Z
 
-    .line 191
     invoke-direct {p0}, Lcom/android/internal/app/MediaRouteControllerDialog;->update()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 192
     invoke-virtual {p0, p1}, Lcom/android/internal/app/MediaRouteControllerDialog;->onCreateMediaControlView(Landroid/os/Bundle;)Landroid/view/View;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/internal/app/MediaRouteControllerDialog;->mControlView:Landroid/view/View;
 
-    .line 194
-    const v1, 0x102036a
+    const v1, #android:id@media_route_control_frame#t
 
     invoke-virtual {p0, v1}, Lcom/android/internal/app/MediaRouteControllerDialog;->findViewById(I)Landroid/view/View;
 

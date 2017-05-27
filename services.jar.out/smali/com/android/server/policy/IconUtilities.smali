@@ -155,7 +155,7 @@
 
     .line 66
     .local v0, "blurPx":F
-    const/high16 v6, 0x1050000
+    const/high16 v6, #android:dimen@app_icon_size#i
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -206,24 +206,19 @@
 
     move-result-object v6
 
-    .line 73
-    const v8, 0x101038d
+    const v8, #android:attr@colorPressedHighlight#t
 
-    .line 72
     invoke-virtual {v6, v8, v5, v10}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
     move-result v6
 
     if-eqz v6, :cond_0
 
-    .line 73
     iget v6, v5, Landroid/util/TypedValue;->data:I
 
-    .line 72
     :goto_0
     invoke-virtual {v7, v6}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 74
     iget-object v6, p0, Lcom/android/server/policy/IconUtilities;->mGlowColorPressedPaint:Landroid/graphics/Paint;
 
     invoke-static {v9, v11}, Landroid/graphics/TableMaskFilter;->CreateClipTable(II)Landroid/graphics/TableMaskFilter;
@@ -232,31 +227,25 @@
 
     invoke-virtual {v6, v7}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
 
-    .line 75
     iget-object v7, p0, Lcom/android/server/policy/IconUtilities;->mGlowColorFocusedPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v6
 
-    .line 76
-    const v8, 0x101038f
+    const v8, #android:attr@colorFocusedHighlight#t
 
-    .line 75
     invoke-virtual {v6, v8, v5, v10}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
     move-result v6
 
     if-eqz v6, :cond_1
 
-    .line 76
     iget v6, v5, Landroid/util/TypedValue;->data:I
 
-    .line 75
     :goto_1
     invoke-virtual {v7, v6}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 77
     iget-object v6, p0, Lcom/android/server/policy/IconUtilities;->mGlowColorFocusedPaint:Landroid/graphics/Paint;
 
     invoke-static {v9, v11}, Landroid/graphics/TableMaskFilter;->CreateClipTable(II)Landroid/graphics/TableMaskFilter;
@@ -666,7 +655,7 @@
     .local v0, "result":Landroid/graphics/drawable/StateListDrawable;
     new-array v2, v6, [I
 
-    const v3, 0x101009c
+    const v3, #android:attr@state_focused#t
 
     aput v3, v2, v5
 
@@ -679,17 +668,14 @@
 
     invoke-direct {v3, v4}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 91
     invoke-virtual {v0, v2, v3}, Landroid/graphics/drawable/StateListDrawable;->addState([ILandroid/graphics/drawable/Drawable;)V
 
-    .line 93
     new-array v2, v6, [I
 
-    const v3, 0x10100a7
+    const v3, #android:attr@state_pressed#t
 
     aput v3, v2, v5
 
-    .line 94
     new-instance v3, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-direct {p0, v1, v6}, Lcom/android/server/policy/IconUtilities;->createSelectedBitmap(Landroid/graphics/Bitmap;Z)Landroid/graphics/Bitmap;

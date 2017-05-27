@@ -191,7 +191,7 @@
 
     move-result-object v8
 
-    const v9, 0x10404db
+    const v9, #android:string@sync_really_delete#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -206,7 +206,7 @@
 
     move-result-object v8
 
-    const v9, 0x10404dc
+    const v9, #android:string@sync_undo_deletes#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -221,7 +221,7 @@
 
     move-result-object v8
 
-    const v9, 0x10404dd
+    const v9, #android:string@sync_do_nothing#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -231,49 +231,39 @@
 
     aput-object v8, v5, v9
 
-    .line 68
     .local v5, "options":[Ljava/lang/CharSequence;
     new-instance v0, Landroid/widget/ArrayAdapter;
 
-    .line 69
-    const v8, 0x1090003
+    const v8, #android:layout@simple_list_item_1#t
 
-    .line 70
-    const v9, 0x1020014
+    const v9, #android:id@text1#t
 
-    .line 68
     invoke-direct {v0, p0, v8, v9, v5}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
 
-    .line 73
     .local v0, "adapter":Landroid/widget/ListAdapter;
     new-instance v2, Landroid/widget/ListView;
 
     invoke-direct {v2, p0}, Landroid/widget/ListView;-><init>(Landroid/content/Context;)V
 
-    .line 74
     .local v2, "listView":Landroid/widget/ListView;
     invoke-virtual {v2, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 75
     const/4 v8, 0x1
 
     invoke-virtual {v2, v8}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 76
     invoke-virtual {v2, p0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 78
     new-instance v6, Landroid/widget/TextView;
 
     invoke-direct {v6, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 80
     .local v6, "textView":Landroid/widget/TextView;
     invoke-virtual {p0}, Landroid/content/SyncActivityTooManyDeletes;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
 
-    const v9, 0x10404da
+    const v9, #android:string@sync_too_many_deletes_desc#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

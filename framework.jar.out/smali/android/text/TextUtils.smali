@@ -2132,7 +2132,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x1140011
+    const v2, #android:plurals@selected_count#t
 
     invoke-virtual {v0, v2, p0, v1}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3783,7 +3783,7 @@
 
     move-result-object v1
 
-    const v2, 0x104052c
+    const v2, #android:string@list_delimeter#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

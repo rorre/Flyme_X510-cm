@@ -347,106 +347,84 @@
 
     move-result-object v2
 
-    .line 921
-    const v3, 0x1070059
+    const v3, #android:array@fingerprint_acquired_vendor#t
 
-    .line 920
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 922
     .local v0, "msgArray":[Ljava/lang/String;
     array-length v2, v0
 
     if-ge v1, v2, :cond_0
 
-    .line 923
     aget-object v2, v0, v1
 
     return-object v2
 
-    .line 901
     .end local v0    # "msgArray":[Ljava/lang/String;
     .end local v1    # "msgNumber":I
     :pswitch_0
     return-object v4
 
-    .line 903
     :pswitch_1
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 904
-    const v3, 0x104023d
+    const v3, #android:string@fingerprint_acquired_partial#t
 
-    .line 903
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 906
     :pswitch_2
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 907
-    const v3, 0x104023e
+    const v3, #android:string@fingerprint_acquired_insufficient#t
 
-    .line 906
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 909
     :pswitch_3
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 910
-    const v3, 0x104023f
+    const v3, #android:string@fingerprint_acquired_imager_dirty#t
 
-    .line 909
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 912
     :pswitch_4
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 913
-    const v3, 0x1040241
+    const v3, #android:string@fingerprint_acquired_too_slow#t
 
-    .line 912
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 915
     :pswitch_5
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 916
-    const v3, 0x1040240
+    const v3, #android:string@fingerprint_acquired_too_fast#t
 
-    .line 915
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 926
     :cond_0
     return-object v4
 
-    .line 899
     nop
 
     :pswitch_data_0
@@ -523,74 +501,60 @@
 
     move-result-object v2
 
-    .line 889
-    const v3, 0x107005a
+    const v3, #android:array@fingerprint_error_vendor#t
 
-    .line 888
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 890
     .local v0, "msgArray":[Ljava/lang/String;
     array-length v2, v0
 
     if-ge v1, v2, :cond_0
 
-    .line 891
     aget-object v2, v0, v1
 
     return-object v2
 
-    .line 871
     .end local v0    # "msgArray":[Ljava/lang/String;
     .end local v1    # "msgNumber":I
     :pswitch_1
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 872
-    const v3, 0x1040247
+    const v3, #android:string@fingerprint_error_unable_to_process#t
 
-    .line 871
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 874
     :pswitch_2
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 875
-    const v3, 0x1040242
+    const v3, #android:string@fingerprint_error_hw_not_available#t
 
-    .line 874
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 877
     :pswitch_3
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    .line 878
-    const v3, 0x1040243
+    const v3, #android:string@fingerprint_error_no_space#t
 
-    .line 877
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     return-object v2
 
-    .line 880
     :pswitch_4
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040244
+    const v3, #android:string@fingerprint_error_timeout#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -602,7 +566,7 @@
     :pswitch_5
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040245
+    const v3, #android:string@fingerprint_error_canceled#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -614,7 +578,7 @@
     :pswitch_6
     iget-object v2, p0, Landroid/hardware/fingerprint/FingerprintManager;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040246
+    const v3, #android:string@fingerprint_error_lockout#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

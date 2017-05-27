@@ -3486,66 +3486,54 @@
 
     invoke-direct {v2, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 1325
-    const v4, 0x1010355
+    const v4, #android:attr@alertDialogIcon#t
 
-    .line 1324
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    .line 1326
     new-instance v4, Lcom/android/server/accessibility/AccessibilityManagerService$3;
 
     invoke-direct {v4, p0, v1, p1}, Lcom/android/server/accessibility/AccessibilityManagerService$3;-><init>(Lcom/android/server/accessibility/AccessibilityManagerService;Lcom/android/server/accessibility/AccessibilityManagerService$UserState;Lcom/android/server/accessibility/AccessibilityManagerService$Service;)V
 
-    const v5, 0x104000a
+    const v5, #android:string@ok#t
 
-    .line 1324
     invoke-virtual {v2, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    .line 1343
     new-instance v4, Lcom/android/server/accessibility/AccessibilityManagerService$4;
 
     invoke-direct {v4, p0}, Lcom/android/server/accessibility/AccessibilityManagerService$4;-><init>(Lcom/android/server/accessibility/AccessibilityManagerService;)V
 
-    const/high16 v5, 0x1040000
+    const/high16 v5, #android:string@cancel#i
 
-    .line 1324
     invoke-virtual {v2, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    .line 1349
-    const v4, 0x10403a3
+    const v4, #android:string@enable_explore_by_touch_warning_title#t
 
-    .line 1324
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    .line 1350
     iget-object v4, p0, Lcom/android/server/accessibility/AccessibilityManagerService;->mContext:Landroid/content/Context;
 
     const/4 v5, 0x1
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    .line 1351
     const/4 v6, 0x0
 
     aput-object v0, v5, v6
 
-    const v6, 0x10403a4
+    const v6, #android:string@enable_explore_by_touch_warning_message#t
 
-    .line 1350
     invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1324
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2

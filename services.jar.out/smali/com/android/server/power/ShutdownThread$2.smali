@@ -71,34 +71,28 @@
 
     move-result-object v1
 
-    .line 255
     .local v1, "reasonsList":Landroid/widget/ListView;
     invoke-virtual {v1}, Landroid/widget/ListView;->getCheckedItemPosition()I
 
     move-result v2
 
-    .line 256
     .local v2, "selected":I
     const/4 v4, -0x1
 
     if-eq v2, v4, :cond_0
 
-    .line 257
     iget-object v4, p0, Lcom/android/server/power/ShutdownThread$2;->val$context:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 258
-    const v5, 0x107000d
+    const v5, #android:array@shutdown_reboot_actions#t
 
-    .line 257
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 259
     .local v0, "actions":[Ljava/lang/String;
     if-ltz v2, :cond_0
 

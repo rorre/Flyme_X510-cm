@@ -449,44 +449,32 @@
 
     const/4 v3, 0x0
 
-    .line 159
     if-nez p1, :cond_0
 
-    .line 160
     iput v3, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineThickness:F
 
-    .line 161
     iput v3, p0, Landroid/text/style/SuggestionSpan;->mEasyCorrectUnderlineThickness:F
 
-    .line 162
     iput v3, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineThickness:F
 
-    .line 163
     iput v4, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineColor:I
 
-    .line 164
     iput v4, p0, Landroid/text/style/SuggestionSpan;->mEasyCorrectUnderlineColor:I
 
-    .line 165
     iput v4, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineColor:I
 
-    .line 166
     return-void
 
-    .line 169
     :cond_0
-    const v0, 0x1160006
+    const v0, #android:^attr-private@textAppearanceMisspelledSuggestion#t
 
-    .line 171
     .local v0, "defStyleAttr":I
     sget-object v2, Lcom/android/internal/R$styleable;->SuggestionSpan:[I
 
-    .line 170
     invoke-virtual {p1, v6, v2, v0, v5}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v1
 
-    .line 172
     .local v1, "typedArray":Landroid/content/res/TypedArray;
     invoke-virtual {v1, v7, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -494,64 +482,52 @@
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineThickness:F
 
-    .line 174
     invoke-virtual {v1, v5, v4}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v2
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mMisspelledUnderlineColor:I
 
-    .line 177
-    const v0, 0x1160005
+    const v0, #android:^attr-private@textAppearanceEasyCorrectSuggestion#t
 
-    .line 179
     sget-object v2, Lcom/android/internal/R$styleable;->SuggestionSpan:[I
 
-    .line 178
     invoke-virtual {p1, v6, v2, v0, v5}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v1
 
-    .line 180
     invoke-virtual {v1, v7, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v2
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mEasyCorrectUnderlineThickness:F
 
-    .line 182
     invoke-virtual {v1, v5, v4}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v2
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mEasyCorrectUnderlineColor:I
 
-    .line 185
-    const v0, 0x1160007
+    const v0, #android:^attr-private@textAppearanceAutoCorrectionSuggestion#t
 
-    .line 187
     sget-object v2, Lcom/android/internal/R$styleable;->SuggestionSpan:[I
 
-    .line 186
     invoke-virtual {p1, v6, v2, v0, v5}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v1
 
-    .line 188
     invoke-virtual {v1, v7, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result v2
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineThickness:F
 
-    .line 190
     invoke-virtual {v1, v5, v4}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v2
 
     iput v2, p0, Landroid/text/style/SuggestionSpan;->mAutoCorrectionUnderlineColor:I
 
-    .line 158
     return-void
 .end method
 

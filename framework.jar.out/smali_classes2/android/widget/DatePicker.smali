@@ -74,12 +74,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 122
-    const v0, 0x101035c
+    const v0, #android:attr@datePickerStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/DatePicker;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 121
     return-void
 .end method
 

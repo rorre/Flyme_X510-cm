@@ -604,43 +604,35 @@
     .locals 2
 
     .prologue
-    .line 3732
     new-instance v0, Lcom/android/server/notification/ManagedServices$Config;
 
     invoke-direct {v0}, Lcom/android/server/notification/ManagedServices$Config;-><init>()V
 
-    .line 3733
     .local v0, "c":Lcom/android/server/notification/ManagedServices$Config;
-    const-string/jumbo v1, "notification listener"
+    const-string v1, "notification listener"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->caption:Ljava/lang/String;
 
-    .line 3734
-    const-string/jumbo v1, "android.service.notification.NotificationListenerService"
+    const-string v1, "android.service.notification.NotificationListenerService"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->serviceInterface:Ljava/lang/String;
 
-    .line 3735
-    const-string/jumbo v1, "enabled_notification_listeners"
+    const-string v1, "enabled_notification_listeners"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->secureSettingName:Ljava/lang/String;
 
-    .line 3736
-    const-string/jumbo v1, "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+    const-string v1, "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->bindPermission:Ljava/lang/String;
 
-    .line 3737
-    const-string/jumbo v1, "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"
+    const-string v1, "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS"
 
     iput-object v1, v0, Lcom/android/server/notification/ManagedServices$Config;->settingsAction:Ljava/lang/String;
 
-    .line 3738
-    const v1, 0x10404b5
+    const v1, #android:string@notification_listener_binding_label#t
 
     iput v1, v0, Lcom/android/server/notification/ManagedServices$Config;->clientLabel:I
 
-    .line 3739
     return-object v0
 .end method
 
@@ -981,6 +973,8 @@
     .end local v8    # "trim":I
     .end local v9    # "update":Landroid/service/notification/NotificationRankingUpdate;
     :cond_8
+    invoke-direct/range {p0 .. p2}, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->notifyFlymePosted(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/StatusBarNotification;)V
+
     return-void
 .end method
 
@@ -1118,6 +1112,8 @@
     .end local v0    # "info":Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
     .end local v3    # "update":Landroid/service/notification/NotificationRankingUpdate;
     :cond_1
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/notification/NotificationManagerService$NotificationListeners;->notifyFlymeRemoved(Landroid/service/notification/StatusBarNotification;)V
+
     return-void
 .end method
 
@@ -1251,4 +1247,33 @@
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
     goto :goto_0
+.end method
+
+.method private notifyFlymePosted(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/StatusBarNotification;)V
+    .locals 1
+    .param p1, "sbn"    # Landroid/service/notification/StatusBarNotification;
+    .param p2, "oldSbn"    # Landroid/service/notification/StatusBarNotification;
+
+    .prologue
+    invoke-static {}, Lcom/android/server/shrinker/Shrinker;->getInstance()Lcom/android/server/shrinker/Shrinker;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/shrinker/Shrinker;->notifyPosted(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/StatusBarNotification;)V
+
+    return-void
+.end method
+
+.method private notifyFlymeRemoved(Landroid/service/notification/StatusBarNotification;)V
+    .locals 1
+    .param p1, "sbn"    # Landroid/service/notification/StatusBarNotification;
+
+    .prologue
+    invoke-static {}, Lcom/android/server/shrinker/Shrinker;->getInstance()Lcom/android/server/shrinker/Shrinker;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/android/server/shrinker/Shrinker;->notifyRemoved(Landroid/service/notification/StatusBarNotification;)V
+
+    return-void
 .end method

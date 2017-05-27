@@ -354,10 +354,8 @@
     .param p0, "resources"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 243
-    const v0, 0x11200c0
+    const v0, #android:bool@config_cameraDoubleTapPowerGestureEnabled#t
 
-    .line 242
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
@@ -413,29 +411,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 236
-    const v2, 0x10e00a9
+    const v2, #android:integer@config_cameraLaunchGestureSensorType#t
 
-    .line 235
     invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v2
 
-    .line 236
     const/4 v3, -0x1
 
-    .line 235
     if-eq v2, v3, :cond_1
 
     const/4 v0, 0x1
 
-    .line 237
     .local v0, "configSet":Z
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 238
-    const-string/jumbo v2, "gesture.disable_camera_launch"
+    const-string v2, "gesture.disable_camera_launch"
 
     invoke-static {v2, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -554,51 +546,40 @@
 
     iput-wide v4, p0, Lcom/android/server/GestureLauncherService;->mCameraGestureOnTimeMs:J
 
-    .line 186
     iget-wide v4, p0, Lcom/android/server/GestureLauncherService;->mCameraGestureOnTimeMs:J
 
     iput-wide v4, p0, Lcom/android/server/GestureLauncherService;->mCameraGestureLastEventTime:J
 
-    .line 187
     iget-object v4, p0, Lcom/android/server/GestureLauncherService;->mContext:Landroid/content/Context;
 
-    .line 188
-    const-string/jumbo v5, "sensor"
+    const-string v5, "sensor"
 
-    .line 187
     invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/hardware/SensorManager;
 
-    .line 190
     .local v2, "sensorManager":Landroid/hardware/SensorManager;
-    const v4, 0x10e00a9
+    const v4, #android:integer@config_cameraLaunchGestureSensorType#t
 
-    .line 189
     invoke-virtual {p1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
-    .line 191
     .local v0, "cameraLaunchGestureId":I
     const/4 v4, -0x1
 
     if-eq v0, v4, :cond_1
 
-    .line 192
     iput-boolean v6, p0, Lcom/android/server/GestureLauncherService;->mRegistered:Z
 
-    .line 194
-    const v4, 0x10400d3
+    const v4, #android:string@config_cameraLaunchGestureSensorStringType#t
 
-    .line 193
     invoke-virtual {p1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 195
     .local v3, "sensorName":Ljava/lang/String;
     invoke-virtual {v2, v0, v7}, Landroid/hardware/SensorManager;->getDefaultSensor(IZ)Landroid/hardware/Sensor;
 

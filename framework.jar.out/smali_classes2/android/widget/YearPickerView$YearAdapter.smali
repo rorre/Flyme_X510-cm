@@ -15,11 +15,11 @@
 
 
 # static fields
-.field private static final ITEM_LAYOUT:I = 0x1090102
+.field private static final ITEM_LAYOUT:I = #android:layout@year_label_text_view#t
 
-.field private static final ITEM_TEXT_ACTIVATED_APPEARANCE:I = 0x1030426
+.field private static final ITEM_TEXT_ACTIVATED_APPEARANCE:I = #android:style@TextAppearance.Material.DatePicker.List.YearLabel.Activated#t
 
-.field private static final ITEM_TEXT_APPEARANCE:I = 0x1030425
+.field private static final ITEM_TEXT_APPEARANCE:I = #android:style@TextAppearance.Material.DatePicker.List.YearLabel#t
 
 
 # instance fields
@@ -163,7 +163,7 @@
     .line 184
     iget-object v5, p0, Landroid/widget/YearPickerView$YearAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x1090102
+    const v6, #android:layout@year_label_text_view#t
 
     const/4 v7, 0x0
 
@@ -199,22 +199,17 @@
 
     if-eq v5, v0, :cond_1
 
-    .line 194
     :cond_0
     if-eqz v0, :cond_5
 
-    .line 195
-    const v2, 0x1030426
+    const v2, #android:style@TextAppearance.Material.DatePicker.List.YearLabel.Activated#t
 
-    .line 199
     .local v2, "textAppearanceResId":I
     :goto_3
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setTextAppearance(I)V
 
-    .line 200
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setActivated(Z)V
 
-    .line 203
     .end local v2    # "textAppearanceResId":I
     :cond_1
     invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -256,7 +251,7 @@
 
     .line 197
     :cond_5
-    const v2, 0x1030425
+    const v2, #android:style@TextAppearance.Material.DatePicker.List.YearLabel#t
 
     .restart local v2    # "textAppearanceResId":I
     goto :goto_3

@@ -39,11 +39,9 @@
     .locals 1
 
     .prologue
-    .line 43
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    .line 44
-    const v0, 0x1020353
+    const v0, #android:id@inputExtractAction#t
 
     invoke-virtual {p0, v0}, Landroid/inputmethodservice/ExtractEditLayout;->findViewById(I)Landroid/view/View;
 

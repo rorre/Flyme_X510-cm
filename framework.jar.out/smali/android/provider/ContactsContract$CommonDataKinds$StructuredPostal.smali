@@ -122,33 +122,27 @@
     .param p0, "type"    # I
 
     .prologue
-    .line 6367
     packed-switch p0, :pswitch_data_0
 
-    .line 6371
-    const v0, 0x10402b6
+    const v0, #android:string@postalTypeCustom#t
 
     return v0
 
-    .line 6368
     :pswitch_0
-    const v0, 0x10402b7
+    const v0, #android:string@postalTypeHome#t
 
     return v0
 
-    .line 6369
     :pswitch_1
-    const v0, 0x10402b8
+    const v0, #android:string@postalTypeWork#t
 
     return v0
 
-    .line 6370
     :pswitch_2
-    const v0, 0x10402b9
+    const v0, #android:string@postalTypeOther#t
 
     return v0
 
-    .line 6367
     nop
 
     :pswitch_data_0

@@ -88,30 +88,24 @@
 
     move-result v0
 
-    .line 817
     if-eqz v0, :cond_0
 
-    .line 819
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$HardKeyboardListener;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->-get6(Lcom/android/server/InputMethodManagerService;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 820
-    const v2, 0x1020354
+    const v2, #android:id@hard_keyboard_section#t
 
-    .line 819
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    .line 821
     if-eqz p1, :cond_1
 
     const/4 v0, 0x0
 
-    .line 819
     :goto_0
     invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
     :try_end_0

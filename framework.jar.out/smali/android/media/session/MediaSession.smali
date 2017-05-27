@@ -332,49 +332,41 @@
 
     if-eqz v2, :cond_1
 
-    .line 149
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v3, "tag cannot be null or empty"
+    const-string v3, "tag cannot be null or empty"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v2
 
-    .line 151
     :cond_1
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 152
-    const v3, 0x1050014
+    const v3, #android:dimen@config_mediaMetadataBitmapMaxSize#t
 
-    .line 151
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
     iput v2, p0, Landroid/media/session/MediaSession;->mMaxBitmapSize:I
 
-    .line 153
     new-instance v2, Landroid/media/session/MediaSession$CallbackStub;
 
     invoke-direct {v2, p0}, Landroid/media/session/MediaSession$CallbackStub;-><init>(Landroid/media/session/MediaSession;)V
 
     iput-object v2, p0, Landroid/media/session/MediaSession;->mCbStub:Landroid/media/session/MediaSession$CallbackStub;
 
-    .line 155
-    const-string/jumbo v2, "media_session"
+    const-string v2, "media_session"
 
-    .line 154
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/media/session/MediaSessionManager;
 
-    .line 157
     .local v1, "manager":Landroid/media/session/MediaSessionManager;
     :try_start_0
     iget-object v2, p0, Landroid/media/session/MediaSession;->mCbStub:Landroid/media/session/MediaSession$CallbackStub;

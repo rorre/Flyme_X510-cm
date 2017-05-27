@@ -474,55 +474,43 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 1594
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 1595
-    const v2, 0x107001b
+    const v2, #android:array@config_mobile_hotspot_provision_app#t
 
-    .line 1594
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v1
 
     array-length v1, v1
 
-    .line 1595
     const/4 v2, 0x2
 
-    .line 1594
     if-ne v1, v2, :cond_0
 
-    .line 1599
-    const-string/jumbo v1, "android.permission.CONNECTIVITY_INTERNAL"
+    const-string v1, "android.permission.CONNECTIVITY_INTERNAL"
 
-    const-string/jumbo v2, "ConnectivityService"
+    const-string v2, "ConnectivityService"
 
-    .line 1598
     invoke-virtual {p0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1593
     :goto_0
     return-void
 
-    .line 1601
     :cond_0
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
-    .line 1602
     .local v0, "uid":I
     invoke-static {p0, v0}, Landroid/provider/Settings;->getPackageNameForUid(Landroid/content/Context;I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1603
     const/4 v2, 0x1
 
-    .line 1602
     invoke-static {p0, v0, v1, v2}, Landroid/provider/Settings;->checkAndNoteWriteSettingsOperation(Landroid/content/Context;ILjava/lang/String;Z)Z
 
     goto :goto_0

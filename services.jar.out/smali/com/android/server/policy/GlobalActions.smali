@@ -567,17 +567,14 @@
     :goto_0
     iput-boolean v3, p0, Lcom/android/server/policy/GlobalActions;->mHasVibrator:Z
 
-    .line 186
     iget-object v3, p0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    .line 187
-    const v6, 0x112008d
+    const v6, #android:bool@config_useFixedVolume#t
 
-    .line 186
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v3
@@ -660,15 +657,12 @@
 
     move-result-object v1
 
-    .line 691
-    const v2, 0x10500a5
+    const v2, #android:dimen@global_actions_avatar_size#t
 
-    .line 690
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v6
 
-    .line 692
     .local v6, "avatarSize":I
     invoke-interface {v12}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -755,58 +749,46 @@
 
     move-result-object v1
 
-    .line 703
     invoke-static {v9, v6, v6}, Lcom/android/server/policy/GlobalActions;->createCircularClip(Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
-    .line 702
     invoke-direct {v3, v1, v2}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    .line 705
     .local v3, "avatar":Landroid/graphics/drawable/Drawable;
     new-instance v0, Lcom/android/server/policy/GlobalActions$17;
 
-    .line 707
     iget-object v1, v5, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
 
     if-eqz v1, :cond_6
 
     iget-object v4, v5, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
 
-    .line 706
     :goto_4
-    const v2, 0x108036d
+    const v2, #android:drawable@ic_lock_user#t
 
     move-object v1, p0
 
-    .line 705
     invoke-direct/range {v0 .. v5}, Lcom/android/server/policy/GlobalActions$17;-><init>(Lcom/android/server/policy/GlobalActions;ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Landroid/content/pm/UserInfo;)V
 
-    .line 724
     .local v0, "switchToUser":Lcom/android/server/policy/GlobalActions$SinglePressAction;
     if-eqz v8, :cond_2
 
-    .line 725
     iget-object v1, p0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
 
-    .line 726
-    const v2, 0x1040027
+    const v2, #android:string@global_action_current_user#t
 
-    .line 725
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/android/server/policy/GlobalActions$SinglePressAction;->setStatus(Ljava/lang/CharSequence;)V
 
-    .line 728
     :cond_2
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 695
     .end local v0    # "switchToUser":Lcom/android/server/policy/GlobalActions$SinglePressAction;
     .end local v3    # "avatar":Landroid/graphics/drawable/Drawable;
     .end local v8    # "isCurrentUser":Z
@@ -1098,75 +1080,59 @@
     .locals 14
 
     .prologue
-    .line 306
     iget-boolean v0, p0, Lcom/android/server/policy/GlobalActions;->mHasVibrator:Z
 
     if-nez v0, :cond_1
 
-    .line 307
     new-instance v0, Lcom/android/server/policy/GlobalActions$SilentModeToggleAction;
 
     invoke-direct {v0, p0}, Lcom/android/server/policy/GlobalActions$SilentModeToggleAction;-><init>(Lcom/android/server/policy/GlobalActions;)V
 
     iput-object v0, p0, Lcom/android/server/policy/GlobalActions;->mSilentModeAction:Lcom/android/server/policy/GlobalActions$Action;
 
-    .line 311
     :goto_0
     new-instance v0, Lcom/android/server/policy/GlobalActions$9;
 
-    .line 312
-    const v2, 0x1080359
+    const v2, #android:drawable@ic_lock_airplane_mode#t
 
-    .line 313
-    const v3, 0x108035b
+    const v3, #android:drawable@ic_lock_airplane_mode_off#t
 
-    .line 314
-    const v4, 0x1040198
+    const v4, #android:string@global_actions_toggle_airplane_mode#t
 
-    .line 315
-    const v5, 0x1040199
+    const v5, #android:string@global_actions_airplane_mode_on_status#t
 
-    .line 316
-    const v6, 0x104019a
+    const v6, #android:string@global_actions_airplane_mode_off_status#t
 
     move-object v1, p0
 
-    .line 311
     invoke-direct/range {v0 .. v6}, Lcom/android/server/policy/GlobalActions$9;-><init>(Lcom/android/server/policy/GlobalActions;IIIII)V
 
     iput-object v0, p0, Lcom/android/server/policy/GlobalActions;->mAirplaneModeOn:Lcom/android/server/policy/GlobalActions$ToggleAction;
 
-    .line 352
     invoke-direct {p0}, Lcom/android/server/policy/GlobalActions;->onAirplaneModeChanged()V
 
-    .line 354
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
 
-    .line 357
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions;->mActions:Ljava/lang/String;
 
     if-nez v0, :cond_2
 
-    .line 358
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 359
-    const v1, 0x1070041
+    const v1, #android:array@config_globalActionsList#t
 
-    .line 358
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v8
 
-    .line 365
     .local v8, "actionsArray":[Ljava/lang/String;
     :goto_1
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions;->mItems:Ljava/util/ArrayList;
@@ -1656,15 +1622,12 @@
     .locals 3
 
     .prologue
-    .line 603
     new-instance v0, Lcom/android/server/policy/GlobalActions$14;
 
-    const v1, 0x10802f3
+    const v1, #android:drawable@ic_action_assist_focused#t
 
-    .line 604
-    const v2, 0x104019c
+    const v2, #android:string@global_action_assist#t
 
-    .line 603
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/policy/GlobalActions$14;-><init>(Lcom/android/server/policy/GlobalActions;II)V
 
     return-object v0
@@ -1674,15 +1637,12 @@
     .locals 3
 
     .prologue
-    .line 525
     new-instance v0, Lcom/android/server/policy/GlobalActions$12;
 
-    const v1, 0x108035d
+    const v1, #android:drawable@ic_lock_bugreport#t
 
-    .line 526
-    const v2, 0x1040192
+    const v2, #android:string@bugreport_title#t
 
-    .line 525
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/policy/GlobalActions$12;-><init>(Lcom/android/server/policy/GlobalActions;II)V
 
     return-object v0
@@ -1721,15 +1681,12 @@
     .locals 3
 
     .prologue
-    .line 647
     new-instance v0, Lcom/android/server/policy/GlobalActions$16;
 
-    const v1, 0x108002f
+    const v1, #android:drawable@ic_lock_lock#t
 
-    .line 648
-    const v2, 0x104019e
+    const v2, #android:string@global_action_lockdown#t
 
-    .line 647
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/policy/GlobalActions$16;-><init>(Lcom/android/server/policy/GlobalActions;II)V
 
     return-object v0
@@ -1739,15 +1696,12 @@
     .locals 3
 
     .prologue
-    .line 507
     new-instance v0, Lcom/android/server/policy/GlobalActions$11;
 
-    const v1, 0x108036a
+    const v1, #android:drawable@ic_lock_screenshot#t
 
-    .line 508
-    const v2, 0x1040019
+    const v2, #android:string@global_action_screenshot#t
 
-    .line 507
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/policy/GlobalActions$11;-><init>(Lcom/android/server/policy/GlobalActions;II)V
 
     return-object v0
@@ -1757,15 +1711,12 @@
     .locals 3
 
     .prologue
-    .line 580
     new-instance v0, Lcom/android/server/policy/GlobalActions$13;
 
-    const v1, 0x108036b
+    const v1, #android:drawable@ic_lock_settings#t
 
-    .line 581
-    const v2, 0x104019b
+    const v2, #android:string@global_action_settings#t
 
-    .line 580
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/policy/GlobalActions$13;-><init>(Lcom/android/server/policy/GlobalActions;II)V
 
     return-object v0
@@ -1789,14 +1740,12 @@
 
     iput-object v0, p0, Lcom/android/server/policy/GlobalActions;->mUiContext:Landroid/content/Context;
 
-    .line 295
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions;->mUiContext:Landroid/content/Context;
 
-    const v1, 0x10302e0
+    const v1, #android:style@Theme.Power.Dialog#t
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->setTheme(I)V
 
-    .line 297
     :cond_0
     iget-object v0, p0, Lcom/android/server/policy/GlobalActions;->mUiContext:Landroid/content/Context;
 
@@ -1858,15 +1807,12 @@
     .locals 3
 
     .prologue
-    .line 625
     new-instance v0, Lcom/android/server/policy/GlobalActions$15;
 
-    const v1, 0x1080439
+    const v1, #android:drawable@ic_voice_search#t
 
-    .line 626
-    const v2, 0x104019d
+    const v2, #android:string@global_action_voice_assist#t
 
-    .line 625
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/policy/GlobalActions$15;-><init>(Lcom/android/server/policy/GlobalActions;II)V
 
     return-object v0

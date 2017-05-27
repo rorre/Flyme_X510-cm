@@ -247,194 +247,157 @@
     .locals 11
 
     .prologue
-    const v10, 0x10404c4
+    const v10, #android:string@car_mode_disable_notification_title#t
 
     const/4 v1, 0x0
 
     const/4 v4, 0x0
 
-    .line 578
     invoke-virtual {p0}, Lcom/android/server/UiModeManagerService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 579
     .local v0, "context":Landroid/content/Context;
     iget-object v3, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     if-nez v3, :cond_0
 
-    .line 581
-    const-string/jumbo v3, "statusbar"
+    const-string v3, "statusbar"
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 580
     check-cast v3, Landroid/app/StatusBarManager;
 
     iput-object v3, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
-    .line 589
     :cond_0
     iget-object v3, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     if-eqz v3, :cond_1
 
-    .line 590
     iget-object v5, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     iget-boolean v3, p0, Lcom/android/server/UiModeManagerService;->mCarModeEnabled:Z
 
     if-eqz v3, :cond_4
 
-    .line 591
     const/high16 v3, 0x80000
 
-    .line 590
     :goto_0
     invoke-virtual {v5, v3}, Landroid/app/StatusBarManager;->disable(I)V
 
-    .line 595
     :cond_1
     iget-object v3, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
     if-nez v3, :cond_2
 
-    .line 597
-    const-string/jumbo v3, "notification"
+    const-string v3, "notification"
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v3
 
-    .line 596
     check-cast v3, Landroid/app/NotificationManager;
 
     iput-object v3, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 600
     :cond_2
     iget-object v3, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
     if-eqz v3, :cond_3
 
-    .line 601
     iget-boolean v3, p0, Lcom/android/server/UiModeManagerService;->mCarModeEnabled:Z
 
     if-eqz v3, :cond_5
 
-    .line 602
     new-instance v2, Landroid/content/Intent;
 
     const-class v3, Lcom/android/internal/app/DisableCarModeActivity;
 
     invoke-direct {v2, v0, v3}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 604
     .local v2, "carModeOffIntent":Landroid/content/Intent;
     new-instance v3, Landroid/app/Notification$Builder;
 
     invoke-direct {v3, v0}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 605
-    const v5, 0x108064a
+    const v5, #android:drawable@stat_notify_car_mode#t
 
-    .line 604
     invoke-virtual {v3, v5}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    .line 606
     const/4 v5, 0x4
 
-    .line 604
     invoke-virtual {v3, v5}, Landroid/app/Notification$Builder;->setDefaults(I)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    .line 607
     const/4 v5, 0x1
 
-    .line 604
     invoke-virtual {v3, v5}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    .line 608
     const-wide/16 v8, 0x0
 
-    .line 604
     invoke-virtual {v3, v8, v9}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    .line 610
-    const v5, 0x1060070
+    const v5, #android:color@system_notification_accent_color#t
 
-    .line 609
     invoke-virtual {v0, v5}, Landroid/content/Context;->getColor(I)I
 
     move-result v5
 
-    .line 604
     invoke-virtual {v3, v5}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    .line 612
     invoke-virtual {v0, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 604
     invoke-virtual {v3, v5}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v3
 
-    .line 614
-    const v5, 0x10404c5
+    const v5, #android:string@car_mode_disable_notification_message#t
 
     invoke-virtual {v0, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 604
     invoke-virtual {v3, v5}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v7
 
-    .line 617
     sget-object v5, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
     move v3, v1
 
-    .line 616
     invoke-static/range {v0 .. v5}, Landroid/app/PendingIntent;->getActivityAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/Bundle;Landroid/os/UserHandle;)Landroid/app/PendingIntent;
 
     move-result-object v1
 
-    .line 604
     invoke-virtual {v7, v1}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
     move-result-object v6
 
-    .line 618
     .local v6, "n":Landroid/app/Notification$Builder;
     iget-object v1, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 619
     invoke-virtual {v6}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 
     move-result-object v3
 
     sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    .line 618
     invoke-virtual {v1, v4, v10, v3, v5}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 
-    .line 577
     .end local v2    # "carModeOffIntent":Landroid/content/Intent;
     .end local v6    # "n":Landroid/app/Notification$Builder;
     :cond_3
@@ -1325,57 +1288,45 @@
 
     iput-object v5, p0, Lcom/android/server/UiModeManagerService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 165
     iget-object v5, p0, Lcom/android/server/UiModeManagerService;->mDockModeReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 166
     new-instance v8, Landroid/content/IntentFilter;
 
-    const-string/jumbo v9, "android.intent.action.DOCK_EVENT"
+    const-string v9, "android.intent.action.DOCK_EVENT"
 
     invoke-direct {v8, v9}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 165
     invoke-virtual {v0, v5, v8}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 167
     iget-object v5, p0, Lcom/android/server/UiModeManagerService;->mBatteryReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 168
     new-instance v8, Landroid/content/IntentFilter;
 
-    const-string/jumbo v9, "android.intent.action.BATTERY_CHANGED"
+    const-string v9, "android.intent.action.BATTERY_CHANGED"
 
     invoke-direct {v8, v9}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 167
     invoke-virtual {v0, v5, v8}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 170
     iget-object v5, p0, Lcom/android/server/UiModeManagerService;->mConfiguration:Landroid/content/res/Configuration;
 
     invoke-virtual {v5}, Landroid/content/res/Configuration;->setToDefaults()V
 
-    .line 172
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 174
     .local v4, "res":Landroid/content/res/Resources;
-    const v5, 0x10e004b
+    const v5, #android:integer@config_defaultUiModeType#t
 
-    .line 173
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v5
 
     iput v5, p0, Lcom/android/server/UiModeManagerService;->mDefaultUiModeType:I
 
-    .line 176
-    const v5, 0x10e0049
+    const v5, #android:integer@config_carDockKeepsScreenOn#t
 
-    .line 175
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v5
@@ -1387,10 +1338,8 @@
     :goto_0
     iput-boolean v5, p0, Lcom/android/server/UiModeManagerService;->mCarModeKeepsScreenOn:Z
 
-    .line 178
-    const v5, 0x10e0047
+    const v5, #android:integer@config_deskDockKeepsScreenOn#t
 
-    .line 177
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v5
@@ -1437,52 +1386,42 @@
 
     iput-boolean v5, p0, Lcom/android/server/UiModeManagerService;->mWatch:Z
 
-    .line 186
-    const v5, 0x10e004c
+    const v5, #android:integer@config_defaultNightMode#t
 
-    .line 185
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
-    .line 187
     .local v1, "defaultNightMode":I
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
 
-    .line 188
-    const-string/jumbo v6, "ui_night_mode"
+    const-string v6, "ui_night_mode"
 
-    .line 187
     invoke-static {v5, v6, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v5
 
     iput v5, p0, Lcom/android/server/UiModeManagerService;->mNightMode:I
 
-    .line 191
     monitor-enter p0
 
-    .line 192
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/UiModeManagerService;->updateConfigurationLocked()V
 
-    .line 193
     invoke-direct {p0}, Lcom/android/server/UiModeManagerService;->sendConfigurationLocked()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    .line 196
-    const-string/jumbo v5, "uimode"
+    const-string v5, "uimode"
 
     iget-object v6, p0, Lcom/android/server/UiModeManagerService;->mService:Landroid/os/IBinder;
 
     invoke-virtual {p0, v5, v6}, Lcom/android/server/UiModeManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 158
     return-void
 
     .end local v1    # "defaultNightMode":I

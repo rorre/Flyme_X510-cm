@@ -80,71 +80,58 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 66
     invoke-direct {p0}, Lcom/android/internal/widget/PagerAdapter;-><init>()V
 
-    .line 42
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/widget/DayPickerPagerAdapter;->mMinDate:Ljava/util/Calendar;
 
-    .line 43
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/widget/DayPickerPagerAdapter;->mMaxDate:Ljava/util/Calendar;
 
-    .line 45
     new-instance v1, Landroid/util/SparseArray;
 
     invoke-direct {v1}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v1, p0, Landroid/widget/DayPickerPagerAdapter;->mItems:Landroid/util/SparseArray;
 
-    .line 51
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/widget/DayPickerPagerAdapter;->mSelectedDay:Ljava/util/Calendar;
 
-    .line 290
     new-instance v1, Landroid/widget/DayPickerPagerAdapter$1;
 
     invoke-direct {v1, p0}, Landroid/widget/DayPickerPagerAdapter$1;-><init>(Landroid/widget/DayPickerPagerAdapter;)V
 
     iput-object v1, p0, Landroid/widget/DayPickerPagerAdapter;->mOnDayClickListener:Landroid/widget/SimpleMonthView$OnDayClickListener;
 
-    .line 68
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/widget/DayPickerPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 69
     iput p2, p0, Landroid/widget/DayPickerPagerAdapter;->mLayoutResId:I
 
-    .line 70
     iput p3, p0, Landroid/widget/DayPickerPagerAdapter;->mCalendarViewId:I
 
-    .line 72
     const/4 v1, 0x1
 
     new-array v1, v1, [I
 
-    .line 73
-    const v2, 0x101042c
+    const v2, #android:attr@colorControlHighlight#t
 
     aput v2, v1, v3
 
-    .line 72
     invoke-virtual {p1, v1}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 74
     .local v0, "ta":Landroid/content/res/TypedArray;
     invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 

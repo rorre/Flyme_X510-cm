@@ -154,13 +154,11 @@
 
     iput-object v2, p0, Landroid/widget/AnalogClock;->mDial:Landroid/graphics/drawable/Drawable;
 
-    .line 84
     iget-object v2, p0, Landroid/widget/AnalogClock;->mDial:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_0
 
-    .line 85
-    const v2, 0x108025c
+    const v2, #android:drawable@clock_dial#t
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -178,13 +176,11 @@
 
     iput-object v2, p0, Landroid/widget/AnalogClock;->mHourHand:Landroid/graphics/drawable/Drawable;
 
-    .line 89
     iget-object v2, p0, Landroid/widget/AnalogClock;->mHourHand:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_1
 
-    .line 90
-    const v2, 0x108025d
+    const v2, #android:drawable@clock_hand_hour#t
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -202,13 +198,11 @@
 
     iput-object v2, p0, Landroid/widget/AnalogClock;->mMinuteHand:Landroid/graphics/drawable/Drawable;
 
-    .line 94
     iget-object v2, p0, Landroid/widget/AnalogClock;->mMinuteHand:Landroid/graphics/drawable/Drawable;
 
     if-nez v2, :cond_2
 
-    .line 95
-    const v2, 0x108025e
+    const v2, #android:drawable@clock_hand_minute#t
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

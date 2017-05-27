@@ -45,12 +45,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 77
-    const v0, 0x1010093
+    const v0, #android:attr@ringtonePreferenceStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/preference/RingtonePreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 76
     return-void
 .end method
 

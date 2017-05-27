@@ -157,7 +157,7 @@
 
     .line 3264
     .local v5, "subtypeName":Ljava/lang/CharSequence;
-    const v8, 0x1020014
+    const v8, #android:id@text1#t
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -167,7 +167,7 @@
 
     .line 3265
     .local v0, "firstTextView":Landroid/widget/TextView;
-    const v8, 0x1020015
+    const v8, #android:id@text2#t
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -193,7 +193,7 @@
 
     .line 3275
     :goto_1
-    const v8, 0x1020356
+    const v8, #android:id@radio#t
 
     invoke-virtual {v6, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

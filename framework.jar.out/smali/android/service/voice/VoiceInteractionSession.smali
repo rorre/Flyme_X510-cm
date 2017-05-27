@@ -305,28 +305,22 @@
 
     move-object v5, p0
 
-    .line 1252
     invoke-direct/range {v0 .. v9}, Landroid/inputmethodservice/SoftInputWindow;-><init>(Landroid/content/Context;Ljava/lang/String;ILandroid/inputmethodservice/SoftInputWindow$Callback;Landroid/view/KeyEvent$Callback;Landroid/view/KeyEvent$DispatcherState;IIZ)V
 
     iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
 
-    .line 1255
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
 
     invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    .line 1256
-    const v1, 0x1010100
+    const v1, #android:attr@transcriptMode#t
 
-    .line 1255
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
-    .line 1259
     invoke-virtual {p0}, Landroid/service/voice/VoiceInteractionSession;->initViews()V
 
-    .line 1260
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
 
     invoke-virtual {v0}, Landroid/inputmethodservice/SoftInputWindow;->getWindow()Landroid/view/Window;
@@ -347,7 +341,7 @@
 
     .line 1249
     :cond_0
-    const v0, 0x103048b
+    const v0, #android:style@Theme.DeviceDefault.VoiceInteractionSession#t
 
     goto :goto_0
 .end method
@@ -1041,38 +1035,30 @@
 
     iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mThemeAttrs:Landroid/content/res/TypedArray;
 
-    .line 1034
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 1035
-    const v1, 0x10900fb
+    const v1, #android:layout@voice_interaction_session#t
 
     const/4 v2, 0x0
 
-    .line 1034
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
 
-    .line 1036
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
 
-    .line 1037
     const/16 v1, 0x700
 
-    .line 1036
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 1039
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mWindow:Landroid/inputmethodservice/SoftInputWindow;
 
     iget-object v1, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/inputmethodservice/SoftInputWindow;->setContentView(Landroid/view/View;)V
 
-    .line 1040
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
@@ -1086,7 +1072,7 @@
     .line 1042
     iget-object v0, p0, Landroid/service/voice/VoiceInteractionSession;->mRootView:Landroid/view/View;
 
-    const v1, 0x1020002
+    const v1, #android:id@content#t
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

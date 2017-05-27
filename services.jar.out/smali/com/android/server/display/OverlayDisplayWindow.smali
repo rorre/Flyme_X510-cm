@@ -385,40 +385,33 @@
 
     const/4 v2, 0x0
 
-    .line 193
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 196
     .local v0, "inflater":Landroid/view/LayoutInflater;
-    const v1, 0x1090097
+    const v1, #android:layout@overlay_display_window#t
 
     const/4 v3, 0x0
 
-    .line 195
     invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    .line 197
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
     iget-object v3, p0, Lcom/android/server/display/OverlayDisplayWindow;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
     invoke-virtual {v1, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 199
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    .line 200
-    const v3, 0x102038d
+    const v3, #android:id@overlay_display_window_texture#t
 
-    .line 199
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
@@ -459,25 +452,20 @@
 
     iput v3, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    .line 205
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mTextureView:Landroid/view/TextureView;
 
     invoke-virtual {v1, v2}, Landroid/view/TextureView;->setOpaque(Z)V
 
-    .line 206
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mTextureView:Landroid/view/TextureView;
 
     iget-object v3, p0, Lcom/android/server/display/OverlayDisplayWindow;->mSurfaceTextureListener:Landroid/view/TextureView$SurfaceTextureListener;
 
     invoke-virtual {v1, v3}, Landroid/view/TextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    .line 208
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    .line 209
-    const v3, 0x102038e
+    const v3, #android:id@overlay_display_window_title#t
 
-    .line 208
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
@@ -698,22 +686,18 @@
 
     aput-object v2, v1, v3
 
-    .line 149
-    const v2, 0x1040548
+    const v2, #android:string@display_manager_overlay_display_title#t
 
-    .line 148
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->mTitle:Ljava/lang/String;
 
-    .line 151
     iget-boolean v0, p0, Lcom/android/server/display/OverlayDisplayWindow;->mSecure:Z
 
     if-eqz v0, :cond_0
 
-    .line 152
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -730,10 +714,8 @@
 
     move-result-object v1
 
-    .line 153
-    const v2, 0x1040549
+    const v2, #android:string@display_manager_overlay_display_secure_suffix#t
 
-    .line 152
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1

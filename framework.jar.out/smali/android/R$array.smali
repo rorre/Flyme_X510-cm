@@ -15,17 +15,17 @@
 
 
 # static fields
-.field public static final config_keySystemUuidMapping:I = 0x1070005
+.field public static final config_keySystemUuidMapping:I = #android:array@config_keySystemUuidMapping#t
 
-.field public static final emailAddressTypes:I = 0x1070000
+.field public static final emailAddressTypes:I = #android:array@emailAddressTypes#t
 
-.field public static final imProtocols:I = 0x1070001
+.field public static final imProtocols:I = #android:array@imProtocols#t
 
-.field public static final organizationTypes:I = 0x1070002
+.field public static final organizationTypes:I = #android:array@organizationTypes#t
 
-.field public static final phoneTypes:I = 0x1070003
+.field public static final phoneTypes:I = #android:array@phoneTypes#t
 
-.field public static final postalAddressTypes:I = 0x1070004
+.field public static final postalAddressTypes:I = #android:array@postalAddressTypes#t
 
 
 # direct methods

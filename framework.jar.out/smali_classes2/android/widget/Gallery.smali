@@ -172,12 +172,10 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 195
-    const v0, 0x1010070
+    const v0, #android:attr@galleryStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/Gallery;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 194
     return-void
 .end method
 

@@ -239,23 +239,18 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 127
-    const v0, 0x109001d
+    const v0, #android:layout@action_menu_layout#t
 
-    .line 128
-    const v1, 0x109001c
+    const v1, #android:layout@action_menu_item_layout#t
 
-    .line 127
     invoke-direct {p0, p1, v0, v1}, Lcom/android/internal/view/menu/BaseMenuPresenter;-><init>(Landroid/content/Context;II)V
 
-    .line 80
     new-instance v0, Landroid/util/SparseBooleanArray;
 
     invoke-direct {v0}, Landroid/util/SparseBooleanArray;-><init>()V
 
     iput-object v0, p0, Landroid/widget/ActionMenuPresenter;->mActionButtonGroups:Landroid/util/SparseBooleanArray;
 
-    .line 88
     new-instance v0, Landroid/widget/ActionMenuPresenter$PopupPresenterCallback;
 
     const/4 v1, 0x0
@@ -2497,42 +2492,35 @@
     .param p1, "newConfig"    # Landroid/content/res/Configuration;
 
     .prologue
-    .line 174
     iget-boolean v0, p0, Landroid/widget/ActionMenuPresenter;->mMaxItemsSet:Z
 
     if-nez v0, :cond_0
 
-    .line 175
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 176
-    const v1, 0x10e00aa
+    const v1, #android:integer@max_action_buttons#t
 
-    .line 175
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/ActionMenuPresenter;->mMaxItems:I
 
-    .line 178
     :cond_0
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     if-eqz v0, :cond_1
 
-    .line 179
     iget-object v0, p0, Landroid/widget/ActionMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->onItemsChanged(Z)V
 
-    .line 173
     :cond_1
     return-void
 .end method

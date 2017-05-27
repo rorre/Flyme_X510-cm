@@ -116,44 +116,36 @@
 
     if-nez v2, :cond_1
 
-    .line 403
-    const-string/jumbo v2, "RemoteViews"
+    const-string v2, "RemoteViews"
 
-    const-string/jumbo v3, "The method setOnClickFillInIntent is available only from RemoteViewsFactory (ie. on collection items)."
+    const-string v3, "The method setOnClickFillInIntent is available only from RemoteViewsFactory (ie. on collection items)."
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 405
     return-void
 
-    .line 407
     :cond_1
     if-ne v1, p1, :cond_3
 
-    .line 408
     iget-object v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->fillInIntent:Landroid/content/Intent;
 
-    const v3, 0x1020045
+    const v3, #android:id@fillInIntent#t
 
     invoke-virtual {v1, v3, v2}, Landroid/view/View;->setTagInternal(ILjava/lang/Object;)V
 
-    .line 398
     :cond_2
     :goto_0
     return-void
 
-    .line 409
     :cond_3
     iget-object v2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->fillInIntent:Landroid/content/Intent;
 
     if-eqz v2, :cond_2
 
-    .line 410
     new-instance v0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;
 
     invoke-direct {v0, p0, p3}, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;-><init>(Landroid/widget/RemoteViews$SetOnClickFillInIntent;Landroid/widget/RemoteViews$OnClickHandler;)V
 
-    .line 442
     .local v0, "listener":Landroid/view/View$OnClickListener;
     invoke-virtual {v1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 

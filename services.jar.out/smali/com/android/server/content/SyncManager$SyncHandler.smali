@@ -1040,15 +1040,12 @@
 
     move-result-object v2
 
-    .line 3281
-    const v3, 0x104016b
+    const v3, #android:string@contentServiceTooManyDeletesNotificationDesc#t
 
-    .line 3280
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v13
 
-    .line 3283
     .local v13, "tooManyDeletesDescFormat":Ljava/lang/CharSequence;
     move-object/from16 v0, p0
 
@@ -1058,21 +1055,17 @@
 
     move-result-object v9
 
-    .line 3284
     .local v9, "contextForUser":Landroid/content/Context;
     new-instance v2, Landroid/app/Notification$Builder;
 
     invoke-direct {v2, v9}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 3285
-    const v3, 0x1080654
+    const v3, #android:drawable@stat_notify_sync_error#t
 
-    .line 3284
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 3286
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/content/SyncManager$SyncHandler;->this$0:Lcom/android/server/content/SyncManager;
@@ -1081,54 +1074,44 @@
 
     move-result-object v3
 
-    const v5, 0x1040169
+    const v5, #android:string@contentServiceSync#t
 
     invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 3284
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 3287
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v14
 
-    .line 3284
     invoke-virtual {v2, v14, v15}, Landroid/app/Notification$Builder;->setWhen(J)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 3289
-    const v3, 0x1060070
+    const v3, #android:color@system_notification_accent_color#t
 
-    .line 3288
     invoke-virtual {v9, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v3
 
-    .line 3284
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 3291
-    const v3, 0x104016a
+    const v3, #android:string@contentServiceSyncNotificationTitle#t
 
-    .line 3290
     invoke-virtual {v9, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 3284
     invoke-virtual {v2, v3}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     move-result-object v2
 
-    .line 3293
     invoke-interface {v13}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v3

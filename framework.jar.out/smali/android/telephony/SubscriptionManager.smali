@@ -66,7 +66,7 @@
 
 .field private static final DBG:Z = false
 
-.field public static final DEFAULT_NAME_RES:I = 0x104000e
+.field public static final DEFAULT_NAME_RES:I = #android:string@unknownName#t
 
 .field public static final DEFAULT_NW_MODE:I = -0x1
 

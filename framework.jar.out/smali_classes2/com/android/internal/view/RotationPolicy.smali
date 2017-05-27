@@ -131,42 +131,34 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 157
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
-    .line 158
-    const-string/jumbo v5, "accelerometer_rotation_angles"
+    const-string v5, "accelerometer_rotation_angles"
 
     const/4 v6, -0x1
 
-    .line 157
     invoke-static {v4, v5, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v2
 
-    .line 159
     .local v2, "userRotationAngles":I
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 160
-    const v5, 0x112003d
+    const v5, #android:bool@config_allowAllRotations#t
 
-    .line 159
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    .line 161
     .local v0, "allowAllRotations":Z
     invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
 
     move-result-object v3
 
-    .line 163
     .local v3, "wm":Landroid/view/IWindowManager;
     :try_start_0
     invoke-interface {v3}, Landroid/view/IWindowManager;->getRotation()I
@@ -390,40 +382,32 @@
 
     if-eqz v1, :cond_0
 
-    .line 62
-    const-string/jumbo v1, "android.hardware.screen.portrait"
+    const-string v1, "android.hardware.screen.portrait"
 
     invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    .line 61
     if-eqz v1, :cond_0
 
-    .line 63
-    const-string/jumbo v1, "android.hardware.screen.landscape"
+    const-string v1, "android.hardware.screen.landscape"
 
     invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    .line 61
     if-eqz v1, :cond_0
 
-    .line 64
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 65
-    const v2, 0x112003c
+    const v2, #android:bool@config_supportAutoRotation#t
 
-    .line 64
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v1
 
-    .line 61
     :goto_0
     return v1
 

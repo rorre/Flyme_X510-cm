@@ -121,14 +121,12 @@
     .param p1, "res"    # Landroid/content/res/Resources;
 
     .prologue
-    .line 265
-    const v1, 0x10400d1
+    const v1, #android:string@config_forceVoiceInteractionServicePackage#t
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 266
     .local v0, "interactorPackage":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 

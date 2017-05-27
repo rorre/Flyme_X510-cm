@@ -110,26 +110,22 @@
     .restart local v0    # "isRequired":Z
     goto :goto_0
 
-    .line 234
     :cond_2
     new-instance v1, Landroid/widget/AppSecurityPermissions$PermissionItemView$1;
 
     invoke-direct {v1, p0}, Landroid/widget/AppSecurityPermissions$PermissionItemView$1;-><init>(Landroid/widget/AppSecurityPermissions$PermissionItemView;)V
 
-    .line 243
     .local v1, "ocl":Landroid/content/DialogInterface$OnClickListener;
-    const v2, 0x1040576
+    const v2, #android:string@revoke#t
 
     invoke-virtual {p1, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 244
-    const v2, 0x104000a
+    const v2, #android:string@ok#t
 
     const/4 v3, 0x0
 
     invoke-virtual {p1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 222
     return-void
 .end method
 
@@ -286,31 +282,26 @@
 
     new-array v7, v9, [Ljava/lang/Object;
 
-    .line 201
     aput-object v1, v7, v8
 
-    const v8, 0x104044b
+    const v8, #android:string@perms_description_app#t
 
-    .line 200
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 202
-    const-string/jumbo v6, "\n\n"
+    const-string v6, "\n\n"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 203
     iget-object v6, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView;->mPerm:Landroid/widget/AppSecurityPermissions$MyPermissionInfo;
 
     iget-object v6, v6, Landroid/widget/AppSecurityPermissions$MyPermissionInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 204
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v6
@@ -367,20 +358,15 @@
     .param p6, "showRevokeUI"    # Z
 
     .prologue
-    .line 146
     iput-object p1, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView;->mGroup:Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;
 
-    .line 147
     iput-object p2, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView;->mPerm:Landroid/widget/AppSecurityPermissions$MyPermissionInfo;
 
-    .line 148
     iput-boolean p6, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView;->mShowRevokeUI:Z
 
-    .line 149
     iput-object p5, p0, Landroid/widget/AppSecurityPermissions$PermissionItemView;->mPackageName:Ljava/lang/String;
 
-    .line 151
-    const v8, 0x102030d
+    const v8, #android:id@perm_icon#t
 
     invoke-virtual {p0, v8}, Landroid/widget/AppSecurityPermissions$PermissionItemView;->findViewById(I)Landroid/view/View;
 
@@ -390,7 +376,7 @@
 
     .line 152
     .local v5, "permGrpIcon":Landroid/widget/ImageView;
-    const v8, 0x102030e
+    const v8, #android:id@perm_name#t
 
     invoke-virtual {p0, v8}, Landroid/widget/AppSecurityPermissions$PermissionItemView;->findViewById(I)Landroid/view/View;
 

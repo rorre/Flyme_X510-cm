@@ -495,31 +495,25 @@
 
     move-result-object v3
 
-    .line 329
     .local v3, "userHandle":Landroid/os/UserHandle;
     if-nez v2, :cond_1
 
-    .line 330
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 331
-    const v5, 0x10400c5
+    const v5, #android:string@config_customAdbPublicKeyConfirmationComponent#t
 
-    .line 330
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 338
     .local v1, "componentString":Ljava/lang/String;
     :goto_0
     invoke-static {v1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    .line 339
     .local v0, "componentName":Landroid/content/ComponentName;
     invoke-direct {p0, v0, v3, p1, p2}, Lcom/android/server/usb/UsbDebuggingManager;->startConfirmationActivity(Landroid/content/ComponentName;Landroid/os/UserHandle;Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -547,10 +541,8 @@
 
     move-result-object v4
 
-    .line 336
-    const v5, 0x10400c6
+    const v5, #android:string@config_customAdbPublicKeyConfirmationSecondaryUserComponent#t
 
-    .line 335
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1

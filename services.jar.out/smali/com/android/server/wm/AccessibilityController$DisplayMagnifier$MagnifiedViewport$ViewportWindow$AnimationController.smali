@@ -62,41 +62,34 @@
 
     iput-object v1, p0, Lcom/android/server/wm/AccessibilityController$DisplayMagnifier$MagnifiedViewport$ViewportWindow$AnimationController;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
-    .line 810
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
 
     const/high16 v1, 0x40200000    # 2.5f
 
     invoke-direct {v0, v1}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
 
-    .line 811
     .local v0, "interpolator":Landroid/view/animation/Interpolator;
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 812
-    const v4, 0x10e0002
+    const v4, #android:integer@config_longAnimTime#t
 
-    .line 811
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
     int-to-long v2, v1
 
-    .line 814
     .local v2, "longAnimationDuration":J
     iget-object v1, p0, Lcom/android/server/wm/AccessibilityController$DisplayMagnifier$MagnifiedViewport$ViewportWindow$AnimationController;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v1, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    .line 815
     iget-object v1, p0, Lcom/android/server/wm/AccessibilityController$DisplayMagnifier$MagnifiedViewport$ViewportWindow$AnimationController;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    .line 805
     return-void
 .end method
 

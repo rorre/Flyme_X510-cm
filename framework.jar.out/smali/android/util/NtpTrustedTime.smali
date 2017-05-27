@@ -61,68 +61,55 @@
 
     monitor-enter v10
 
-    .line 59
     :try_start_0
     sget-object v7, Landroid/util/NtpTrustedTime;->sSingleton:Landroid/util/NtpTrustedTime;
 
     if-nez v7, :cond_0
 
-    .line 60
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 61
     .local v1, "res":Landroid/content/res/Resources;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
-    .line 64
     .local v4, "resolver":Landroid/content/ContentResolver;
-    const v7, 0x10400b8
+    const v7, #android:string@config_ntpServer#t
 
-    .line 63
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 66
     .local v0, "defaultServer":Ljava/lang/String;
-    const v7, 0x10e0089
+    const v7, #android:integer@config_ntpTimeout#t
 
-    .line 65
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v7
 
     int-to-long v2, v7
 
-    .line 69
     .local v2, "defaultTimeout":J
-    const-string/jumbo v7, "ntp_server"
+    const-string v7, "ntp_server"
 
-    .line 68
     invoke-static {v4, v7}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 71
     .local v5, "secureServer":Ljava/lang/String;
-    const-string/jumbo v7, "ntp_timeout"
+    const-string v7, "ntp_timeout"
 
-    .line 70
     invoke-static {v4, v7, v2, v3}, Landroid/provider/Settings$Global;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
 
     move-result-wide v8
 
-    .line 73
     .local v8, "timeout":J
     if-eqz v5, :cond_1
 
     move-object v6, v5
 
-    .line 74
     .local v6, "server":Ljava/lang/String;
     :goto_0
     new-instance v7, Landroid/util/NtpTrustedTime;

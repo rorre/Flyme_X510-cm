@@ -30,36 +30,28 @@
     .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .prologue
-    .line 44
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 45
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1}, Landroid/widget/ZoomControls;->setFocusable(Z)V
 
-    .line 48
-    const-string/jumbo v1, "layout_inflater"
+    const-string v1, "layout_inflater"
 
-    .line 47
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    .line 49
     .local v0, "inflater":Landroid/view/LayoutInflater;
-    const v1, 0x1090105
+    const v1, #android:layout@zoom_controls#t
 
-    .line 50
     const/4 v2, 0x1
 
-    .line 49
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 52
-    const v1, 0x102041d
+    const v1, #android:id@zoomIn#t
 
     invoke-virtual {p0, v1}, Landroid/widget/ZoomControls;->findViewById(I)Landroid/view/View;
 
@@ -69,8 +61,7 @@
 
     iput-object v1, p0, Landroid/widget/ZoomControls;->mZoomIn:Landroid/widget/ZoomButton;
 
-    .line 53
-    const v1, 0x102041c
+    const v1, #android:id@zoomOut#t
 
     invoke-virtual {p0, v1}, Landroid/widget/ZoomControls;->findViewById(I)Landroid/view/View;
 

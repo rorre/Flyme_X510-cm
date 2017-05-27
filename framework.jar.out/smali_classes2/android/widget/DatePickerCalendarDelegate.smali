@@ -122,29 +122,22 @@
 
     const/4 v2, 0x0
 
-    .line 61
     new-array v0, v3, [I
 
-    .line 62
-    const v1, 0x1010098
+    const v1, #android:attr@textColor#t
 
     aput v1, v0, v2
 
-    .line 61
     sput-object v0, Landroid/widget/DatePickerCalendarDelegate;->ATTRS_TEXT_COLOR:[I
 
-    .line 63
     new-array v0, v3, [I
 
-    .line 64
-    const v1, 0x1010033
+    const v1, #android:attr@disabledAlpha#t
 
     aput v1, v0, v2
 
-    .line 63
     sput-object v0, Landroid/widget/DatePickerCalendarDelegate;->ATTRS_DISABLED_ALPHA:[I
 
-    .line 49
     return-void
 .end method
 
@@ -304,34 +297,28 @@
 
     move-result-object v4
 
-    .line 112
     .local v4, "a":Landroid/content/res/TypedArray;
     move-object/from16 v0, p0
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mContext:Landroid/content/Context;
 
-    .line 113
-    const-string/jumbo v15, "layout_inflater"
+    const-string v15, "layout_inflater"
 
-    .line 112
     invoke-virtual {v14, v15}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Landroid/view/LayoutInflater;
 
-    .line 115
     .local v7, "inflater":Landroid/view/LayoutInflater;
     const/16 v14, 0x11
 
-    const v15, 0x1090049
+    const v15, #android:layout@date_picker_material#t
 
-    .line 114
     invoke-virtual {v4, v14, v15}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v8
 
-    .line 118
     .local v8, "layoutResourceId":I
     move-object/from16 v0, p0
 
@@ -365,7 +352,7 @@
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mContainer:Landroid/view/ViewGroup;
 
-    const v15, 0x1020321
+    const v15, #android:id@date_picker_header#t
 
     invoke-virtual {v14, v15}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -375,7 +362,7 @@
 
     .line 123
     .local v5, "header":Landroid/view/ViewGroup;
-    const v14, 0x1020322
+    const v14, #android:id@date_picker_header_year#t
 
     invoke-virtual {v5, v14}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -398,8 +385,7 @@
 
     invoke-virtual {v14, v15}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 125
-    const v14, 0x1020323
+    const v14, #android:id@date_picker_header_date#t
 
     invoke-virtual {v5, v14}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -543,7 +529,7 @@
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mContainer:Landroid/view/ViewGroup;
 
-    const v15, 0x102032a
+    const v15, #android:id@animator#t
 
     invoke-virtual {v14, v15}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -560,7 +546,7 @@
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
-    const v15, 0x102032b
+    const v15, #android:id@date_picker_day_picker#t
 
     invoke-virtual {v14, v15}, Landroid/widget/ViewAnimator;->findViewById(I)Landroid/view/View;
 
@@ -650,7 +636,7 @@
 
     iget-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mAnimator:Landroid/widget/ViewAnimator;
 
-    const v15, 0x102032c
+    const v15, #android:id@date_picker_year_picker#t
 
     invoke-virtual {v14, v15}, Landroid/widget/ViewAnimator;->findViewById(I)Landroid/view/View;
 
@@ -707,8 +693,7 @@
 
     invoke-virtual {v14, v15}, Landroid/widget/YearPickerView;->setOnYearSelectedListener(Landroid/widget/YearPickerView$OnYearSelectedListener;)V
 
-    .line 178
-    const v14, 0x10405e2
+    const v14, #android:string@select_day#t
 
     invoke-virtual {v12, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -718,8 +703,7 @@
 
     iput-object v14, v0, Landroid/widget/DatePickerCalendarDelegate;->mSelectDay:Ljava/lang/String;
 
-    .line 179
-    const v14, 0x10405e3
+    const v14, #android:string@select_year#t
 
     invoke-virtual {v12, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -756,7 +740,7 @@
     .prologue
     const/4 v12, 0x0
 
-    const v11, 0x10102fe
+    const v11, #android:attr@state_activated#t
 
     const/4 v10, 0x2
 
@@ -779,7 +763,7 @@
 
     .line 205
     :cond_1
-    const v6, 0x10100a1
+    const v6, #android:attr@state_selected#t
 
     invoke-virtual {p1, v6}, Landroid/content/res/ColorStateList;->hasState(I)Z
 

@@ -41,23 +41,18 @@
     .locals 3
 
     .prologue
-    .line 74
-    const-string/jumbo v0, "debug.sqlite.journalmode"
+    const-string v0, "debug.sqlite.journalmode"
 
-    .line 75
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 76
-    const v2, 0x10400b1
+    const v2, #android:string@db_default_journal_mode#t
 
-    .line 75
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 74
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -122,23 +117,18 @@
     .locals 3
 
     .prologue
-    .line 92
-    const-string/jumbo v0, "debug.sqlite.syncmode"
+    const-string v0, "debug.sqlite.syncmode"
 
-    .line 93
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 94
-    const v2, 0x10400b2
+    const v2, #android:string@db_default_sync_mode#t
 
-    .line 93
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 92
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -150,23 +140,18 @@
     .locals 3
 
     .prologue
-    .line 83
-    const-string/jumbo v0, "debug.sqlite.journalsizelimit"
+    const-string v0, "debug.sqlite.journalsizelimit"
 
-    .line 84
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 85
-    const v2, 0x10e007f
+    const v2, #android:integer@db_journal_size_limit#t
 
-    .line 84
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
-    .line 83
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
     move-result v0
@@ -178,28 +163,22 @@
     .locals 4
 
     .prologue
-    .line 110
-    const-string/jumbo v1, "debug.sqlite.wal.autocheckpoint"
+    const-string v1, "debug.sqlite.wal.autocheckpoint"
 
-    .line 111
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 112
-    const v3, 0x10e0080
+    const v3, #android:integer@db_wal_autocheckpoint#t
 
-    .line 111
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v2
 
-    .line 110
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 113
     .local v0, "value":I
     const/4 v1, 0x1
 
@@ -214,28 +193,22 @@
     .locals 4
 
     .prologue
-    .line 120
-    const-string/jumbo v1, "debug.sqlite.wal.poolsize"
+    const-string v1, "debug.sqlite.wal.poolsize"
 
-    .line 121
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 122
-    const v3, 0x10e007e
+    const v3, #android:integer@db_connection_pool_size#t
 
-    .line 121
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v2
 
-    .line 120
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 123
     .local v0, "value":I
     const/4 v1, 0x2
 
@@ -250,23 +223,18 @@
     .locals 3
 
     .prologue
-    .line 101
-    const-string/jumbo v0, "debug.sqlite.wal.syncmode"
+    const-string v0, "debug.sqlite.wal.syncmode"
 
-    .line 102
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 103
-    const v2, 0x10400b3
+    const v2, #android:string@db_wal_sync_mode#t
 
-    .line 102
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 101
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0

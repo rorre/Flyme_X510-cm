@@ -622,48 +622,38 @@
 
     iput v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mWeekNumberColor:I
 
-    .line 291
     const/16 v6, 0xa
 
-    .line 290
     invoke-virtual {v0, v6}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
 
     iput-object v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mSelectedDateVerticalBar:Landroid/graphics/drawable/Drawable;
 
-    .line 294
     const/16 v6, 0xc
 
-    const v7, 0x1030046
+    const v7, #android:style@TextAppearance.Small#t
 
-    .line 293
     invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v6
 
     iput v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mDateTextAppearanceResId:I
 
-    .line 295
     invoke-direct {p0}, Landroid/widget/CalendarViewLegacyDelegate;->updateDateTextSize()V
 
-    .line 298
     const/16 v6, 0xb
 
-    .line 299
     const/4 v7, -0x1
 
-    .line 297
     invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v6
 
     iput v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mWeekDayTextAppearanceResId:I
 
-    .line 300
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 302
     iget-object v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mDelegator:Landroid/widget/CalendarView;
 
     invoke-virtual {v6}, Landroid/widget/CalendarView;->getResources()Landroid/content/res/Resources;
@@ -760,7 +750,7 @@
 
     .line 316
     .local v3, "layoutInflater":Landroid/view/LayoutInflater;
-    const v6, 0x109003b
+    const v6, #android:layout@calendar_view#t
 
     const/4 v7, 0x0
 
@@ -779,7 +769,7 @@
     .line 319
     iget-object v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mDelegator:Landroid/widget/CalendarView;
 
-    const v7, 0x102000a
+    const v7, #android:id@list#t
 
     invoke-virtual {v6, v7}, Landroid/widget/CalendarView;->findViewById(I)Landroid/view/View;
 
@@ -789,8 +779,7 @@
 
     iput-object v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mListView:Landroid/widget/ListView;
 
-    .line 320
-    const v6, 0x1020317
+    const v6, #android:id@day_names#t
 
     invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -800,8 +789,7 @@
 
     iput-object v6, p0, Landroid/widget/CalendarViewLegacyDelegate;->mDayNamesHeader:Landroid/view/ViewGroup;
 
-    .line 321
-    const v6, 0x1020316
+    const v6, #android:id@month_name#t
 
     invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -537,25 +537,20 @@
 
     move-result-object v3
 
-    .line 109
     .local v3, "packageName":Ljava/lang/String;
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v0
 
-    .line 111
     .local v0, "am":Landroid/app/IActivityManager;
-    const v4, 0x10a0030
+    const v4, #android:anim@last_app_in#t
 
-    .line 112
-    const v5, 0x10a0031
+    const v5, #android:anim@last_app_out#t
 
-    .line 110
     invoke-static {p0, v4, v5}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
 
     move-result-object v2
 
-    .line 115
     .local v2, "opts":Landroid/app/ActivityOptions;
     iget v4, v1, Landroid/app/ActivityManager$RecentTaskInfo;->id:I
 

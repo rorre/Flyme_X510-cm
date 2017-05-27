@@ -23,7 +23,7 @@
     .param p0, "errorCode"    # I
 
     .prologue
-    const v3, 0x104015b
+    const v3, #android:string@httpError#t
 
     .line 45
     packed-switch p0, :pswitch_data_0
@@ -51,104 +51,86 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 96
     return v3
 
-    .line 47
     :pswitch_0
-    const v0, 0x104015a
+    const v0, #android:string@httpErrorOk#t
 
     return v0
 
-    .line 50
     :pswitch_1
     return v3
 
-    .line 53
     :pswitch_2
-    const v0, 0x104015c
+    const v0, #android:string@httpErrorLookup#t
 
     return v0
 
-    .line 56
     :pswitch_3
-    const v0, 0x104015d
+    const v0, #android:string@httpErrorUnsupportedAuthScheme#t
 
     return v0
 
-    .line 59
     :pswitch_4
-    const v0, 0x104015e
+    const v0, #android:string@httpErrorAuth#t
 
     return v0
 
-    .line 62
     :pswitch_5
-    const v0, 0x104015f
+    const v0, #android:string@httpErrorProxyAuth#t
 
     return v0
 
-    .line 65
     :pswitch_6
-    const v0, 0x1040160
+    const v0, #android:string@httpErrorConnect#t
 
     return v0
 
-    .line 68
     :pswitch_7
-    const v0, 0x1040161
+    const v0, #android:string@httpErrorIO#t
 
     return v0
 
-    .line 71
     :pswitch_8
-    const v0, 0x1040162
+    const v0, #android:string@httpErrorTimeout#t
 
     return v0
 
-    .line 74
     :pswitch_9
-    const v0, 0x1040163
+    const v0, #android:string@httpErrorRedirectLoop#t
 
     return v0
 
-    .line 77
     :pswitch_a
-    const v0, 0x1040008
+    const v0, #android:string@httpErrorUnsupportedScheme#t
 
     return v0
 
-    .line 80
     :pswitch_b
-    const v0, 0x1040164
+    const v0, #android:string@httpErrorFailedSslHandshake#t
 
     return v0
 
-    .line 83
     :pswitch_c
-    const v0, 0x1040007
+    const v0, #android:string@httpErrorBadUrl#t
 
     return v0
 
-    .line 86
     :pswitch_d
-    const v0, 0x1040165
+    const v0, #android:string@httpErrorFile#t
 
     return v0
 
-    .line 89
     :pswitch_e
-    const v0, 0x1040166
+    const v0, #android:string@httpErrorFileNotFound#t
 
     return v0
 
-    .line 92
     :pswitch_f
-    const v0, 0x1040167
+    const v0, #android:string@httpErrorTooManyRequests#t
 
     return v0
 
-    .line 45
     :pswitch_data_0
     .packed-switch -0xf
         :pswitch_f

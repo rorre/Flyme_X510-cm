@@ -44,22 +44,18 @@
     .locals 3
 
     .prologue
-    .line 67
     const/4 v0, 0x1
 
     new-array v0, v0, [I
 
-    .line 68
-    const v1, 0x10100a0
+    const v1, #android:attr@state_checked#t
 
     const/4 v2, 0x0
 
     aput v1, v0, v2
 
-    .line 67
     sput-object v0, Landroid/widget/CompoundButton;->CHECKED_STATE_SET:[I
 
-    .line 54
     return-void
 .end method
 

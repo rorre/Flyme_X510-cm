@@ -60,7 +60,7 @@
 
     .line 27
     :cond_0
-    const v0, 0x10e0099
+    const v0, #android:integer@config_windowOutsetBottom#t
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 

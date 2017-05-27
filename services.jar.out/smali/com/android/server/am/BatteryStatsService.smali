@@ -6233,25 +6233,20 @@
 
     move-result-object v1
 
-    .line 182
-    const v2, 0x10e000f
+    const v2, #android:integer@config_radioScanningTimeout#t
 
-    .line 181
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
     int-to-long v2, v1
 
-    .line 183
     const-wide/16 v4, 0x3e8
 
-    .line 181
     mul-long/2addr v2, v4
 
     invoke-virtual {v0, v2, v3}, Lcom/android/internal/os/BatteryStatsImpl;->setRadioScanningTimeout(J)V
 
-    .line 184
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     new-instance v1, Lcom/android/internal/os/PowerProfile;

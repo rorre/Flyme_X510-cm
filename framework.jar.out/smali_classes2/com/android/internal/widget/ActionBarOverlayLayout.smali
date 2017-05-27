@@ -167,30 +167,24 @@
     .locals 2
 
     .prologue
-    .line 147
     new-instance v0, Lcom/android/internal/widget/ActionBarOverlayLayout$5;
 
-    const-string/jumbo v1, "actionBarHideOffset"
+    const-string v1, "actionBarHideOffset"
 
     invoke-direct {v0, v1}, Lcom/android/internal/widget/ActionBarOverlayLayout$5;-><init>(Ljava/lang/String;)V
 
-    .line 146
     sput-object v0, Lcom/android/internal/widget/ActionBarOverlayLayout;->ACTION_BAR_HIDE_OFFSET:Landroid/util/Property;
 
-    .line 161
-    const v0, 0x10102eb
+    const v0, #android:attr@actionBarSize#t
 
-    .line 162
-    const v1, 0x1010059
+    const v1, #android:attr@windowContentOverlay#t
 
-    .line 160
     filled-new-array {v0, v1}, [I
 
     move-result-object v0
 
     sput-object v0, Lcom/android/internal/widget/ActionBarOverlayLayout;->ATTRS:[I
 
-    .line 50
     return-void
 .end method
 
@@ -2507,13 +2501,11 @@
     .locals 1
 
     .prologue
-    .line 570
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mContent:Landroid/view/View;
 
     if-nez v0, :cond_0
 
-    .line 571
-    const v0, 0x1020002
+    const v0, #android:id@content#t
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarOverlayLayout;->findViewById(I)Landroid/view/View;
 
@@ -2521,10 +2513,8 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mContent:Landroid/view/View;
 
-    .line 573
-    const v0, 0x10203bd
+    const v0, #android:id@action_bar_container#t
 
-    .line 572
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarOverlayLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -2533,8 +2523,7 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mActionBarTop:Lcom/android/internal/widget/ActionBarContainer;
 
-    .line 574
-    const v0, 0x10203be
+    const v0, #android:id@action_bar#t
 
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarOverlayLayout;->findViewById(I)Landroid/view/View;
 
@@ -2546,10 +2535,8 @@
 
     iput-object v0, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
-    .line 576
-    const v0, 0x10203c0
+    const v0, #android:id@split_action_bar#t
 
-    .line 575
     invoke-virtual {p0, v0}, Lcom/android/internal/widget/ActionBarOverlayLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
@@ -2984,23 +2971,18 @@
 
     move-result-object v3
 
-    .line 701
-    const v4, 0x1120005
+    const v4, #android:bool@split_action_bar_is_narrow#t
 
-    .line 700
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v1
 
-    .line 703
     .end local v1    # "splitActionBar":Z
     :cond_0
     if-eqz v1, :cond_1
 
-    .line 704
     invoke-virtual {p0}, Lcom/android/internal/widget/ActionBarOverlayLayout;->pullChildren()V
 
-    .line 705
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mActionBarBottom:Lcom/android/internal/widget/ActionBarContainer;
 
     if-eqz v3, :cond_3
@@ -3013,52 +2995,42 @@
 
     if-eqz v3, :cond_3
 
-    .line 706
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mActionBarBottom:Lcom/android/internal/widget/ActionBarContainer;
 
     invoke-interface {v3, v4}, Lcom/android/internal/widget/DecorToolbar;->setSplitView(Landroid/view/ViewGroup;)V
 
-    .line 707
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
     invoke-interface {v3, v1}, Lcom/android/internal/widget/DecorToolbar;->setSplitToolbar(Z)V
 
-    .line 708
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mDecorToolbar:Lcom/android/internal/widget/DecorToolbar;
 
     invoke-interface {v3, v2}, Lcom/android/internal/widget/DecorToolbar;->setSplitWhenNarrow(Z)V
 
-    .line 711
-    const v3, 0x10203bf
+    const v3, #android:id@action_context_bar#t
 
-    .line 710
     invoke-virtual {p0, v3}, Lcom/android/internal/widget/ActionBarOverlayLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/internal/widget/ActionBarContextView;
 
-    .line 712
     .local v0, "cab":Lcom/android/internal/widget/ActionBarContextView;
     iget-object v3, p0, Lcom/android/internal/widget/ActionBarOverlayLayout;->mActionBarBottom:Lcom/android/internal/widget/ActionBarContainer;
 
     invoke-virtual {v0, v3}, Lcom/android/internal/widget/ActionBarContextView;->setSplitView(Landroid/view/ViewGroup;)V
 
-    .line 713
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarContextView;->setSplitToolbar(Z)V
 
-    .line 714
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ActionBarContextView;->setSplitWhenNarrow(Z)V
 
-    .line 695
     .end local v0    # "cab":Lcom/android/internal/widget/ActionBarContextView;
     :cond_1
     :goto_1
     return-void
 
-    .line 698
     .end local v2    # "splitWhenNarrow":Z
     .restart local v1    # "splitActionBar":Z
     :cond_2

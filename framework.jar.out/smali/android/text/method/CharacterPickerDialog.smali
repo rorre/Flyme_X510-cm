@@ -55,31 +55,24 @@
     .param p5, "insert"    # Z
 
     .prologue
-    .line 57
-    const v0, 0x1030059
+    const v0, #android:style@Theme.Panel#t
 
     invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
-    .line 59
     iput-object p2, p0, Landroid/text/method/CharacterPickerDialog;->mView:Landroid/view/View;
 
-    .line 60
     iput-object p3, p0, Landroid/text/method/CharacterPickerDialog;->mText:Landroid/text/Editable;
 
-    .line 61
     iput-object p4, p0, Landroid/text/method/CharacterPickerDialog;->mOptions:Ljava/lang/String;
 
-    .line 62
     iput-boolean p5, p0, Landroid/text/method/CharacterPickerDialog;->mInsert:Z
 
-    .line 63
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/text/method/CharacterPickerDialog;->mInflater:Landroid/view/LayoutInflater;
 
-    .line 56
     return-void
 .end method
 
@@ -197,25 +190,21 @@
 
     iput-object v2, v1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    .line 72
     const/16 v2, 0x3eb
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    .line 73
     iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     or-int/lit8 v2, v2, 0x1
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 75
-    const v2, 0x109003c
+    const v2, #android:layout@character_picker#t
 
     invoke-virtual {p0, v2}, Landroid/text/method/CharacterPickerDialog;->setContentView(I)V
 
-    .line 77
-    const v2, 0x1020318
+    const v2, #android:id@characterPicker#t
 
     invoke-virtual {p0, v2}, Landroid/text/method/CharacterPickerDialog;->findViewById(I)Landroid/view/View;
 
@@ -235,11 +224,9 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/GridView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 79
     invoke-virtual {v0, p0}, Landroid/widget/GridView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 81
-    const v2, 0x1020319
+    const v2, #android:id@cancel#t
 
     invoke-virtual {p0, v2}, Landroid/text/method/CharacterPickerDialog;->findViewById(I)Landroid/view/View;
 

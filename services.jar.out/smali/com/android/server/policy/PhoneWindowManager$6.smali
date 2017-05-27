@@ -80,7 +80,7 @@
 
     iget-object v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
 
-    const v1, 0x1040030
+    const v1, #android:string@app_killed_message#t
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

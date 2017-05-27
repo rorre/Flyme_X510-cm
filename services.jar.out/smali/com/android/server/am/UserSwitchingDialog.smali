@@ -86,7 +86,7 @@
 
     move-result-object v3
 
-    const v4, 0x10900fa
+    const v4, #android:layout@user_switching_dialog#t
 
     const/4 v5, 0x0
 
@@ -96,7 +96,7 @@
 
     .line 64
     .local v2, "view":Landroid/view/View;
-    const v3, 0x102000b
+    const v3, #android:id@message#t
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
 
     aput-object p4, v4, v6
 
-    const v5, 0x1040571
+    const v5, #android:string@user_switching_message#t
 
     invoke-virtual {v1, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -236,7 +236,8 @@
 
     iget v2, v2, Landroid/content/pm/ApplicationInfo;->icon:I
 
-    invoke-virtual {v15, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+    #invoke-virtual {v15, v2}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
+
 
     .line 470
     const/16 v2, 0x40
@@ -316,17 +317,14 @@
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    .line 482
-    const v3, 0x1060070
+    const v3, #android:color@system_notification_accent_color#t
 
-    .line 481
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
     move-result v2
 
     invoke-virtual {v15, v2}, Landroid/app/Notification$Builder;->setColor(I)Landroid/app/Notification$Builder;
 
-    .line 485
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ServiceRecord$1;->this$0:Lcom/android/server/am/ServiceRecord;
@@ -339,23 +337,18 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    .line 488
     const/4 v4, 0x0
 
     aput-object v11, v3, v4
 
-    .line 486
-    const v4, 0x10403c9
+    const v4, #android:string@app_running_notification_title#t
 
-    .line 485
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 484
     invoke-virtual {v15, v2}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 490
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ServiceRecord$1;->this$0:Lcom/android/server/am/ServiceRecord;
@@ -368,26 +361,20 @@
 
     new-array v3, v3, [Ljava/lang/Object;
 
-    .line 493
     const/4 v4, 0x0
 
     aput-object v11, v3, v4
 
-    .line 491
-    const v4, 0x10403ca
+    const v4, #android:string@app_running_notification_text#t
 
-    .line 490
     invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 489
     invoke-virtual {v15, v2}, Landroid/app/Notification$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
-    .line 494
     invoke-virtual/range {v15 .. v16}, Landroid/app/Notification$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/app/Notification$Builder;
 
-    .line 496
     invoke-virtual {v15}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
@@ -403,6 +390,9 @@
     .end local v17    # "runningIntent":Landroid/content/Intent;
     :cond_2
     :goto_0
+
+    goto :goto_flyme_0
+
     :try_start_2
     invoke-virtual {v8}, Landroid/app/Notification;->getSmallIcon()Landroid/graphics/drawable/Icon;
 
@@ -522,22 +512,26 @@
 
     move-result-object v6
 
-    .line 520
     invoke-virtual {v2, v3, v4, v5, v6}, Lcom/android/server/am/ActivityManagerService;->crashApplication(IILjava/lang/String;Ljava/lang/String;)V
 
-    .line 435
     .end local v14    # "e":Ljava/lang/RuntimeException;
     :goto_1
     return-void
 
-    .line 508
     :cond_3
+    :goto_flyme_0
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/server/am/ServiceRecord$1;->this$0:Lcom/android/server/am/ServiceRecord;
+
+    invoke-virtual {v2, v8}, Lcom/android/server/am/ServiceRecord;->setFlymeNotification(Landroid/app/Notification;)V
+    
     const/4 v2, 0x1
 
     :try_start_3
     new-array v9, v2, [I
 
-    .line 509
     .local v9, "outId":[I
     move-object/from16 v0, p0
 

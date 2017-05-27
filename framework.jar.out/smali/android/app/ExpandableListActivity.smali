@@ -38,21 +38,17 @@
     .locals 1
 
     .prologue
-    .line 269
     iget-object v0, p0, Landroid/app/ExpandableListActivity;->mList:Landroid/widget/ExpandableListView;
 
     if-eqz v0, :cond_0
 
-    .line 270
     return-void
 
-    .line 272
     :cond_0
-    const v0, 0x1090001
+    const v0, #android:layout@expandable_list_content#t
 
     invoke-virtual {p0, v0}, Landroid/app/ExpandableListActivity;->setContentView(I)V
 
-    .line 268
     return-void
 .end method
 
@@ -128,19 +124,16 @@
     .locals 3
 
     .prologue
-    .line 217
     invoke-super {p0}, Landroid/app/Activity;->onContentChanged()V
 
-    .line 218
-    const v1, 0x1020004
+    const v1, #android:id@empty#t
 
     invoke-virtual {p0, v1}, Landroid/app/ExpandableListActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 219
     .local v0, "emptyView":Landroid/view/View;
-    const v1, 0x102000a
+    const v1, #android:id@list#t
 
     invoke-virtual {p0, v1}, Landroid/app/ExpandableListActivity;->findViewById(I)Landroid/view/View;
 

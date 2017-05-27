@@ -167,42 +167,34 @@
 
     aput-object v5, v4, v6
 
-    .line 475
     iput-object v4, p0, Lcom/android/server/policy/WindowOrientationListener$AccelSensorJudge;->mTiltToleranceConfig:[[I
 
-    .line 508
     const-wide/high16 v4, -0x8000000000000000L
 
     iput-wide v4, p0, Lcom/android/server/policy/WindowOrientationListener$AccelSensorJudge;->mTouchEndedTimestampNanos:J
 
-    .line 516
     const/16 v4, 0xc8
 
     new-array v4, v4, [F
 
     iput-object v4, p0, Lcom/android/server/policy/WindowOrientationListener$AccelSensorJudge;->mTiltHistory:[F
 
-    .line 517
     const/16 v4, 0xc8
 
     new-array v4, v4, [J
 
     iput-object v4, p0, Lcom/android/server/policy/WindowOrientationListener$AccelSensorJudge;->mTiltHistoryTimestampNanos:[J
 
-    .line 522
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 523
-    const v5, 0x107001f
+    const v5, #android:array@config_autoRotationTiltTolerance#t
 
-    .line 522
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
 
     move-result-object v3
 
-    .line 524
     .local v3, "tiltTolerance":[I
     array-length v4, v3
 

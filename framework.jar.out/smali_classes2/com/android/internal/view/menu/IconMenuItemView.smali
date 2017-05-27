@@ -76,85 +76,68 @@
     .param p4, "defStyleRes"    # I
 
     .prologue
-    .line 61
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    .line 52
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mPositionIconAvailable:Landroid/graphics/Rect;
 
-    .line 53
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mPositionIconOutput:Landroid/graphics/Rect;
 
-    .line 63
     sget-object v1, Lcom/android/internal/view/menu/IconMenuItemView;->sPrependShortcutLabel:Ljava/lang/String;
 
     if-nez v1, :cond_0
 
-    .line 68
     invoke-virtual {p0}, Lcom/android/internal/view/menu/IconMenuItemView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 69
-    const v2, 0x1040399
+    const v2, #android:string@prepend_shortcut_label#t
 
-    .line 68
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     sput-object v1, Lcom/android/internal/view/menu/IconMenuItemView;->sPrependShortcutLabel:Ljava/lang/String;
 
-    .line 73
     :cond_0
     sget-object v1, Lcom/android/internal/R$styleable;->MenuView:[I
 
-    .line 72
     invoke-virtual {p1, p2, v1, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 76
     .local v0, "a":Landroid/content/res/TypedArray;
     const/4 v1, 0x6
 
     const v2, 0x3f4ccccd    # 0.8f
 
-    .line 75
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
     move-result v1
 
     iput v1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mDisabledAlpha:F
 
-    .line 77
     const/4 v1, 0x1
 
-    .line 78
     const/4 v2, -0x1
 
-    .line 77
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mTextAppearance:I
 
-    .line 79
     iput-object p1, p0, Lcom/android/internal/view/menu/IconMenuItemView;->mTextAppearanceContext:Landroid/content/Context;
 
-    .line 81
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 60
     return-void
 .end method
 
