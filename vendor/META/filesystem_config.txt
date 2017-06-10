@@ -1,4 +1,3 @@
-system 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/addon.d 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/addon.d/50-cm.sh 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/addon.d/blacklist 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
@@ -410,7 +409,7 @@ system/bin/rmdir 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/rmmod 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/route 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/rtt 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
-system/bin/run-as 0 2000 750 selabel=u:object_r:runas_exec:s0 capabilities=0xc0
+system/bin/run-as 0 2000 750 selabel=u:object_r:runas_exec:s0 capabilities=0x0
 system/bin/runcon 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/bin/s62xd 0 2000 755 selabel=u:object_r:s62xd_exec:s0 capabilities=0x0
 system/bin/schedtest 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
@@ -575,8 +574,8 @@ system/etc/hostapd/hostapd_default.conf 0 0 644 selabel=u:object_r:system_file:s
 system/etc/hostapd/hostapd.deny 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/hosts 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/init.d 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
-system/etc/init.d/00banner 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
-system/etc/init.d/90userinit 0 0 644 selabel=u:object_r:userinit_exec:s0 capabilities=0x0
+system/etc/init.d/00banner 0 2000 755 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/etc/init.d/90userinit 0 2000 755 selabel=u:object_r:userinit_exec:s0 capabilities=0x0
 system/etc/media_codecs_ffmpeg.xml 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/media_codecs_google_audio.xml 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/etc/media_codecs_google_telephony.xml 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
