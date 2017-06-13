@@ -33,6 +33,8 @@
 # static fields
 .field private mFlymeFirewall:Lcom/android/server/notification/NotificationFirewall;
 
+.field private mFlymeInterceptThread:Landroid/os/HandlerThread;
+
 .field mFlymePowerManager:Landroid/os/PowerManager;
 
 .field mFlymeWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -11741,13 +11743,32 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/notification/RankingHelper;->setNotificationFirewall(Lcom/android/server/notification/NotificationFirewall;)V
 
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService;->mFlymeInterceptThread:Landroid/os/HandlerThread;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string v1, "intercept"
+
+    const/4 v2, -0x2
+
+    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+
+    iput-object v0, p0, Lcom/android/server/notification/NotificationManagerService;->mFlymeInterceptThread:Landroid/os/HandlerThread;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService;->mFlymeInterceptThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService;->mFlymeFirewall:Lcom/android/server/notification/NotificationFirewall;
 
     invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService;->mRankingThread:Landroid/os/HandlerThread;
+    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService;->mFlymeInterceptThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v2}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
@@ -12173,6 +12194,8 @@
     move-result-object v12
 
     .local v12, "filter":Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
+    iput-object v12, v2, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
+
     :goto_3
     move-object/from16 v0, p0
 

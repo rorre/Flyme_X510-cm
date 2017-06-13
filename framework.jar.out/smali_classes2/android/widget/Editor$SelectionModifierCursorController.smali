@@ -1875,6 +1875,12 @@
 
     move-object/from16 v0, p0
 
+    iget-object v14, v0, Landroid/widget/Editor$SelectionModifierCursorController;->this$0:Landroid/widget/Editor;
+
+    invoke-virtual {v14}, Landroid/widget/Editor;->hideInsertionPointCursorController()V
+
+    move-object/from16 v0, p0
+
     iget v14, v0, Landroid/widget/Editor$SelectionModifierCursorController;->mMinTouchOffset:I
 
     if-ge v14, v10, :cond_6

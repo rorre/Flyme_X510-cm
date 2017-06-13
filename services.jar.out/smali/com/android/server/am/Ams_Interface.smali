@@ -109,52 +109,56 @@
 
     if-eqz v0, :cond_0
 
-    .line 87
     iget-object v6, p0, Lcom/android/server/am/ProcessRecord;->adjSource:Ljava/lang/Object;
 
     .end local v6    # "oom":Lcom/android/server/am/ProcessRecord;
     check-cast v6, Lcom/android/server/am/ProcessRecord;
 
-    .line 89
     :cond_0
     invoke-static {}, Lcom/android/server/shrinker/Shrinker;->getInstance()Lcom/android/server/shrinker/Shrinker;
 
     move-result-object v0
 
-    .line 90
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    .line 91
     iget v2, p0, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    .line 92
     iget v3, p0, Lcom/android/server/am/ProcessRecord;->curAdj:I
 
-    .line 93
-    if-nez v6, :cond_2
-
-    .line 94
-    :goto_0
     if-nez v6, :cond_3
+
+    :goto_0
+    if-nez v6, :cond_4
 
     const/4 v5, 0x0
 
-    .line 89
     :goto_1
     invoke-virtual/range {v0 .. v5}, Lcom/android/server/shrinker/Shrinker;->setAdj(Landroid/content/pm/ApplicationInfo;IILandroid/content/pm/ApplicationInfo;I)V
 
-    .line 83
     :cond_1
+    const-string v0, "com.meizu.flyme.xtemui"
+
+    iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/android/server/am/ProcessRecord;->curSchedGroup:I
+
+    :cond_2
     return-void
 
-    .line 93
-    :cond_2
+    :cond_3
     iget-object v4, v6, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
     goto :goto_0
 
-    .line 94
-    :cond_3
+    :cond_4
     iget v5, v6, Lcom/android/server/am/ProcessRecord;->pid:I
 
     goto :goto_1

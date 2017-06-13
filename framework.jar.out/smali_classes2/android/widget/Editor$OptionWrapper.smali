@@ -130,35 +130,19 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 6282
     iget v0, p1, Landroid/graphics/Rect;->bottom:I
 
     iget v1, p1, Landroid/graphics/Rect;->top:I
 
     if-lt v0, v1, :cond_0
 
-    .line 6285
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/widget/Editor$OptionWrapper;->mDismissTime:J
 
-    .line 6286
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mClipRectF:Landroid/graphics/RectF;
 
     invoke-virtual {v0, p1}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
-
-    .line 6287
-    iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;
-
-    invoke-virtual {v0}, Landroid/widget/Editor;->flymeGetFieldTextView()Landroid/widget/TextView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->hasSelection()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
 
     .line 6288
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mClipRectF:Landroid/graphics/RectF;
@@ -173,8 +157,6 @@
 
     iput v1, v0, Landroid/graphics/RectF;->bottom:F
 
-    .line 6290
-    :cond_2
     iget-object v0, p0, Landroid/widget/Editor$OptionWrapper;->mPopup:Lcom/meizu/widget/OptionPopupWindow;
 
     iget-object v1, p0, Landroid/widget/Editor$OptionWrapper;->this$0:Landroid/widget/Editor;

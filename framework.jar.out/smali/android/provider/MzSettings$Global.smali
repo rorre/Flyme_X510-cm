@@ -105,6 +105,8 @@
 
 .field public static final PRIVATE_PACKAGES_LIST:Ljava/lang/String; = "private_pkg_list"
 
+.field public static final RECENTS_LAYOUT_DIRECTION:Ljava/lang/String; = "recents_layout_direction"
+
 .field public static final SELF_CONFIG_TIME_END_HOUR:Ljava/lang/String; = "self_config_time_end_hour"
 
 .field public static final SELF_CONFIG_TIME_END_MINUTE:Ljava/lang/String; = "self_config_time_end_minute"
