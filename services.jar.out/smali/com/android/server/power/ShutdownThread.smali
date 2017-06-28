@@ -514,7 +514,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/Window;->setType(I)V
 
-    invoke-static {p0}, Lcom/android/server/power/ShutdownThread$FlymeInjector;->showShutDownAnimation(Landroid/content/Context;)V
+    invoke-static/range {p0 .. p0}, Lcom/android/server/power/ShutdownThread$FlymeInjector;->showShutDownAnimation(Landroid/content/Context;)V
 
     :cond_2
     sget-object v3, Lcom/android/server/power/ShutdownThread;->sInstance:Lcom/android/server/power/ShutdownThread;

@@ -74,13 +74,11 @@
 
     iput v1, p0, Lcom/android/server/notification/RankingHelper$Record;->keyguard:I
 
-    const/4 v0, -0x1
+    const-wide/16 v0, 0x0
 
-    iput v0, p0, Lcom/android/server/notification/RankingHelper$Record;->mFlymeHeadsUp:I
+    iput-wide v0, p0, Lcom/android/server/notification/RankingHelper$Record;->notificationSoundTimeout:J
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/server/notification/RankingHelper$Record;->mFlymeRemind:Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/RankingHelper$Record;->initFlymeExtraFields()V
 
     return-void
 .end method
@@ -90,6 +88,21 @@
 
     .prologue
     invoke-direct {p0}, Lcom/android/server/notification/RankingHelper$Record;-><init>()V
+
+    return-void
+.end method
+
+.method private initFlymeExtraFields()V
+    .locals 1
+
+    .prologue
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/server/notification/RankingHelper$Record;->mFlymeHeadsUp:I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/notification/RankingHelper$Record;->mFlymeRemind:Z
 
     return-void
 .end method
