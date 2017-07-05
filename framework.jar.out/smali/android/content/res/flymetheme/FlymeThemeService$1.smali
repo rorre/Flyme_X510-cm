@@ -82,6 +82,16 @@
     .line 59
     iget-object v0, p0, Landroid/content/res/flymetheme/FlymeThemeService$1;->this$0:Landroid/content/res/flymetheme/FlymeThemeService;
 
+    invoke-static {v0}, Landroid/content/res/flymetheme/FlymeThemeService;->-get1(Landroid/content/res/flymetheme/FlymeThemeService;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/high16 v1, 0x10000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    iget-object v0, p0, Landroid/content/res/flymetheme/FlymeThemeService$1;->this$0:Landroid/content/res/flymetheme/FlymeThemeService;
+
     invoke-static {v0}, Landroid/content/res/flymetheme/FlymeThemeService;->-get5(Landroid/content/res/flymetheme/FlymeThemeService;)Landroid/content/Context;
 
     move-result-object v0

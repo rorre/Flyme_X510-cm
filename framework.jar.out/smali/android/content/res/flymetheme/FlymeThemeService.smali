@@ -601,25 +601,25 @@
     .locals 3
 
     .prologue
-    .line 88
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 89
     .local v0, "intentFilter":Landroid/content/IntentFilter;
-    const-string/jumbo v1, "android.intent.action.SCREEN_OFF"
+    const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 90
+    const/16 v1, 0x3e8
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->setPriority(I)V
+
     iget-object v1, p0, Landroid/content/res/flymetheme/FlymeThemeService;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/content/res/flymetheme/FlymeThemeService;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 87
     return-void
 .end method
 

@@ -48,7 +48,7 @@
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 

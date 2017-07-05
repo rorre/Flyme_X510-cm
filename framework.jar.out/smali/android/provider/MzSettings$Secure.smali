@@ -96,6 +96,8 @@
 
 .field public static final MZ_GAME_MODE_DND:Ljava/lang/String; = "mz_game_mode_dnd"
 
+.field public static final MZ_GAME_MODE_GAME_KEYBOARD:Ljava/lang/String; = "mz_game_mode_game_keyboard"
+
 .field public static final MZ_GUEST_MODE_PASSWORD:Ljava/lang/String; = "mz_guest_mode_password"
 
 .field public static final MZ_INPUT_PASSWORD_PROTECTION:Ljava/lang/String; = "mz_safe_keyboard"

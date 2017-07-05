@@ -194,22 +194,6 @@
     return-object v0
 .end method
 
-.method static synthetic -get8(Lcom/android/internal/app/MzResolverActivity;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/app/MzResolverActivity;->mStats:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/internal/app/MzResolverActivity;)Ljava/lang/CharSequence;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/internal/app/MzResolverActivity;->mTitle:Ljava/lang/CharSequence;
-
-    return-object v0
-.end method
-
 .method static synthetic -set0(Lcom/android/internal/app/MzResolverActivity;Z)Z
     .locals 0
 
@@ -333,59 +317,47 @@
     .locals 4
 
     .prologue
-    .line 684
     invoke-virtual {p0}, Lcom/android/internal/app/MzResolverActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
-    .line 685
     .local v0, "fm":Landroid/app/FragmentManager;
     invoke-virtual {v0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
     move-result-object v1
 
-    .line 686
     .local v1, "ft":Landroid/app/FragmentTransaction;
-    const/high16 v2, 0x10b0000
+    const/high16 v2, #android:animator@fade_in#i
 
-    .line 687
-    const v3, 0x10b0001
+    const v3, #android:animator@fade_out#t
 
-    .line 686
     invoke-virtual {v1, v2, v3}, Landroid/app/FragmentTransaction;->setCustomAnimations(II)Landroid/app/FragmentTransaction;
 
-    .line 688
     iget-boolean v2, p0, Lcom/android/internal/app/MzResolverActivity;->mIsInDetailFrag:Z
 
     if-nez v2, :cond_0
 
-    .line 689
     new-instance v2, Lcom/android/internal/app/MzResolverActivity$DetailListFrag;
 
     invoke-direct {v2}, Lcom/android/internal/app/MzResolverActivity$DetailListFrag;-><init>()V
 
     iput-object v2, p0, Lcom/android/internal/app/MzResolverActivity;->mDetailListFrag:Landroid/app/Fragment;
 
-    .line 690
     sget v2, Lcom/flyme/internal/R$id;->contentPanel:I
 
     iget-object v3, p0, Lcom/android/internal/app/MzResolverActivity;->mDetailListFrag:Landroid/app/Fragment;
 
     invoke-virtual {v1, v2, v3}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 691
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/app/MzResolverActivity;->mIsInDetailFrag:Z
 
-    .line 697
     :goto_0
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 683
     return-void
 
-    .line 693
     :cond_0
     new-instance v2, Lcom/android/internal/app/MzResolverActivity$NormalGridFrag;
 
@@ -3616,4 +3588,28 @@
 
     .line 705
     return-void
+.end method
+
+.method static synthetic -get10(Lcom/android/internal/app/MzResolverActivity;)Ljava/lang/CharSequence;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/app/MzResolverActivity;->mTitle:Ljava/lang/CharSequence;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Lcom/android/internal/app/MzResolverActivity;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/internal/app/MzResolverActivity;->mRegistered:Z
+
+    return v0
+.end method
+
+.method static synthetic -get9(Lcom/android/internal/app/MzResolverActivity;)Ljava/util/Map;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/internal/app/MzResolverActivity;->mStats:Ljava/util/Map;
+
+    return-object v0
 .end method
