@@ -13,5 +13,5 @@ use_set_metadata=1
 multistage_support=1
 update_rename_support=1
 fs_type=ext4
-selinux_fc=out/target/product/angler/root/file_contexts
+selinux_fc=.
 
