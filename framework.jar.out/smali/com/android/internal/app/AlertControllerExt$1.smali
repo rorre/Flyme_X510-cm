@@ -48,45 +48,40 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 14
+    .locals 15
 
     .prologue
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
-    .line 310
     iget-object v11, p0, Lcom/android/internal/app/AlertControllerExt$1;->val$parentPanel:Landroid/widget/LinearLayout;
 
     invoke-virtual {v11}, Landroid/widget/LinearLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v10
 
-    .line 311
     .local v10, "vto":Landroid/view/ViewTreeObserver;
     invoke-virtual {v10, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    .line 312
     iget-object v11, p0, Lcom/android/internal/app/AlertControllerExt$1;->this$0:Lcom/android/internal/app/AlertControllerExt;
 
     invoke-static {v11}, Lcom/android/internal/app/AlertControllerExt;->-get10(Lcom/android/internal/app/AlertControllerExt;)Landroid/view/Window;
 
     move-result-object v11
 
-    .line 314
-    const-string/jumbo v12, "buttonPanel"
+    const-string v12, "id"
 
-    .line 313
-    invoke-static {v13, v12}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v13, "buttonPanel"
+
+    invoke-static {v12, v13}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v12
 
-    .line 312
     invoke-virtual {v11, v12}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    .line 315
     .local v0, "buttonPanel":Landroid/widget/LinearLayout;
     iget-object v11, p0, Lcom/android/internal/app/AlertControllerExt$1;->this$0:Lcom/android/internal/app/AlertControllerExt;
 
@@ -94,22 +89,20 @@
 
     move-result-object v11
 
-    .line 317
-    const-string/jumbo v12, "contentPanel"
+    const-string v12, "id"
 
-    .line 316
-    invoke-static {v13, v12}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v13, "contentPanel"
+
+    invoke-static {v12, v13}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v12
 
-    .line 315
     invoke-virtual {v11, v12}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Lcom/meizu/widget/LimitedHeightLinearLayout;
 
-    .line 318
     .local v2, "contentPanel":Lcom/meizu/widget/LimitedHeightLinearLayout;
     iget-object v11, p0, Lcom/android/internal/app/AlertControllerExt$1;->this$0:Lcom/android/internal/app/AlertControllerExt;
 
@@ -117,11 +110,11 @@
 
     move-result-object v11
 
-    .line 319
-    const-string/jumbo v12, "topPanel"
+    const-string v12, "id"
 
-    .line 318
-    invoke-static {v13, v12}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v13, "topPanel"
+
+    invoke-static {v12, v13}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v12
 
@@ -139,38 +132,33 @@
 
     move-result-object v11
 
-    .line 322
-    const-string/jumbo v12, "extractArea"
+    const-string v12, "id"
 
-    .line 321
-    invoke-static {v13, v12}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v13, "extractArea"
+
+    invoke-static {v12, v13}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v12
 
-    .line 320
     invoke-virtual {v11, v12}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
     check-cast v4, Lcom/meizu/widget/LimitedHeightLinearLayout;
 
-    .line 323
     .local v4, "customLimitedPanel":Lcom/meizu/widget/LimitedHeightLinearLayout;
     invoke-virtual {v8}, Landroid/widget/LinearLayout;->getHeight()I
 
     move-result v9
 
-    .line 324
     .local v9, "topPanelHeight":I
     const/4 v3, 0x0
 
-    .line 325
     .local v3, "contentPanelHeight":I
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->getHeight()I
 
     move-result v1
 
-    .line 326
     .local v1, "buttonPanelHeight":I
     iget v11, p0, Lcom/android/internal/app/AlertControllerExt$1;->val$dialogMaxHeight:I
 
@@ -257,7 +245,7 @@
 
     sub-int/2addr v11, v1
 
-    invoke-static {v13, v11}, Ljava/lang/Math;->max(II)I
+    invoke-static {v14, v11}, Ljava/lang/Math;->max(II)I
 
     move-result v7
 
@@ -286,7 +274,7 @@
 
     .line 338
     :cond_1
-    invoke-virtual {v2, v13}, Lcom/meizu/widget/LimitedHeightLinearLayout;->setMaxHeight(I)V
+    invoke-virtual {v2, v14}, Lcom/meizu/widget/LimitedHeightLinearLayout;->setMaxHeight(I)V
 
     goto :goto_1
 .end method

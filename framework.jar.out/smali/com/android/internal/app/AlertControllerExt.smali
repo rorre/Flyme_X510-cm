@@ -461,17 +461,11 @@
 
     move-object/from16 v28, v0
 
-    .line 378
-    const-string/jumbo v29, "parentPanel"
+    const-string v29, "id"
 
-    const/16 v30, 0x0
+    const-string v30, "parentPanel"
 
-    .line 377
-    move/from16 v0, v30
-
-    move-object/from16 v1, v29
-
-    invoke-static {v0, v1}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    invoke-static/range {v29 .. v30}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v29
 
@@ -491,24 +485,17 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setMinimumHeight(I)V
 
-    .line 380
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
     move-object/from16 v28, v0
 
-    .line 382
-    const-string/jumbo v29, "contentPanel"
+    const-string v29, "id"
 
-    .line 381
-    const/16 v30, 0x0
+    const-string v30, "contentPanel"
 
-    move/from16 v0, v30
-
-    move-object/from16 v1, v29
-
-    invoke-static {v0, v1}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    invoke-static/range {v29 .. v30}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v29
 
@@ -1204,43 +1191,33 @@
 
     move-result v3
 
-    .line 1150
     .local v3, "disableColor":I
     new-array v4, v9, [[I
 
-    .line 1151
     .local v4, "states":[[I
     new-array v5, v8, [I
 
-    .line 1152
-    const v6, 0x101009e
+    const v6, #android:attr@state_enabled#t
 
     aput v6, v5, v7
 
-    .line 1151
     aput-object v5, v4, v7
 
-    .line 1154
     new-array v5, v7, [I
 
     aput-object v5, v4, v8
 
-    .line 1155
     new-array v2, v9, [I
 
-    .line 1156
     aput v0, v2, v7
 
-    .line 1157
     aput v3, v2, v8
 
-    .line 1159
     .local v2, "colors":[I
     new-instance v1, Landroid/content/res/ColorStateList;
 
     invoke-direct {v1, v4, v2}, Landroid/content/res/ColorStateList;-><init>([[I[I)V
 
-    .line 1160
     .local v1, "colorList":Landroid/content/res/ColorStateList;
     return-object v1
 .end method
@@ -1747,16 +1724,13 @@
     .param p1, "dialogMaxHeight"    # I
 
     .prologue
-    .line 303
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 304
-    const-string/jumbo v3, "parentPanel"
+    const-string v3, "id"
 
-    const/4 v4, 0x0
+    const-string v4, "parentPanel"
 
-    .line 303
-    invoke-static {v4, v3}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    invoke-static {v3, v4}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
 
@@ -1890,25 +1864,24 @@
 .end method
 
 .method private setupButtons()V
-    .locals 13
+    .locals 14
 
     .prologue
-    const/16 v12, 0x11
+    const/16 v13, 0x11
 
-    const/16 v11, 0x9
+    const/16 v12, 0x9
 
-    const/4 v10, 0x3
+    const/4 v11, 0x3
 
     const/4 v8, 0x0
 
-    .line 822
     iget-object v7, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 823
-    const-string/jumbo v9, "buttonPanel"
+    const-string v9, "id"
 
-    .line 822
-    invoke-static {v8, v9}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v10, "buttonPanel"
+
+    invoke-static {v9, v10}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v9
 
@@ -1965,7 +1938,7 @@
 
     .line 832
     :cond_0
-    const v7, 0x1020019
+    const v7, #android:id@button1#t
 
     invoke-virtual {v3, v7}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1975,7 +1948,7 @@
 
     .line 833
     .local v4, "buttonPositive":Landroid/widget/Button;
-    const v7, 0x102001a
+    const v7, #android:id@button2#t
 
     invoke-virtual {v3, v7}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1985,7 +1958,7 @@
 
     .line 834
     .local v1, "buttonNegative":Landroid/widget/Button;
-    const v7, 0x102001b
+    const v7, #android:id@button3#t
 
     invoke-virtual {v3, v7}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -2028,31 +2001,25 @@
 
     if-eqz v7, :cond_3
 
-    .line 858
     invoke-virtual {v2}, Landroid/widget/Button;->getVisibility()I
 
     move-result v7
 
     if-eqz v7, :cond_3
 
-    .line 859
     invoke-virtual {v4}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
 
     check-cast v6, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 860
     .local v6, "params":Landroid/widget/LinearLayout$LayoutParams;
     iput v8, v6, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
 
-    .line 861
-    iput v12, v6, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
+    iput v13, v6, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 862
     invoke-virtual {v4, v6}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 863
     iget-object v7, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -2117,31 +2084,25 @@
 
     if-nez v7, :cond_4
 
-    .line 866
     invoke-virtual {v2}, Landroid/widget/Button;->getVisibility()I
 
     move-result v7
 
     if-eqz v7, :cond_4
 
-    .line 867
     invoke-virtual {v1}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
 
     check-cast v6, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 868
     .restart local v6    # "params":Landroid/widget/LinearLayout$LayoutParams;
     iput v8, v6, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
 
-    .line 869
-    iput v12, v6, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
+    iput v13, v6, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
-    .line 870
     invoke-virtual {v1, v6}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 871
     iget-object v7, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -2203,7 +2164,7 @@
 
     move-result v7
 
-    if-le v7, v11, :cond_5
+    if-le v7, v12, :cond_5
 
     const-string/jumbo v7, "en"
 
@@ -2223,7 +2184,7 @@
 
     move-result v7
 
-    if-le v7, v10, :cond_6
+    if-le v7, v11, :cond_6
 
     const-string/jumbo v7, "zh"
 
@@ -2244,7 +2205,7 @@
 
     move-result v7
 
-    if-le v7, v11, :cond_7
+    if-le v7, v12, :cond_7
 
     const-string/jumbo v7, "en"
 
@@ -2265,7 +2226,7 @@
 
     move-result v7
 
-    if-le v7, v10, :cond_9
+    if-le v7, v11, :cond_9
 
     const-string/jumbo v7, "zh"
 
@@ -2486,7 +2447,7 @@
 
     move-result v7
 
-    if-le v7, v11, :cond_c
+    if-le v7, v12, :cond_c
 
     const-string/jumbo v7, "en"
 
@@ -2506,7 +2467,7 @@
 
     move-result v7
 
-    if-le v7, v10, :cond_d
+    if-le v7, v11, :cond_d
 
     const-string/jumbo v7, "zh"
 
@@ -2527,7 +2488,7 @@
 
     move-result v7
 
-    if-le v7, v11, :cond_e
+    if-le v7, v12, :cond_e
 
     const-string/jumbo v7, "en"
 
@@ -2548,7 +2509,7 @@
 
     move-result v7
 
-    if-le v7, v10, :cond_10
+    if-le v7, v11, :cond_10
 
     const-string/jumbo v7, "zh"
 
@@ -2659,7 +2620,7 @@
 
     move-result v7
 
-    if-le v7, v11, :cond_12
+    if-le v7, v12, :cond_12
 
     const-string/jumbo v7, "en"
 
@@ -2679,7 +2640,7 @@
 
     move-result v7
 
-    if-le v7, v10, :cond_13
+    if-le v7, v11, :cond_13
 
     const-string/jumbo v7, "zh"
 
@@ -2700,7 +2661,7 @@
 
     move-result v7
 
-    if-le v7, v11, :cond_14
+    if-le v7, v12, :cond_14
 
     const-string/jumbo v7, "en"
 
@@ -2721,7 +2682,7 @@
 
     move-result v7
 
-    if-le v7, v10, :cond_16
+    if-le v7, v11, :cond_16
 
     const-string/jumbo v7, "zh"
 
@@ -2807,24 +2768,17 @@
     .locals 22
 
     .prologue
-    .line 927
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
     move-object/from16 v17, v0
 
-    .line 928
-    const-string/jumbo v18, "contentPanel"
+    const-string v18, "id"
 
-    const/16 v19, 0x0
+    const-string v19, "contentPanel"
 
-    .line 927
-    move/from16 v0, v19
-
-    move-object/from16 v1, v18
-
-    invoke-static {v0, v1}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v18
 
@@ -2869,7 +2823,7 @@
 
     move-object/from16 v17, v0
 
-    const v18, 0x102000b
+    const v18, #android:id@message#t
 
     invoke-virtual/range {v17 .. v18}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -2943,12 +2897,10 @@
 
     const/16 v19, 0x0
 
-    .line 951
-    const v20, 0x101005b
+    const v20, #android:attr@windowTitleStyle#t
 
     const/16 v21, 0x0
 
-    .line 950
     move-object/from16 v0, v17
 
     move-object/from16 v1, v19
@@ -3527,20 +3479,19 @@
     .locals 9
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    .line 786
-    iget-object v4, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
+    iget-object v5, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 787
-    const-string/jumbo v6, "customPanel"
+    const-string v6, "id"
 
-    .line 786
-    invoke-static {v5, v6}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v7, "customPanel"
+
+    invoke-static {v6, v7}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v6
 
-    invoke-virtual {v4, v6}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v5, v6}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
@@ -3550,23 +3501,22 @@
     .local v1, "customPanel":Landroid/widget/FrameLayout;
     invoke-virtual {v1}, Landroid/widget/FrameLayout;->getVisibility()I
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_1
+    if-nez v5, :cond_0
 
     const/4 v4, 0x1
 
-    :goto_0
+    :cond_0
     iput-boolean v4, p0, Lcom/android/internal/app/AlertControllerExt;->mCustomVisible:Z
 
-    .line 789
     iget-object v4, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 790
-    const-string/jumbo v6, "custom"
+    const-string v5, "id"
 
-    .line 789
-    invoke-static {v5, v6}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v6, "custom"
+
+    invoke-static {v5, v6}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
@@ -3592,95 +3542,73 @@
 
     .line 793
     .local v2, "flp":Landroid/widget/FrameLayout$LayoutParams;
-    if-lez v3, :cond_0
+    if-lez v3, :cond_1
 
     iget-boolean v4, p0, Lcom/android/internal/app/AlertControllerExt;->mCustEditHasMargin:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 795
     iget-object v4, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
 
-    .line 796
     sget v5, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_edittext_padding_left:I
 
-    .line 795
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    .line 797
     iget v5, v2, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    .line 798
     iget-object v6, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    .line 799
     sget v7, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_edittext_padding_right:I
 
-    .line 798
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v6
 
-    .line 800
     iget-object v7, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
 
-    .line 801
     sget v8, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_edittext_padding_bottom:I
 
-    .line 800
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v7
 
-    .line 794
     invoke-virtual {v2, v4, v5, v6, v7}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
-    .line 785
-    :cond_0
-    return-void
-
-    .end local v0    # "custom":Landroid/widget/FrameLayout;
-    .end local v2    # "flp":Landroid/widget/FrameLayout$LayoutParams;
-    .end local v3    # "hasEditTextCount":I
     :cond_1
-    move v4, v5
-
-    .line 788
-    goto :goto_0
+    return-void
 .end method
 
 .method private setupTitle()V
-    .locals 7
+    .locals 8
 
     .prologue
     const/4 v3, 0x1
 
-    const/16 v6, 0x8
+    const/16 v7, 0x8
 
     const/4 v4, 0x0
 
-    .line 1044
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 1045
-    const-string/jumbo v5, "topPanel"
+    const-string v5, "id"
 
-    .line 1044
-    invoke-static {v4, v5}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v6, "topPanel"
+
+    invoke-static {v5, v6}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
@@ -3692,14 +3620,13 @@
 
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTopPanel:Landroid/widget/LinearLayout;
 
-    .line 1046
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 1047
-    const-string/jumbo v5, "title_template"
+    const-string v5, "id"
 
-    .line 1046
-    invoke-static {v4, v5}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v6, "title_template"
+
+    invoke-static {v5, v6}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
@@ -3711,7 +3638,6 @@
 
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->titleTemplate:Landroid/widget/LinearLayout;
 
-    .line 1048
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTopPanel:Landroid/widget/LinearLayout;
 
     invoke-virtual {v2}, Landroid/widget/LinearLayout;->getVisibility()I
@@ -3725,10 +3651,9 @@
     :goto_0
     iput-boolean v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTopVisible:Z
 
-    .line 1052
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    const v5, 0x1020006
+    const v5, #android:id@icon#t
 
     invoke-virtual {v2, v5}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -3738,14 +3663,13 @@
 
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mIconView:Landroid/widget/ImageView;
 
-    .line 1053
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 1054
-    const-string/jumbo v5, "contentPanel"
+    const-string v5, "id"
 
-    .line 1053
-    invoke-static {v4, v5}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v6, "contentPanel"
+
+    invoke-static {v5, v6}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
@@ -3757,14 +3681,13 @@
 
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mContentPanel:Landroid/widget/LinearLayout;
 
-    .line 1055
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 1056
-    const-string/jumbo v5, "buttonPanel"
+    const-string v5, "id"
 
-    .line 1055
-    invoke-static {v4, v5}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v6, "buttonPanel"
+
+    invoke-static {v5, v6}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v5
 
@@ -3774,7 +3697,6 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    .line 1057
     .local v0, "buttonPanel":Landroid/widget/LinearLayout;
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->getVisibility()I
 
@@ -3785,25 +3707,22 @@
     :goto_1
     iput-boolean v3, p0, Lcom/android/internal/app/AlertControllerExt;->mButtonVisible:Z
 
-    .line 1059
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mIconView:Landroid/widget/ImageView;
 
     if-eqz v2, :cond_0
 
-    .line 1060
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mIconView:Landroid/widget/ImageView;
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1061
     :cond_0
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTopPanel:Landroid/widget/LinearLayout;
 
-    .line 1062
-    const-string/jumbo v3, "titleDividerTop"
+    const-string v3, "id"
 
-    .line 1061
-    invoke-static {v4, v3}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v4, "titleDividerTop"
+
+    invoke-static {v3, v4}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
 
@@ -3813,14 +3732,13 @@
 
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleDividerTop:Landroid/view/View;
 
-    .line 1063
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTopPanel:Landroid/widget/LinearLayout;
 
-    .line 1064
-    const-string/jumbo v3, "titleDivider"
+    const-string v3, "id"
 
-    .line 1063
-    invoke-static {v4, v3}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v4, "titleDivider"
+
+    invoke-static {v3, v4}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
 
@@ -3830,28 +3748,23 @@
 
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleDivider:Landroid/view/View;
 
-    .line 1065
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleDividerTop:Landroid/view/View;
 
     if-eqz v2, :cond_1
 
-    .line 1066
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleDividerTop:Landroid/view/View;
 
-    invoke-virtual {v2, v6}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v2, v7}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1068
     :cond_1
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleDivider:Landroid/view/View;
 
     if-eqz v2, :cond_2
 
-    .line 1069
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleDivider:Landroid/view/View;
 
-    invoke-virtual {v2, v6}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v2, v7}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1071
     :cond_2
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitle:Ljava/lang/CharSequence;
 
@@ -3863,19 +3776,17 @@
 
     const/4 v1, 0x0
 
-    .line 1072
     .local v1, "hasTextTitle":Z
     :goto_2
     if-eqz v1, :cond_3
 
-    .line 1073
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 1074
-    const-string/jumbo v3, "alertTitle"
+    const-string v3, "id"
 
-    .line 1073
-    invoke-static {v4, v3}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v4, "alertTitle"
+
+    invoke-static {v3, v4}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
 
@@ -3887,17 +3798,14 @@
 
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
-    .line 1075
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
     if-eqz v2, :cond_3
 
-    .line 1076
     iget v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleStyle:I
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 1090
     :goto_3
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
@@ -3907,7 +3815,6 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->post(Ljava/lang/Runnable;)Z
 
-    .line 1043
     :cond_3
     return-void
 
@@ -3916,36 +3823,29 @@
     :cond_4
     move v2, v4
 
-    .line 1048
     goto/16 :goto_0
 
     .restart local v0    # "buttonPanel":Landroid/widget/LinearLayout;
     :cond_5
     move v3, v4
 
-    .line 1057
     goto :goto_1
 
-    .line 1071
     :cond_6
     const/4 v1, 0x1
 
     .restart local v1    # "hasTextTitle":Z
     goto :goto_2
 
-    .line 1078
     :sswitch_0
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
     iget-object v3, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
-    .line 1079
-    const v4, 0x10301b3
+    const v4, #android:style@TextAppearance.DeviceDefault.Small#t
 
-    .line 1078
     invoke-virtual {v2, v3, v4}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 1080
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
     sget-object v3, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
@@ -3954,7 +3854,6 @@
 
     goto :goto_3
 
-    .line 1085
     :sswitch_1
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
@@ -3964,7 +3863,8 @@
 
     goto :goto_3
 
-    .line 1076
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
@@ -3980,7 +3880,6 @@
     .locals 23
 
     .prologue
-    .line 142
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mIdView:Landroid/view/View;
@@ -3989,10 +3888,8 @@
 
     if-nez v20, :cond_0
 
-    .line 143
     return-void
 
-    .line 145
     :cond_0
     move-object/from16 v0, p0
 
@@ -4004,7 +3901,6 @@
 
     move-result-object v6
 
-    .line 148
     .local v6, "attrs":Landroid/view/WindowManager$LayoutParams;
     iget v0, v6, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
@@ -4014,7 +3910,6 @@
 
     if-eqz v20, :cond_1
 
-    .line 149
     iget v0, v6, Landroid/view/WindowManager$LayoutParams;->x:I
 
     move/from16 v20, v0
@@ -4027,7 +3922,6 @@
 
     if-nez v20, :cond_1
 
-    .line 150
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
@@ -4038,21 +3932,14 @@
 
     move-result-object v20
 
-    .line 152
-    const-string/jumbo v21, "status_bar_height"
+    const-string v21, "dimen"
 
-    .line 151
-    const/16 v22, 0x1
+    const-string v22, "status_bar_height"
 
-    move/from16 v0, v22
-
-    move-object/from16 v1, v21
-
-    invoke-static {v0, v1}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v21
 
-    .line 150
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v20
@@ -4065,7 +3952,6 @@
 
     iput v0, v6, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    .line 154
     :cond_1
     move-object/from16 v0, p0
 
@@ -4073,52 +3959,40 @@
 
     move-object/from16 v20, v0
 
-    .line 156
-    const-string/jumbo v21, "parentPanel"
+    const-string v21, "id"
 
-    .line 155
-    const/16 v22, 0x0
+    const-string v22, "parentPanel"
 
-    move/from16 v0, v22
-
-    move-object/from16 v1, v21
-
-    invoke-static {v0, v1}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v21
 
-    .line 154
     invoke-virtual/range {v20 .. v21}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v12
 
     check-cast v12, Landroid/widget/LinearLayout;
 
-    .line 157
     .local v12, "parentPanel":Landroid/widget/LinearLayout;
     invoke-virtual {v12}, Landroid/widget/LinearLayout;->getPaddingLeft()I
 
     move-result v16
 
-    .line 158
     .local v16, "parentPanelPaddingLeft":I
     invoke-virtual {v12}, Landroid/widget/LinearLayout;->getPaddingRight()I
 
     move-result v17
 
-    .line 159
     .local v17, "parentPanelPaddingRight":I
     invoke-virtual {v12}, Landroid/widget/LinearLayout;->getPaddingTop()I
 
     move-result v18
 
-    .line 160
     .local v18, "parentPanelPaddingTop":I
     invoke-virtual {v12}, Landroid/widget/LinearLayout;->getPaddingBottom()I
 
     move-result v15
 
-    .line 170
     .local v15, "parentPanelPaddingButtom":I
     move-object/from16 v0, p0
 
@@ -4130,7 +4004,6 @@
 
     invoke-virtual/range {v20 .. v21}, Landroid/view/Window;->setDimAmount(F)V
 
-    .line 175
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/app/AlertControllerExt;->mTopVisible:Z
@@ -4164,7 +4037,6 @@
 
     if-eqz v20, :cond_e
 
-    .line 183
     :cond_3
     :goto_0
     move-object/from16 v0, p0
@@ -4175,7 +4047,6 @@
 
     if-lez v20, :cond_f
 
-    .line 184
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/app/AlertControllerExt;->mMaxHeight:I
@@ -4190,42 +4061,32 @@
     :goto_1
     move-object/from16 v20, v12
 
-    .line 191
     check-cast v20, Lcom/meizu/widget/LimitedHeightLinearLayout;
 
     move-object/from16 v0, v20
 
     invoke-virtual {v0, v13}, Lcom/meizu/widget/LimitedHeightLinearLayout;->setMaxHeight(I)V
 
-    .line 193
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
     move-object/from16 v20, v0
 
-    .line 195
-    const-string/jumbo v21, "extractArea"
+    const-string v21, "id"
 
-    .line 194
-    const/16 v22, 0x0
+    const-string v22, "extractArea"
 
-    move/from16 v0, v22
-
-    move-object/from16 v1, v21
-
-    invoke-static {v0, v1}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    invoke-static/range {v21 .. v22}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v21
 
-    .line 193
     invoke-virtual/range {v20 .. v21}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v8
 
     check-cast v8, Lcom/meizu/widget/LimitedHeightLinearLayout;
 
-    .line 196
     .local v8, "customLimitedPanel":Lcom/meizu/widget/LimitedHeightLinearLayout;
     move-object/from16 v0, p0
 
@@ -4235,10 +4096,8 @@
 
     if-eqz v20, :cond_10
 
-    .line 198
     add-int v20, v15, v18
 
-    .line 197
     sub-int v20, v13, v20
 
     move-object/from16 v0, p0
@@ -4247,7 +4106,6 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/app/AlertControllerExt;->limitCustomPanelHeight(I)V
 
-    .line 204
     :goto_2
     move-object/from16 v0, p0
 
@@ -4259,10 +4117,8 @@
 
     move-result-object v20
 
-    .line 206
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_with_button_min_height:I
 
-    .line 204
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v20
@@ -4271,7 +4127,6 @@
 
     add-int v3, v20, v18
 
-    .line 208
     .local v3, "MIN_HEIGHT_WITH_BUTTON":I
     move-object/from16 v0, p0
 
@@ -4283,10 +4138,8 @@
 
     move-result-object v20
 
-    .line 210
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_no_button_min_height:I
 
-    .line 208
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v20
@@ -4295,7 +4148,6 @@
 
     add-int v2, v20, v18
 
-    .line 213
     .local v2, "MIN_HEIGHT_ONLY_PANEL":I
     move-object/from16 v0, p0
 
@@ -4329,11 +4181,9 @@
 
     if-eqz v20, :cond_5
 
-    .line 214
     :cond_4
     invoke-virtual {v12, v3}, Landroid/widget/LinearLayout;->setMinimumHeight(I)V
 
-    .line 217
     :cond_5
     move-object/from16 v0, p0
 
@@ -4351,7 +4201,6 @@
 
     if-eqz v20, :cond_11
 
-    .line 223
     :cond_6
     :goto_3
     move-object/from16 v0, p0
@@ -4362,7 +4211,6 @@
 
     if-nez v20, :cond_b
 
-    .line 224
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/app/AlertControllerExt;->mContentVisible:Z
@@ -4379,7 +4227,6 @@
 
     if-eqz v20, :cond_12
 
-    .line 228
     :cond_7
     :goto_4
     move-object/from16 v0, p0
@@ -4398,7 +4245,6 @@
 
     if-eqz v20, :cond_13
 
-    .line 232
     :cond_8
     :goto_5
     move-object/from16 v0, p0
@@ -4425,7 +4271,6 @@
 
     if-eqz v20, :cond_14
 
-    .line 238
     :cond_9
     :goto_6
     move-object/from16 v0, p0
@@ -4438,15 +4283,12 @@
 
     move-result-object v20
 
-    .line 240
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alertDialog_content_margin_top:I
 
-    .line 238
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v7
 
-    .line 241
     .local v7, "bottomMargin":I
     new-instance v9, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -4460,7 +4302,6 @@
 
     invoke-direct {v9, v0, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 242
     .local v9, "lp":Landroid/widget/LinearLayout$LayoutParams;
     move-object/from16 v0, p0
 
@@ -4478,7 +4319,6 @@
 
     if-eqz v20, :cond_15
 
-    .line 245
     :cond_a
     move-object/from16 v0, p0
 
@@ -4496,7 +4336,6 @@
 
     if-eqz v20, :cond_16
 
-    .line 257
     .end local v7    # "bottomMargin":I
     .end local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_b
@@ -4511,15 +4350,12 @@
 
     move-result-object v20
 
-    .line 259
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_with_button_min_width:I
 
-    .line 257
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    .line 260
     .local v4, "MIN_WIDTH":I
     move-object/from16 v0, p0
 
@@ -4531,19 +4367,15 @@
 
     move-result-object v20
 
-    .line 262
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_no_button_min_width:I
 
-    .line 260
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v5
 
-    .line 263
     .local v5, "MIN_WIDTH_NO_BUTTON":I
     add-int v14, v16, v17
 
-    .line 264
     .local v14, "parentPanelMinWidth":I
     move-object/from16 v0, p0
 
@@ -4553,7 +4385,6 @@
 
     if-lez v20, :cond_17
 
-    .line 265
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/app/AlertControllerExt;->mWidth:I
@@ -4562,7 +4393,6 @@
 
     add-int v14, v14, v20
 
-    .line 274
     :goto_8
     invoke-virtual {v12}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -4570,11 +4400,9 @@
 
     check-cast v11, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 275
     .local v11, "pLp":Landroid/widget/FrameLayout$LayoutParams;
     invoke-virtual {v12, v14}, Landroid/widget/LinearLayout;->setMinimumWidth(I)V
 
-    .line 276
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mAlert:Lcom/android/internal/app/AlertController;
@@ -4595,19 +4423,16 @@
 
     if-eqz v20, :cond_18
 
-    .line 277
     const/16 v20, -0x1
 
     move/from16 v0, v20
 
     iput v0, v11, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    .line 283
     :cond_c
     :goto_9
     invoke-virtual {v12}, Landroid/widget/LinearLayout;->requestLayout()V
 
-    .line 288
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/app/AlertControllerExt;->mHasListView:Z
@@ -4624,12 +4449,10 @@
 
     if-eqz v20, :cond_19
 
-    .line 141
     :cond_d
     :goto_a
     return-void
 
-    .line 176
     .end local v2    # "MIN_HEIGHT_ONLY_PANEL":I
     .end local v3    # "MIN_HEIGHT_WITH_BUTTON":I
     .end local v4    # "MIN_WIDTH":I
@@ -4651,7 +4474,6 @@
 
     check-cast v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 178
     .restart local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v20, 0x0
 
@@ -4661,7 +4483,6 @@
 
     goto/16 :goto_0
 
-    .line 186
     .end local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_f
     move-object/from16 v0, p0
@@ -4674,10 +4495,8 @@
 
     move-result-object v20
 
-    .line 187
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_max_height:I
 
-    .line 186
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v20
@@ -4689,7 +4508,6 @@
     .restart local v13    # "parentPanelMaxHeight":I
     goto/16 :goto_1
 
-    .line 200
     .restart local v8    # "customLimitedPanel":Lcom/meizu/widget/LimitedHeightLinearLayout;
     :cond_10
     const/16 v20, 0x8
@@ -4700,7 +4518,6 @@
 
     goto/16 :goto_2
 
-    .line 217
     .restart local v2    # "MIN_HEIGHT_ONLY_PANEL":I
     .restart local v3    # "MIN_HEIGHT_WITH_BUTTON":I
     :cond_11
@@ -4712,7 +4529,6 @@
 
     if-eqz v20, :cond_6
 
-    .line 218
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mTopPanel:Landroid/widget/LinearLayout;
@@ -4725,7 +4541,6 @@
 
     check-cast v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 219
     .restart local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     const/high16 v20, 0x3f800000    # 1.0f
 
@@ -4733,7 +4548,6 @@
 
     iput v0, v9, Landroid/widget/LinearLayout$LayoutParams;->weight:F
 
-    .line 220
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mTopPanel:Landroid/widget/LinearLayout;
@@ -4746,7 +4560,6 @@
 
     goto/16 :goto_3
 
-    .line 224
     .end local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_12
     move-object/from16 v0, p0
@@ -4757,12 +4570,10 @@
 
     if-eqz v20, :cond_7
 
-    .line 225
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->setMinimumHeight(I)V
 
     goto/16 :goto_4
 
-    .line 228
     :cond_13
     move-object/from16 v0, p0
 
@@ -4772,18 +4583,15 @@
 
     if-nez v20, :cond_8
 
-    .line 229
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->setMinimumHeight(I)V
 
     goto/16 :goto_5
 
-    .line 233
     :cond_14
     invoke-virtual {v12, v2}, Landroid/widget/LinearLayout;->setMinimumHeight(I)V
 
     goto/16 :goto_6
 
-    .line 242
     .restart local v7    # "bottomMargin":I
     .restart local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     :cond_15
@@ -4795,7 +4603,6 @@
 
     if-nez v20, :cond_a
 
-    .line 243
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->titleTemplate:Landroid/widget/LinearLayout;
@@ -4809,7 +4616,6 @@
     .end local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     check-cast v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 244
     .restart local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     const/16 v20, 0x0
 
@@ -4819,7 +4625,6 @@
 
     goto/16 :goto_7
 
-    .line 245
     :cond_16
     move-object/from16 v0, p0
 
@@ -4829,7 +4634,6 @@
 
     if-nez v20, :cond_b
 
-    .line 246
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
@@ -4840,15 +4644,12 @@
 
     move-result-object v20
 
-    .line 249
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alertDialog_message_margin_bottom_no_btn:I
 
-    .line 246
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v7
 
-    .line 250
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mContentPanel:Landroid/widget/LinearLayout;
@@ -4862,13 +4663,11 @@
     .end local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     check-cast v9, Landroid/widget/LinearLayout$LayoutParams;
 
-    .line 251
     .restart local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     iput v7, v9, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
     goto/16 :goto_7
 
-    .line 271
     .end local v7    # "bottomMargin":I
     .end local v9    # "lp":Landroid/widget/LinearLayout$LayoutParams;
     .restart local v4    # "MIN_WIDTH":I
@@ -4885,17 +4684,14 @@
 
     move-result-object v20
 
-    .line 272
     sget v21, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_width:I
 
-    .line 271
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v14
 
     goto/16 :goto_8
 
-    .line 279
     .restart local v11    # "pLp":Landroid/widget/FrameLayout$LayoutParams;
     :cond_18
     move-object/from16 v0, p0
@@ -4926,12 +4722,10 @@
 
     if-ne v0, v1, :cond_c
 
-    .line 280
     iput v14, v11, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
     goto/16 :goto_9
 
-    .line 288
     :cond_19
     move-object/from16 v0, p0
 
@@ -4941,7 +4735,6 @@
 
     if-eqz v20, :cond_d
 
-    .line 289
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/app/AlertControllerExt;->mDialog:Landroid/app/Dialog;
@@ -4952,13 +4745,11 @@
 
     move-result-object v19
 
-    .line 290
     .local v19, "window":Landroid/view/Window;
     invoke-virtual/range {v19 .. v19}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v10
 
-    .line 292
     .local v10, "p":Landroid/view/WindowManager$LayoutParams;
     move-object/from16 v0, p0
 
@@ -4971,7 +4762,6 @@
     .locals 1
 
     .prologue
-    .line 587
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mAnchorView:Landroid/view/View;
 
     return-object v0
@@ -4981,10 +4771,8 @@
     .locals 0
 
     .prologue
-    .line 1166
     invoke-direct {p0}, Lcom/android/internal/app/AlertControllerExt;->injectId()V
 
-    .line 1165
     return-void
 .end method
 
@@ -4992,12 +4780,10 @@
     .locals 4
 
     .prologue
-    .line 626
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mView:Landroid/view/View;
 
     if-eqz v2, :cond_0
 
-    .line 627
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mView:Landroid/view/View;
 
     invoke-direct {p0, v2}, Lcom/android/internal/app/AlertControllerExt;->isTextEditable(Landroid/view/View;)Z
@@ -5006,51 +4792,44 @@
 
     if-nez v2, :cond_1
 
-    .line 628
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
 
-    .line 629
     .local v0, "attrs":Landroid/view/WindowManager$LayoutParams;
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    .line 630
     .local v1, "softInputMode":I
     and-int/lit8 v2, v1, 0x5
 
     if-eqz v2, :cond_0
 
-    .line 631
     and-int/lit8 v1, v1, -0x6
 
-    .line 632
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v2, v1}, Landroid/view/Window;->setSoftInputMode(I)V
 
-    .line 621
     .end local v0    # "attrs":Landroid/view/WindowManager$LayoutParams;
     .end local v1    # "softInputMode":I
     :cond_0
     :goto_0
     return-void
 
-    .line 634
     :cond_1
     iget-boolean v2, p0, Lcom/android/internal/app/AlertControllerExt;->mAutoShowSoftInput:Z
 
     if-eqz v2, :cond_0
 
-    .line 635
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
     const/16 v3, 0x25
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setSoftInputMode(I)V
 
+    .line 788
     goto :goto_0
 .end method
 
@@ -5059,10 +4838,8 @@
     .param p1, "adapter"    # Landroid/widget/ListAdapter;
 
     .prologue
-    .line 657
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mAdapter:Landroid/widget/ListAdapter;
 
-    .line 656
     return-void
 .end method
 
@@ -5071,10 +4848,8 @@
     .param p1, "anchorView"    # Landroid/view/View;
 
     .prologue
-    .line 574
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mAnchorView:Landroid/view/View;
 
-    .line 573
     return-void
 .end method
 
@@ -5083,10 +4858,8 @@
     .param p1, "xcoordinate"    # Ljava/lang/Integer;
 
     .prologue
-    .line 614
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mXCoordinate:Ljava/lang/Integer;
 
-    .line 613
     return-void
 .end method
 
@@ -5095,10 +4868,8 @@
     .param p1, "show"    # Z
 
     .prologue
-    .line 503
     iput-boolean p1, p0, Lcom/android/internal/app/AlertControllerExt;->mAutoShowSoftInput:Z
 
-    .line 502
     return-void
 .end method
 
@@ -5108,36 +4879,30 @@
     .param p2, "textColorId"    # I
 
     .prologue
-    .line 1138
     iget-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mDialog:Landroid/app/Dialog;
 
     instance-of v2, v2, Landroid/app/AlertDialog;
 
     if-eqz v2, :cond_0
 
-    .line 1139
     iget-object v1, p0, Lcom/android/internal/app/AlertControllerExt;->mDialog:Landroid/app/Dialog;
 
     check-cast v1, Landroid/app/AlertDialog;
 
-    .line 1140
     .local v1, "dialog":Landroid/app/AlertDialog;
     invoke-virtual {v1, p1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v0
 
-    .line 1141
     .local v0, "button":Landroid/widget/Button;
     if-eqz v0, :cond_0
 
-    .line 1142
     invoke-direct {p0, p2}, Lcom/android/internal/app/AlertControllerExt;->createColorList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setTextColor(Landroid/content/res/ColorStateList;)V
 
-    .line 1137
     .end local v0    # "button":Landroid/widget/Button;
     .end local v1    # "dialog":Landroid/app/AlertDialog;
     :cond_0
@@ -5149,10 +4914,8 @@
     .param p1, "flag"    # Z
 
     .prologue
-    .line 618
     iput-boolean p1, p0, Lcom/android/internal/app/AlertControllerExt;->mCustEditHasMargin:Z
 
-    .line 617
     return-void
 .end method
 
@@ -5161,10 +4924,8 @@
     .param p1, "dialog"    # Landroid/app/Dialog;
 
     .prologue
-    .line 763
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mDialog:Landroid/app/Dialog;
 
-    .line 762
     return-void
 .end method
 
@@ -5173,31 +4934,25 @@
     .param p1, "isThemeDeviceDefaultLight"    # Z
 
     .prologue
-    .line 1217
     iget-boolean v0, p0, Lcom/android/internal/app/AlertControllerExt;->mIsDeviceDefaultTheme:Z
 
     if-eqz v0, :cond_0
 
-    .line 1218
     return-void
 
-    .line 1219
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 1221
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/app/AlertControllerExt;->mIsDeviceDefaultTheme:Z
 
-    .line 1222
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mAlert:Lcom/android/internal/app/AlertController;
 
     sget v1, Lcom/flyme/internal/R$layout;->mz_alert_dialog:I
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/AlertController;->setAlertDialogLayout(I)V
 
-    .line 1216
     :cond_1
     return-void
 .end method
@@ -5207,10 +4962,8 @@
     .param p1, "listView"    # Landroid/widget/ListView;
 
     .prologue
-    .line 653
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mListView:Landroid/widget/ListView;
 
-    .line 652
     return-void
 .end method
 
@@ -5219,10 +4972,8 @@
     .param p1, "maxHeight"    # I
 
     .prologue
-    .line 567
     iput p1, p0, Lcom/android/internal/app/AlertControllerExt;->mMaxHeight:I
 
-    .line 566
     return-void
 .end method
 
@@ -5231,10 +4982,8 @@
     .param p1, "message"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 649
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mMessage:Ljava/lang/CharSequence;
 
-    .line 648
     return-void
 .end method
 
@@ -5243,22 +4992,19 @@
     .param p1, "msgAlignType"    # I
 
     .prologue
-    .line 594
     sparse-switch p1, :sswitch_data_0
 
-    .line 593
     :goto_0
     return-void
 
-    .line 600
     :sswitch_0
     iput p1, p0, Lcom/android/internal/app/AlertControllerExt;->mMsgALignType:I
 
     goto :goto_0
 
-    .line 594
     nop
 
+    .line 1076
     :sswitch_data_0
     .sparse-switch
         0x3 -> :sswitch_0
@@ -5274,10 +5020,8 @@
     .param p1, "showAtAnchorViewNormal"    # Z
 
     .prologue
-    .line 581
     iput-boolean p1, p0, Lcom/android/internal/app/AlertControllerExt;->mDialogShowAtBottom:Z
 
-    .line 580
     return-void
 .end method
 
@@ -5286,20 +5030,16 @@
     .param p1, "title"    # Ljava/lang/CharSequence;
 
     .prologue
-    .line 661
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mTitle:Ljava/lang/CharSequence;
 
-    .line 662
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
     if-eqz v0, :cond_0
 
-    .line 663
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleView:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 660
     :cond_0
     return-void
 .end method
@@ -5309,10 +5049,8 @@
     .param p1, "style"    # I
 
     .prologue
-    .line 510
     iput p1, p0, Lcom/android/internal/app/AlertControllerExt;->mTitleStyle:I
 
-    .line 509
     return-void
 .end method
 
@@ -5321,10 +5059,8 @@
     .param p1, "view"    # Landroid/view/View;
 
     .prologue
-    .line 645
     iput-object p1, p0, Lcom/android/internal/app/AlertControllerExt;->mView:Landroid/view/View;
 
-    .line 644
     return-void
 .end method
 
@@ -5333,12 +5069,8 @@
     .param p1, "width"    # I
 
     .prologue
-    const/4 v12, 0x0
-
-    .line 517
     iput p1, p0, Lcom/android/internal/app/AlertControllerExt;->mWidth:I
 
-    .line 519
     iget-object v10, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v10}, Landroid/view/Window;->peekDecorView()Landroid/view/View;
@@ -5347,18 +5079,18 @@
 
     if-nez v10, :cond_0
 
-    .line 520
+    .line 143
     return-void
 
-    .line 523
+    .line 145
     :cond_0
     iget-object v10, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 524
-    const-string/jumbo v11, "mask"
+    const-string v11, "id"
 
-    .line 523
-    invoke-static {v12, v11}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v12, "mask"
+
+    invoke-static {v11, v12}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v11
 
@@ -5366,15 +5098,14 @@
 
     move-result-object v5
 
-    .line 525
     .local v5, "idView":Landroid/view/View;
     iget-object v10, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 526
-    const-string/jumbo v11, "parentPanel"
+    const-string v11, "id"
 
-    .line 525
-    invoke-static {v12, v11}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v12, "parentPanel"
+
+    invoke-static {v11, v12}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v11
 
@@ -5384,52 +5115,43 @@
 
     check-cast v7, Landroid/widget/LinearLayout;
 
-    .line 527
     .local v7, "parentPanel":Landroid/widget/LinearLayout;
     if-eqz v5, :cond_1
 
     if-eqz v7, :cond_1
 
-    .line 528
     invoke-virtual {v7}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v6
 
     check-cast v6, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 529
     .local v6, "lp":Landroid/widget/FrameLayout$LayoutParams;
     invoke-virtual {v7}, Landroid/widget/LinearLayout;->getPaddingLeft()I
 
     move-result v8
 
-    .line 530
     .local v8, "parentPanelPaddingLeft":I
     invoke-virtual {v7}, Landroid/widget/LinearLayout;->getPaddingRight()I
 
     move-result v9
 
-    .line 531
     .local v9, "parentPanelPaddingRight":I
     add-int v4, v8, v9
 
-    .line 532
     .local v4, "extraWidth":I
     if-eqz v6, :cond_1
 
-    .line 533
     iget v10, p0, Lcom/android/internal/app/AlertControllerExt;->mWidth:I
 
     if-lez v10, :cond_2
 
-    .line 534
     iget v10, p0, Lcom/android/internal/app/AlertControllerExt;->mWidth:I
 
     add-int/2addr v10, v4
 
     iput v10, v6, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    .line 516
     .end local v4    # "extraWidth":I
     .end local v6    # "lp":Landroid/widget/FrameLayout$LayoutParams;
     .end local v8    # "parentPanelPaddingLeft":I
@@ -5438,7 +5160,6 @@
     :goto_0
     return-void
 
-    .line 536
     .restart local v4    # "extraWidth":I
     .restart local v6    # "lp":Landroid/widget/FrameLayout$LayoutParams;
     .restart local v8    # "parentPanelPaddingLeft":I
@@ -5446,22 +5167,20 @@
     :cond_2
     iget-object v10, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    .line 538
-    const-string/jumbo v11, "buttonPanel"
+    const-string v11, "id"
 
-    .line 537
-    invoke-static {v12, v11}, Lcom/meizu/util/InternalResUtils;->getInternalResId(ILjava/lang/String;)I
+    const-string v12, "buttonPanel"
+
+    invoke-static {v11, v12}, Lcom/meizu/util/InternalResUtils;->getInternalResId(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v11
 
-    .line 536
     invoke-virtual {v10, v11}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    .line 539
     .local v2, "buttonPanel":Landroid/widget/LinearLayout;
     invoke-virtual {v2}, Landroid/widget/LinearLayout;->getVisibility()I
 
@@ -5471,27 +5190,22 @@
 
     const/4 v3, 0x1
 
-    .line 541
     .local v3, "buttonVisible":Z
     :goto_1
     if-eqz v3, :cond_4
 
-    .line 542
     iget-object v10, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
     invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v10
 
-    .line 545
     sget v11, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_with_button_min_width:I
 
-    .line 542
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    .line 546
     .local v0, "MIN_WIDTH":I
     add-int v10, v0, v4
 
@@ -5499,7 +5213,6 @@
 
     goto :goto_0
 
-    .line 539
     .end local v0    # "MIN_WIDTH":I
     .end local v3    # "buttonVisible":Z
     :cond_3
@@ -5508,7 +5221,6 @@
     .restart local v3    # "buttonVisible":Z
     goto :goto_1
 
-    .line 548
     :cond_4
     iget-object v10, p0, Lcom/android/internal/app/AlertControllerExt;->mContext:Landroid/content/Context;
 
@@ -5516,15 +5228,12 @@
 
     move-result-object v10
 
-    .line 551
     sget v11, Lcom/flyme/internal/R$dimen;->mz_alert_dialog_no_button_min_width:I
 
-    .line 548
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    .line 552
     .local v1, "MIN_WIDTH_NO_BUTTON":I
     add-int v10, v1, v4
 
@@ -5539,10 +5248,9 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 767
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 
-    const v1, 0x102002e
+    const v1, #android:id@mask#t
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
@@ -5550,24 +5258,20 @@
 
     iput-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mIdView:Landroid/view/View;
 
-    .line 770
     iget-boolean v0, p0, Lcom/android/internal/app/AlertControllerExt;->mIsDeviceDefaultTheme:Z
 
     if-nez v0, :cond_0
 
-    .line 771
     iput-object v2, p0, Lcom/android/internal/app/AlertControllerExt;->mIdView:Landroid/view/View;
 
-    .line 773
     :cond_0
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mIdView:Landroid/view/View;
 
     if-nez v0, :cond_1
 
-    .line 774
     return-void
 
-    .line 775
+    .line 154
     :cond_1
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mView:Landroid/view/View;
 
@@ -5585,6 +5289,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 767
     .line 776
     iget-object v0, p0, Lcom/android/internal/app/AlertControllerExt;->mWindow:Landroid/view/Window;
 

@@ -1815,7 +1815,7 @@
     :cond_3
     invoke-static {p1, v2, p2}, Landroid/content/res/Resources;->updateSystemConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
 
-    invoke-static {v1}, Landroid/app/ResourcesManager$FlymeInjector;->freeCaches(I)V
+    invoke-static/range {v1 .. v1}, Landroid/app/ResourcesManager$FlymeInjector;->freeCaches(I)V
 
     invoke-static {}, Landroid/app/ApplicationPackageManager;->configurationChanged()V
 
