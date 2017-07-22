@@ -72818,7 +72818,7 @@
 .end method
 
 .method final sendPackageBroadcast(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Landroid/content/IIntentReceiver;[I)V
-    .locals 9
+    .locals 8
     .param p1, "action"    # Ljava/lang/String;
     .param p2, "pkg"    # Ljava/lang/String;
     .param p3, "extras"    # Landroid/os/Bundle;
@@ -72827,27 +72827,23 @@
     .param p6, "userIds"    # [I
 
     .prologue
-    iget-object v8, p0, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
+    move-object v0, p0
 
-    new-instance v0, Lcom/android/server/pm/PackageManagerService$8;
+    move-object v1, p1
 
-    move-object v1, p0
+    move-object v2, p2
 
-    move-object v2, p6
+    const/4 v3, 0x0
 
-    move-object v3, p1
+    move-object v4, p3
 
-    move-object v4, p2
+    move-object v5, p4
 
-    move-object v5, p3
+    move-object v6, p5
 
-    move-object v6, p4
+    move-object v7, p6
 
-    move-object v7, p5
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/server/pm/PackageManagerService$8;-><init>(Lcom/android/server/pm/PackageManagerService;[ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Landroid/content/IIntentReceiver;)V
-
-    invoke-virtual {v8, v0}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual/range {v0 .. v7}, Lcom/android/server/pm/PackageManagerService;->sendPackageBroadcast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/String;Landroid/content/IIntentReceiver;[I)V
 
     .line 5687
     return-void
