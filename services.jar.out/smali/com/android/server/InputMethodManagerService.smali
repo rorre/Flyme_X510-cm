@@ -4736,6 +4736,8 @@
     .locals 7
 
     .prologue
+    return-void
+
     .line 3661
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
