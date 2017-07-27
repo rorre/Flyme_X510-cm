@@ -194,6 +194,6 @@ PRODUCE_INTERNATIONAL_ROM := true
 # Defines whether use sepolicy inject.
 # Default: true
 #-----------------------------------------------------------------------------
-PRODUCE_SEPOLICY_INJECT := false
+#PRODUCE_SEPOLICY_INJECT := false
 
 include $(PORT_BUILD)/main.mk
