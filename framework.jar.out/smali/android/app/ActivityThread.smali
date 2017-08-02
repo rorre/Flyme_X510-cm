@@ -20764,3 +20764,41 @@
 
     return-void
 .end method
+
+.method final handleScrollActivity(Landroid/app/ActivityThread$FlymeInjector$ScrollActivityData;)V
+    .locals 3
+    .param p1, "data"    # Landroid/app/ActivityThread$FlymeInjector$ScrollActivityData;
+
+    .prologue
+    if-eqz p1, :cond_0
+
+    iget-object v1, p1, Landroid/app/ActivityThread$FlymeInjector$ScrollActivityData;->token:Landroid/os/IBinder;
+
+    invoke-virtual {p0, v1}, Landroid/app/ActivityThread;->getActivity(Landroid/os/IBinder;)Landroid/app/Activity;
+
+    move-result-object v0
+
+    .local v0, "activity":Landroid/app/Activity;
+    if-eqz v0, :cond_0
+
+    iget-object v1, p1, Landroid/app/ActivityThread$FlymeInjector$ScrollActivityData;->event:[Landroid/view/MotionEvent;
+
+    iget v2, p1, Landroid/app/ActivityThread$FlymeInjector$ScrollActivityData;->value:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/Activity;->scrollForCapture([Landroid/view/MotionEvent;I)V
+
+    .end local v0    # "activity":Landroid/app/Activity;
+    :cond_0
+    return-void
+.end method
+
+.method invokeMethodSendMessage(ILjava/lang/Object;)V
+    .locals 0
+    .param p1, "what"    # I
+    .param p2, "obj"    # Ljava/lang/Object;
+
+    .prologue
+    invoke-direct {p0, p1, p2}, Landroid/app/ActivityThread;->sendMessage(ILjava/lang/Object;)V
+
+    return-void
+.end method

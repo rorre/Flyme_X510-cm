@@ -13,6 +13,12 @@
     name = "FlymeInjector"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/app/ActivityThread$FlymeInjector$ScrollActivityData;
+    }
+.end annotation
+
 
 # direct methods
 .method constructor <init>()V

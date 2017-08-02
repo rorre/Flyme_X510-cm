@@ -256,3 +256,68 @@
     .line 50
     return-void
 .end method
+
+.method public scrollTopActivity(Landroid/os/IBinder;[Landroid/view/MotionEvent;I)V
+    .locals 5
+    .param p1, "binder"    # Landroid/os/IBinder;
+    .param p2, "event"    # [Landroid/view/MotionEvent;
+    .param p3, "value"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "data":Landroid/os/Parcel;
+    const-string v2, "android.app.FlymeExtIActivityManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p2, :cond_0
+
+    array-length v2, p2
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v1, 0x0
+
+    .local v1, "i":I
+    :goto_0
+    array-length v2, p2
+
+    if-ge v1, v2, :cond_1
+
+    aget-object v2, p2, v1
+
+    invoke-virtual {v2, v0, v3}, Landroid/view/MotionEvent;->writeToParcel(Landroid/os/Parcel;I)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    .end local v1    # "i":I
+    :cond_0
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
+
+    :cond_1
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/16 v2, 0x2715
+
+    const/4 v3, 0x1
+
+    invoke-interface {p1, v2, v0, v4, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+.end method
