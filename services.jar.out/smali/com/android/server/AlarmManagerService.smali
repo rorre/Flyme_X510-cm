@@ -1734,14 +1734,10 @@
     .locals 5
 
     .prologue
-    return-void
-
-    .line 2783
     iget-object v4, p0, Lcom/android/server/AlarmManagerService;->mLock:Ljava/lang/Object;
 
     monitor-enter v4
 
-    .line 2784
     :try_start_0
     iget-object v3, p0, Lcom/android/server/AlarmManagerService;->mNextAlarmClockForUser:Landroid/util/SparseArray;
 
@@ -3050,12 +3046,12 @@
     .param p1, "userId"    # I
 
     .prologue
-    .line 2735
+    return-void
+
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
-    .line 2737
     .local v2, "token":J
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/AlarmManagerService;->getContext()Landroid/content/Context;
