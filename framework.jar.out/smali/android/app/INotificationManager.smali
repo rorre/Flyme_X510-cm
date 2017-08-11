@@ -239,7 +239,7 @@
     .end annotation
 .end method
 
-.method public abstract matchesCallFilter(Landroid/os/Bundle;)[Z
+.method public abstract matchesCallFilter(Landroid/os/Bundle;)Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
