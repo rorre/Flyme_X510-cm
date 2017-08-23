@@ -1,7 +1,3 @@
-sudo apt install expect
-git clone https://github.com/akhilnarang/scripts
-cd scripts
-./setup/*4.sh
 cd ~/
 mkdir a
 cd a
