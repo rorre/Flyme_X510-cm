@@ -88,6 +88,8 @@
 
 .field public static final MZ_GAME_MODE_ACCELERATE:Ljava/lang/String; = "mz_game_mode_accelerate"
 
+.field public static final MZ_GAME_MODE_BARRAGE_NOTIFICATIONS:Ljava/lang/String; = "mz_game_mode_barrage_notifications"
+
 .field public static final MZ_GAME_MODE_DISABLE_BOTTOM_SLIDE:Ljava/lang/String; = "mz_game_mode_disable_bottom_slide"
 
 .field public static final MZ_GAME_MODE_DISABLE_MBACK:Ljava/lang/String; = "mz_game_mode_disable_mback"
@@ -95,6 +97,8 @@
 .field public static final MZ_GAME_MODE_DISABLE_TOP_SLIDE:Ljava/lang/String; = "mz_game_mode_disable_top_slide"
 
 .field public static final MZ_GAME_MODE_DND:Ljava/lang/String; = "mz_game_mode_dnd"
+
+.field public static final MZ_GAME_MODE_ENABLE_ASSISTANT:Ljava/lang/String; = "mz_game_mode_game_assistant"
 
 .field public static final MZ_GAME_MODE_GAME_KEYBOARD:Ljava/lang/String; = "mz_game_mode_game_keyboard"
 

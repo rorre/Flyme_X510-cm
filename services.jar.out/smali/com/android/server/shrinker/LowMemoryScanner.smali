@@ -1224,33 +1224,22 @@
     :cond_0
     return-void
 
-    .line 45
     :cond_1
     invoke-direct {p0}, Lcom/android/server/shrinker/LowMemoryScanner;->prepare()V
 
-    .line 46
     invoke-direct {p0}, Lcom/android/server/shrinker/LowMemoryScanner;->scanNormal()V
 
-    .line 47
     invoke-direct {p0}, Lcom/android/server/shrinker/LowMemoryScanner;->scanWorking()V
 
-    .line 48
     invoke-direct {p0}, Lcom/android/server/shrinker/LowMemoryScanner;->scanSelected()V
 
-    .line 49
     invoke-direct {p0}, Lcom/android/server/shrinker/LowMemoryScanner;->scanSuper()V
 
-    .line 50
     invoke-direct {p0}, Lcom/android/server/shrinker/LowMemoryScanner;->killList()V
 
-    .line 51
-    invoke-direct {p0}, Lcom/android/server/shrinker/LowMemoryScanner;->scheduleTrimMemory()V
-
-    .line 52
     iget-object v0, p0, Lcom/android/server/shrinker/LowMemoryScanner;->mRunningAppList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 43
     return-void
 .end method
