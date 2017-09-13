@@ -182,7 +182,7 @@ USE_ASSERTIONS_IN_UPDATER_SCRIPT := false
 # Will fall back to a file-based OTA if the target_files is older and doesn't support block-based OTAs.
 # Default: true
 #-----------------------------------------------------------------------------
-PRODUCE_BLOCK_BASED_OTA := false
+#PRODUCE_BLOCK_BASED_OTA := false
 
 ##############################################################################
 # Defines whether build an international version of package.
