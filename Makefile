@@ -142,7 +142,7 @@ override_property += \
 # You should configure the property according to your device and your ID with replace the "Nexus-6P_Unofficial".
 override_property += \
     ro.flyme.romer=Unofficial \
-    ro.product.model_romer=d5110_Unofficial \
+    ro.product.model_romer=d5110_RendyAK \
     config.disable_atlas=true \
     persist.adb.notify=0 \
     dalvik.vm.heapgrowthlimit=192m \
@@ -188,7 +188,7 @@ USE_ASSERTIONS_IN_UPDATER_SCRIPT := false
 # Defines whether build an international version of package.
 # Default: false
 #-----------------------------------------------------------------------------
-PRODUCE_INTERNATIONAL_ROM := true
+#PRODUCE_INTERNATIONAL_ROM := true
 
 ##############################################################################
 # Defines whether use sepolicy inject.
