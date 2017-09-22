@@ -142,7 +142,7 @@ override_property += \
 # You should configure the property according to your device and your ID with replace the "Nexus-6P_Unofficial".
 override_property += \
     ro.flyme.romer=Unofficial \
-    ro.product.model_romer=X510_Unofficial \
+    ro.product.model_romer=d5110_Unofficial \
     config.disable_atlas=true \
     persist.adb.notify=0 \
     dalvik.vm.heapgrowthlimit=192m \
