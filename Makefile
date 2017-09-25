@@ -141,7 +141,7 @@ override_property += \
 # The default value is Nexus-6P_Unofficial.
 # You should configure the property according to your device and your ID with replace the "Nexus-6P_Unofficial".
 override_property += \
-    ro.flyme.romer=Unofficial \
+    ro.flyme.romer=RendyAK \
     ro.product.model_romer=d5110_RendyAK \
     config.disable_atlas=true \
     persist.adb.notify=0 \
