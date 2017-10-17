@@ -75,7 +75,7 @@
     :pswitch_2
     iget-object v1, p0, Lcom/android/server/policy/MzPhoneWindowManager$MzPolicyHandler;->this$0:Lcom/android/server/policy/MzPhoneWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/policy/MzPhoneWindowManager;->-wrap8(Lcom/android/server/policy/MzPhoneWindowManager;)V
+    invoke-static {v1}, Lcom/android/server/policy/MzPhoneWindowManager;->-wrap9(Lcom/android/server/policy/MzPhoneWindowManager;)V
 
     goto :goto_0
 

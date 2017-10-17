@@ -9,7 +9,13 @@
 .field private static mService:Landroid/content/pm/IFlymePackageManager;
 
 
-# direct methods
+# instance fields
+.field private installResult:I
+
+.field private mContext:Landroid/content/Context;
+
+.field private final mLockobjectInstall:Ljava/lang/Object;
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -28,23 +34,32 @@
     .param p1, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
-    const-string/jumbo v1, "flyme_packagemanager"
+    new-instance v1, Ljava/lang/Object;
+
+    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
+
+    iput-object v1, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    iput v1, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
+
+    const-string v1, "flyme_packagemanager"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 33
     .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/content/pm/IFlymePackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IFlymePackageManager;
 
     move-result-object v1
 
     sput-object v1, Landroid/content/pm/FlymePackageManager;->mService:Landroid/content/pm/IFlymePackageManager;
+
+    iput-object p1, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
 
     .line 31
     return-void
@@ -727,4 +742,168 @@
 
     .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
+.end method
+
+
+# direct methods
+.method static synthetic -get0(Landroid/content/pm/FlymePackageManager;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Landroid/content/pm/FlymePackageManager;I)I
+    .locals 0
+
+    iput p1, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
+
+    return p1
+.end method
+
+.method public getSystemAppPath(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+    .param p1, "pkgname"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public getSystemAppRecord()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public installPackage(Ljava/lang/String;)I
+    .locals 9
+    .param p1, "packageName"    # Ljava/lang/String;
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/content/pm/FlymePackageManager;->isMzApp(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
+    const/4 v6, -0x1
+
+    return v6
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroid/content/pm/FlymePackageManager;->getSystemAppPath(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .local v2, "mayInstalled":Ljava/lang/String;
+    if-eqz v2, :cond_3
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .local v1, "installApk":Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    const/4 v6, -0x2
+
+    return v6
+
+    :cond_1
+    invoke-static {v1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    .local v5, "uri":Landroid/net/Uri;
+    new-instance v3, Landroid/content/pm/FlymePackageManager$1;
+
+    invoke-direct {v3, p0}, Landroid/content/pm/FlymePackageManager$1;-><init>(Landroid/content/pm/FlymePackageManager;)V
+
+    .local v3, "packageInstallObserver":Landroid/app/PackageInstallObserver;
+    iget-object v7, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
+
+    monitor-enter v7
+
+    :try_start_0
+    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
+
+    if-eqz v6, :cond_2
+
+    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    .local v4, "packageManager":Landroid/content/pm/PackageManager;
+    const-string v6, "FlymePackageManager"
+
+    const/4 v8, 0x2
+
+    invoke-virtual {v4, v5, v3, v8, v6}, Landroid/content/pm/PackageManager;->installPackage(Landroid/net/Uri;Landroid/app/PackageInstallObserver;ILjava/lang/String;)V
+
+    iget-object v6, p0, Landroid/content/pm/FlymePackageManager;->mLockobjectInstall:Ljava/lang/Object;
+
+    invoke-virtual {v6}, Ljava/lang/Object;->wait()V
+    :try_end_0
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .end local v4    # "packageManager":Landroid/content/pm/PackageManager;
+    :cond_2
+    :goto_0
+    monitor-exit v7
+
+    .end local v1    # "installApk":Ljava/io/File;
+    .end local v3    # "packageInstallObserver":Landroid/app/PackageInstallObserver;
+    .end local v5    # "uri":Landroid/net/Uri;
+    :cond_3
+    iget v6, p0, Landroid/content/pm/FlymePackageManager;->installResult:I
+
+    return v6
+
+    .restart local v1    # "installApk":Ljava/io/File;
+    .restart local v3    # "packageInstallObserver":Landroid/app/PackageInstallObserver;
+    .restart local v5    # "uri":Landroid/net/Uri;
+    :catchall_0
+    move-exception v6
+
+    monitor-exit v7
+
+    throw v6
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "e":Ljava/lang/InterruptedException;
+    goto :goto_0
+.end method
+
+.method public isMzApp(Ljava/lang/String;)Z
+    .locals 1
+    .param p1, "pkg"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v0, 0x0
+
+    return v0
 .end method

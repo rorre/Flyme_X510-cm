@@ -58,6 +58,8 @@
 
 .field public static final MEIZU_FLAG_STOP_RECOMMEND:I = 0x800
 
+.field public static final MEIZU_FLAG_UNINSTALL:I = 0x400000
+
 .field public static final MZ_ACTION_APP_DOWN_PROMPT:Ljava/lang/String; = "meizu.intent.action.APP_DOWNLOAD_PROMPT"
 
 .field public static final MZ_ACTION_CLEAR_ALL_NOTIFICATION:Ljava/lang/String; = "meizu.intent.action.CLEAR_ALL_NOTIFICATIONS"
