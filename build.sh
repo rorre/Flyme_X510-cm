@@ -12,4 +12,5 @@ cX510
 flyme fullota
 sudo apt install wput
 export DATEA=$(date +"%d%m%y")
-wput out/f*.zip ftp://$USR:$PAWD@uploads.androidfilehost.com:21/
+wput out/f*.zip ftp://$USR:$PAWD@uploads.androidfilehost.com:21/Flyme-X510-$DATEA-debug.zip
+
