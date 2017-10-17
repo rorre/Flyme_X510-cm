@@ -208,26 +208,21 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 277
     :goto_2
     const/4 v1, 0x0
 
-    .line 278
     .local v1, "defaultLowSize":I
     invoke-static {}, Lcom/android/server/shrinker/Utils;->totalMemoryG()I
 
     move-result v3
 
-    .line 279
     .local v3, "total":I
-    if-lt v3, v7, :cond_2
+    if-le v3, v7, :cond_2
 
-    .line 280
-    const v1, 0x7d000
+    const v1, 0xc8000
 
-    .line 286
     :goto_3
-    const-string/jumbo v4, "persist.sys.shrink_mem_level"
+    const-string v4, "persist.sys.shrink_mem_level"
 
     invoke-static {v4, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
@@ -281,22 +276,26 @@
     .restart local v1    # "defaultLowSize":I
     .restart local v3    # "total":I
     :cond_2
+    if-ne v3, v7, :cond_3
+
+    const v1, 0x7d000
+
+    goto :goto_3
+
+    :cond_3
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_4
 
-    .line 282
     const v1, 0x64000
 
     goto :goto_3
 
-    .line 284
-    :cond_3
+    :cond_4
     const v1, 0x3e800
 
     goto :goto_3
 
-    .line 67
     nop
 
     :array_0
