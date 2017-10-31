@@ -99,6 +99,10 @@
 
     iput-boolean v1, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->intercept:Z
 
+    const/high16 v0, 0x42c80000    # 100.0f
+
+    iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
+
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score_scale:F
@@ -130,6 +134,10 @@
     iput v2, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->notificationPriority:I
 
     iput-boolean v2, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->intercept:Z
+
+    const/high16 v0, 0x42c80000    # 100.0f
+
+    iput v0, p0, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
 
     const/4 v0, 0x0
 

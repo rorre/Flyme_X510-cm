@@ -519,3 +519,28 @@
     .line 2968
     return-void
 .end method
+
+.method static overlayFlymeThemeColor(Landroid/content/res/Resources;Landroid/util/TypedValue;)V
+    .locals 4
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "value"    # Landroid/util/TypedValue;
+
+    .prologue
+    iget v1, p1, Landroid/util/TypedValue;->resourceId:I
+
+    invoke-static {p0, v1}, Landroid/content/res/Resources$FlymeInjector;->getFlymeThemeColor(Landroid/content/res/Resources;I)Landroid/content/res/flymetheme/ColorInfo;
+
+    move-result-object v0
+
+    .local v0, "colorInfo":Landroid/content/res/flymetheme/ColorInfo;
+    if-eqz v0, :cond_0
+
+    iget-wide v2, v0, Landroid/content/res/flymetheme/ColorInfo;->mColor:J
+
+    long-to-int v1, v2
+
+    iput v1, p1, Landroid/util/TypedValue;->data:I
+
+    :cond_0
+    return-void
+.end method

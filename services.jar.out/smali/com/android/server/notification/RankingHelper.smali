@@ -2545,17 +2545,34 @@
 .end method
 
 .method public getPackageCategoryScore(Lcom/android/server/notification/NotificationRecord;)F
-    .locals 1
+    .locals 2
     .param p1, "r"    # Lcom/android/server/notification/NotificationRecord;
 
     .prologue
-    iget-object v0, p0, Lcom/android/server/notification/RankingHelper;->mFlymeRankingController:Lcom/flyme/server/notfication/RankingController;
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/notification/RankingHelper;->mFlymeRankingController:Lcom/flyme/server/notfication/RankingController;
 
-    invoke-interface {v0, p1}, Lcom/flyme/server/notfication/RankingController;->getPackageCategoryScore(Lcom/android/server/notification/NotificationRecord;)F
+    invoke-interface {v1, p1}, Lcom/flyme/server/notfication/RankingController;->getPackageCategoryScore(Lcom/android/server/notification/NotificationRecord;)F
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
+    move-result v1
 
-    return v0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    .local v0, "throwable":Ljava/lang/Throwable;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    iget-object v1, p1, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
+
+    iget-object v1, v1, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
+
+    iget v1, v1, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
+
+    return v1
 .end method
 
 .method public getPackageClickPercentage(Ljava/lang/String;Ljava/lang/String;)F

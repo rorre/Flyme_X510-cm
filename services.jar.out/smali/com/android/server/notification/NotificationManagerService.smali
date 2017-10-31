@@ -12214,6 +12214,14 @@
 
     if-gtz v3, :cond_8
 
+    iget v3, v12, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score_scale:F
+
+    const/4 v4, 0x0
+
+    cmpl-float v3, v3, v4
+
+    if-lez v3, :cond_8
+
     const/4 v3, 0x1
 
     :goto_4
