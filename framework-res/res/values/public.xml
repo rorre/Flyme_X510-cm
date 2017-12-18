@@ -2470,8 +2470,8 @@
     <public type="id" name="websearch" id="0x01020472" />
     <public type="id" name="find_prev" id="0x01020473" />
     <public type="id" name="find_next" id="0x01020474" />
-    <public type="id" name="fontChange" id="0x0102046a" />
-    <public type="id" name="themeChange" id="0x0102046b" />
+    <public type="id" name="fontChange" id="0x01020475" />
+    <public type="id" name="themeChange" id="0x01020476" />
     <public type="style" name="Animation" id="0x01030000" />
     <public type="style" name="Animation.Activity" id="0x01030001" />
     <public type="style" name="Animation.Dialog" id="0x01030002" />
@@ -9487,5 +9487,5 @@
     <public type="^attr-private" name="alwaysFocusable" id="0x011600c8" />
     <public type="^attr-private" name="minimalWidth" id="0x011600c9" />
     <public type="^attr-private" name="minimalHeight" id="0x011600ca" />
-    <public type="^attr-private" name="needAccessControl" id="0x011600ca" />
+    <public type="^attr-private" name="needAccessControl" id="0x011600cb" />
 </resources>
