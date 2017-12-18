@@ -2,14 +2,13 @@
 .super Ljava/lang/Object;
 .source "SystemServer.java"
 
-
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/SystemServer$AdbPortObserver;
+		Lcom/android/server/SystemServer$FlymeInjector;
     }
 .end annotation
-
 
 # static fields
 .field private static final ACCOUNT_SERVICE_CLASS:Ljava/lang/String; = "com.android.server.accounts.AccountManagerService$Lifecycle"
@@ -2319,7 +2318,7 @@
 
     .line 834
     :try_start_b
-    new-instance v91, Lcom/android/server/statusbar/StatusBarManagerService;
+    new-instance v91, Lcom/android/server/statusbar/FlymeExtStatusBarManagerService;
 
     move-object/from16 v0, v91
 
@@ -3651,9 +3650,12 @@
     invoke-virtual {v4, v5}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/Class;)Lcom/android/server/SystemService;
 
     :cond_28
+	goto/16 :goto_flyme_0
+	
     if-nez v42, :cond_29
 
     :cond_29
+	:goto_flyme_0
     if-nez v42, :cond_2a
 
     const-string v4, "graphicsstats"
@@ -4225,6 +4227,12 @@
     .end local v72    # "method":Ljava/lang/reflect/Method;
     .end local v88    # "serverClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :goto_29
+    move-object/from16 v4, p0
+
+    move-object/from16 v5, v104
+
+    invoke-static {v4, v5}, Lcom/android/server/SystemServer$FlymeInjector;->addFlymeServices(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;)V
+
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/SystemServer;->mContentResolver:Landroid/content/ContentResolver;
@@ -5389,6 +5397,12 @@
 
     invoke-virtual {v4, v5}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/String;)Lcom/android/server/SystemService;
 
+	move-result-object v4
+
+    move-object/from16 v0, p0
+
+    iput-object v4, v0, Lcom/android/server/SystemServer;->mFlymeWallpaperLifeService:Lcom/android/server/SystemService;
+	
     .line 1036
     const-wide/32 v4, 0x80000
 
