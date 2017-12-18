@@ -26408,11 +26408,7 @@
 
     and-int/2addr v5, v6
 
-<<<<<<< VENDOR #Conflict 3
     if-eqz v5, :cond_33
-======= #@.method public interceptKeyBeforeQueueing@
-    if-nez v19, :cond_flyme_0
->>>>>>> BOSP #Conflict 3
 
     move-object/from16 v0, p0
 
