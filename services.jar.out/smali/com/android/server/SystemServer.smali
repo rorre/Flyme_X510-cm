@@ -5,8 +5,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/SystemServer$AdbPortObserver;
-	Lcom/android/server/SystemServer$FlymeInjector;
+        Lcom/android/server/SystemServer$AdbPortObserver;,
+        Lcom/android/server/SystemServer$FlymeInjector;
     }
 .end annotation
 
