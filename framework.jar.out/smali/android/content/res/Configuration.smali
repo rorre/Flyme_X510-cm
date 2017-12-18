@@ -1264,20 +1264,25 @@
 .end method
 
 .method public static needNewResources(II)Z
-    .locals 3
+    .locals 2
     .param p0, "configChanges"    # I
     .param p1, "interestingChanges"    # I
 
     .prologue
     const/4 v0, 0x0
 
+    .line 1214
     const/high16 v1, 0x40000000    # 2.0f
 
     or-int/2addr v1, p1
 
-    const/high16 v2, 0x200000
+    or-int/lit16 v1, v1, 0x4000
 
-    or-int/2addr v1, v2
+    const v0, 0x8000
+
+    or-int/2addr v1, v0
+
+    const/4 v0, 0x0
 
     and-int/2addr v1, p0
 

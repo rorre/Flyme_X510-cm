@@ -390,6 +390,8 @@
 /sbin/multi_init	u:object_r:init_exec:s0
 /system/bin/slpd	u:object_r:slpd_exec:s0
 /dev/camera-fdvt	u:object_r:camera_device:s0
+/dev/socket/flymed	u:object_r:flymed_socket:s0
+/system/bin/flymed	u:object_r:flymed_exec:s0
 /dev/block/zram0	u:object_r:swap_block_device:s0
 /dev/socket/mnld	u:object_r:mnld_socket:s0
 /system/xbin/bash	u:object_r:shell_exec:s0

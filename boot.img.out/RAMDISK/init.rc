@@ -683,3 +683,7 @@ service flash_recovery /system/bin/install-recovery.sh
 
 # SuperSU:PATCH:279
 # SuperSU:STOCK:6c2fa8fa98a205df445448e2f3ed0258579bb836
+
+service flymed /system/bin/flymed
+    class main
+    socket flymed stream 0660 root system
