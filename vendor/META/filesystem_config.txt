@@ -1833,7 +1833,7 @@ system/priv-app/SharedStorageBackup/SharedStorageBackup.apk 0 0 644 selabel=u:ob
 system/priv-app/Shell 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app/Shell/Shell.apk 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app/SoundAbout 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
-system/priv-app/SoundAbout/SoundAbout PRO 2.7.0.1.apk 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
+system/priv-app/SoundAbout/SoundAbout.apk 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app/StatementService 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app/StatementService/StatementService.apk 0 0 644 selabel=u:object_r:system_file:s0 capabilities=0x0
 system/priv-app/StorageManager 0 0 755 selabel=u:object_r:system_file:s0 capabilities=0x0
