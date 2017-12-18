@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/MasterClearReceiver$FlymeRebootThread;,
         Lcom/android/server/MasterClearReceiver$WipeAdoptableDisksTask;
     }
 .end annotation
@@ -64,61 +65,63 @@
 
     if-nez v1, :cond_0
 
-    .line 41
-    const-string/jumbo v1, "MasterClear"
+    const-string v1, "MasterClear"
 
-    const-string/jumbo v2, "Ignoring master clear request -- not from trusted server."
+    const-string v2, "Ignoring master clear request -- not from trusted server."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 42
     return-void
 
-    .line 46
     :cond_0
-    const-string/jumbo v1, "shutdown"
+
+    invoke-direct/range {p0 .. p2}, Lcom/android/server/MasterClearReceiver;->flymeRebootWipeUserData(Landroid/content/Context;Landroid/content/Intent;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_flyme_0
+
+    return-void
+
+    :cond_flyme_0
+
+    const-string v1, "shutdown"
 
     invoke-virtual {p2, v1, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v4
 
-    .line 47
     .local v4, "shutdown":Z
-    const-string/jumbo v1, "android.intent.extra.REASON"
+    const-string v1, "android.intent.extra.REASON"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 49
     .local v5, "reason":Ljava/lang/String;
-    const-string/jumbo v1, "android.intent.extra.WIPE_EXTERNAL_STORAGE"
+    const-string v1, "android.intent.extra.WIPE_EXTERNAL_STORAGE"
 
-    .line 48
     invoke-virtual {p2, v1, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v7
 
-    .line 50
     .local v7, "wipeExternalStorage":Z
-    const-string/jumbo v1, "android.intent.extra.FORCE_MASTER_CLEAR"
+    const-string v1, "android.intent.extra.FORCE_MASTER_CLEAR"
 
     invoke-virtual {p2, v1, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v6
 
-    .line 52
     .local v6, "forceWipe":Z
-    const-string/jumbo v1, "MasterClear"
+    const-string v1, "MasterClear"
 
-    const-string/jumbo v2, "!!! FACTORY RESET !!!"
+    const-string v2, "!!! FACTORY RESET !!!"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 54
     new-instance v0, Lcom/android/server/MasterClearReceiver$1;
 
-    const-string/jumbo v2, "Reboot"
+    const-string v2, "Reboot"
 
     move-object v1, p0
 
@@ -148,4 +151,22 @@
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
+.end method
+
+.method private flymeRebootWipeUserData(Landroid/content/Context;Landroid/content/Intent;)Z
+    .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
+
+    .prologue
+    new-instance v0, Lcom/android/server/MasterClearReceiver$FlymeRebootThread;
+
+    invoke-direct {v0, p1, p2}, Lcom/android/server/MasterClearReceiver$FlymeRebootThread;-><init>(Landroid/content/Context;Landroid/content/Intent;)V
+
+    .local v0, "flymeRebootThread":Lcom/android/server/MasterClearReceiver$FlymeRebootThread;
+    invoke-virtual {v0}, Lcom/android/server/MasterClearReceiver$FlymeRebootThread;->start()V
+
+    const/4 v1, 0x1
+
+    return v1
 .end method

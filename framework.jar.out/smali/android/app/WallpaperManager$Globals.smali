@@ -203,22 +203,18 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 371
-    invoke-static {p1, p2}, Landroid/app/WallpaperManager;->openDefaultWallpaper(Landroid/content/Context;I)Ljava/io/InputStream;
+    invoke-static/range {p1 .. p1}, Landroid/app/WallpaperManager$FlymeInjector;->openFlymeDefaultWallpaper(Landroid/content/Context;)Ljava/io/InputStream;
 
     move-result-object v1
 
-    .line 372
     .local v1, "is":Ljava/io/InputStream;
     if-eqz v1, :cond_0
 
-    .line 374
     :try_start_0
     new-instance v2, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v2}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    .line 375
     .local v2, "options":Landroid/graphics/BitmapFactory$Options;
     const/4 v3, 0x0
 

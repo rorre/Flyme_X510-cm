@@ -1608,7 +1608,6 @@
     :goto_3
     or-int/2addr v0, v8
 
-    .line 262
     iget-object v8, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
     iget v8, v8, Landroid/view/WindowManager$LayoutParams;->type:I
@@ -1622,15 +1621,13 @@
     :goto_4
     or-int/2addr v0, v8
 
-    .line 264
     if-eqz v1, :cond_2
 
-    .line 265
     iget-object v8, p1, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
 
     if-eq v1, v8, :cond_1
 
-    .line 267
+    .line 262
     iget-object v8, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
     iget v8, v8, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -3839,11 +3836,20 @@
 
     move-result-object v4
 
-    .line 532
     .restart local v4    # "a":Landroid/view/animation/Animation;
     if-eqz v4, :cond_23
 
-    .line 535
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v26
+
+    invoke-direct {v0, v1}, Lcom/android/server/wm/WindowAnimator;->isFlymeLauncher(Lcom/android/server/wm/WindowStateAnimator;)Z
+
+    move-result v29
+
+    if-nez v29, :cond_flyme_0
+
+    .line 536
     const/16 v29, 0x1
 
     move-object/from16 v0, v26
@@ -3852,7 +3858,7 @@
 
     invoke-virtual {v0, v4, v1}, Lcom/android/server/wm/WindowStateAnimator;->setAnimation(Landroid/view/animation/Animation;I)V
 
-    .line 536
+    :cond_flyme_0
     const/16 v29, 0x1
 
     move/from16 v0, v29
@@ -3877,6 +3883,16 @@
     .line 541
     move-object/from16 v0, p0
 
+    move-object/from16 v1, v26
+
+    invoke-direct {v0, v1}, Lcom/android/server/wm/WindowAnimator;->isFlymeLauncher(Lcom/android/server/wm/WindowStateAnimator;)Z
+
+    move-result v29
+
+    if-nez v29, :cond_flyme_1
+
+    move-object/from16 v0, p0
+
     iget-object v0, v0, Lcom/android/server/wm/WindowAnimator;->mPostKeyguardExitAnimation:Landroid/view/animation/Animation;
 
     move-object/from16 v29, v0
@@ -3889,23 +3905,20 @@
 
     invoke-virtual/range {v29 .. v31}, Landroid/view/animation/Animation;->setStartTime(J)V
 
-    .line 542
+    :cond_flyme_1
     const/4 v10, 0x0
 
-    .line 527
     :cond_23
     add-int/lit8 v12, v12, -0x1
 
     goto :goto_e
 
-    .line 530
     .end local v4    # "a":Landroid/view/animation/Animation;
     :cond_24
     const/16 v29, 0x1
 
     goto :goto_f
 
-    .line 546
     .end local v10    # "first":Z
     .end local v26    # "winAnimator":Lcom/android/server/wm/WindowStateAnimator;
     :cond_25
@@ -4721,4 +4734,70 @@
     .line 981
     :cond_0
     return-void
+.end method
+
+.method private isFlymeAllowWhenLocked(Lcom/android/server/wm/WindowState;Z)Z
+    .locals 4
+    .param p1, "win"    # Lcom/android/server/wm/WindowState;
+    .param p2, "allowWhenLocked"    # Z
+
+    .prologue
+    const/high16 v3, 0x20000
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v2, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v2, Landroid/view/WindowManager$LayoutParams;->meizuFlags:I
+
+    and-int/2addr v2, v3
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p1, Lcom/android/server/wm/WindowState;->mAttachedWindow:Lcom/android/server/wm/WindowState;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p1, Lcom/android/server/wm/WindowState;->mAttachedWindow:Lcom/android/server/wm/WindowState;
+
+    iget-object v2, v2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v2, Landroid/view/WindowManager$LayoutParams;->meizuFlags:I
+
+    and-int/2addr v2, v3
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    :goto_0
+    or-int/2addr p2, v0
+
+    return p2
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method private isFlymeLauncher(Lcom/android/server/wm/WindowStateAnimator;)Z
+    .locals 2
+    .param p1, "winAnimator"    # Lcom/android/server/wm/WindowStateAnimator;
+
+    .prologue
+    const-string v0, "com.meizu.flyme.launcher"
+
+    iget-object v1, p1, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowState;->getOwningPackage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method

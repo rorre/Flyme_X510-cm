@@ -1203,7 +1203,13 @@
     .param p2, "subtype"    # Landroid/view/inputmethod/InputMethodSubtype;
 
     .prologue
-    .line 793
+
+    invoke-static/range {p0 .. p2}, Lcom/android/internal/inputmethod/InputMethodUtils;->getFlymeImeAndSubtypeDisplayName(Landroid/content/Context;Landroid/view/inputmethod/InputMethodInfo;Landroid/view/inputmethod/InputMethodSubtype;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    return-object v0
+
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -1212,16 +1218,13 @@
 
     move-result-object v0
 
-    .line 794
     .local v0, "imiLabel":Ljava/lang/CharSequence;
     if-eqz p2, :cond_0
 
-    .line 795
     const/4 v1, 0x2
 
     new-array v2, v1, [Ljava/lang/CharSequence;
 
-    .line 796
     invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -1232,7 +1235,6 @@
 
     iget-object v3, v3, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    .line 795
     invoke-virtual {p2, p0, v1, v3}, Landroid/view/inputmethod/InputMethodSubtype;->getDisplayName(Landroid/content/Context;Ljava/lang/String;Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -1241,40 +1243,34 @@
 
     aput-object v1, v2, v3
 
-    .line 797
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 798
-    const-string/jumbo v1, ""
+    const-string v1, ""
 
-    .line 797
     :goto_0
     const/4 v3, 0x1
 
     aput-object v1, v2, v3
 
-    .line 795
     invoke-static {v2}, Landroid/text/TextUtils;->concat([Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 794
     .end local v0    # "imiLabel":Ljava/lang/CharSequence;
     :cond_0
     return-object v0
 
-    .line 798
     .restart local v0    # "imiLabel":Ljava/lang/CharSequence;
     :cond_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, " - "
+    const-string v3, " - "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1309,7 +1305,6 @@
     .end annotation
 
     .prologue
-    .line 513
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v2
@@ -1318,13 +1313,11 @@
 
     move-result-object v1
 
-    .line 515
     .local v1, "systemLocales":Landroid/os/LocaleList;
     sget-object v3, Lcom/android/internal/inputmethod/InputMethodUtils;->sCacheLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 518
     :try_start_0
     sget-object v2, Lcom/android/internal/inputmethod/InputMethodUtils;->sCachedSystemLocales:Landroid/os/LocaleList;
 
@@ -1338,7 +1331,6 @@
 
     if-ne v2, p1, :cond_0
 
-    .line 519
     new-instance v2, Ljava/util/ArrayList;
 
     sget-object v4, Lcom/android/internal/inputmethod/InputMethodUtils;->sCachedResult:Ljava/util/ArrayList;
@@ -1354,25 +1346,20 @@
     :cond_0
     monitor-exit v3
 
-    .line 527
     invoke-static {p0, p1}, Lcom/android/internal/inputmethod/InputMethodUtils;->getImplicitlyApplicableSubtypesLockedImpl(Landroid/content/res/Resources;Landroid/view/inputmethod/InputMethodInfo;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 528
     .local v0, "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     sget-object v3, Lcom/android/internal/inputmethod/InputMethodUtils;->sCacheLock:Ljava/lang/Object;
 
     monitor-enter v3
 
-    .line 530
     :try_start_1
     sput-object v1, Lcom/android/internal/inputmethod/InputMethodUtils;->sCachedSystemLocales:Landroid/os/LocaleList;
 
-    .line 531
     sput-object p1, Lcom/android/internal/inputmethod/InputMethodUtils;->sCachedInputMethodInfo:Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 532
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
@@ -1383,10 +1370,8 @@
 
     monitor-exit v3
 
-    .line 534
     return-object v0
 
-    .line 515
     .end local v0    # "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     :catchall_0
     move-exception v2
@@ -1395,7 +1380,6 @@
 
     throw v2
 
-    .line 528
     .restart local v0    # "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     :catchall_1
     move-exception v2
@@ -1423,12 +1407,10 @@
     .end annotation
 
     .prologue
-    .line 539
     invoke-static/range {p1 .. p1}, Lcom/android/internal/inputmethod/InputMethodUtils;->getSubtypes(Landroid/view/inputmethod/InputMethodInfo;)Ljava/util/ArrayList;
 
     move-result-object v19
 
-    .line 540
     .local v19, "subtypes":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-virtual/range {p0 .. p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
@@ -1438,7 +1420,6 @@
 
     move-result-object v21
 
-    .line 541
     .local v21, "systemLocales":Landroid/os/LocaleList;
     const/16 v22, 0x0
 
@@ -1450,7 +1431,6 @@
 
     move-result-object v20
 
-    .line 542
     .local v20, "systemLocale":Ljava/lang/String;
     invoke-static/range {v20 .. v20}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1464,19 +1444,16 @@
 
     return-object v22
 
-    .line 543
     :cond_0
     invoke-interface/range {v19 .. v19}, Ljava/util/List;->size()I
 
     move-result v15
 
-    .line 546
     .local v15, "numSubtypes":I
     new-instance v5, Ljava/util/HashMap;
 
     invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
 
-    .line 547
     .local v5, "applicableModeAndSubtypesMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/view/inputmethod/InputMethodSubtype;>;"
     const/4 v8, 0x0
 
@@ -1484,7 +1461,6 @@
     :goto_0
     if-ge v8, v15, :cond_2
 
-    .line 549
     move-object/from16 v0, v19
 
     invoke-interface {v0, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1493,7 +1469,6 @@
 
     check-cast v16, Landroid/view/inputmethod/InputMethodSubtype;
 
-    .line 550
     .local v16, "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual/range {v16 .. v16}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
 
@@ -1501,12 +1476,10 @@
 
     if-eqz v22, :cond_1
 
-    .line 551
     invoke-virtual/range {v16 .. v16}, Landroid/view/inputmethod/InputMethodSubtype;->getMode()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 552
     .local v11, "mode":Ljava/lang/String;
     invoke-virtual {v5, v11}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
@@ -1514,19 +1487,16 @@
 
     if-nez v22, :cond_1
 
-    .line 553
     move-object/from16 v0, v16
 
     invoke-virtual {v5, v11, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 547
     .end local v11    # "mode":Ljava/lang/String;
     :cond_1
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_0
 
-    .line 557
     .end local v16    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_2
     invoke-virtual {v5}, Ljava/util/HashMap;->size()I
@@ -1535,7 +1505,6 @@
 
     if-lez v22, :cond_3
 
-    .line 558
     new-instance v22, Ljava/util/ArrayList;
 
     invoke-virtual {v5}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -1546,26 +1515,22 @@
 
     return-object v22
 
-    .line 562
     :cond_3
     new-instance v12, Ljava/util/HashMap;
 
     invoke-direct {v12}, Ljava/util/HashMap;-><init>()V
 
-    .line 563
     .local v12, "nonKeyboardSubtypesMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;>;"
     new-instance v9, Ljava/util/ArrayList;
 
     invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
-    .line 565
     .local v9, "keyboardSubtypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     const/4 v8, 0x0
 
     :goto_1
     if-ge v8, v15, :cond_6
 
-    .line 566
     move-object/from16 v0, v19
 
     invoke-interface {v0, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1574,15 +1539,13 @@
 
     check-cast v16, Landroid/view/inputmethod/InputMethodSubtype;
 
-    .line 567
     .restart local v16    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual/range {v16 .. v16}, Landroid/view/inputmethod/InputMethodSubtype;->getMode()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 568
     .restart local v11    # "mode":Ljava/lang/String;
-    const-string/jumbo v22, "keyboard"
+    const-string v22, "keyboard"
 
     move-object/from16 v0, v22
 
@@ -1592,18 +1555,15 @@
 
     if-eqz v22, :cond_4
 
-    .line 569
     move-object/from16 v0, v16
 
     invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 565
     :goto_2
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
-    .line 571
     :cond_4
     invoke-virtual {v12, v11}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
@@ -1611,7 +1571,6 @@
 
     if-nez v22, :cond_5
 
-    .line 572
     new-instance v22, Ljava/util/ArrayList;
 
     invoke-direct/range {v22 .. v22}, Ljava/util/ArrayList;-><init>()V
@@ -1620,7 +1579,6 @@
 
     invoke-virtual {v12, v11, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 574
     :cond_5
     invoke-virtual {v12, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1636,7 +1594,6 @@
 
     goto :goto_2
 
-    .line 578
     .end local v11    # "mode":Ljava/lang/String;
     .end local v16    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_6
@@ -1644,7 +1601,6 @@
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
-    .line 579
     .local v6, "applicableSubtypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     sget-object v22, Lcom/android/internal/inputmethod/InputMethodUtils;->sSubtypeToLocale:Lcom/android/internal/inputmethod/LocaleUtils$LocaleExtractor;
 
@@ -1654,39 +1610,33 @@
 
     invoke-static {v9, v0, v1, v6}, Lcom/android/internal/inputmethod/LocaleUtils;->filterByLanguage(Ljava/util/List;Lcom/android/internal/inputmethod/LocaleUtils$LocaleExtractor;Landroid/os/LocaleList;Ljava/util/ArrayList;)V
 
-    .line 582
     invoke-virtual {v6}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v22
 
     if-nez v22, :cond_a
 
-    .line 583
     const/4 v7, 0x0
 
-    .line 584
     .local v7, "hasAsciiCapableKeyboard":Z
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v13
 
-    .line 585
     .local v13, "numApplicationSubtypes":I
     const/4 v8, 0x0
 
     :goto_3
     if-ge v8, v13, :cond_7
 
-    .line 586
     invoke-virtual {v6, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v16
 
     check-cast v16, Landroid/view/inputmethod/InputMethodSubtype;
 
-    .line 587
     .restart local v16    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
-    const-string/jumbo v22, "AsciiCapable"
+    const-string v22, "AsciiCapable"
 
     move-object/from16 v0, v16
 
@@ -1698,42 +1648,35 @@
 
     if-eqz v22, :cond_9
 
-    .line 588
     const/4 v7, 0x1
 
-    .line 592
     .end local v16    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_7
     if-nez v7, :cond_a
 
-    .line 593
     invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
     move-result v14
 
-    .line 594
     .local v14, "numKeyboardSubtypes":I
     const/4 v8, 0x0
 
     :goto_4
     if-ge v8, v14, :cond_a
 
-    .line 595
     invoke-virtual {v9, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v16
 
     check-cast v16, Landroid/view/inputmethod/InputMethodSubtype;
 
-    .line 596
     .restart local v16    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual/range {v16 .. v16}, Landroid/view/inputmethod/InputMethodSubtype;->getMode()Ljava/lang/String;
 
     move-result-object v11
 
-    .line 597
     .restart local v11    # "mode":Ljava/lang/String;
-    const-string/jumbo v22, "keyboard"
+    const-string v22, "keyboard"
 
     move-object/from16 v0, v22
 
@@ -1743,10 +1686,8 @@
 
     if-eqz v22, :cond_8
 
-    .line 598
-    const-string/jumbo v22, "EnabledWhenDefaultIsNotAsciiCapable"
+    const-string v22, "EnabledWhenDefaultIsNotAsciiCapable"
 
-    .line 597
     move-object/from16 v0, v16
 
     move-object/from16 v1, v22
@@ -1757,18 +1698,15 @@
 
     if-eqz v22, :cond_8
 
-    .line 599
     move-object/from16 v0, v16
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 594
     :cond_8
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_4
 
-    .line 585
     .end local v11    # "mode":Ljava/lang/String;
     .end local v14    # "numKeyboardSubtypes":I
     :cond_9
@@ -1776,7 +1714,6 @@
 
     goto :goto_3
 
-    .line 605
     .end local v7    # "hasAsciiCapableKeyboard":Z
     .end local v13    # "numApplicationSubtypes":I
     .end local v16    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
@@ -1787,12 +1724,10 @@
 
     if-eqz v22, :cond_b
 
-    .line 607
-    const-string/jumbo v22, "keyboard"
+    const-string v22, "keyboard"
 
     const/16 v23, 0x1
 
-    .line 606
     move-object/from16 v0, p0
 
     move-object/from16 v1, v19
@@ -1807,14 +1742,11 @@
 
     move-result-object v10
 
-    .line 608
     .local v10, "lastResortKeyboardSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     if-eqz v10, :cond_b
 
-    .line 609
     invoke-virtual {v6, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 614
     .end local v10    # "lastResortKeyboardSubtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_b
     invoke-virtual {v12}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -1839,7 +1771,6 @@
 
     check-cast v17, Ljava/util/ArrayList;
 
-    .line 615
     .local v17, "subtypeList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     sget-object v22, Lcom/android/internal/inputmethod/InputMethodUtils;->sSubtypeToLocale:Lcom/android/internal/inputmethod/LocaleUtils$LocaleExtractor;
 
@@ -1853,7 +1784,6 @@
 
     goto :goto_5
 
-    .line 619
     .end local v17    # "subtypeList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     :cond_c
     return-object v6
@@ -1866,21 +1796,17 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 627
     const/16 v1, 0x5f
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    .line 628
     .local v0, "idx":I
     if-gez v0, :cond_0
 
-    .line 629
     return-object p0
 
-    .line 631
     :cond_0
     invoke-virtual {p0, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -1915,16 +1841,14 @@
 
     const/4 v3, 0x1
 
-    .line 319
     new-instance v0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;-><init>(Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;)V
 
-    .line 321
     .local v0, "builder":Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -1934,22 +1858,18 @@
 
     move v5, v3
 
-    .line 320
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 322
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 323
     return-object v0
 
-    .line 326
     :cond_0
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -1959,22 +1879,18 @@
 
     move v5, v7
 
-    .line 325
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 327
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 328
     return-object v0
 
-    .line 331
     :cond_1
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -1984,22 +1900,18 @@
 
     move v5, v3
 
-    .line 330
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 332
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 333
     return-object v0
 
-    .line 336
     :cond_2
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -2009,22 +1921,18 @@
 
     move v5, v7
 
-    .line 335
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 337
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_3
 
-    .line 338
     return-object v0
 
-    .line 341
     :cond_3
-    const-string/jumbo v10, "keyboard"
+    const-string v10, "keyboard"
 
     move-object v4, v0
 
@@ -2036,22 +1944,18 @@
 
     move v9, v3
 
-    .line 340
     invoke-virtual/range {v4 .. v10}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 342
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_4
 
-    .line 343
     return-object v0
 
-    .line 346
     :cond_4
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -2063,28 +1967,24 @@
 
     move v5, v7
 
-    .line 345
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 347
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_5
 
-    .line 348
     return-object v0
 
-    .line 350
     :cond_5
-    const-string/jumbo v1, "InputMethodUtils"
+    const-string v1, "InputMethodUtils"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "No software keyboard is found. imis="
+    const-string v3, "No software keyboard is found. imis="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2102,10 +2002,8 @@
 
     move-result-object v2
 
-    .line 351
-    const-string/jumbo v3, " systemLocale="
+    const-string v3, " systemLocale="
 
-    .line 350
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -2114,10 +2012,8 @@
 
     move-result-object v2
 
-    .line 351
-    const-string/jumbo v3, " fallbackLocale="
+    const-string v3, " fallbackLocale="
 
-    .line 350
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -2132,7 +2028,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 352
     return-object v0
 .end method
 
@@ -2160,16 +2055,14 @@
 
     const/4 v7, 0x0
 
-    .line 280
     new-instance v0, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, v1}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;-><init>(Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;)V
 
-    .line 282
     .local v0, "builder":Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -2179,22 +2072,18 @@
 
     move v5, v3
 
-    .line 281
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 283
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 284
     return-object v0
 
-    .line 287
     :cond_0
-    const-string/jumbo v10, "keyboard"
+    const-string v10, "keyboard"
 
     move-object v4, v0
 
@@ -2206,22 +2095,18 @@
 
     move v9, v3
 
-    .line 286
     invoke-virtual/range {v4 .. v10}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 288
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 289
     return-object v0
 
-    .line 292
     :cond_1
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -2231,22 +2116,18 @@
 
     move v5, v7
 
-    .line 291
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 293
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 294
     return-object v0
 
-    .line 297
     :cond_2
-    const-string/jumbo v6, "keyboard"
+    const-string v6, "keyboard"
 
     move-object v1, p0
 
@@ -2258,28 +2139,24 @@
 
     move v5, v7
 
-    .line 296
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->fillImes(Ljava/util/ArrayList;Landroid/content/Context;ZLjava/util/Locale;ZLjava/lang/String;)Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;
 
-    .line 298
     invoke-virtual {v0}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodListBuilder;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_3
 
-    .line 299
     return-object v0
 
-    .line 301
     :cond_3
-    const-string/jumbo v1, "InputMethodUtils"
+    const-string v1, "InputMethodUtils"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "No software keyboard is found. imis="
+    const-string v3, "No software keyboard is found. imis="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2297,10 +2174,8 @@
 
     move-result-object v2
 
-    .line 302
-    const-string/jumbo v3, " fallbackLocale="
+    const-string v3, " fallbackLocale="
 
-    .line 301
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
@@ -2315,7 +2190,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 303
     return-object v0
 .end method
 
@@ -2338,7 +2212,6 @@
 
     const/4 v5, 0x0
 
-    .line 461
     if-eqz p0, :cond_0
 
     invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
@@ -2347,37 +2220,30 @@
 
     if-eqz v3, :cond_1
 
-    .line 462
     :cond_0
     return-object v4
 
-    .line 465
     :cond_1
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
-    .line 466
     .local v1, "i":I
     const/4 v0, -0x1
 
-    .line 467
     .local v0, "firstFoundSystemIme":I
     :cond_2
     :goto_0
     if-lez v1, :cond_4
 
-    .line 468
     add-int/lit8 v1, v1, -0x1
 
-    .line 469
     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 470
     .local v2, "imi":Landroid/view/inputmethod/InputMethodInfo;
     invoke-virtual {v2}, Landroid/view/inputmethod/InputMethodInfo;->isAuxiliaryIme()Z
 
@@ -2385,31 +2251,24 @@
 
     if-nez v3, :cond_2
 
-    .line 473
     invoke-static {v2}, Lcom/android/internal/inputmethod/InputMethodUtils;->isSystemIme(Landroid/view/inputmethod/InputMethodInfo;)Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    .line 474
     sget-object v3, Lcom/android/internal/inputmethod/InputMethodUtils;->ENGLISH_LOCALE:Ljava/util/Locale;
 
-    .line 475
-    const-string/jumbo v4, "keyboard"
+    const-string v4, "keyboard"
 
-    .line 474
     invoke-static {v2, v3, v5, v4}, Lcom/android/internal/inputmethod/InputMethodUtils;->containsSubtypeOf(Landroid/view/inputmethod/InputMethodInfo;Ljava/util/Locale;ZLjava/lang/String;)Z
 
     move-result v3
 
-    .line 473
     if-eqz v3, :cond_3
 
-    .line 476
     return-object v2
 
-    .line 478
     :cond_3
     if-gez v0, :cond_2
 
@@ -2419,12 +2278,10 @@
 
     if-eqz v3, :cond_2
 
-    .line 479
     move v0, v1
 
     goto :goto_0
 
-    .line 482
     .end local v2    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_4
     invoke-static {v0, v5}, Ljava/lang/Math;->max(II)I
@@ -2458,18 +2315,15 @@
     .end annotation
 
     .prologue
-    .line 449
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 450
     .local v3, "subtypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
 
     move-result v2
 
-    .line 451
     .local v2, "subtypeCount":I
     const/4 v0, 0x0
 
@@ -2477,12 +2331,10 @@
     :goto_0
     if-ge v0, v2, :cond_1
 
-    .line 452
     invoke-virtual {p0, v0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
 
     move-result-object v1
 
-    .line 453
     .local v1, "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v1}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
 
@@ -2500,16 +2352,13 @@
 
     if-eqz v4, :cond_0
 
-    .line 454
     invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 451
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 457
     .end local v1    # "subtype":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_1
     return-object v3
@@ -2521,15 +2370,12 @@
     .param p1, "subtypeHashCode"    # I
 
     .prologue
-    .line 490
     if-eqz p0, :cond_1
 
-    .line 491
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
 
     move-result v2
 
-    .line 492
     .local v2, "subtypeCount":I
     const/4 v0, 0x0
 
@@ -2537,12 +2383,10 @@
     :goto_0
     if-ge v0, v2, :cond_1
 
-    .line 493
     invoke-virtual {p0, v0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
 
     move-result-object v1
 
-    .line 494
     .local v1, "ims":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v1}, Landroid/view/inputmethod/InputMethodSubtype;->hashCode()I
 
@@ -2550,16 +2394,13 @@
 
     if-ne p1, v3, :cond_0
 
-    .line 495
     return v0
 
-    .line 492
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 499
     .end local v0    # "i":I
     .end local v1    # "ims":Landroid/view/inputmethod/InputMethodSubtype;
     .end local v2    # "subtypeCount":I
@@ -2585,18 +2426,15 @@
     .end annotation
 
     .prologue
-    .line 439
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 440
     .local v2, "subtypes":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/view/inputmethod/InputMethodSubtype;>;"
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
 
     move-result v1
 
-    .line 441
     .local v1, "subtypeCount":I
     const/4 v0, 0x0
 
@@ -2604,19 +2442,16 @@
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 442
     invoke-virtual {p0, v0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 441
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 444
     :cond_0
     return-object v2
 .end method
@@ -2637,15 +2472,12 @@
     .end annotation
 
     .prologue
-    .line 1499
     if-eqz p0, :cond_a
 
-    .line 1500
     invoke-virtual {p0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1501
     .local v4, "language":Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2655,14 +2487,12 @@
 
     const/4 v2, 0x0
 
-    .line 1502
     .local v2, "hasLanguage":Z
     :goto_0
     invoke-virtual {p0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1503
     .local v0, "country":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2672,14 +2502,12 @@
 
     const/4 v1, 0x0
 
-    .line 1504
     .local v1, "hasCountry":Z
     :goto_1
     invoke-virtual {p0}, Ljava/util/Locale;->getVariant()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 1505
     .local v9, "variant":Ljava/lang/String;
     invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2689,7 +2517,6 @@
 
     const/4 v3, 0x0
 
-    .line 1506
     .local v3, "hasVariant":Z
     :goto_2
     if-eqz v2, :cond_7
@@ -2698,32 +2525,26 @@
 
     if-eqz v3, :cond_7
 
-    .line 1507
     new-instance v8, Ljava/util/Locale;
 
     invoke-direct {v8, v4, v0, v9}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1511
     :goto_3
     if-eqz v2, :cond_8
 
     if-eqz v1, :cond_8
 
-    .line 1512
     new-instance v7, Ljava/util/Locale;
 
     invoke-direct {v7, v4, v0}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1516
     :goto_4
     if-eqz v2, :cond_9
 
-    .line 1517
     new-instance v6, Ljava/util/Locale;
 
     invoke-direct {v6, v4}, Ljava/util/Locale;-><init>(Ljava/lang/String;)V
 
-    .line 1527
     .end local v0    # "country":Ljava/lang/String;
     .end local v1    # "hasCountry":Z
     .end local v2    # "hasLanguage":Z
@@ -2735,14 +2556,11 @@
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1528
     .local v5, "locales":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/Locale;>;"
     if-eqz v8, :cond_0
 
-    .line 1529
     invoke-virtual {v5, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1532
     :cond_0
     sget-object v10, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
@@ -2752,16 +2570,12 @@
 
     if-eqz v10, :cond_c
 
-    .line 1533
     if-eqz v7, :cond_b
 
-    .line 1540
     if-eqz v7, :cond_1
 
-    .line 1541
     invoke-virtual {v5, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1543
     :cond_1
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_US:Ljava/util/Locale;
 
@@ -2771,12 +2585,10 @@
 
     if-nez v10, :cond_2
 
-    .line 1544
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_US:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1546
     :cond_2
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_GB:Ljava/util/Locale;
 
@@ -2786,22 +2598,18 @@
 
     if-nez v10, :cond_3
 
-    .line 1547
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_GB:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1549
     :cond_3
     sget-object v10, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1577
     :goto_6
     return-object v5
 
-    .line 1501
     .end local v5    # "locales":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/util/Locale;>;"
     .restart local v4    # "language":Ljava/lang/String;
     :cond_4
@@ -2810,7 +2618,6 @@
     .restart local v2    # "hasLanguage":Z
     goto :goto_0
 
-    .line 1503
     .restart local v0    # "country":Ljava/lang/String;
     :cond_5
     const/4 v1, 0x1
@@ -2818,7 +2625,6 @@
     .restart local v1    # "hasCountry":Z
     goto :goto_1
 
-    .line 1505
     .restart local v9    # "variant":Ljava/lang/String;
     :cond_6
     const/4 v3, 0x1
@@ -2826,14 +2632,12 @@
     .restart local v3    # "hasVariant":Z
     goto :goto_2
 
-    .line 1509
     :cond_7
     const/4 v8, 0x0
 
     .local v8, "systemLocaleLanguageCountryVariant":Ljava/util/Locale;
     goto :goto_3
 
-    .line 1514
     .end local v8    # "systemLocaleLanguageCountryVariant":Ljava/util/Locale;
     :cond_8
     const/4 v7, 0x0
@@ -2841,7 +2645,6 @@
     .local v7, "systemLocaleLanguageCountry":Ljava/util/Locale;
     goto :goto_4
 
-    .line 1519
     .end local v7    # "systemLocaleLanguageCountry":Ljava/util/Locale;
     :cond_9
     const/4 v6, 0x0
@@ -2849,7 +2652,6 @@
     .local v6, "systemLocaleLanguage":Ljava/util/Locale;
     goto :goto_5
 
-    .line 1522
     .end local v0    # "country":Ljava/lang/String;
     .end local v1    # "hasCountry":Z
     .end local v2    # "hasLanguage":Z
@@ -2860,18 +2662,15 @@
     :cond_a
     const/4 v8, 0x0
 
-    .line 1523
     .restart local v8    # "systemLocaleLanguageCountryVariant":Ljava/util/Locale;
     const/4 v7, 0x0
 
-    .line 1524
     .restart local v7    # "systemLocaleLanguageCountry":Ljava/util/Locale;
     const/4 v6, 0x0
 
     .restart local v6    # "systemLocaleLanguage":Ljava/util/Locale;
     goto :goto_5
 
-    .line 1556
     .end local v6    # "systemLocaleLanguage":Ljava/util/Locale;
     .end local v7    # "systemLocaleLanguageCountry":Ljava/util/Locale;
     .end local v8    # "systemLocaleLanguageCountryVariant":Ljava/util/Locale;
@@ -2881,44 +2680,35 @@
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1557
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_US:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1558
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_GB:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_6
 
-    .line 1567
     :cond_c
     if-eqz v7, :cond_d
 
-    .line 1568
     invoke-virtual {v5, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1570
     :cond_d
     if-eqz v6, :cond_e
 
-    .line 1571
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1573
     :cond_e
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_US:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1574
     sget-object v10, Lcom/android/internal/inputmethod/InputMethodUtils;->LOCALE_EN_GB:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1575
     sget-object v10, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     invoke-virtual {v5, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -2931,7 +2721,6 @@
     .param p0, "context"    # Landroid/content/Context;
 
     .prologue
-    .line 201
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -2947,11 +2736,9 @@
 
     return-object v1
 
-    .line 202
     :catch_0
     move-exception v0
 
-    .line 203
     .local v0, "ex":Landroid/content/res/Resources$NotFoundException;
     const/4 v1, 0x0
 
@@ -2967,17 +2754,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 180
     invoke-static {p0}, Lcom/android/internal/inputmethod/InputMethodUtils;->isSystemIme(Landroid/view/inputmethod/InputMethodInfo;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 181
     return v4
 
-    .line 183
     :cond_0
     if-eqz p2, :cond_1
 
@@ -2987,7 +2771,6 @@
 
     if-eqz v3, :cond_2
 
-    .line 186
     :cond_1
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->isAuxiliaryIme()Z
 
@@ -2995,20 +2778,16 @@
 
     if-nez v3, :cond_3
 
-    .line 187
     return v4
 
-    .line 184
     :cond_2
     return v4
 
-    .line 189
     :cond_3
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeCount()I
 
     move-result v2
 
-    .line 190
     .local v2, "subtypeCount":I
     const/4 v0, 0x0
 
@@ -3016,12 +2795,10 @@
     :goto_0
     if-ge v0, v2, :cond_5
 
-    .line 191
     invoke-virtual {p0, v0}, Landroid/view/inputmethod/InputMethodInfo;->getSubtypeAt(I)Landroid/view/inputmethod/InputMethodSubtype;
 
     move-result-object v1
 
-    .line 192
     .local v1, "s":Landroid/view/inputmethod/InputMethodSubtype;
     invoke-virtual {v1}, Landroid/view/inputmethod/InputMethodSubtype;->overridesImplicitlyEnabledSubtype()Z
 
@@ -3029,18 +2806,15 @@
 
     if-eqz v3, :cond_4
 
-    .line 193
     const/4 v3, 0x1
 
     return v3
 
-    .line 190
     :cond_4
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 196
     .end local v1    # "s":Landroid/view/inputmethod/InputMethodSubtype;
     :cond_5
     return v4
@@ -3053,7 +2827,6 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 128
     invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
 
     move-result-object v1
@@ -3084,17 +2857,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 136
     invoke-static {p0}, Lcom/android/internal/inputmethod/InputMethodUtils;->isSystemIme(Landroid/view/inputmethod/InputMethodInfo;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 137
     return v1
 
-    .line 139
     :cond_0
     if-eqz p2, :cond_1
 
@@ -3104,7 +2874,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 142
     :cond_1
     invoke-static {p0, p3, p4, p5}, Lcom/android/internal/inputmethod/InputMethodUtils;->containsSubtypeOf(Landroid/view/inputmethod/InputMethodInfo;Ljava/util/Locale;ZLjava/lang/String;)Z
 
@@ -3112,14 +2881,11 @@
 
     if-nez v0, :cond_3
 
-    .line 143
     return v1
 
-    .line 140
     :cond_2
     return v1
 
-    .line 145
     :cond_3
     const/4 v0, 0x1
 
@@ -3132,7 +2898,6 @@
     .param p1, "subtypeHashCode"    # I
 
     .prologue
-    .line 486
     invoke-static {p0, p1}, Lcom/android/internal/inputmethod/InputMethodUtils;->getSubtypeIdFromHashCode(Landroid/view/inputmethod/InputMethodInfo;I)I
 
     move-result v0
@@ -3171,12 +2936,10 @@
     .end annotation
 
     .prologue
-    .line 831
     new-instance v3, Landroid/util/ArrayMap;
 
     invoke-direct {v3}, Landroid/util/ArrayMap;-><init>()V
 
-    .line 832
     .local v3, "imeMap":Landroid/util/ArrayMap;, "Landroid/util/ArrayMap<Ljava/lang/String;Landroid/util/ArraySet<Ljava/lang/String;>;>;"
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -3184,10 +2947,8 @@
 
     if-eqz v7, :cond_0
 
-    .line 833
     return-object v3
 
-    .line 837
     :cond_0
     new-instance v6, Landroid/text/TextUtils$SimpleStringSplitter;
 
@@ -3195,7 +2956,6 @@
 
     invoke-direct {v6, v7}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
 
-    .line 839
     .local v6, "typeSplitter":Landroid/text/TextUtils$SimpleStringSplitter;
     new-instance v4, Landroid/text/TextUtils$SimpleStringSplitter;
 
@@ -3203,13 +2963,11 @@
 
     invoke-direct {v4, v7}, Landroid/text/TextUtils$SimpleStringSplitter;-><init>(C)V
 
-    .line 842
     .local v4, "subtypeSplitter":Landroid/text/TextUtils$SimpleStringSplitter;
     invoke-static {p0, v6, v4}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;->buildInputMethodsAndSubtypeList(Ljava/lang/String;Landroid/text/TextUtils$SimpleStringSplitter;Landroid/text/TextUtils$SimpleStringSplitter;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 845
     .local v0, "allImeSettings":Ljava/util/List;, "Ljava/util/List<Landroid/util/Pair<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;>;"
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -3229,26 +2987,22 @@
 
     check-cast v1, Landroid/util/Pair;
 
-    .line 846
     .local v1, "ime":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     new-instance v5, Landroid/util/ArraySet;
 
     invoke-direct {v5}, Landroid/util/ArraySet;-><init>()V
 
-    .line 847
     .local v5, "subtypes":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     iget-object v7, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     if-eqz v7, :cond_1
 
-    .line 848
     iget-object v7, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v7, Ljava/util/Collection;
 
     invoke-virtual {v5, v7}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
 
-    .line 850
     :cond_1
     iget-object v7, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
@@ -3258,7 +3012,6 @@
 
     goto :goto_0
 
-    .line 852
     .end local v1    # "ime":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     .end local v5    # "subtypes":Landroid/util/ArraySet;, "Landroid/util/ArraySet<Ljava/lang/String;>;"
     :cond_2
@@ -3273,7 +3026,6 @@
     .param p3, "callingPackage"    # Ljava/lang/String;
 
     .prologue
-    .line 764
     :try_start_0
     invoke-interface {p0, p1, p2}, Landroid/content/pm/IPackageManager;->getApplicationEnabledSetting(Ljava/lang/String;I)I
     :try_end_0
@@ -3281,20 +3033,16 @@
 
     move-result v7
 
-    .line 770
     .local v7, "state":I
     if-eqz v7, :cond_0
 
-    .line 771
     const/4 v0, 0x1
 
     if-ne v7, v0, :cond_1
 
-    .line 777
     :cond_0
     const/4 v2, 0x4
 
-    .line 778
     const/4 v3, 0x0
 
     move-object v0, p0
@@ -3305,30 +3053,26 @@
 
     move-object v5, p3
 
-    .line 776
     :try_start_1
     invoke-interface/range {v0 .. v5}, Landroid/content/pm/IPackageManager;->setApplicationEnabledSetting(Ljava/lang/String;IIILjava/lang/String;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 761
     :cond_1
     return-void
 
-    .line 765
     .end local v7    # "state":I
     :catch_0
     move-exception v6
 
-    .line 766
     .local v6, "e":Landroid/os/RemoteException;
-    const-string/jumbo v0, "InputMethodUtils"
+    const-string v0, "InputMethodUtils"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "getApplicationEnabledSetting failed. packageName="
+    const-string v2, "getApplicationEnabledSetting failed. packageName="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3338,10 +3082,8 @@
 
     move-result-object v1
 
-    .line 767
-    const-string/jumbo v2, " userId="
+    const-string v2, " userId="
 
-    .line 766
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -3356,24 +3098,21 @@
 
     invoke-static {v0, v1, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 768
     return-void
 
-    .line 779
     .end local v6    # "e":Landroid/os/RemoteException;
     .restart local v7    # "state":I
     :catch_1
     move-exception v6
 
-    .line 780
     .restart local v6    # "e":Landroid/os/RemoteException;
-    const-string/jumbo v0, "InputMethodUtils"
+    const-string v0, "InputMethodUtils"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "setApplicationEnabledSetting failed. packageName="
+    const-string v2, "setApplicationEnabledSetting failed. packageName="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3383,10 +3122,8 @@
 
     move-result-object v1
 
-    .line 781
-    const-string/jumbo v2, " userId="
+    const-string v2, " userId="
 
-    .line 780
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -3395,10 +3132,8 @@
 
     move-result-object v1
 
-    .line 781
-    const-string/jumbo v2, " callingPackage="
+    const-string v2, " callingPackage="
 
-    .line 780
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
@@ -3413,7 +3148,6 @@
 
     invoke-static {v0, v1, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 782
     return-void
 .end method
 
@@ -3436,21 +3170,17 @@
     .end annotation
 
     .prologue
-    .line 707
     .local p1, "enabledImis":Ljava/util/List;, "Ljava/util/List<Landroid/view/inputmethod/InputMethodInfo;>;"
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v12
 
-    .line 708
-    const v13, 0x1070043
+    const v13, #android:array@config_disabledUntilUsedPreinstalledImes#t
 
-    .line 707
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v11
 
-    .line 709
     .local v11, "systemImesDisabledUntilUsed":[Ljava/lang/String;
     if-eqz v11, :cond_0
 
@@ -3458,11 +3188,9 @@
 
     if-nez v12, :cond_1
 
-    .line 710
     :cond_0
     return-void
 
-    .line 714
     :cond_1
     invoke-static {}, Landroid/view/textservice/TextServicesManager;->getInstance()Landroid/view/textservice/TextServicesManager;
 
@@ -3472,7 +3200,6 @@
 
     move-result-object v4
 
-    .line 715
     .local v4, "currentSpellChecker":Landroid/view/textservice/SpellCheckerInfo;
     const/4 v12, 0x0
 
@@ -3483,11 +3210,9 @@
 
     aget-object v10, v11, v12
 
-    .line 719
     .local v10, "packageName":Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 720
     .local v6, "enabledIme":Z
     const/4 v9, 0x0
 
@@ -3499,7 +3224,6 @@
 
     if-ge v9, v14, :cond_2
 
-    .line 721
     move-object/from16 v0, p1
 
     invoke-interface {v0, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -3508,7 +3232,6 @@
 
     check-cast v7, Landroid/view/inputmethod/InputMethodInfo;
 
-    .line 722
     .local v7, "imi":Landroid/view/inputmethod/InputMethodInfo;
     invoke-virtual {v7}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
 
@@ -3520,34 +3243,28 @@
 
     if-eqz v14, :cond_4
 
-    .line 723
     const/4 v6, 0x1
 
-    .line 727
     .end local v7    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_2
     if-eqz v6, :cond_5
 
-    .line 715
     :cond_3
     :goto_2
     add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 
-    .line 720
     .restart local v7    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_4
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_1
 
-    .line 731
     .end local v7    # "imi":Landroid/view/inputmethod/InputMethodInfo;
     :cond_5
     if-eqz v4, :cond_6
 
-    .line 732
     invoke-virtual {v4}, Landroid/view/textservice/SpellCheckerInfo;->getPackageName()Ljava/lang/String;
 
     move-result-object v14
@@ -3556,18 +3273,14 @@
 
     move-result v14
 
-    .line 731
     if-nez v14, :cond_3
 
-    .line 739
     :cond_6
     const/4 v3, 0x0
 
-    .line 742
     .local v3, "ai":Landroid/content/pm/ApplicationInfo;
     const v14, 0x8000
 
-    .line 741
     :try_start_0
     move-object/from16 v0, p0
 
@@ -3579,11 +3292,9 @@
 
     move-result-object v3
 
-    .line 748
     .local v3, "ai":Landroid/content/pm/ApplicationInfo;
     if-eqz v3, :cond_3
 
-    .line 752
     iget v14, v3, Landroid/content/pm/ApplicationInfo;->flags:I
 
     and-int/lit8 v14, v14, 0x1
@@ -3592,12 +3303,10 @@
 
     const/4 v8, 0x1
 
-    .line 753
     .local v8, "isSystemPackage":Z
     :goto_3
     if-eqz v8, :cond_3
 
-    .line 756
     move-object/from16 v0, p0
 
     move/from16 v1, p2
@@ -3608,21 +3317,19 @@
 
     goto :goto_2
 
-    .line 743
     .end local v8    # "isSystemPackage":Z
     .local v3, "ai":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v5
 
-    .line 744
     .local v5, "e":Landroid/os/RemoteException;
-    const-string/jumbo v14, "InputMethodUtils"
+    const-string v14, "InputMethodUtils"
 
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v16, "getApplicationInfo failed. packageName="
+    const-string v16, "getApplicationInfo failed. packageName="
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3632,10 +3339,8 @@
 
     move-result-object v15
 
-    .line 745
-    const-string/jumbo v16, " userId="
+    const-string v16, " userId="
 
-    .line 744
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v15
@@ -3654,7 +3359,6 @@
 
     goto :goto_2
 
-    .line 752
     .end local v5    # "e":Landroid/os/RemoteException;
     .local v3, "ai":Landroid/content/pm/ApplicationInfo;
     :cond_7
@@ -3662,11 +3366,180 @@
 
     goto :goto_3
 
-    .line 703
     .end local v3    # "ai":Landroid/content/pm/ApplicationInfo;
     .end local v6    # "enabledIme":Z
     .end local v9    # "j":I
     .end local v10    # "packageName":Ljava/lang/String;
     :cond_8
     return-void
+.end method
+
+.method private static getFlymeImeAndSubtypeDisplayName(Landroid/content/Context;Landroid/view/inputmethod/InputMethodInfo;Landroid/view/inputmethod/InputMethodSubtype;)Ljava/lang/CharSequence;
+    .locals 5
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+    .param p2, "subtype"    # Landroid/view/inputmethod/InputMethodSubtype;
+
+    .prologue
+    .line 793
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroid/view/inputmethod/InputMethodInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    .local v0, "imiLabel":Ljava/lang/CharSequence;
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "com.meizu.flyme.input/com.meizu.input.MzInputService"
+
+    invoke-static {v2, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    return-object v0
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+
+    move-result-object v3
+
+    iget-object v3, v3, Landroid/content/pm/ServiceInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    invoke-virtual {p2, p0, v2, v3}, Landroid/view/inputmethod/InputMethodSubtype;->getDisplayName(Landroid/content/Context;Ljava/lang/String;Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    .local v1, "subtypeLabel":Ljava/lang/CharSequence;
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 352
+    return-object v0
+
+    :cond_2
+    const/4 v2, 0x2
+
+    new-array v3, v2, [Ljava/lang/CharSequence;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v3, v2
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const-string v2, ""
+
+    :goto_0
+    const/4 v4, 0x1
+
+    aput-object v2, v3, v4
+
+    invoke-static {v3}, Landroid/text/TextUtils;->concat([Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    return-object v2
+
+    :cond_3
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " - "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+.end method
+
+.method public static isBuildExtAndDefaultIME(Landroid/view/inputmethod/InputMethodInfo;)Z
+    .locals 4
+    .param p0, "imi"    # Landroid/view/inputmethod/InputMethodInfo;
+
+    .prologue
+    invoke-virtual {p0}, Landroid/view/inputmethod/InputMethodInfo;->getId()Ljava/lang/String;
+
+    move-result-object v0
+
+    .local v0, "id":Ljava/lang/String;
+    const-string v3, "com.cootek.smartinputv5/com.cootek.smartinput5.TouchPalIME"
+
+    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-static {}, Landroid/os/BuildExt;->isProductInternational()Z
+
+    move-result v2
+
+    :goto_0
+    const-string v3, "com.syntellia.fleksy.keyboard/.Fleksy"
+
+    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {}, Landroid/os/BuildExt;->isIndiaVersion()Z
+
+    move-result v1
+
+    :goto_1
+    if-nez v2, :cond_2
+
+    :goto_2
+    return v1
+
+    :cond_0
+    const/4 v2, 0x0
+
+    .local v2, "isInternationalAndIMEIntl":Z
+    goto :goto_0
+
+    .end local v2    # "isInternationalAndIMEIntl":Z
+    :cond_1
+    const/4 v1, 0x0
+
+    .local v1, "isIndiaAndDefIME":Z
+    goto :goto_1
+
+    .end local v1    # "isIndiaAndDefIME":Z
+    :cond_2
+    const/4 v1, 0x1
+
+    goto :goto_2
 .end method
