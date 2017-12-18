@@ -1,0 +1,118 @@
+#!/system/bin/sh
+
+mount -o rw,remount /system
+
+ZIPALIGNDB=/data/zipalign.db
+LOG=/data/logs/zipalign.log
+
+if [ -e $LOG ]; then
+  rm $LOG;
+fi;
+
+if [ ! -f $ZIPALIGNDB ]; then
+	touch $ZIPALIGNDB
+fi;
+
+echo "Optimization ZipAlign started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG;
+
+echo "" | tee -a $LOG;
+
+for DIR in /data/app; do
+    cd $DIR
+        for APK in *.apk; do
+        if [ $APK -ot $ZIPALIGNDB ] && [ $(busybox grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ]; then
+            echo "Already checked: $DIR/$APK" >> $LOG
+        else
+            zipalign -c 4 $APK
+            if [ $? -eq 0 ]; then
+                echo "Already aligned: $DIR/$APK" >> $LOG
+                busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+            else
+                echo "Now aligning: $DIR/$APK" >> $LOG
+                zipalign -f 4 $APK /cache/$APK
+                mount -o rw,remount /system
+                cp -f -p /cache/$APK $APK
+                chmod 644 $APK
+                rm -f /cache/$APK
+                busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+            fi;
+        fi;
+    done
+done
+
+for DIR in /system/app; do
+  cd $DIR
+  for APK in *.apk; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(busybox grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ]; then
+      echo "Already checked: $DIR/$APK" >> $LOG
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ]; then
+        echo "Already aligned: $DIR/$APK" >> $LOG
+        busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" >> $LOG
+        zipalign -f 4 $APK /cache/$APK
+        mount -o rw,remount /system
+        cp -f -p /cache/$APK $APK
+		chmod 644 $APK
+        rm -f /cache/$APK
+        busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi;
+    fi;
+  done
+done
+
+for DIR in /system/priv-app; do
+  cd $DIR
+  for APK in *.apk; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(busybox grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ] ; then
+      echo "Already checked: $DIR/$APK" >> $LOG
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ]; then
+        echo "Already aligned: $DIR/$APK" >> $LOG
+        busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" >> $LOG
+        zipalign -f 4 $APK /cache/$APK
+        mount -o rw,remount /system
+        cp -f -p /cache/$APK $APK
+		chmod 644 $APK
+        rm -f /cache/$APK
+        busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi;
+    fi;
+  done
+done
+
+for DIR in /system/framework; do
+  cd $DIR
+  for APK in *.apk ; do
+    if [ $APK -ot $ZIPALIGNDB ] && [ $(busybox grep "$DIR/$APK" $ZIPALIGNDB|wc -l) -gt 0 ]; then
+      echo "Already checked: $DIR/$APK" >> $LOG
+    else
+      zipalign -c 4 $APK
+      if [ $? -eq 0 ]; then
+        echo "Already aligned: $DIR/$APK" >> $LOG
+        busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      else
+        echo "Now aligning: $DIR/$APK" >> $LOG
+        zipalign -f 4 $APK /cache/$APK
+         mount -o rw,remount /system
+        cp -f -p /cache/$APK $APK
+		chmod 644 $APK
+         rm -f /cache/$APK
+        busybox grep "$DIR/$APK" $ZIPALIGNDB > /dev/null || echo $DIR/$APK >> $ZIPALIGNDB
+      fi;
+    fi;
+  done
+done
+
+touch $ZIPALIGNDB
+
+echo "" | tee -a $LOG;
+
+echo "Optimization ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG;
+
+mount -o ro,remount /system

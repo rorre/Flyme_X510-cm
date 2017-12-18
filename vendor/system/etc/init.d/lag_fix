@@ -1,0 +1,21 @@
+#!/system/bin/sh
+
+LOG=/data/logs/fsck.log
+
+if [ -e $LOG ]; then
+     rm $LOG
+fi;
+
+echo "fsck started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG;
+
+echo "" | tee -a $LOG;
+
+if ( mount | grep -w ext4 ) then
+	mount -o noatime,remount,rw,discard,barrier=0,commit=60,noauto_da_alloc,delalloc /cache /cache;
+	mount -o noatime,remount,rw,discard,barrier=0,commit=60,noauto_da_alloc,delalloc /data /data;
+	mount >> /data/logs/fsck.log;
+fi;
+
+echo "" | tee -a $LOG;
+
+echo "fsck finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG;

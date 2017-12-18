@@ -1,0 +1,36 @@
+#!/system/bin/sh
+
+LOG=/data/logs/defraging.log
+
+if [ -e $LOG ]; then
+     rm $LOG;
+fi;
+
+echo "Starting defrags database $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG;
+
+echo "" | tee -a $LOG;
+
+for i in \
+`find /data -iname "*.db"`
+do \
+sqlite3 $i 'VACUUM;';
+echo Defraging successful! $i  | tee -a $LOG;
+done;
+
+for i in \
+`find /dbdata -iname "*.db"`
+do \
+sqlite3 $i 'VACUUM;';
+echo Defraging successful! $i  | tee -a $LOG;
+done;
+
+for i in \
+`find /sdcard -iname "*.db"`
+do \
+sqlite3 $i 'VACUUM;';
+echo Defraging successful! $i  | tee -a $LOG;
+done;
+
+echo "" | tee -a $LOG;
+
+echo "Defraging database finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG;

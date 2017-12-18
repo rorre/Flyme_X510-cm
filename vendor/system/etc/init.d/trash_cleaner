@@ -1,0 +1,13 @@
+#!/system/bin/sh
+
+busybox rm -f /data/anr/*.*
+busybox rm -f /data/cache/*.*
+busybox rm -f /data/log/*.*
+busybox rm -f /data/local/tmp/*.*
+busybox rm -f /data/mlog/*
+busybox rm -f /data/tombstones/*
+busybox rm -f /data/backup/pending/*
+busybox rm -f /data/system/dropbox/*
+busybox chmod 700 /data/system/dropbox
+busybox rm -f /data/system/usagestats/*
+busybox chmod 700 /data/system/usagestats

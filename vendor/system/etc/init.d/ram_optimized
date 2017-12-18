@@ -1,0 +1,17 @@
+#!/system/bin/sh
+
+LOG=/data/logs/minfree.log
+
+if [ -e $LOG ]; then
+     rm $LOG
+fi;
+
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) settings RAM optimized values" | tee -a $LOG;
+
+echo "0,1,3,5,7,15" > /sys/module/lowmemorykiller/parameters/adj;
+
+echo "" | tee -a $LOG;
+
+echo "2560,4096,7680,14336,17284,21240" > /sys/module/lowmemorykiller/parameters/minfree;
+
+echo "$( date +"%m-%d-%Y %H:%M:%S" ) RAM optimized values successfully applied" | tee -a $LOG;

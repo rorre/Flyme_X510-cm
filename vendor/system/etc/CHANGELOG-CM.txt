@@ -1,0 +1,23 @@
+lineage OS 14.1 Changelog v0.1 (Build 2017-10-14) :
+
+-The brightness of the screen does not change(FIXED)
+-Backlighting works when the screen is locked(FIXED)
+-The backlight works when the screen is off during a call(FIXED)
+-Green camera(FIXED)
+-Camera focus(FIXED)
+-Video recording(FIXED, secondary solution with CamU 3rd party app)
+-Low icon signal(FIXED)
+-widget not working after restart(FIXED)
+-Swapped SIM cards(FIXED)
+*All languages have been added
+*USB Connected to PC
+*More Smooth And Stable...
+________
+lineage OS 14.1 Changelog v0.2 (Build 2017-10-19) :
+-Offline charging does not work(FIXED)
+-Green front camera(FIXED)
+-YouTube(FIXED useing [nodpi] Version)
+*OMS support for substratum theme engine
+________
+lineage OS 14.1 Changelog v0.3 (Build 2017-10-19) :
+-Some FC(FIXED)

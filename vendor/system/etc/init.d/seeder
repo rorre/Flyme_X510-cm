@@ -1,0 +1,8 @@
+#!/system/bin/sh
+
+mount -o remount,rw -t auto /data
+rngd -t 2 -T 1 -s 256 --fill-watermark=80%
+sleep 2
+echo -8 > /proc/$(pgrep rngd)/oom_adj
+renice 5 `pidof rngd`
+

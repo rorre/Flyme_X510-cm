@@ -1,0 +1,20 @@
+#!/system/bin/sh
+
+path=`busybox ls -d /sys/block/* 2>/dev/null`;
+for S in $path;
+do
+	if [ -e $S/queue/rotational ]; then
+		busybox echo "0" > $S/queue/rotational;
+	fi;
+	if [ -e $S/queue/iostats ]; then
+		busybox echo "0" > $S/queue/iostats;
+	fi;
+	if [ -e $S/queue/nr_requests ]; then
+		busybox echo "4096" > $S/queue/nr_requests;
+	fi;
+	if [ -e $S/queue/nomerges ]; then
+		busybox echo "1" > $S/queue/nomerges;
+	fi;	
+	
+done
+
