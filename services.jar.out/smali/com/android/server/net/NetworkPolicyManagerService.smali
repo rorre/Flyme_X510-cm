@@ -6026,6 +6026,10 @@
     or-int v5, v4, v9
 
     .local v5, "newUidRules":I
+    invoke-static {p0, p1, v5}, Lcom/android/server/net/NetworkPolicyManagerService$FlymeInjector;->updateFlymeRules(Lcom/android/server/net/NetworkPolicyManagerService;II)I
+
+    move-result v5
+
     if-nez v5, :cond_c
 
     iget-object v9, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mUidRules:Landroid/util/SparseIntArray;

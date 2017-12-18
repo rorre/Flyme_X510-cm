@@ -11930,6 +11930,8 @@
 
     .line 8618
     .local v10, "needsMenu":Z
+	invoke-static/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->setFlymeStatusBarTheme(Lcom/android/server/policy/PhoneWindowManager;)V
+
     if-nez v11, :cond_b
 
     if-nez v13, :cond_b
@@ -21493,6 +21495,8 @@
     .line 2231
     invoke-virtual {v3, v4}, Landroid/view/WindowManagerInternal;->registerAppTransitionListener(Landroid/view/WindowManagerInternal$AppTransitionListener;)V
 
+	invoke-static/range {p0 .. p1}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->initFlymeExtraFields(Lcom/android/server/policy/PhoneWindowManager;Landroid/content/Context;)V
+	
     .line 2234
     move-object/from16 v0, p0
 
@@ -24263,6 +24267,19 @@
 
     .line 4053
     :cond_57
+	
+	invoke-static/range {p0 .. p2}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->handleLongPressOnHeadSetIfNeeded(Lcom/android/server/policy/PhoneWindowManager;Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_flyme_0
+
+    const-wide/16 v4, -0x1
+
+    return-wide v4
+
+    :cond_flyme_0
+	
     const/4 v4, 0x4
 
     move/from16 v0, v31
@@ -26391,7 +26408,11 @@
 
     and-int/2addr v5, v6
 
+<<<<<<< VENDOR #Conflict 3
     if-eqz v5, :cond_33
+======= #@.method public interceptKeyBeforeQueueing@
+    if-nez v19, :cond_flyme_0
+>>>>>>> BOSP #Conflict 3
 
     move-object/from16 v0, p0
 
@@ -26540,7 +26561,7 @@
     :cond_37
     and-int/lit8 v5, v24, 0x1
 
-    if-nez v5, :cond_15
+    if-nez v5, :cond_flyme_0
 
     .line 6850
     move-object/from16 v0, p0
@@ -26577,7 +26598,19 @@
     invoke-virtual {v0, v5}, Landroid/os/Message;->setAsynchronous(Z)V
 
     .line 6854
-    invoke-virtual/range {v21 .. v21}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual/range {v21 .. v21}, 
+	
+	:cond_flyme_0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    move/from16 v2, v16
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->interceptFlymeKeyBeforeQueueing(Lcom/android/server/policy/PhoneWindowManager;Landroid/view/KeyEvent;I)I
+
+    move-result v16
 
     goto/16 :goto_a
 
