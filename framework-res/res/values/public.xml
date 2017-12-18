@@ -9482,17 +9482,10 @@
     <public type="^attr-private" name="layout_ignoreOffset" id="0x011600c3" />
     <public type="^attr-private" name="layout_hasNestedScrollIndicator" id="0x011600c4" />
     <public type="^attr-private" name="cantSaveState" id="0x011600c5" />
-<<<<<<< VENDOR #Conflict 1
     <public type="^attr-private" name="allowViaWhitelist" id="0x011600c6" />
     <public type="^attr-private" name="systemUserOnly" id="0x011600c7" />
     <public type="^attr-private" name="alwaysFocusable" id="0x011600c8" />
     <public type="^attr-private" name="minimalWidth" id="0x011600c9" />
     <public type="^attr-private" name="minimalHeight" id="0x011600ca" />
-=======
-    <public type="^attr-private" name="systemUserOnly" id="0x011600c6" />
-    <public type="^attr-private" name="alwaysFocusable" id="0x011600c7" />
-    <public type="^attr-private" name="minimalWidth" id="0x011600c8" />
-    <public type="^attr-private" name="minimalHeight" id="0x011600c9" />
     <public type="^attr-private" name="needAccessControl" id="0x011600ca" />
->>>>>>> BOSP #Conflict 1
 </resources>
