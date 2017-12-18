@@ -26594,10 +26594,9 @@
     invoke-virtual {v0, v5}, Landroid/os/Message;->setAsynchronous(Z)V
 
     .line 6854
-    invoke-virtual/range {v21 .. v21}, 
+    invoke-virtual/range {v21 .. v21}, Landroid/os/Message;->sendToTarget()V
 	
-	:cond_flyme_0
-
+    :cond_flyme_0
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
