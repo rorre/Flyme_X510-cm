@@ -907,3 +907,14 @@
 
     return v0
 .end method
+
+.method public updateMultiOpenAppData(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 1
+    .param p1, "source"    # Ljava/lang/String;
+    .param p2, "target"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v0, 0x0
+
+    return v0
+.end method

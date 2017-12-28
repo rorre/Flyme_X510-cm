@@ -28,41 +28,43 @@
 
 .field static final TRANSACTION_backupData:I = 0x1
 
-.field static final TRANSACTION_changeInterceptPackage:I = 0x9
+.field static final TRANSACTION_changeInterceptPackage:I = 0xa
 
-.field static final TRANSACTION_changeMayForbitPackage:I = 0xf
+.field static final TRANSACTION_changeMayForbitPackage:I = 0x10
 
-.field static final TRANSACTION_getInterceptPackage:I = 0x7
+.field static final TRANSACTION_getInterceptPackage:I = 0x8
 
-.field static final TRANSACTION_getInternalAppList:I = 0x5
+.field static final TRANSACTION_getInternalAppList:I = 0x6
 
-.field static final TRANSACTION_getMayForbitPackage:I = 0xd
+.field static final TRANSACTION_getMayForbitPackage:I = 0xe
 
-.field static final TRANSACTION_getPackageActivateState:I = 0x6
+.field static final TRANSACTION_getPackageActivateState:I = 0x7
 
-.field static final TRANSACTION_getPackageInfoForVersion:I = 0x4
+.field static final TRANSACTION_getPackageInfoForVersion:I = 0x5
 
-.field static final TRANSACTION_getProtectionState:I = 0xb
+.field static final TRANSACTION_getProtectionState:I = 0xc
 
-.field static final TRANSACTION_getSystemAppPath:I = 0x12
+.field static final TRANSACTION_getSystemAppPath:I = 0x13
 
-.field static final TRANSACTION_getSystemAppRecord:I = 0x11
+.field static final TRANSACTION_getSystemAppRecord:I = 0x12
 
-.field static final TRANSACTION_isMzApp:I = 0x13
+.field static final TRANSACTION_isMzApp:I = 0x14
 
-.field static final TRANSACTION_resetVersion:I = 0x3
+.field static final TRANSACTION_resetVersion:I = 0x4
 
-.field static final TRANSACTION_setInterceptPackage:I = 0x8
+.field static final TRANSACTION_setInterceptPackage:I = 0x9
 
-.field static final TRANSACTION_setKeyGuardPackage:I = 0x10
+.field static final TRANSACTION_setKeyGuardPackage:I = 0x11
 
-.field static final TRANSACTION_setMayForbitPackage:I = 0xe
+.field static final TRANSACTION_setMayForbitPackage:I = 0xf
 
-.field static final TRANSACTION_setProtectionState:I = 0xc
+.field static final TRANSACTION_setProtectionState:I = 0xd
 
-.field static final TRANSACTION_syncPackageState:I = 0xa
+.field static final TRANSACTION_syncPackageState:I = 0xb
 
-.field static final TRANSACTION_updatePermissions:I = 0x2
+.field static final TRANSACTION_updateMultiOpenAppData:I = 0x2
+
+.field static final TRANSACTION_updatePermissions:I = 0x3
 
 
 # direct methods
@@ -226,6 +228,51 @@
     move-result-object v2
 
     .restart local v2    # "_arg0":Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v7
+
+    .restart local v7    # "_arg1":Ljava/lang/String;
+    invoke-virtual {p0, v2, v7}, Landroid/content/pm/IFlymePackageManager$Stub;->updateMultiOpenAppData(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v13
+
+    .restart local v13    # "_result":Z
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v13, :cond_1
+
+    const/4 v14, 0x1
+
+    :goto_1
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :cond_1
+    const/4 v14, 0x0
+
+    goto :goto_1
+
+    .end local v2    # "_arg0":Ljava/lang/String;
+    .end local v7    # "_arg1":Ljava/lang/String;
+    .end local v13    # "_result":Z
+    :sswitch_3
+    const-string v14, "android.content.pm.IFlymePackageManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .restart local v2    # "_arg0":Ljava/lang/String;
     invoke-virtual {p0, v2}, Landroid/content/pm/IFlymePackageManager$Stub;->updatePermissions(Ljava/lang/String;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
@@ -235,7 +282,7 @@
     return v14
 
     .end local v2    # "_arg0":Ljava/lang/String;
-    :sswitch_3
+    :sswitch_4
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -256,7 +303,7 @@
     return v14
 
     .end local v2    # "_arg0":Ljava/lang/String;
-    :sswitch_4
+    :sswitch_5
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -280,7 +327,7 @@
     .local v10, "_result":Landroid/content/pm/PackageInfo;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_2
 
     const/4 v14, 0x1
 
@@ -294,24 +341,24 @@
 
     invoke-virtual {v10, v0, v14}, Landroid/content/pm/PackageInfo;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :goto_1
+    :goto_2
     const/4 v14, 0x1
 
     return v14
 
-    :cond_1
+    :cond_2
     const/4 v14, 0x0
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v5    # "_arg1":I
     .end local v10    # "_result":Landroid/content/pm/PackageInfo;
-    :sswitch_5
+    :sswitch_6
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -334,7 +381,7 @@
     return v14
 
     .end local v12    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :sswitch_6
+    :sswitch_7
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -353,11 +400,11 @@
     .restart local v13    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v13, :cond_2
+    if-eqz v13, :cond_3
 
     const/4 v14, 0x1
 
-    :goto_2
+    :goto_3
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
@@ -366,14 +413,14 @@
 
     return v14
 
-    :cond_2
+    :cond_3
     const/4 v14, 0x0
 
-    goto :goto_2
+    goto :goto_3
 
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v13    # "_result":Z
-    :sswitch_7
+    :sswitch_8
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -396,7 +443,7 @@
     return v14
 
     .end local v12    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :sswitch_8
+    :sswitch_9
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -417,7 +464,7 @@
     return v14
 
     .end local v3    # "_arg0":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :sswitch_9
+    :sswitch_a
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -433,72 +480,13 @@
 
     move-result v14
 
-    if-eqz v14, :cond_3
+    if-eqz v14, :cond_4
 
     const/4 v8, 0x1
 
     .local v8, "_arg1":Z
-    :goto_3
-    invoke-virtual {p0, v2, v8}, Landroid/content/pm/IFlymePackageManager$Stub;->changeInterceptPackage(Ljava/lang/String;Z)Z
-
-    move-result v13
-
-    .restart local v13    # "_result":Z
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v13, :cond_4
-
-    const/4 v14, 0x1
-
     :goto_4
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v14, 0x1
-
-    return v14
-
-    .end local v8    # "_arg1":Z
-    .end local v13    # "_result":Z
-    :cond_3
-    const/4 v8, 0x0
-
-    .restart local v8    # "_arg1":Z
-    goto :goto_3
-
-    .restart local v13    # "_result":Z
-    :cond_4
-    const/4 v14, 0x0
-
-    goto :goto_4
-
-    .end local v2    # "_arg0":Ljava/lang/String;
-    .end local v8    # "_arg1":Z
-    .end local v13    # "_result":Z
-    :sswitch_a
-    const-string v14, "android.content.pm.IFlymePackageManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/content/pm/IFlymePackageManager$Stub;->syncPackageState()V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v14, 0x1
-
-    return v14
-
-    :sswitch_b
-    const-string v14, "android.content.pm.IFlymePackageManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/content/pm/IFlymePackageManager$Stub;->getProtectionState()Z
+    invoke-virtual {p0, v2, v8}, Landroid/content/pm/IFlymePackageManager$Stub;->changeInterceptPackage(Ljava/lang/String;Z)Z
 
     move-result v13
 
@@ -518,13 +506,72 @@
 
     return v14
 
+    .end local v8    # "_arg1":Z
+    .end local v13    # "_result":Z
+    :cond_4
+    const/4 v8, 0x0
+
+    .restart local v8    # "_arg1":Z
+    goto :goto_4
+
+    .restart local v13    # "_result":Z
     :cond_5
     const/4 v14, 0x0
 
     goto :goto_5
 
+    .end local v2    # "_arg0":Ljava/lang/String;
+    .end local v8    # "_arg1":Z
     .end local v13    # "_result":Z
+    :sswitch_b
+    const-string v14, "android.content.pm.IFlymePackageManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/content/pm/IFlymePackageManager$Stub;->syncPackageState()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v14, 0x1
+
+    return v14
+
     :sswitch_c
+    const-string v14, "android.content.pm.IFlymePackageManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/content/pm/IFlymePackageManager$Stub;->getProtectionState()Z
+
+    move-result v13
+
+    .restart local v13    # "_result":Z
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v13, :cond_6
+
+    const/4 v14, 0x1
+
+    :goto_6
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    :cond_6
+    const/4 v14, 0x0
+
+    goto :goto_6
+
+    .end local v13    # "_result":Z
+    :sswitch_d
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -535,12 +582,12 @@
 
     move-result v14
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_7
 
     const/4 v4, 0x1
 
     .local v4, "_arg0":Z
-    :goto_6
+    :goto_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v6
@@ -556,14 +603,14 @@
 
     .end local v4    # "_arg0":Z
     .end local v6    # "_arg1":Landroid/os/IBinder;
-    :cond_6
+    :cond_7
     const/4 v4, 0x0
 
     .restart local v4    # "_arg0":Z
-    goto :goto_6
+    goto :goto_7
 
     .end local v4    # "_arg0":Z
-    :sswitch_d
+    :sswitch_e
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -586,7 +633,7 @@
     return v14
 
     .end local v12    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :sswitch_e
+    :sswitch_f
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -607,65 +654,6 @@
     return v14
 
     .end local v3    # "_arg0":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :sswitch_f
-    const-string v14, "android.content.pm.IFlymePackageManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .restart local v2    # "_arg0":Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v14
-
-    if-eqz v14, :cond_7
-
-    const/4 v8, 0x1
-
-    .restart local v8    # "_arg1":Z
-    :goto_7
-    invoke-virtual {p0, v2, v8}, Landroid/content/pm/IFlymePackageManager$Stub;->changeMayForbitPackage(Ljava/lang/String;Z)Z
-
-    move-result v13
-
-    .restart local v13    # "_result":Z
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v13, :cond_8
-
-    const/4 v14, 0x1
-
-    :goto_8
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
-
-    const/4 v14, 0x1
-
-    return v14
-
-    .end local v8    # "_arg1":Z
-    .end local v13    # "_result":Z
-    :cond_7
-    const/4 v8, 0x0
-
-    .restart local v8    # "_arg1":Z
-    goto :goto_7
-
-    .restart local v13    # "_result":Z
-    :cond_8
-    const/4 v14, 0x0
-
-    goto :goto_8
-
-    .end local v2    # "_arg0":Ljava/lang/String;
-    .end local v8    # "_arg1":Z
-    .end local v13    # "_result":Z
     :sswitch_10
     const-string v14, "android.content.pm.IFlymePackageManager"
 
@@ -682,12 +670,71 @@
 
     move-result v14
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_8
 
     const/4 v8, 0x1
 
     .restart local v8    # "_arg1":Z
+    :goto_8
+    invoke-virtual {p0, v2, v8}, Landroid/content/pm/IFlymePackageManager$Stub;->changeMayForbitPackage(Ljava/lang/String;Z)Z
+
+    move-result v13
+
+    .restart local v13    # "_result":Z
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    if-eqz v13, :cond_9
+
+    const/4 v14, 0x1
+
     :goto_9
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v14, 0x1
+
+    return v14
+
+    .end local v8    # "_arg1":Z
+    .end local v13    # "_result":Z
+    :cond_8
+    const/4 v8, 0x0
+
+    .restart local v8    # "_arg1":Z
+    goto :goto_8
+
+    .restart local v13    # "_result":Z
+    :cond_9
+    const/4 v14, 0x0
+
+    goto :goto_9
+
+    .end local v2    # "_arg0":Ljava/lang/String;
+    .end local v8    # "_arg1":Z
+    .end local v13    # "_result":Z
+    :sswitch_11
+    const-string v14, "android.content.pm.IFlymePackageManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .restart local v2    # "_arg0":Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v14
+
+    if-eqz v14, :cond_a
+
+    const/4 v8, 0x1
+
+    .restart local v8    # "_arg1":Z
+    :goto_a
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v9
@@ -703,15 +750,15 @@
 
     .end local v8    # "_arg1":Z
     .end local v9    # "_arg2":I
-    :cond_9
+    :cond_a
     const/4 v8, 0x0
 
     .restart local v8    # "_arg1":Z
-    goto :goto_9
+    goto :goto_a
 
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v8    # "_arg1":Z
-    :sswitch_11
+    :sswitch_12
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -740,7 +787,7 @@
 
     .end local v1    # "_arg0":I
     .end local v12    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :sswitch_12
+    :sswitch_13
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -775,7 +822,7 @@
     .end local v2    # "_arg0":Ljava/lang/String;
     .end local v5    # "_arg1":I
     .end local v11    # "_result":Ljava/lang/String;
-    :sswitch_13
+    :sswitch_14
     const-string v14, "android.content.pm.IFlymePackageManager"
 
     move-object/from16 v0, p2
@@ -794,11 +841,11 @@
     .restart local v13    # "_result":Z
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v13, :cond_a
+    if-eqz v13, :cond_b
 
     const/4 v14, 0x1
 
-    :goto_a
+    :goto_b
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
@@ -807,10 +854,12 @@
 
     return v14
 
-    :cond_a
+    :cond_b
     const/4 v14, 0x0
 
-    goto :goto_a
+    goto :goto_b
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -833,6 +882,7 @@
         0x11 -> :sswitch_11
         0x12 -> :sswitch_12
         0x13 -> :sswitch_13
+        0x14 -> :sswitch_14
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -4942,7 +4942,9 @@
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .prologue
-    invoke-direct/range {p0 .. p1}, Landroid/graphics/Paint;->setFlymeTypeface(Landroid/graphics/Typeface;)V
+    invoke-direct/range {p0 .. p1}, Landroid/graphics/Paint;->setFlymeTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
+
+    move-result-object p1
 
     const-wide/16 v0, 0x0
 
@@ -5014,7 +5016,7 @@
     return-void
 .end method
 
-.method private setFlymeTypeface(Landroid/graphics/Typeface;)V
+.method private setFlymeTypeface(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;
     .locals 1
     .param p1, "typeface"    # Landroid/graphics/Typeface;
 
@@ -5036,5 +5038,5 @@
     move-result-object p1
 
     :cond_0
-    return-void
+    return-object p1
 .end method

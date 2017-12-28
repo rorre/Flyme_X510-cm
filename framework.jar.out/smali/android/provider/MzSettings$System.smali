@@ -387,6 +387,8 @@
 
 .field public static final MZ_SMART_TOUCH_BEHAVIOR_UP:Ljava/lang/String; = "mz_smart_touch_behavior_up"
 
+.field public static final MZ_SMART_TOUCH_CHANGE:Ljava/lang/String; = "mz_smart_touch_change"
+
 .field public static final MZ_SMART_TOUCH_SWITCH:Ljava/lang/String; = "mz_smart_touch_switch"
 
 .field public static final MZ_SMART_VOICE_WAKEUP_BY_VOICE:Ljava/lang/String; = "mz_smart_voice_wakeup_by_voice"
@@ -699,6 +701,12 @@
     sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
 
     const-string v1, "mz_smart_touch_behavior_leftright"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_change"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
