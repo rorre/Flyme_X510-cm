@@ -1016,15 +1016,11 @@
 
     .local v1, "service":Landroid/app/INotificationManager;
     :try_start_0
-    invoke-interface {v1, p1}, Landroid/app/INotificationManager;->matchesCallFilter(Landroid/os/Bundle;)[Z
+    invoke-interface {v1, p1}, Landroid/app/INotificationManager;->matchesCallFilter(Landroid/os/Bundle;)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v2
-
-    const/4 v0, 0x0
-
-    aget-boolean v2, v2, v0
+    move-result v2
 
     return v2
 
