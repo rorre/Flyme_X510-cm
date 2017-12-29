@@ -879,21 +879,23 @@
 
     .line 298
     .local v14, "countryIso":Ljava/lang/String;
-    const-string/jumbo v1, "user_network_mode"
+    #const-string/jumbo v1, "user_network_mode"
 
     .line 297
-    move-object/from16 v0, p1
+    #move-object/from16 v0, p1
 
-    invoke-interface {v0, v1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+    #invoke-interface {v0, v1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    move-result v1
+    #move-result v1
 
-    move-object/from16 v0, p1
+    #move-object/from16 v0, p1
 
-    invoke-interface {v0, v1}, Landroid/database/Cursor;->getInt(I)I
+    #invoke-interface {v0, v1}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v15
-
+    #move-result v15
+    
+    const/4 v15, -0x1
+    
     .line 310
     .local v15, "userNwMode":I
     move-object/from16 v0, p0
