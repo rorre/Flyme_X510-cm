@@ -341,59 +341,47 @@
     .locals 4
 
     .prologue
-    .line 685
     invoke-virtual {p0}, Lcom/android/internal/app/MzResolverActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
 
-    .line 686
     .local v0, "fm":Landroid/app/FragmentManager;
     invoke-virtual {v0}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
     move-result-object v1
 
-    .line 687
     .local v1, "ft":Landroid/app/FragmentTransaction;
-    const/high16 v2, 0x10b0000
+    const/high16 v2, #android:animator@fade_in#i
 
-    .line 688
-    const v3, 0x10b0001
+    const v3, #android:animator@fade_out#t
 
-    .line 687
     invoke-virtual {v1, v2, v3}, Landroid/app/FragmentTransaction;->setCustomAnimations(II)Landroid/app/FragmentTransaction;
 
-    .line 689
     iget-boolean v2, p0, Lcom/android/internal/app/MzResolverActivity;->mIsInDetailFrag:Z
 
     if-nez v2, :cond_0
 
-    .line 690
     new-instance v2, Lcom/android/internal/app/MzResolverActivity$DetailListFrag;
 
     invoke-direct {v2}, Lcom/android/internal/app/MzResolverActivity$DetailListFrag;-><init>()V
 
     iput-object v2, p0, Lcom/android/internal/app/MzResolverActivity;->mDetailListFrag:Landroid/app/Fragment;
 
-    .line 691
     sget v2, Lcom/flyme/internal/R$id;->contentPanel:I
 
     iget-object v3, p0, Lcom/android/internal/app/MzResolverActivity;->mDetailListFrag:Landroid/app/Fragment;
 
     invoke-virtual {v1, v2, v3}, Landroid/app/FragmentTransaction;->replace(ILandroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    .line 692
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/app/MzResolverActivity;->mIsInDetailFrag:Z
 
-    .line 698
     :goto_0
     invoke-virtual {v1}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    .line 684
     return-void
 
-    .line 694
     :cond_0
     new-instance v2, Lcom/android/internal/app/MzResolverActivity$NormalGridFrag;
 
@@ -2420,27 +2408,28 @@
     .end annotation
 
     .prologue
-    .line 261
     .local p6, "rList":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     sget v2, Lcom/flyme/internal/R$style;->Theme_Flyme_Resolver:I
 
     invoke-virtual {p0, v2}, Lcom/android/internal/app/MzResolverActivity;->setTheme(I)V
 
-    .line 264
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/internal/app/MzResolverActivity;->overridePendingTransition(II)V
+
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 274
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v2
 
-    .line 275
     invoke-virtual {p0}, Lcom/android/internal/app/MzResolverActivity;->getActivityToken()Landroid/os/IBinder;
 
     move-result-object v3
 
-    .line 274
     invoke-interface {v2, v3}, Landroid/app/IActivityManager;->getLaunchedFromUid(Landroid/os/IBinder;)I
 
     move-result v2
