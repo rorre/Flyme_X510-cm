@@ -599,6 +599,8 @@
 
 .field mFgBroadcastQueue:Lcom/android/server/am/BroadcastQueue;
 
+.field mFlymeAccessControlService:Lcom/meizu/server/AccessControlService;
+
 .field mFocusedActivity:Lcom/android/server/am/ActivityRecord;
 
 .field mFontScaleSettingObserver:Lcom/android/server/am/ActivityManagerService$FontScaleSettingObserver;
@@ -14144,8 +14146,6 @@
     move-object/from16 v1, p1
 
     iput-boolean v0, v1, Lcom/android/server/am/ProcessRecord;->foregroundActivities:Z
-
-    invoke-static/range {p1 .. p1}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->modifyFlymeOomAdj(Lcom/android/server/am/ProcessRecord;)V
 
     move-object/from16 v0, p1
 
@@ -60628,6 +60628,35 @@
     .line 5075
     .local v9, "finishWithRootActivity":Z
     :goto_1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p2
+
+    move-object/from16 v2, v17
+
+    invoke-static {v0, v1, v11, v2}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->isFlymeAccessApplication(Lcom/android/server/am/ActivityManagerService;ILcom/android/server/am/ActivityRecord;Lcom/android/server/am/TaskRecord;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_flyme_0
+
+    move-object/from16 v0, v17
+
+    invoke-static {v11, v0}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->isFlymeClearTaskAtIndexLocked(Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/TaskRecord;)Z
+
+    move-result v0
+
+    invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    monitor-exit p0
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
+
+    return v0
+
+    :cond_flyme_0
+
     const/4 v2, 0x2
 
     move/from16 v0, p4
@@ -102102,6 +102131,8 @@
     move/from16 v0, v18
 
     invoke-virtual {v2, v3, v0}, Lcom/android/server/am/UserController;->sendUserSwitchBroadcastsLocked(II)V
+
+    invoke-static/range {p0 .. p0}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->initFlymeExtraFields(Lcom/android/server/am/ActivityManagerService;)V
     :try_end_f
     .catchall {:try_start_f .. :try_end_f} :catchall_5
 
@@ -108749,52 +108780,43 @@
 
     if-eqz v1, :cond_2
 
-    .line 11916
     iput-boolean v3, p0, Lcom/android/server/am/ActivityManagerService;->mSleeping:Z
 
-    .line 11917
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService;->mCurAppTimeTracker:Lcom/android/server/am/AppTimeTracker;
 
     if-eqz v1, :cond_1
 
-    .line 11918
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService;->mCurAppTimeTracker:Lcom/android/server/am/AppTimeTracker;
 
     invoke-virtual {v1}, Lcom/android/server/am/AppTimeTracker;->stop()V
 
-    .line 11920
     :cond_1
     const/4 v1, 0x5
 
     iput v1, p0, Lcom/android/server/am/ActivityManagerService;->mTopProcessState:I
 
-    .line 11921
+    invoke-static/range {p0 .. p0}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->resetFlymeAccessControlService(Lcom/android/server/am/ActivityManagerService;)V
+
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-virtual {v1}, Lcom/android/server/am/ActivityStackSupervisor;->goingToSleepLocked()V
 
-    .line 11922
     invoke-direct {p0, v3}, Lcom/android/server/am/ActivityManagerService;->sendNotifyVrManagerOfSleepState(Z)V
 
-    .line 11923
     invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerService;->updateOomAdjLocked()V
 
-    .line 11926
     invoke-virtual {p0, v2}, Lcom/android/server/am/ActivityManagerService;->checkExcessivePowerUsageLocked(Z)V
 
-    .line 11927
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService;->mHandler:Lcom/android/server/am/ActivityManagerService$MainHandler;
 
     invoke-virtual {v1, v4}, Lcom/android/server/am/ActivityManagerService$MainHandler;->removeMessages(I)V
 
-    .line 11928
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService;->mHandler:Lcom/android/server/am/ActivityManagerService$MainHandler;
 
     invoke-virtual {v1, v4}, Lcom/android/server/am/ActivityManagerService$MainHandler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
-    .line 11929
     .local v0, "nmsg":Landroid/os/Message;
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService;->mHandler:Lcom/android/server/am/ActivityManagerService$MainHandler;
 
@@ -108885,8 +108907,6 @@
 
     :goto_0
     monitor-exit v0
-
-    invoke-static/range {p1 .. p2}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->adjustFlymeShrinkerGround(Lcom/android/server/am/ActivityRecord;Z)V
 
     .line 4080
     return-void
@@ -109622,18 +109642,6 @@
     goto :goto_0
 .end method
 
-.method public setPackageManager(Lcom/android/server/pm/PackageManagerService;)V
-    .locals 1
-    .param p1, "pm"    # Lcom/android/server/pm/PackageManagerService;
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService;->mActivityStarter:Lcom/android/server/am/ActivityStarter;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityStarter;->setPackageManager(Lcom/android/server/pm/PackageManagerService;)V
-
-    return-void
-.end method
-
 .method public shrinkProcessMemory(II)V
     .locals 6
     .param p1, "pid"    # I
@@ -109726,70 +109734,6 @@
     goto :goto_1
 .end method
 
-.method public startAccessControlService()V
-    .locals 6
-
-    .prologue
-    :try_start_0
-    new-instance v0, Lcom/meizu/server/AccessControlService;
-
-    iget-object v4, p0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
-
-    iget-object v5, p0, Lcom/android/server/am/ActivityManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowManagerService;->getWindowManagerPolicy()Landroid/view/WindowManagerPolicy;
-
-    move-result-object v5
-
-    invoke-direct {v0, v4, v5}, Lcom/meizu/server/AccessControlService;-><init>(Landroid/content/Context;Landroid/view/WindowManagerPolicy;)V
-
-    .local v0, "accessControlService":Lcom/meizu/server/AccessControlService;
-    const-string v4, "access_control"
-
-    invoke-static {v4, v0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/meizu/server/AccessControlService;->systemReady()V
-
-    const-string v4, "package"
-
-    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v2
-
-    .local v2, "pkg":Landroid/os/IBinder;
-    invoke-static {v2}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/pm/PackageManagerService;
-
-    .local v3, "pkgService":Lcom/android/server/pm/PackageManagerService;
-    invoke-virtual {p0, v3}, Lcom/android/server/am/ActivityManagerService;->setPackageManager(Lcom/android/server/pm/PackageManagerService;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .end local v0    # "accessControlService":Lcom/meizu/server/AccessControlService;
-    .end local v2    # "pkg":Landroid/os/IBinder;
-    .end local v3    # "pkgService":Lcom/android/server/pm/PackageManagerService;
-    :cond_0
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v1
-
-    .local v1, "e":Ljava/lang/Exception;
-    sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
-
-    const-string v5, "Unable to start AccessControlService!!"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
 .method final startFlymeProcessLocked(Lcom/android/server/am/ProcessRecord;)V
     .locals 2
     .param p1, "app"    # Lcom/android/server/am/ProcessRecord;
@@ -109802,4 +109746,90 @@
     invoke-direct {p0, p1, v0, v1}, Lcom/android/server/am/ActivityManagerService;->startProcessLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
+.end method
+
+.method checkAccessControl(Lcom/android/server/am/ActivityStack;Lcom/android/server/am/ActivityRecord;)Z
+    .locals 13
+    .param p1, "stack"    # Lcom/android/server/am/ActivityStack;
+    .param p2, "next"    # Lcom/android/server/am/ActivityRecord;
+
+    .prologue
+    const/4 v7, 0x0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1}, Lcom/android/server/am/ActivityStack;->isHomeStack()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p2}, Lcom/android/server/am/ActivityRecord;->isAccessApplication()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    return v7
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService;->mFlymeAccessControlService:Lcom/meizu/server/AccessControlService;
+
+    iget-object v1, p2, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
+
+    invoke-virtual {v1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v4, p2, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
+
+    invoke-virtual {v0, v1, v4}, Lcom/meizu/server/AccessControlService;->isPopupUnlockingActivity(Ljava/lang/String;Landroid/content/Intent;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p2, Lcom/android/server/am/ActivityRecord;->packageName:Ljava/lang/String;
+
+    invoke-static {v0}, Lmeizu/security/AccessControlManager;->getAccessControlIntent(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v3
+
+    .local v3, "intent":Landroid/content/Intent;
+    iget-object v5, p2, Lcom/android/server/am/ActivityRecord;->appToken:Landroid/view/IApplicationToken$Stub;
+
+    iget-object v0, p2, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    iget v10, v0, Lcom/android/server/am/TaskRecord;->userId:I
+
+    iget-object v12, p2, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
+
+    const/4 v1, -0x1
+
+    move-object v0, p0
+
+    move-object v4, v2
+
+    move-object v6, v2
+
+    move v8, v7
+
+    move-object v9, v2
+
+    move-object v11, v2
+
+    invoke-virtual/range {v0 .. v12}, Lcom/android/server/am/ActivityManagerService;->startActivityInPackage(ILjava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/os/Bundle;ILandroid/app/IActivityContainer;Lcom/android/server/am/TaskRecord;)I
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    invoke-virtual {v0}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleResumeTopActivities()V
+
+    const/4 v0, 0x1
+
+    return v0
 .end method

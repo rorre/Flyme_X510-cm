@@ -45886,15 +45886,6 @@
     return-object v7
 .end method
 
-.method public getWindowManagerPolicy()Landroid/view/WindowManagerPolicy;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mPolicy:Landroid/view/WindowManagerPolicy;
-
-    return-object v0
-.end method
-
 .method public overridePendingAppTransition(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 2
     .param p1, "packageName"    # Ljava/lang/String;

@@ -2553,7 +2553,17 @@
     .param p4, "theme"    # Landroid/content/res/Resources$Theme;
 
     .prologue
-    .line 785
+
+    invoke-static/range {p1 .. p3}, Landroid/content/res/ResourcesImpl$FlymeInjector;->loadFlymeColorStateList(Landroid/content/res/Resources;Landroid/util/TypedValue;I)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_flyme_0
+
+    return-object v0
+
+    :cond_flyme_0
+
     iget v6, p2, Landroid/util/TypedValue;->assetCookie:I
 
     int-to-long v6, v6

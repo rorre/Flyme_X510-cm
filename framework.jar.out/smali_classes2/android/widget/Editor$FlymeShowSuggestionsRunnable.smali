@@ -41,11 +41,9 @@
     .locals 1
 
     .prologue
-    .line 7244
     iget-object v0, p0, Landroid/widget/Editor$FlymeShowSuggestionsRunnable;->this$0:Landroid/widget/Editor;
 
-    invoke-virtual {v0}, Landroid/widget/Editor;->showSuggestions()V
+    invoke-virtual {v0}, Landroid/widget/Editor;->replace()V
 
-    .line 7243
     return-void
 .end method

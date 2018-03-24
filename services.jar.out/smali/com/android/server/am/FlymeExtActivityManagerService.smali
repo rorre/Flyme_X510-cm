@@ -13,16 +13,8 @@
     .param p1, "systemContext"    # Landroid/content/Context;
 
     .prologue
-    .line 16
     invoke-direct {p0, p1}, Lcom/android/server/am/ActivityManagerService;-><init>(Landroid/content/Context;)V
 
-    .line 18
-    sput-object p0, Lcom/android/server/am/Ams_Interface;->AMS:Lcom/android/server/am/ActivityManagerService;
-
-    .line 20
-    invoke-static {p0}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->flymeSetup(Lcom/android/server/am/ActivityManagerService;)V
-
-    .line 15
     return-void
 .end method
 

@@ -14,7 +14,9 @@
 # static fields
 .field public static DEBUG:Z = false
 
-.field static final LOCK_WALLPAPER:Ljava/lang/String; = "lock_wallpaper"
+.field static final LOCK_WALLPAPER:Ljava/lang/String; = "wallpaper_lock_orig"
+
+.field static final OLD_LOCK_WALLPAPER:Ljava/lang/String; = "lock_wallpaper"
 
 .field public static final SMART_WALLPAPER_TARGET:Ljava/lang/String; = "smart_wallpaper_target"
 
@@ -248,24 +250,19 @@
 
     if-eqz v4, :cond_0
 
-    .line 322
     new-instance v1, Ljava/io/File;
 
     invoke-static {v6}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
 
     move-result-object v4
 
-    .line 323
-    const-string/jumbo v5, "lock_wallpaper"
+    const-string v5, "wallpaper_lock_orig"
 
-    .line 322
     invoke-direct {v1, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 324
     .local v1, "newWallpaper":Ljava/io/File;
     invoke-virtual {v3, v1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    .line 326
     .end local v1    # "newWallpaper":Ljava/io/File;
     :cond_0
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
@@ -572,20 +569,16 @@
 
     invoke-virtual {v5, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
 
-    .line 97
     new-instance v2, Ljava/io/File;
 
     invoke-static {v4}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
 
     move-result-object v5
 
-    .line 98
-    const-string/jumbo v7, "lock_wallpaper"
+    const-string v7, "wallpaper_lock_orig"
 
-    .line 97
     invoke-direct {v2, v5, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 100
     .local v2, "f":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
     :try_end_1
@@ -712,6 +705,8 @@
 
     .line 243
     :cond_1
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wallpaper/FlymeWallpaperService;->updateLockWallpaperIfUpgradeFromOldSystem()V
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/wallpaper/FlymeWallpaperService;->mRealWallpaperManager:Lcom/android/server/wallpaper/WallpaperManagerService;
@@ -1653,30 +1648,23 @@
 
     move-result-object v2
 
-    .line 351
-    const-string/jumbo v4, "lock_wallpaper"
+    const-string v4, "wallpaper_lock_orig"
 
-    .line 350
     invoke-direct {v0, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 352
     .local v0, "wallpaperFile":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 353
     new-instance v1, Ljava/io/File;
 
     invoke-static {p1}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
 
     move-result-object v2
 
-    .line 354
-    const-string/jumbo v4, "lock_wallpaper_info.xml"
+    const-string v4, "lock_wallpaper_info.xml"
 
-    .line 353
     invoke-direct {v1, v2, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 355
     .local v1, "wallpaperInfoFile":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
     :try_end_0
@@ -1981,43 +1969,34 @@
 
     if-nez v4, :cond_1
 
-    .line 153
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
-    .line 155
     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 156
     const/16 v5, 0x1f9
 
-    .line 157
     const/4 v6, -0x1
 
     const/4 v7, -0x1
 
-    .line 154
     invoke-static {v4, v5, v6, v7}, Landroid/os/FileUtils;->setPermissions(Ljava/lang/String;III)I
 
-    .line 159
     :cond_1
     new-instance v3, Ljava/io/File;
 
-    const-string/jumbo v4, "lock_wallpaper"
+    const-string v4, "wallpaper_lock_orig"
 
     invoke-direct {v3, v0, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 161
     .local v3, "file":Ljava/io/File;
     const/high16 v4, 0x3c000000    # 0.0078125f
 
-    .line 160
     invoke-static {v3, v4}, Landroid/os/ParcelFileDescriptor;->open(Ljava/io/File;I)Landroid/os/ParcelFileDescriptor;
 
     move-result-object v2
 
-    .line 162
     .local v2, "fd":Landroid/os/ParcelFileDescriptor;
     invoke-static {v3}, Landroid/os/SELinux;->restorecon(Ljava/io/File;)Z
 
@@ -2054,4 +2033,45 @@
 
     .line 170
     return-object v8
+.end method
+
+.method private updateLockWallpaperIfUpgradeFromOldSystem()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x0
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {v4}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
+
+    move-result-object v2
+
+    const-string v3, "lock_wallpaper"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .local v1, "oldSystemWallpaper":Ljava/io/File;
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-static {v4}, Lcom/android/server/wallpaper/FlymeWallpaperService;->getWallpaperDir(I)Ljava/io/File;
+
+    move-result-object v2
+
+    const-string v3, "wallpaper_lock_orig"
+
+    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .local v0, "newSystemWallpaper":Ljava/io/File;
+    invoke-virtual {v1, v0}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+
+    .end local v0    # "newSystemWallpaper":Ljava/io/File;
+    :cond_0
+    return-void
 .end method

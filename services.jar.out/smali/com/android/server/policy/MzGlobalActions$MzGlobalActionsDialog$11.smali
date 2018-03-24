@@ -59,11 +59,9 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setAlpha(F)V
 
-    .line 502
     iget-object v0, p0, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog$11;->this$1:Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;
 
-    invoke-static {v0}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;->-wrap1(Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;)V
+    invoke-static {v0}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;->-wrap2(Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;)V
 
-    .line 499
     return-void
 .end method

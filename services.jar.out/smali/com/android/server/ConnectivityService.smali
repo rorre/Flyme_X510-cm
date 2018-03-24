@@ -20177,55 +20177,57 @@
     .param p2, "operation"    # Landroid/app/PendingIntent;
 
     .prologue
-    .line 4289
-    const-string/jumbo v3, "PendingIntent cannot be null."
+    const-string v3, "PendingIntent cannot be null."
 
     invoke-static {p2, v3}, Lcom/android/server/ConnectivityService;->checkNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    .line 4290
     new-instance v0, Landroid/net/NetworkCapabilities;
 
     invoke-direct {v0, p1}, Landroid/net/NetworkCapabilities;-><init>(Landroid/net/NetworkCapabilities;)V
 
-    .line 4291
     .end local p1    # "networkCapabilities":Landroid/net/NetworkCapabilities;
     .local v0, "networkCapabilities":Landroid/net/NetworkCapabilities;
     invoke-direct {p0, v0}, Lcom/android/server/ConnectivityService;->enforceNetworkRequestPermissions(Landroid/net/NetworkCapabilities;)V
 
-    .line 4292
     invoke-direct {p0, v0}, Lcom/android/server/ConnectivityService;->enforceMeteredApnPolicy(Landroid/net/NetworkCapabilities;)V
 
-    .line 4293
     invoke-direct {p0, v0}, Lcom/android/server/ConnectivityService;->ensureRequestableCapabilities(Landroid/net/NetworkCapabilities;)V
 
-    .line 4295
+    invoke-direct {p0, v0}, Lcom/android/server/ConnectivityService;->isFlymePermissionGranted(Landroid/net/NetworkCapabilities;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_flyme_0
+
+    const/4 v3, 0x0
+
+    return-object v3
+
+    :cond_flyme_0
+
     new-instance v1, Landroid/net/NetworkRequest;
 
-    .line 4296
     invoke-direct {p0}, Lcom/android/server/ConnectivityService;->nextNetworkRequestId()I
 
     move-result v3
 
     sget-object v4, Landroid/net/NetworkRequest$Type;->REQUEST:Landroid/net/NetworkRequest$Type;
 
-    .line 4295
     const/4 v5, -0x1
 
     invoke-direct {v1, v0, v5, v3, v4}, Landroid/net/NetworkRequest;-><init>(Landroid/net/NetworkCapabilities;IILandroid/net/NetworkRequest$Type;)V
 
-    .line 4297
     .local v1, "networkRequest":Landroid/net/NetworkRequest;
     new-instance v2, Lcom/android/server/ConnectivityService$NetworkRequestInfo;
 
     invoke-direct {v2, p0, v1, p2}, Lcom/android/server/ConnectivityService$NetworkRequestInfo;-><init>(Lcom/android/server/ConnectivityService;Landroid/net/NetworkRequest;Landroid/app/PendingIntent;)V
 
-    .line 4298
     .local v2, "nri":Lcom/android/server/ConnectivityService$NetworkRequestInfo;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "pendingRequest for "
+    const-string v4, "pendingRequest for "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -21056,56 +21058,60 @@
     .restart local p1    # "networkCapabilities":Landroid/net/NetworkCapabilities;
     goto :goto_1
 
-    .line 4218
     :cond_3
-    const-string/jumbo v4, "*"
+    const-string v4, "*"
 
-    .line 4219
     invoke-virtual {p1}, Landroid/net/NetworkCapabilities;->getNetworkSpecifier()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 4218
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_4
 
-    .line 4220
     new-instance v4, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo v5, "Invalid network specifier - must not be \'*\'"
+    const-string v5, "Invalid network specifier - must not be \'*\'"
 
     invoke-direct {v4, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v4
 
-    .line 4224
     :cond_4
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/ConnectivityService;->isFlymePermissionGranted(Landroid/net/NetworkCapabilities;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_flyme_0
+
+    const/4 v4, 0x0
+
+    return-object v4
+
+    :cond_flyme_0
+
     new-instance v1, Landroid/net/NetworkRequest;
 
-    .line 4225
     invoke-direct {p0}, Lcom/android/server/ConnectivityService;->nextNetworkRequestId()I
 
     move-result v4
 
-    .line 4224
     invoke-direct {v1, p1, p5, v4, v3}, Landroid/net/NetworkRequest;-><init>(Landroid/net/NetworkCapabilities;IILandroid/net/NetworkRequest$Type;)V
 
-    .line 4226
     .local v1, "networkRequest":Landroid/net/NetworkRequest;
     new-instance v2, Lcom/android/server/ConnectivityService$NetworkRequestInfo;
 
     invoke-direct {v2, p0, p2, v1, p4}, Lcom/android/server/ConnectivityService$NetworkRequestInfo;-><init>(Lcom/android/server/ConnectivityService;Landroid/os/Messenger;Landroid/net/NetworkRequest;Landroid/os/IBinder;)V
 
-    .line 4227
     .local v2, "nri":Lcom/android/server/ConnectivityService$NetworkRequestInfo;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "requestNetwork for "
+    const-string v5, "requestNetwork for "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -23176,4 +23182,34 @@
 
     .local v0, "e":Landroid/os/RemoteException;
     goto :goto_1
+.end method
+
+.method private isFlymePermissionGranted(Landroid/net/NetworkCapabilities;)Z
+    .locals 2
+    .param p1, "networkCapabilities"    # Landroid/net/NetworkCapabilities;
+
+    .prologue
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v1}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x43
+
+    invoke-static {v0}, Lmeizu/security/FlymePermissionManager;->isFlymePermissionGranted(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    return v1
+
+    :cond_1
+    const/4 v0, 0x1
+
+    return v0
 .end method

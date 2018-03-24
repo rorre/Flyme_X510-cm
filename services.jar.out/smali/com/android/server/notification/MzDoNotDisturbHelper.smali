@@ -7,7 +7,9 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/notification/MzDoNotDisturbHelper$1;,
-        Lcom/android/server/notification/MzDoNotDisturbHelper$2;
+        Lcom/android/server/notification/MzDoNotDisturbHelper$2;,
+        Lcom/android/server/notification/MzDoNotDisturbHelper$3;,
+        Lcom/android/server/notification/MzDoNotDisturbHelper$ScreenUnLockReceiver;
     }
 .end annotation
 
@@ -35,6 +37,16 @@
 
 .field private static final KEY_DND_START_MINUTE:Ljava/lang/String; = "mz_do_not_disturb_start_time_minute"
 
+.field private static final KEY_DND_STATUSBAR_BACKGROUND_COLOR:Ljava/lang/String; = "bgColor"
+
+.field private static final KEY_DND_STATUSBAR_PACKAGENAME:Ljava/lang/String; = "packageName"
+
+.field private static final KEY_DND_STATUSBAR_RESOURCES_ID:Ljava/lang/String; = "resId"
+
+.field private static final KEY_DND_STATUSBAR_TEXT_COLOR:Ljava/lang/String; = "textColor"
+
+.field private static final KEY_DND_STATUSBAR_TIPS:Ljava/lang/String; = "tips"
+
 .field private static final KEY_DND_TIME_SWITCH:Ljava/lang/String; = "mz_do_not_disturb_time_switch"
 
 .field private static final KEY_DND_WHITE_LIST:Ljava/lang/String; = "white_list_disturb_enable"
@@ -61,11 +73,37 @@
     .end annotation
 .end field
 
+.field private static final WEEK_DAY_VALUE_TO_BIT_SET_INDEX:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private static final ZEN_MODE_URI:Landroid/net/Uri;
+
+.field private static mIfDndStatusBarCanShow:Z
 
 
 # instance fields
+.field private final KEY_DND_STATUSBAR_BG_COLOR_VALUE:I
+
+.field private final MSG_DND_STATUSBAR_HIDE:I
+
+.field private final MSG_DND_STATUSBAR_RESET:I
+
+.field private final MSG_DND_STATUSBAR_SHOW:I
+
 .field private mContext:Landroid/content/Context;
+
+.field private mDndReceiverIsRegistered:Z
+
+.field private mDndStatusBarIsShowing:Z
 
 .field private mHandler:Landroid/os/Handler;
 
@@ -74,6 +112,8 @@
 .field private mObserver:Landroid/database/ContentObserver;
 
 .field private mResolver:Landroid/content/ContentResolver;
+
+.field private mScreenUnLockReceiver:Lcom/android/server/notification/MzDoNotDisturbHelper$ScreenUnLockReceiver;
 
 .field private mUpdateNotificationRunnable:Ljava/lang/Runnable;
 
@@ -97,58 +137,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/server/notification/MzDoNotDisturbHelper;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/server/notification/MzDoNotDisturbHelper;)Landroid/content/ContentResolver;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mResolver:Landroid/content/ContentResolver;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Lcom/android/server/notification/MzDoNotDisturbHelper;)Ljava/lang/Runnable;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mUpdateNotificationRunnable:Ljava/lang/Runnable;
-
-    return-object v0
-.end method
-
-.method static synthetic -get5(Lcom/android/server/notification/MzDoNotDisturbHelper;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mZenMode:I
-
-    return v0
-.end method
-
-.method static synthetic -set0(Lcom/android/server/notification/MzDoNotDisturbHelper;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mZenMode:I
-
-    return p1
-.end method
-
-.method static synthetic -wrap0(Lcom/android/server/notification/MzDoNotDisturbHelper;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->updateNotificationPulseLight()V
-
-    return-void
-.end method
-
 .method static synthetic -wrap1(Lcom/android/server/notification/MzDoNotDisturbHelper;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->updateNotification()V
+    invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->updateNotificationPulseLight()V
 
     return-void
 .end method
@@ -262,14 +254,18 @@
 
     sput-object v3, Lcom/android/server/notification/MzDoNotDisturbHelper;->WEEK_DAYS_ARRAYS:[[I
 
-    .line 60
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
     sput-object v3, Lcom/android/server/notification/MzDoNotDisturbHelper;->WEEK_DAY_BIT_SET_INDEX_TO_VALUE:Ljava/util/HashMap;
 
-    .line 63
+    new-instance v3, Ljava/util/HashMap;
+
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
+
+    sput-object v3, Lcom/android/server/notification/MzDoNotDisturbHelper;->WEEK_DAY_VALUE_TO_BIT_SET_INDEX:Ljava/util/HashMap;
+
     const/4 v1, 0x0
 
     .local v1, "i":I
@@ -309,6 +305,18 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    sget-object v3, Lcom/android/server/notification/MzDoNotDisturbHelper;->WEEK_DAY_VALUE_TO_BIT_SET_INDEX:Ljava/util/HashMap;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     .line 63
     add-int/lit8 v1, v1, 0x1
 
@@ -328,34 +336,45 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 73
+    const v0, -0xd1ba7b
+
+    iput v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->KEY_DND_STATUSBAR_BG_COLOR_VALUE:I
+
+    const/4 v0, 0x1
+
+    iput v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->MSG_DND_STATUSBAR_SHOW:I
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->MSG_DND_STATUSBAR_HIDE:I
+
+    const/4 v0, 0x3
+
+    iput v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->MSG_DND_STATUSBAR_RESET:I
+
     iput v3, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mZenMode:I
 
-    .line 77
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mHandler:Landroid/os/Handler;
-
-    .line 78
     new-instance v0, Lcom/android/server/notification/MzDoNotDisturbHelper$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/notification/MzDoNotDisturbHelper$1;-><init>(Lcom/android/server/notification/MzDoNotDisturbHelper;)V
 
+    iput-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mHandler:Landroid/os/Handler;
+
+    new-instance v0, Lcom/android/server/notification/MzDoNotDisturbHelper$2;
+
+    invoke-direct {v0, p0}, Lcom/android/server/notification/MzDoNotDisturbHelper$2;-><init>(Lcom/android/server/notification/MzDoNotDisturbHelper;)V
+
     iput-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mUpdateNotificationRunnable:Ljava/lang/Runnable;
 
-    .line 89
-    new-instance v0, Lcom/android/server/notification/MzDoNotDisturbHelper$2;
+    new-instance v0, Lcom/android/server/notification/MzDoNotDisturbHelper$3;
 
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    invoke-direct {v0, p0, v1}, Lcom/android/server/notification/MzDoNotDisturbHelper$2;-><init>(Lcom/android/server/notification/MzDoNotDisturbHelper;Landroid/os/Handler;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/server/notification/MzDoNotDisturbHelper$3;-><init>(Lcom/android/server/notification/MzDoNotDisturbHelper;Landroid/os/Handler;)V
 
     iput-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mObserver:Landroid/database/ContentObserver;
 
@@ -426,7 +445,7 @@
     return-void
 .end method
 
-.method private static binaryToRepeatDay(I)[I
+.method public static binaryToRepeatDay(I)[I
     .locals 8
     .param p0, "binary"    # I
 
@@ -570,175 +589,6 @@
 
     .line 129
     return-void
-.end method
-
-.method public static ensureDndRuleExsit(Landroid/service/notification/ZenModeConfig;)V
-    .locals 10
-    .param p0, "currentConfig"    # Landroid/service/notification/ZenModeConfig;
-
-    .prologue
-    const/4 v9, 0x0
-
-    const/4 v8, 0x0
-
-    .line 188
-    if-eqz p0, :cond_0
-
-    iget-object v6, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    if-nez v6, :cond_1
-
-    .line 189
-    :cond_0
-    const-string/jumbo v6, "ZenModeHelper"
-
-    const-string/jumbo v7, "ensureDndRuleExsit error,return"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 190
-    return-void
-
-    .line 192
-    :cond_1
-    iget-object v6, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    invoke-virtual {v6}, Landroid/util/ArrayMap;->size()I
-
-    move-result v4
-
-    .line 193
-    .local v4, "size":I
-    const/4 v1, 0x0
-
-    .line 194
-    .local v1, "rule":Landroid/service/notification/ZenModeConfig$ZenRule;
-    const/4 v0, 0x0
-
-    .local v0, "i":I
-    :goto_0
-    if-ge v0, v4, :cond_2
-
-    .line 195
-    iget-object v6, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    invoke-virtual {v6, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/service/notification/ZenModeConfig$ZenRule;
-
-    .line 196
-    .local v5, "tmp":Landroid/service/notification/ZenModeConfig$ZenRule;
-    if-eqz v5, :cond_4
-
-    iget-object v6, v5, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
-
-    const-string/jumbo v7, "com.android.settings"
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    .line 197
-    move-object v1, v5
-
-    .line 201
-    .end local v1    # "rule":Landroid/service/notification/ZenModeConfig$ZenRule;
-    .end local v5    # "tmp":Landroid/service/notification/ZenModeConfig$ZenRule;
-    :cond_2
-    if-nez v1, :cond_3
-
-    .line 202
-    const-string/jumbo v6, "ZenModeHelper"
-
-    const-string/jumbo v7, "dnd rule not exsit, create it"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 203
-    new-instance v2, Landroid/service/notification/ZenModeConfig$ZenRule;
-
-    invoke-direct {v2}, Landroid/service/notification/ZenModeConfig$ZenRule;-><init>()V
-
-    .line 204
-    .local v2, "ruleForDnd":Landroid/service/notification/ZenModeConfig$ZenRule;
-    const-string/jumbo v6, "com.android.settings"
-
-    iput-object v6, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
-
-    .line 205
-    const/4 v6, 0x1
-
-    iput v6, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->zenMode:I
-
-    .line 206
-    iput-object v8, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->condition:Landroid/service/notification/Condition;
-
-    .line 207
-    iput-boolean v9, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->enabled:Z
-
-    .line 208
-    iput-boolean v9, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->snoozing:Z
-
-    .line 209
-    new-instance v3, Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-
-    invoke-direct {v3}, Landroid/service/notification/ZenModeConfig$ScheduleInfo;-><init>()V
-
-    .line 210
-    .local v3, "scheduleInfoForDnd":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-    const/16 v6, 0x17
-
-    iput v6, v3, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
-
-    .line 211
-    iput v9, v3, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
-
-    .line 212
-    const/4 v6, 0x7
-
-    iput v6, v3, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
-
-    .line 213
-    iput v9, v3, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
-
-    .line 214
-    sget-object v6, Landroid/service/notification/ZenModeConfig;->ALL_DAYS:[I
-
-    iput-object v6, v3, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
-
-    .line 215
-    invoke-static {v3}, Landroid/service/notification/ZenModeConfig;->toScheduleConditionId(Landroid/service/notification/ZenModeConfig$ScheduleInfo;)Landroid/net/Uri;
-
-    move-result-object v6
-
-    iput-object v6, v2, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
-
-    .line 216
-    iget-object v6, p0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    invoke-static {}, Landroid/service/notification/ZenModeConfig;->newRuleId()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 187
-    .end local v2    # "ruleForDnd":Landroid/service/notification/ZenModeConfig$ZenRule;
-    .end local v3    # "scheduleInfoForDnd":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-    :cond_3
-    return-void
-
-    .line 194
-    .restart local v1    # "rule":Landroid/service/notification/ZenModeConfig$ZenRule;
-    .restart local v5    # "tmp":Landroid/service/notification/ZenModeConfig$ZenRule;
-    :cond_4
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method private getNotificationContent()Ljava/lang/String;
@@ -893,18 +743,15 @@
 
     invoke-static {v11, v0, v1, v2}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v5
+    move-result v6
 
-    .line 230
-    .local v5, "endHour":I
-    const-string/jumbo v18, "mz_do_not_disturb_end_time_minutes"
+    .local v6, "endHour":I
+    const-string v18, "mz_do_not_disturb_end_time_minutes"
 
-    .line 231
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v19
 
-    .line 230
     const/16 v20, 0x0
 
     move-object/from16 v0, v18
@@ -915,18 +762,15 @@
 
     invoke-static {v11, v0, v1, v2}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v6
+    move-result v7
 
-    .line 232
-    .local v6, "endMinute":I
-    const-string/jumbo v18, "mz_do_not_disturb_repeat_days"
+    .local v7, "endMinute":I
+    const-string v18, "mz_do_not_disturb_repeat_days"
 
-    .line 233
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v19
 
-    .line 232
     const/16 v20, 0x7f
 
     move-object/from16 v0, v18
@@ -995,143 +839,14 @@
 
     invoke-static {v11, v0, v1, v2}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    move-result v4
+    move-result v5
 
-    .line 241
-    .local v4, "dndIsWorking":I
-    const-string/jumbo v18, "ZenModeHelper"
+    .local v5, "dndIsWorking":I
+    new-instance v4, Landroid/service/notification/ZenModeConfig;
 
-    .line 242
-    new-instance v19, Ljava/lang/StringBuilder;
+    invoke-direct {v4}, Landroid/service/notification/ZenModeConfig;-><init>()V
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v20, "importConfigFromOldDb timeSwitch = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    const-string/jumbo v20, " startHour = "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    .line 243
-    const-string/jumbo v20, " startMinute = "
-
-    .line 242
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    .line 243
-    const-string/jumbo v20, " endHour = "
-
-    .line 242
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    .line 244
-    const-string/jumbo v20, " endMinute = "
-
-    .line 242
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    .line 244
-    const-string/jumbo v20, " repeatCall = "
-
-    .line 242
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    .line 245
-    const-string/jumbo v20, " whiteListEnable = "
-
-    .line 242
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    .line 245
-    const-string/jumbo v20, " dndIsWorking = "
-
-    .line 242
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    .line 241
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 248
-    new-instance v3, Landroid/service/notification/ZenModeConfig;
-
-    invoke-direct {v3}, Landroid/service/notification/ZenModeConfig;-><init>()V
-
-    .line 249
-    .local v3, "dndConfig":Landroid/service/notification/ZenModeConfig;
+    .local v4, "dndConfig":Landroid/service/notification/ZenModeConfig;
     if-eqz v17, :cond_1
 
     const/16 v18, 0x1
@@ -1139,16 +854,14 @@
     :goto_0
     move/from16 v0, v18
 
-    iput-boolean v0, v3, Landroid/service/notification/ZenModeConfig;->allowCalls:Z
+    iput-boolean v0, v4, Landroid/service/notification/ZenModeConfig;->allowCalls:Z
 
-    .line 250
     const/16 v18, 0x2
 
     move/from16 v0, v18
 
-    iput v0, v3, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
+    iput v0, v4, Landroid/service/notification/ZenModeConfig;->allowCallsFrom:I
 
-    .line 251
     if-eqz v9, :cond_2
 
     const/16 v18, 0x1
@@ -1156,38 +869,32 @@
     :goto_1
     move/from16 v0, v18
 
-    iput-boolean v0, v3, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
+    iput-boolean v0, v4, Landroid/service/notification/ZenModeConfig;->allowRepeatCallers:Z
 
-    .line 252
     const/16 v18, 0x0
 
     move/from16 v0, v18
 
-    iput-boolean v0, v3, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
+    iput-boolean v0, v4, Landroid/service/notification/ZenModeConfig;->allowEvents:Z
 
-    .line 253
     const/16 v18, 0x0
 
     move/from16 v0, v18
 
-    iput-boolean v0, v3, Landroid/service/notification/ZenModeConfig;->allowMessages:Z
+    iput-boolean v0, v4, Landroid/service/notification/ZenModeConfig;->allowMessages:Z
 
-    .line 254
     const/16 v18, 0x0
 
     move/from16 v0, v18
 
-    iput-boolean v0, v3, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
+    iput-boolean v0, v4, Landroid/service/notification/ZenModeConfig;->allowReminders:Z
 
-    .line 255
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_0
 
-    .line 256
     new-instance v8, Landroid/service/notification/ZenModeConfig$ZenRule;
 
     invoke-direct {v8}, Landroid/service/notification/ZenModeConfig$ZenRule;-><init>()V
 
-    .line 257
     .local v8, "newRule":Landroid/service/notification/ZenModeConfig$ZenRule;
     const/16 v18, 0x1
 
@@ -1195,147 +902,123 @@
 
     iput-boolean v0, v8, Landroid/service/notification/ZenModeConfig$ZenRule;->enabled:Z
 
-    .line 258
     const/16 v18, 0x1
 
     move/from16 v0, v18
 
     iput v0, v8, Landroid/service/notification/ZenModeConfig$ZenRule;->zenMode:I
 
-    .line 259
     const/16 v18, 0x0
 
     move-object/from16 v0, v18
 
     iput-object v0, v8, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
 
-    .line 260
-    iput-object v8, v3, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
+    iput-object v8, v4, Landroid/service/notification/ZenModeConfig;->manualRule:Landroid/service/notification/ZenModeConfig$ZenRule;
 
-    .line 262
     .end local v8    # "newRule":Landroid/service/notification/ZenModeConfig$ZenRule;
     :cond_0
-    new-instance v12, Landroid/service/notification/ZenModeConfig$ZenRule;
+    new-instance v12, Landroid/service/notification/ZenModeConfig$ScheduleInfo;
 
-    invoke-direct {v12}, Landroid/service/notification/ZenModeConfig$ZenRule;-><init>()V
+    invoke-direct {v12}, Landroid/service/notification/ZenModeConfig$ScheduleInfo;-><init>()V
 
-    .line 263
-    .local v12, "ruleForDnd":Landroid/service/notification/ZenModeConfig$ZenRule;
-    const-string/jumbo v18, "com.android.settings"
-
-    move-object/from16 v0, v18
-
-    iput-object v0, v12, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
-
-    .line 264
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
-
-    iput v0, v12, Landroid/service/notification/ZenModeConfig$ZenRule;->zenMode:I
-
-    .line 265
-    const/16 v18, 0x0
-
-    move-object/from16 v0, v18
-
-    iput-object v0, v12, Landroid/service/notification/ZenModeConfig$ZenRule;->condition:Landroid/service/notification/Condition;
-
-    .line 266
-    if-eqz v16, :cond_3
-
-    const/16 v18, 0x1
-
-    :goto_2
-    move/from16 v0, v18
-
-    iput-boolean v0, v12, Landroid/service/notification/ZenModeConfig$ZenRule;->enabled:Z
-
-    .line 267
-    const/16 v18, 0x0
-
-    move/from16 v0, v18
-
-    iput-boolean v0, v12, Landroid/service/notification/ZenModeConfig$ZenRule;->snoozing:Z
-
-    .line 268
-    new-instance v13, Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-
-    invoke-direct {v13}, Landroid/service/notification/ZenModeConfig$ScheduleInfo;-><init>()V
-
-    .line 269
-    .local v13, "scheduleInfoForDnd":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
-    iput v14, v13, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
-
-    .line 270
-    iput v15, v13, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
-
-    .line 271
-    iput v5, v13, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
-
-    .line 272
-    iput v6, v13, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
-
-    .line 273
+    .local v12, "scheduleInfo":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
     invoke-static {v10}, Lcom/android/server/notification/MzDoNotDisturbHelper;->binaryToRepeatDay(I)[I
 
     move-result-object v18
 
     move-object/from16 v0, v18
 
-    iput-object v0, v13, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
+    iput-object v0, v12, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->days:[I
 
-    .line 274
-    invoke-static {v13}, Landroid/service/notification/ZenModeConfig;->toScheduleConditionId(Landroid/service/notification/ZenModeConfig$ScheduleInfo;)Landroid/net/Uri;
+    iput v14, v12, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startHour:I
+
+    iput v15, v12, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->startMinute:I
+
+    iput v6, v12, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endHour:I
+
+    iput v7, v12, Landroid/service/notification/ZenModeConfig$ScheduleInfo;->endMinute:I
+
+    new-instance v13, Landroid/service/notification/ZenModeConfig$ZenRule;
+
+    invoke-direct {v13}, Landroid/service/notification/ZenModeConfig$ZenRule;-><init>()V
+
+    .local v13, "scheduleRule":Landroid/service/notification/ZenModeConfig$ZenRule;
+    const/16 v18, 0x0
+
+    move/from16 v0, v18
+
+    iput-boolean v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->enabled:Z
+
+    const-string v18, "com.android.settings"
+
+    move-object/from16 v0, v18
+
+    iput-object v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
+
+    invoke-static {v12}, Landroid/service/notification/ZenModeConfig;->toScheduleConditionId(Landroid/service/notification/ZenModeConfig$ScheduleInfo;)Landroid/net/Uri;
 
     move-result-object v18
 
     move-object/from16 v0, v18
 
-    iput-object v0, v12, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
+    iput-object v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->conditionId:Landroid/net/Uri;
 
-    .line 275
-    invoke-static {}, Landroid/service/notification/ZenModeConfig;->newRuleId()Ljava/lang/String;
+    const/16 v18, 0x1
 
-    move-result-object v7
+    move/from16 v0, v18
 
-    .line 276
-    .local v7, "id":Ljava/lang/String;
-    iput-object v7, v12, Landroid/service/notification/ZenModeConfig$ZenRule;->id:Ljava/lang/String;
+    iput v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->zenMode:I
 
-    .line 277
-    iget-object v0, v3, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
-
-    move-object/from16 v18, v0
+    sget-object v18, Lcom/android/server/notification/ScheduleConditionProvider;->COMPONENT:Landroid/content/ComponentName;
 
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v7, v12}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    iput-object v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->component:Landroid/content/ComponentName;
 
-    .line 279
-    return-object v3
+    invoke-static {}, Landroid/service/notification/ZenModeConfig;->newRuleId()Ljava/lang/String;
 
-    .line 249
-    .end local v7    # "id":Ljava/lang/String;
-    .end local v12    # "ruleForDnd":Landroid/service/notification/ZenModeConfig$ZenRule;
-    .end local v13    # "scheduleInfoForDnd":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    iput-object v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->id:Ljava/lang/String;
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v18
+
+    move-wide/from16 v0, v18
+
+    iput-wide v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->creationTime:J
+
+    iget-object v0, v4, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+
+    move-object/from16 v18, v0
+
+    iget-object v0, v13, Landroid/service/notification/ZenModeConfig$ZenRule;->id:Ljava/lang/String;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v19
+
+    invoke-virtual {v0, v1, v13}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-object v4
+
+    .end local v12    # "scheduleInfo":Landroid/service/notification/ZenModeConfig$ScheduleInfo;
+    .end local v13    # "scheduleRule":Landroid/service/notification/ZenModeConfig$ZenRule;
     :cond_1
     const/16 v18, 0x0
 
     goto/16 :goto_0
 
-    .line 251
     :cond_2
     const/16 v18, 0x0
 
     goto/16 :goto_1
-
-    .line 266
-    .restart local v12    # "ruleForDnd":Landroid/service/notification/ZenModeConfig$ZenRule;
-    :cond_3
-    const/16 v18, 0x0
-
-    goto :goto_2
 .end method
 
 .method private showDoNotDisturbNotification()V
@@ -1473,20 +1156,29 @@
     .locals 1
 
     .prologue
-    .line 122
     iget v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mZenMode:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    .line 123
+    iget-boolean v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mDndReceiverIsRegistered:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->unRegisterDndReceiver()V
+
+    :cond_0
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mIfDndStatusBarCanShow:Z
+
     invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->clearDoNotDisturbNotification()V
 
-    .line 121
     :goto_0
     return-void
 
-    .line 125
-    :cond_0
+    :cond_1
+    invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->registerDndReceiver()V
+
     invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->showDoNotDisturbNotification()V
 
     goto :goto_0
@@ -1563,4 +1255,362 @@
     invoke-static {v2, v3, v0, v4}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
     goto :goto_0
+.end method
+
+.method static synthetic -get2(Lcom/android/server/notification/MzDoNotDisturbHelper;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/notification/MzDoNotDisturbHelper;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get4()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mIfDndStatusBarCanShow:Z
+
+    return v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/notification/MzDoNotDisturbHelper;)Landroid/content/ContentResolver;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mResolver:Landroid/content/ContentResolver;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/server/notification/MzDoNotDisturbHelper;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mUpdateNotificationRunnable:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7(Lcom/android/server/notification/MzDoNotDisturbHelper;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mZenMode:I
+
+    return v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/notification/MzDoNotDisturbHelper;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mDndStatusBarIsShowing:Z
+
+    return p1
+.end method
+
+.method static synthetic -set1(Z)Z
+    .locals 0
+
+    sput-boolean p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mIfDndStatusBarCanShow:Z
+
+    return p0
+.end method
+
+.method static synthetic -set2(Lcom/android/server/notification/MzDoNotDisturbHelper;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mZenMode:I
+
+    return p1
+.end method
+
+.method static synthetic -wrap0(Lcom/android/server/notification/MzDoNotDisturbHelper;Ljava/lang/String;Z)V
+    .locals 0
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .param p2, "isShowDndStatusBar"    # Z
+
+    .prologue
+    invoke-direct {p0, p1, p2}, Lcom/android/server/notification/MzDoNotDisturbHelper;->showDoNotDisturbStatusBar(Ljava/lang/String;Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/server/notification/MzDoNotDisturbHelper;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/notification/MzDoNotDisturbHelper;->updateNotification()V
+
+    return-void
+.end method
+
+.method private registerDndReceiver()V
+    .locals 3
+
+    .prologue
+    new-instance v1, Lcom/android/server/notification/MzDoNotDisturbHelper$ScreenUnLockReceiver;
+
+    invoke-direct {v1, p0}, Lcom/android/server/notification/MzDoNotDisturbHelper$ScreenUnLockReceiver;-><init>(Lcom/android/server/notification/MzDoNotDisturbHelper;)V
+
+    iput-object v1, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mScreenUnLockReceiver:Lcom/android/server/notification/MzDoNotDisturbHelper$ScreenUnLockReceiver;
+
+    new-instance v0, Landroid/content/IntentFilter;
+
+    invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
+
+    .local v0, "intentFilter":Landroid/content/IntentFilter;
+    const-string v1, "android.intent.action.USER_PRESENT"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mScreenUnLockReceiver:Lcom/android/server/notification/MzDoNotDisturbHelper$ScreenUnLockReceiver;
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mDndReceiverIsRegistered:Z
+
+    return-void
+.end method
+
+.method public static repeatDayToBinary([I)I
+    .locals 7
+    .param p0, "repeatDays"    # [I
+
+    .prologue
+    const/4 v3, 0x0
+
+    if-nez p0, :cond_0
+
+    return v3
+
+    :cond_0
+    const/4 v0, 0x0
+
+    .local v0, "binay":I
+    array-length v5, p0
+
+    move v4, v3
+
+    :goto_0
+    if-ge v4, v5, :cond_1
+
+    aget v1, p0, v4
+
+    .local v1, "day":I
+    sget-object v3, Lcom/android/server/notification/MzDoNotDisturbHelper;->WEEK_DAY_VALUE_TO_BIT_SET_INDEX:Ljava/util/HashMap;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    .local v2, "index":I
+    const/4 v3, 0x1
+
+    shl-int/2addr v3, v2
+
+    or-int/2addr v0, v3
+
+    add-int/lit8 v3, v4, 0x1
+
+    move v4, v3
+
+    goto :goto_0
+
+    .end local v1    # "day":I
+    .end local v2    # "index":I
+    :cond_1
+    return v0
+.end method
+
+.method private showDoNotDisturbStatusBar(Ljava/lang/String;Z)V
+    .locals 7
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .param p2, "isShowDndStatusBar"    # Z
+
+    .prologue
+    const-string v3, "flyme_statusbar"
+
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lmeizu/statusbar/IFlymeStatusBarService$Stub;->asInterface(Landroid/os/IBinder;)Lmeizu/statusbar/IFlymeStatusBarService;
+
+    move-result-object v2
+
+    .local v2, "iFlymeStatusBarService":Lmeizu/statusbar/IFlymeStatusBarService;
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    :cond_0
+    return-void
+
+    :cond_1
+    if-eqz p2, :cond_2
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    .local v0, "bundle":Landroid/os/Bundle;
+    const-string v3, "packageName"
+
+    invoke-virtual {v0, v3, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v3, "tips"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "  "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mContext:Landroid/content/Context;
+
+    sget v6, Lcom/flyme/internal/R$string;->do_not_disturb_mode_title:I
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v3, "textColor"
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    const-string v3, "bgColor"
+
+    const v4, -0xd1ba7b
+
+    invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    const-string v3, "resId"
+
+    sget v4, Lcom/flyme/internal/R$drawable;->do_not_disturb_status_bar_icon:I
+
+    invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    :try_start_0
+    invoke-interface {v2, v0}, Lmeizu/statusbar/IFlymeStatusBarService;->showAlwaysTextAndIcon(Landroid/os/Bundle;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .end local v0    # "bundle":Landroid/os/Bundle;
+    :goto_0
+    return-void
+
+    .restart local v0    # "bundle":Landroid/os/Bundle;
+    :catch_0
+    move-exception v1
+
+    .local v1, "e":Landroid/os/RemoteException;
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
+
+    .end local v0    # "bundle":Landroid/os/Bundle;
+    .end local v1    # "e":Landroid/os/RemoteException;
+    :cond_2
+    :try_start_1
+    invoke-interface {v2, p1}, Lmeizu/statusbar/IFlymeStatusBarService;->hideAlwaysTextAndIcon(Ljava/lang/String;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    .restart local v1    # "e":Landroid/os/RemoteException;
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
+.end method
+
+.method private unRegisterDndReceiver()V
+    .locals 3
+
+    .prologue
+    const/4 v2, 0x0
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-boolean v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mDndStatusBarIsShowing:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, v2}, Lcom/android/server/notification/MzDoNotDisturbHelper;->showDoNotDisturbStatusBar(Ljava/lang/String;Z)V
+
+    iput-boolean v2, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mDndStatusBarIsShowing:Z
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mScreenUnLockReceiver:Lcom/android/server/notification/MzDoNotDisturbHelper$ScreenUnLockReceiver;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    iput-boolean v2, p0, Lcom/android/server/notification/MzDoNotDisturbHelper;->mDndReceiverIsRegistered:Z
+
+    return-void
 .end method

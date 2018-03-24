@@ -43,18 +43,15 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 469
     iget-object v0, p0, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog$10;->this$1:Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;->setCanceledOnTouchOutside(Z)V
 
-    .line 470
     iget-object v0, p0, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog$10;->this$1:Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;
 
-    invoke-static {v0, v2, v2}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;->-wrap2(Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;IZ)V
+    invoke-static {v0, v2, v2}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;->-wrap3(Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;IZ)V
 
-    .line 468
     return-void
 .end method

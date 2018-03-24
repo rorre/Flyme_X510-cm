@@ -17,13 +17,8 @@
     .param p5, "onlyCore"    # Z
 
     .prologue
-    .line 17
     invoke-direct/range {p0 .. p5}, Lcom/android/server/wm/WindowManagerService;-><init>(Landroid/content/Context;Lcom/android/server/input/InputManagerService;ZZZ)V
 
-    .line 19
-    sput-object p0, Lcom/android/server/wm/Wms_Interface;->WMS:Lcom/android/server/wm/WindowManagerService;
-
-    .line 16
     return-void
 .end method
 

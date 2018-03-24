@@ -53,6 +53,8 @@
 
 .field private mKeepAppStatusBar:Z
 
+.field private mLandscape:Z
+
 .field private mShowStatusBarColor:Z
 
 .field private mStatusBarColor:I
@@ -200,39 +202,30 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 7282
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 7262
     iput v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
 
-    .line 7264
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mKeepAppStatusBar:Z
 
-    .line 7269
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsActivityFirstStart:Z
 
-    .line 7273
     iput v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecorViewPaddingTop:I
 
-    .line 7277
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecoViewDrawFirst:Z
 
-    .line 7278
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecoViewDrawFlag:Z
 
-    .line 7279
     iput v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecoViewPostCount:I
 
-    .line 7280
     iput v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
 
-    .line 7283
+    iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mLandscape:Z
+
     iput-object p1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
-    .line 7282
     return-void
 .end method
 
@@ -379,204 +372,226 @@
 .end method
 
 .method private getAutomaticColor(Landroid/view/View;)Ljava/lang/Integer;
-    .locals 12
+    .locals 14
     .param p1, "parent"    # Landroid/view/View;
 
     .prologue
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
-    const/16 v10, 0x64
+    const/16 v12, 0x64
 
-    .line 7662
-    if-eqz p1, :cond_4
+    const/high16 v11, 0x40000000    # 2.0f
 
-    .line 7664
+    if-eqz p1, :cond_8
+
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    move-result v7
+    move-result v8
 
-    if-lez v7, :cond_4
+    if-lez v8, :cond_8
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    move-result v7
+    move-result v8
 
-    if-lez v7, :cond_4
+    if-lez v8, :cond_8
 
     .line 7665
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    move-result v7
+    move-result v8
 
-    sget-object v8, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    sget-object v9, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
-    invoke-static {v7, v9, v8}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {v8, v10, v9}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object v2
 
-    .line 7666
-    .local v1, "bitmap":Landroid/graphics/Bitmap;
-    new-instance v2, Landroid/graphics/Canvas;
+    .local v2, "bitmap":Landroid/graphics/Bitmap;
+    new-instance v3, Landroid/graphics/Canvas;
 
-    invoke-direct {v2, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v3, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 7667
-    .local v2, "canvas":Landroid/graphics/Canvas;
+    .local v3, "canvas":Landroid/graphics/Canvas;
+    const/4 v6, 0x0
+
+    .local v6, "isVerify":Z
     const/4 v5, 0x0
 
-    .line 7668
-    .local v5, "isVerify":Z
-    const/4 v4, 0x0
+    .local v5, "color":I
+    iget-boolean v8, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
-    .line 7669
-    .local v4, "color":I
-    instance-of v7, p1, Landroid/view/ViewGroup;
+    if-eqz v8, :cond_0
 
-    if-eqz v7, :cond_0
+    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->hasStatusBarBackground()Z
 
-    .line 7670
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    :cond_0
+    const/4 v1, 0x0
+
+    .local v1, "appSetMode":Z
+    :goto_0
+    instance-of v8, p1, Landroid/view/ViewGroup;
+
+    if-eqz v8, :cond_1
+
+    if-eqz v1, :cond_4
+
+    .end local v6    # "isVerify":Z
+    :cond_1
+    :goto_1
+    if-nez v6, :cond_2
+
+    if-eqz v1, :cond_7
+
+    iget v8, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDensity:F
+
+    mul-float/2addr v8, v11
+
+    float-to-int v8, v8
+
+    add-int/lit8 v8, v8, 0x1
+
+    :goto_2
+    invoke-direct {p0, p1, v3, v2, v8}, Landroid/app/Activity$FlymeInjector$TintBarInject;->getAutomaticColor(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Bitmap;I)I
+
+    move-result v5
+
+    :cond_2
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
+
+    invoke-static {v5}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v8
+
+    if-le v8, v12, :cond_8
+
+    invoke-static {v5}, Landroid/graphics/Color;->red(I)I
+
+    move-result v8
+
+    invoke-static {v5}, Landroid/graphics/Color;->green(I)I
+
+    move-result v9
+
+    invoke-static {v5}, Landroid/graphics/Color;->blue(I)I
+
+    move-result v10
+
+    const/16 v11, 0xff
+
+    invoke-static {v11, v8, v9, v10}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v8
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    return-object v8
+
+    .end local v1    # "appSetMode":Z
+    .restart local v6    # "isVerify":Z
+    :cond_3
+    const/4 v1, 0x1
+
+    .restart local v1    # "appSetMode":Z
+    goto :goto_0
+
+    :cond_4
     move-object v0, p1
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    move-object v7, v0
+    move-object v8, v0
 
-    invoke-virtual {v7}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {v8}, Landroid/view/ViewGroup;->getChildCount()I
 
-    move-result v7
+    move-result v8
 
-    if-lez v7, :cond_0
+    if-lez v8, :cond_1
 
     .line 7671
     move-object v0, p1
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    move-object v7, v0
+    move-object v8, v0
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v4
 
-    .line 7672
-    .local v3, "child":Landroid/view/View;
-    instance-of v7, v3, Landroid/view/ViewGroup;
+    .local v4, "child":Landroid/view/View;
+    instance-of v8, v4, Landroid/view/ViewGroup;
 
-    if-eqz v7, :cond_0
+    if-eqz v8, :cond_1
 
-    .line 7673
-    iget v7, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDensity:F
+    iget v8, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDensity:F
 
-    const/high16 v8, 0x40000000    # 2.0f
+    mul-float/2addr v8, v11
 
-    mul-float/2addr v7, v8
+    float-to-int v8, v8
 
-    float-to-int v7, v7
+    add-int/lit8 v8, v8, 0x1
 
-    add-int/lit8 v7, v7, 0x1
-
-    invoke-direct {p0, v3, v2, v1, v7}, Landroid/app/Activity$FlymeInjector$TintBarInject;->getAutomaticColor(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Bitmap;I)I
-
-    move-result v4
-
-    .line 7674
-    iget-boolean v7, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
-
-    if-eqz v7, :cond_3
-
-    invoke-static {v4}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v7
-
-    if-le v7, v10, :cond_2
-
-    const/4 v5, 0x1
-
-    .line 7678
-    .end local v3    # "child":Landroid/view/View;
-    .end local v5    # "isVerify":Z
-    :cond_0
-    :goto_0
-    if-nez v5, :cond_1
-
-    .line 7679
-    sget v7, Landroid/app/Activity$FlymeInjector$TintBarInject;->topShift:I
-
-    invoke-direct {p0, p1, v2, v1, v7}, Landroid/app/Activity$FlymeInjector$TintBarInject;->getAutomaticColor(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Bitmap;I)I
-
-    move-result v4
-
-    .line 7681
-    :cond_1
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 7682
-    invoke-static {v4}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v7
-
-    if-le v7, v10, :cond_4
-
-    .line 7683
-    invoke-static {v4}, Landroid/graphics/Color;->red(I)I
-
-    move-result v7
-
-    invoke-static {v4}, Landroid/graphics/Color;->green(I)I
-
-    move-result v8
-
-    invoke-static {v4}, Landroid/graphics/Color;->blue(I)I
-
-    move-result v9
-
-    const/16 v10, 0xff
-
-    invoke-static {v10, v7, v8, v9}, Landroid/graphics/Color;->argb(IIII)I
-
-    move-result v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    return-object v7
-
-    .line 7674
-    .restart local v3    # "child":Landroid/view/View;
-    .restart local v5    # "isVerify":Z
-    :cond_2
-    const/4 v5, 0x0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-direct {p0, v4}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isVerifyColorEx(I)Z
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-direct {p0, v4, v3, v2, v8}, Landroid/app/Activity$FlymeInjector$TintBarInject;->getAutomaticColor(Landroid/view/View;Landroid/graphics/Canvas;Landroid/graphics/Bitmap;I)I
 
     move-result v5
 
-    .local v5, "isVerify":Z
-    goto :goto_0
+    iget-boolean v8, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
-    .line 7686
-    .end local v1    # "bitmap":Landroid/graphics/Bitmap;
-    .end local v2    # "canvas":Landroid/graphics/Canvas;
-    .end local v3    # "child":Landroid/view/View;
-    .end local v4    # "color":I
-    .end local v5    # "isVerify":Z
+    if-eqz v8, :cond_6
+
+    invoke-static {v5}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v8
+
+    if-le v8, v12, :cond_5
+
+    const/4 v6, 0x1
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v6, 0x0
+
+    goto :goto_1
+
+    :cond_6
+    invoke-direct {p0, v5}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isVerifyColorEx(I)Z
+
+    move-result v6
+
+    .local v6, "isVerify":Z
+    goto :goto_1
+
+    .end local v4    # "child":Landroid/view/View;
+    .end local v6    # "isVerify":Z
+    :cond_7
+    sget v8, Landroid/app/Activity$FlymeInjector$TintBarInject;->topShift:I
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_2
+
+    .end local v1    # "appSetMode":Z
+    .end local v2    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "canvas":Landroid/graphics/Canvas;
+    .end local v5    # "color":I
     :catch_0
-    move-exception v6
+    move-exception v7
 
-    .line 7689
-    :cond_4
-    return-object v11
+    :cond_8
+    return-object v13
 .end method
 
 .method private getMainColorFromBitmap([I)I
@@ -584,10 +599,8 @@
     .param p1, "pixels"    # [I
 
     .prologue
-    .line 7693
     const/4 v8, 0x0
 
-    .line 7694
     .local v8, "mainColor":I
     if-eqz p1, :cond_3
 
@@ -597,12 +610,10 @@
 
     if-lez v11, :cond_3
 
-    .line 7695
     new-instance v4, Landroid/util/SparseIntArray;
 
     invoke-direct {v4}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 7696
     .local v4, "colors":Landroid/util/SparseIntArray;
     const/4 v11, 0x0
 
@@ -615,7 +626,6 @@
 
     aget v3, p1, v11
 
-    .line 7697
     .local v3, "color":I
     const/4 v13, 0x0
 
@@ -623,24 +633,20 @@
 
     move-result v5
 
-    .line 7698
     .local v5, "count":I
     add-int/lit8 v13, v5, 0x1
 
     invoke-virtual {v4, v3, v13}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 7696
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_0
 
-    .line 7700
     .end local v3    # "color":I
     .end local v5    # "count":I
     :cond_0
     const/4 v9, 0x0
 
-    .line 7701
     .local v9, "maxCount":I
     const/4 v7, 0x0
 
@@ -652,30 +658,25 @@
 
     if-ge v7, v11, :cond_2
 
-    .line 7702
     invoke-virtual {v4, v7}, Landroid/util/SparseIntArray;->valueAt(I)I
 
     move-result v11
 
     if-ge v9, v11, :cond_1
 
-    .line 7703
     invoke-virtual {v4, v7}, Landroid/util/SparseIntArray;->valueAt(I)I
 
     move-result v9
 
-    .line 7704
     invoke-virtual {v4, v7}, Landroid/util/SparseIntArray;->keyAt(I)I
 
     move-result v8
 
-    .line 7701
     :cond_1
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
-    .line 7707
     :cond_2
     int-to-double v12, v9
 
@@ -693,24 +694,20 @@
 
     if-gez v11, :cond_3
 
-    .line 7708
     invoke-static {v8}, Landroid/graphics/Color;->red(I)I
 
     move-result v10
 
-    .line 7709
     .local v10, "r":I
     invoke-static {v8}, Landroid/graphics/Color;->green(I)I
 
     move-result v6
 
-    .line 7710
     .local v6, "g":I
     invoke-static {v8}, Landroid/graphics/Color;->blue(I)I
 
     move-result v2
 
-    .line 7711
     .local v2, "b":I
     invoke-static {v8}, Landroid/graphics/Color;->alpha(I)I
 
@@ -744,7 +741,6 @@
 
     move-result v8
 
-    .line 7714
     .end local v2    # "b":I
     .end local v4    # "colors":Landroid/util/SparseIntArray;
     .end local v6    # "g":I
@@ -759,7 +755,6 @@
     .locals 1
 
     .prologue
-    .line 7727
     iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
@@ -778,10 +773,8 @@
     .param p0, "winParams"    # Landroid/view/WindowManager$LayoutParams;
 
     .prologue
-    .line 7731
     const/high16 v0, -0x80000000
 
-    .line 7732
     .local v0, "bits":I
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -789,7 +782,6 @@
 
     or-int v1, v2, v3
 
-    .line 7733
     .local v1, "flags":I
     iget v2, p0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -815,7 +807,6 @@
 
     const/16 v3, 0x32
 
-    .line 7409
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v1
@@ -859,7 +850,6 @@
 
     const/4 v2, 0x0
 
-    .line 7413
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
 
     move-result v3
@@ -868,7 +858,6 @@
 
     move v0, v1
 
-    .line 7414
     .local v0, "isDark":Z
     :goto_0
     if-eqz v0, :cond_1
@@ -881,7 +870,6 @@
 
     move v0, v1
 
-    .line 7415
     :goto_1
     if-eqz v0, :cond_2
 
@@ -893,7 +881,6 @@
 
     move v0, v1
 
-    .line 7416
     :goto_2
     if-eqz v0, :cond_3
 
@@ -910,26 +897,22 @@
     :cond_0
     move v0, v2
 
-    .line 7413
     goto :goto_0
 
     .restart local v0    # "isDark":Z
     :cond_1
     move v0, v2
 
-    .line 7414
     goto :goto_1
 
     :cond_2
     move v0, v2
 
-    .line 7415
     goto :goto_2
 
     :cond_3
     move v1, v2
 
-    .line 7416
     goto :goto_3
 .end method
 
@@ -940,39 +923,47 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 7718
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->subtreeSystemUiVisibility:I
 
     or-int v0, v2, v3
 
-    .line 7719
     .local v0, "sysUiVisibility":I
     and-int/lit8 v2, v0, 0x4
 
     if-nez v2, :cond_0
 
-    .line 7720
     and-int/lit16 v2, v0, 0x400
 
     if-nez v2, :cond_0
 
-    .line 7721
     const/high16 v2, 0x40000000    # 2.0f
 
     and-int/2addr v2, v0
 
     if-nez v2, :cond_0
 
-    .line 7722
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     and-int/lit16 v2, v2, 0x400
 
     if-nez v2, :cond_0
 
-    .line 7723
+    iget v2, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/lit16 v2, v2, 0x100
+
+    if-nez v2, :cond_0
+
+    iget v2, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    const/high16 v3, 0x10000
+
+    and-int/2addr v2, v3
+
+    if-nez v2, :cond_0
+
     iget v2, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     const/high16 v3, 0x4000000
@@ -983,7 +974,6 @@
 
     const/4 v1, 0x1
 
-    .line 7719
     :cond_0
     return v1
 .end method
@@ -1000,7 +990,6 @@
 
     const/4 v10, 0x0
 
-    .line 7383
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v8
@@ -1015,12 +1004,10 @@
 
     move v7, v9
 
-    .line 7384
     .local v7, "similar":Z
     :goto_0
     if-eqz v7, :cond_9
 
-    .line 7385
     invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isBlackColor(I)Z
 
     move-result v8
@@ -1044,11 +1031,9 @@
     :goto_1
     move v7, v8
 
-    .line 7386
     :goto_2
     if-nez v7, :cond_9
 
-    .line 7387
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v8
@@ -1059,7 +1044,6 @@
 
     sub-int v0, v8, v11
 
-    .line 7388
     .local v0, "alpha":I
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
 
@@ -1071,7 +1055,6 @@
 
     sub-int v6, v8, v11
 
-    .line 7389
     .local v6, "red":I
     invoke-static {p0}, Landroid/graphics/Color;->green(I)I
 
@@ -1083,7 +1066,6 @@
 
     sub-int v3, v8, v11
 
-    .line 7390
     .local v3, "green":I
     invoke-static {p0}, Landroid/graphics/Color;->blue(I)I
 
@@ -1095,7 +1077,6 @@
 
     sub-int v1, v8, v11
 
-    .line 7391
     .local v1, "blue":I
     invoke-static {v6, v3}, Ljava/lang/Math;->min(II)I
 
@@ -1105,7 +1086,6 @@
 
     move-result v5
 
-    .line 7392
     .local v5, "min":I
     invoke-static {v6, v3}, Ljava/lang/Math;->max(II)I
 
@@ -1115,22 +1095,18 @@
 
     move-result v4
 
-    .line 7393
     .local v4, "max":I
     sub-int v2, v4, v5
 
-    .line 7394
     .local v2, "diff":I
     if-nez v2, :cond_4
 
-    .line 7395
     const/4 v8, -0x1
 
     if-ne p0, v8, :cond_3
 
     const/16 v2, 0x78
 
-    .line 7399
     :goto_3
     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
 
@@ -1146,7 +1122,6 @@
 
     move v7, v9
 
-    .line 7400
     :goto_4
     if-eqz v7, :cond_7
 
@@ -1156,7 +1131,6 @@
 
     move v7, v9
 
-    .line 7401
     :goto_5
     if-eqz v7, :cond_8
 
@@ -1166,7 +1140,6 @@
 
     move v7, v9
 
-    .line 7402
     :goto_6
     return v7
 
@@ -1181,14 +1154,12 @@
     :cond_0
     move v7, v10
 
-    .line 7383
     goto :goto_0
 
     .restart local v7    # "similar":Z
     :cond_1
     move v8, v10
 
-    .line 7385
     goto :goto_1
 
     :cond_2
@@ -1196,7 +1167,6 @@
 
     goto :goto_2
 
-    .line 7395
     .restart local v0    # "alpha":I
     .restart local v1    # "blue":I
     .restart local v2    # "diff":I
@@ -1209,7 +1179,7 @@
 
     goto :goto_3
 
-    .line 7397
+    .line 7689
     :cond_4
     const/16 v8, 0x1e
 
@@ -1227,22 +1197,18 @@
     :cond_6
     move v7, v10
 
-    .line 7399
     goto :goto_4
 
     :cond_7
     move v7, v10
 
-    .line 7400
     goto :goto_5
 
     :cond_8
     move v7, v10
 
-    .line 7401
     goto :goto_6
 
-    .line 7405
     .end local v0    # "alpha":I
     .end local v1    # "blue":I
     .end local v2    # "diff":I
@@ -1263,7 +1229,6 @@
 
     const/4 v2, 0x0
 
-    .line 7334
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v3
@@ -1274,7 +1239,6 @@
 
     const/4 v0, 0x1
 
-    .line 7335
     .local v0, "isVerify":Z
     :goto_0
     iget-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
@@ -1285,7 +1249,6 @@
 
     if-eqz v3, :cond_3
 
-    .line 7346
     :cond_0
     iget-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
@@ -1299,11 +1262,9 @@
 
     if-eqz v3, :cond_a
 
-    .line 7349
     :cond_1
     return v0
 
-    .line 7334
     .end local v0    # "isVerify":Z
     :cond_2
     const/4 v0, 0x0
@@ -1311,7 +1272,6 @@
     .restart local v0    # "isVerify":Z
     goto :goto_0
 
-    .line 7335
     :cond_3
     iget-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
 
@@ -1319,7 +1279,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 7336
     iget v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
     invoke-static {v3}, Landroid/graphics/Color;->alpha(I)I
@@ -1334,7 +1293,6 @@
 
     if-nez v3, :cond_5
 
-    .line 7337
     :cond_4
     iget v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
@@ -1344,7 +1302,6 @@
 
     return v1
 
-    .line 7339
     :cond_5
     invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
 
@@ -1352,7 +1309,6 @@
 
     if-eqz v3, :cond_8
 
-    .line 7340
     iget v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
 
     invoke-static {v3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isBlackColor(I)Z
@@ -1374,7 +1330,6 @@
 
     goto :goto_1
 
-    .line 7342
     :cond_8
     invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
 
@@ -1396,7 +1351,6 @@
 
     goto :goto_2
 
-    .line 7347
     :cond_a
     if-eqz v0, :cond_b
 
@@ -1427,7 +1381,6 @@
 
     const/4 v1, 0x0
 
-    .line 7617
     if-eqz p1, :cond_2
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
@@ -1436,7 +1389,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 7618
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
@@ -1476,7 +1428,6 @@
 
     goto :goto_0
 
-    .line 7620
     :cond_2
     return v1
 .end method
@@ -1492,7 +1443,6 @@
 
     const/4 v2, 0x0
 
-    .line 7354
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
     move-result v3
@@ -1501,7 +1451,6 @@
 
     move v0, v1
 
-    .line 7355
     .local v0, "isVerify":Z
     :goto_0
     if-eqz v0, :cond_6
@@ -1510,7 +1459,6 @@
 
     if-eq v3, p1, :cond_6
 
-    .line 7356
     invoke-static {p1}, Landroid/graphics/Color;->red(I)I
 
     move-result v3
@@ -1525,7 +1473,6 @@
 
     move v0, v1
 
-    .line 7357
     :goto_1
     if-nez v0, :cond_0
 
@@ -1544,7 +1491,6 @@
     :cond_0
     move v0, v1
 
-    .line 7358
     :goto_2
     if-nez v0, :cond_1
 
@@ -1563,7 +1509,6 @@
     :cond_1
     move v0, v1
 
-    .line 7359
     :goto_3
     return v0
 
@@ -1571,29 +1516,24 @@
     :cond_2
     move v0, v2
 
-    .line 7354
     goto :goto_0
 
     .restart local v0    # "isVerify":Z
     :cond_3
     move v0, v2
 
-    .line 7356
     goto :goto_1
 
     :cond_4
     move v0, v2
 
-    .line 7357
     goto :goto_2
 
     :cond_5
     move v0, v2
 
-    .line 7358
     goto :goto_3
 
-    .line 7361
     :cond_6
     return v2
 .end method
@@ -1604,18 +1544,14 @@
     .param p2, "delay"    # I
 
     .prologue
-    .line 7628
     new-instance v0, Landroid/app/Activity$FlymeInjector$TintBarInject$2;
 
     invoke-direct {v0, p0, p2}, Landroid/app/Activity$FlymeInjector$TintBarInject$2;-><init>(Landroid/app/Activity$FlymeInjector$TintBarInject;I)V
 
-    .line 7647
     int-to-long v2, p2
 
-    .line 7628
     invoke-virtual {p1, v0, v2, v3}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 7627
     return-void
 .end method
 
@@ -1629,15 +1565,12 @@
 
     const/4 v3, 0x0
 
-    .line 7582
     iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecoViewDrawFlag:Z
 
-    .line 7583
     invoke-direct {p0, p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->getAutomaticColor(Landroid/view/View;)Ljava/lang/Integer;
 
     move-result-object v0
 
-    .line 7584
     .local v0, "color":Ljava/lang/Integer;
     invoke-direct {p0, v0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isVerifyColor(Ljava/lang/Integer;)Z
 
@@ -1645,30 +1578,25 @@
 
     if-eqz v1, :cond_1
 
-    .line 7585
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     invoke-direct {p0, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarColor(I)V
 
-    .line 7581
     :cond_0
     :goto_0
     return-void
 
-    .line 7587
     :cond_1
     if-eqz p2, :cond_2
 
-    .line 7588
     const/16 v1, 0x1f4
 
     invoke-direct {p0, p1, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->onDrawDecorViewInner(Landroid/view/View;I)V
 
     goto :goto_0
 
-    .line 7590
     :cond_2
     iget v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
 
@@ -1678,7 +1606,6 @@
 
     if-nez v1, :cond_0
 
-    .line 7591
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
@@ -1698,17 +1625,14 @@
     :goto_1
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
-    .line 7592
     iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
     if-nez v1, :cond_0
 
-    .line 7593
     iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
     if-eqz v1, :cond_5
 
-    .line 7594
     iget v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
     invoke-static {v1}, Landroid/graphics/Color;->alpha(I)I
@@ -1728,17 +1652,14 @@
     :goto_2
     invoke-direct {p0, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7595
     iput-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    .line 7596
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     iget v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    .line 7597
     iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
     goto :goto_0
@@ -1746,30 +1667,24 @@
     :cond_3
     move v1, v3
 
-    .line 7591
     goto :goto_1
 
     :cond_4
     move v1, v3
 
-    .line 7594
     goto :goto_2
 
-    .line 7599
     :cond_5
     invoke-direct {p0, v3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7600
     iput-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    .line 7601
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     const/high16 v2, -0x1000000
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    .line 7602
     iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
     goto :goto_0
@@ -1779,7 +1694,7 @@
     .locals 2
 
     .prologue
-    .line 7624
+    .line 7727
     iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
@@ -1790,7 +1705,6 @@
 
     invoke-direct {p0, v0, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->onDrawDecorViewInner(Landroid/view/View;I)V
 
-    .line 7623
     return-void
 .end method
 
@@ -1801,40 +1715,32 @@
     .param p3, "change"    # Z
 
     .prologue
-    .line 7737
     iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
 
     if-nez v1, :cond_0
 
-    .line 7738
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isAppDrawsSystemBarBackgrounds()Z
 
     move-result v1
 
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
-    .line 7740
     :cond_0
     iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
     if-nez v1, :cond_2
 
-    .line 7741
     iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
 
     if-eq v1, p1, :cond_2
 
-    .line 7742
     iput-boolean p1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
 
-    .line 7743
     const/high16 v0, -0x80000000
 
-    .line 7744
     .local v0, "bits":I
     if-eqz p1, :cond_3
 
-    .line 7745
     iget v1, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     const/high16 v2, -0x80000000
@@ -1843,21 +1749,17 @@
 
     iput v1, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 7749
     :goto_0
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    .line 7750
     if-eqz p3, :cond_1
 
-    .line 7751
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1, p2}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 7753
     :cond_1
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
@@ -1871,17 +1773,14 @@
 
     invoke-direct {p0, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7754
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    .line 7736
     .end local v0    # "bits":I
     :cond_2
     return-void
 
-    .line 7747
     .restart local v0    # "bits":I
     :cond_3
     iget v1, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -1896,142 +1795,210 @@
 .end method
 
 .method private setStatusBarColor(I)V
-    .locals 6
+    .locals 9
     .param p1, "color"    # I
 
     .prologue
-    const/4 v2, 0x1
-
     const/4 v3, 0x0
 
-    .line 7311
+    const/4 v2, 0x1
+
     invoke-direct {p0, p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isVerifyColor(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    .line 7312
-    iput p1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
-
-    .line 7313
-    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
-
-    if-eqz v1, :cond_0
-
-    .line 7314
-    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isAppDrawsSystemBarBackgrounds()Z
-
-    move-result v1
-
-    iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
-
-    .line 7315
-    invoke-direct {p0, p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(I)V
-
-    .line 7317
-    :cond_0
-    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mKeepAppStatusBar:Z
-
-    if-nez v1, :cond_3
-
-    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
-
-    if-nez v1, :cond_1
-
-    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
-
-    if-eqz v1, :cond_3
-
-    .line 7318
-    :cond_1
-    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
-
-    if-nez v1, :cond_4
-
-    iget v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
-
-    if-eqz v1, :cond_4
-
-    .line 7319
-    :goto_0
-    iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v1
-
-    invoke-direct {p0, v2, v1, v2}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setDrawsSystemBarBackgrounds(ZLandroid/view/WindowManager$LayoutParams;Z)V
-
-    .line 7320
-    iput-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
-
-    .line 7321
-    iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
-
-    iget v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
-
-    invoke-virtual {v1, v2}, Landroid/view/Window;->setStatusBarColor(I)V
-
-    .line 7322
-    iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
-
-    .line 7323
-    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFloating:Z
-
-    if-eqz v1, :cond_2
-
-    iget v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecorViewPaddingTop:I
-
-    if-nez v1, :cond_2
-
-    .line 7324
-    iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 7325
-    .local v0, "dec":Landroid/view/View;
-    iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
-
-    invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Landroid/view/View;->getPaddingLeft()I
-
-    move-result v2
-
-    sget v3, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarHeight:I
-
-    invoke-virtual {v0}, Landroid/view/View;->getPaddingRight()I
 
     move-result v4
 
-    invoke-virtual {v0}, Landroid/view/View;->getPaddingBottom()I
+    if-eqz v4, :cond_4
+
+    iput p1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
+
+    if-eqz v4, :cond_0
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
+
+    if-nez v4, :cond_0
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
+
+    if-eqz v4, :cond_5
+
+    :cond_0
+    :goto_0
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mKeepAppStatusBar:Z
+
+    if-nez v4, :cond_4
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
+
+    if-nez v4, :cond_1
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
+
+    if-eqz v4, :cond_4
+
+    :cond_1
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
+
+    if-nez v4, :cond_6
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
+
+    if-eqz v4, :cond_6
+
+    iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
+
+    invoke-virtual {v4}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v4
+
+    invoke-direct {p0, v2, v4, v2}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setDrawsSystemBarBackgrounds(ZLandroid/view/WindowManager$LayoutParams;Z)V
+
+    iput-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
+
+    iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
+
+    iget v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
+
+    invoke-virtual {v4, v5}, Landroid/view/Window;->setStatusBarColor(I)V
+
+    iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFloating:Z
+
+    if-eqz v4, :cond_2
+
+    iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecorViewPaddingTop:I
+
+    if-nez v4, :cond_2
+
+    iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
+
+    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    .local v0, "dec":Landroid/view/View;
+    iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
+
+    invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingLeft()I
 
     move-result v5
 
-    invoke-virtual {v1, v2, v3, v4, v5}, Landroid/view/View;->setPadding(IIII)V
+    sget v6, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarHeight:I
 
-    .line 7328
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingRight()I
+
+    move-result v7
+
+    invoke-virtual {v0}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v8
+
+    invoke-virtual {v4, v5, v6, v7, v8}, Landroid/view/View;->setPadding(IIII)V
+
     .end local v0    # "dec":Landroid/view/View;
     :cond_2
+    :goto_1
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
+
+    if-nez v4, :cond_7
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
+
+    if-nez v4, :cond_7
+
+    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
+
+    .local v1, "setIconColor":Z
+    :goto_2
+    if-nez v1, :cond_8
+
+    iget-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
+
+    if-eqz v2, :cond_9
+
+    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->hasStatusBarBackground()Z
+
+    move-result v1
+
+    :goto_3
+    if-nez v1, :cond_3
+
+    iget v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
+
+    invoke-static {v2}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
+
+    move-result v2
+
+    invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
+
+    move-result v3
+
+    if-ne v2, v3, :cond_4
+
+    :cond_3
     invoke-direct {p0, p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(I)V
 
-    .line 7310
-    :cond_3
+    .end local v1    # "setIconColor":Z
+    :cond_4
     return-void
 
-    .line 7318
-    :cond_4
-    iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
+    :cond_5
+    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isAppDrawsSystemBarBackgrounds()Z
 
-    if-eqz v1, :cond_2
+    move-result v4
+
+    iput-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
+
+    invoke-direct {p0, p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(I)V
 
     goto :goto_0
+
+    :cond_6
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
+
+    if-eqz v4, :cond_2
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
+
+    if-nez v4, :cond_2
+
+    iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
+
+    if-eqz v4, :cond_2
+
+    iput-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
+
+    iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
+
+    iget v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
+
+    invoke-virtual {v4, v5}, Landroid/view/Window;->setStatusBarColor(I)V
+
+    iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
+
+    goto :goto_1
+
+    :cond_7
+    move v1, v2
+
+    goto :goto_2
+
+    .restart local v1    # "setIconColor":Z
+    :cond_8
+    move v1, v2
+
+    goto :goto_3
+
+    :cond_9
+    move v1, v3
+
+    goto :goto_3
 .end method
 
 .method private setStatusBarDarkIcon(I)V
@@ -2043,7 +2010,6 @@
 
     const/4 v0, 0x0
 
-    .line 7295
     iget-object v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v2}, Landroid/view/Window;->isAutoStatusBarIcon()Z
@@ -2052,7 +2018,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 7296
     iget-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
 
     if-nez v2, :cond_0
@@ -2061,7 +2026,6 @@
 
     if-eqz v2, :cond_2
 
-    .line 7297
     :cond_0
     invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
 
@@ -2069,12 +2033,10 @@
 
     invoke-direct {p0, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7294
     :cond_1
     :goto_0
     return-void
 
-    .line 7299
     :cond_2
     iget-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
 
@@ -2084,7 +2046,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 7300
     :cond_3
     iget-object v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
@@ -2102,7 +2063,6 @@
 
     move v0, v1
 
-    .line 7301
     .local v0, "canSet":Z
     :cond_4
     if-nez v0, :cond_5
@@ -2111,11 +2071,10 @@
 
     move-result v0
 
-    .line 7302
+    .line 7415
     :goto_1
     if-eqz v0, :cond_1
 
-    .line 7303
     invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
 
     move-result v1
@@ -2127,7 +2086,6 @@
     :cond_5
     move v0, v1
 
-    .line 7301
     goto :goto_1
 .end method
 
@@ -2136,7 +2094,6 @@
     .param p1, "dark"    # Z
 
     .prologue
-    .line 7611
     iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     if-eqz v0, :cond_0
@@ -2149,12 +2106,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 7612
     iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0, p1}, Landroid/view/Window;->setStatusBarDarkIcon(Z)V
 
-    .line 7610
+    .line 7719
     :cond_0
     return-void
 .end method
@@ -2163,48 +2119,41 @@
     .locals 8
 
     .prologue
-    .line 7764
     const-class v3, Landroid/app/Activity$FlymeInjector$TintBarInject;
 
     monitor-enter v3
 
-    .line 7765
     :try_start_0
     sget v2, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarHeight:I
 
     if-nez v2, :cond_0
 
-    .line 7766
     iget-object v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
     invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 7767
     .local v0, "res":Landroid/content/res/Resources;
-    const-string/jumbo v2, "status_bar_height"
+    const-string v2, "status_bar_height"
 
-    const-string/jumbo v4, "dimen"
+    const-string v4, "dimen"
 
-    const-string/jumbo v5, "android"
+    const-string v5, "android"
 
     invoke-virtual {v0, v2, v4, v5}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v1
 
-    .line 7768
     .local v1, "resourceId":I
     if-lez v1, :cond_0
 
-    .line 7769
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
     sput v2, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarHeight:I
 
-    .line 7770
     sget v2, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarHeight:I
 
     int-to-float v2, v2
@@ -2230,10 +2179,8 @@
     :cond_0
     monitor-exit v3
 
-    .line 7763
     return-void
 
-    .line 7764
     :catchall_0
     move-exception v2
 
@@ -2259,7 +2206,6 @@
 
     const/4 v6, 0x0
 
-    .line 7459
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     if-eqz v4, :cond_2
@@ -2272,7 +2218,6 @@
 
     if-eqz v4, :cond_2
 
-    .line 7460
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
@@ -2303,7 +2248,6 @@
 
     move v1, v5
 
-    .line 7461
     .local v1, "fullcreen":Z
     :goto_0
     if-eqz v1, :cond_0
@@ -2316,7 +2260,6 @@
 
     if-eqz v4, :cond_2
 
-    .line 7462
     :cond_0
     return-void
 
@@ -2324,10 +2267,8 @@
     :cond_1
     move v1, v6
 
-    .line 7460
     goto :goto_0
 
-    .line 7465
     :cond_2
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
@@ -2335,75 +2276,70 @@
 
     move-result-object v4
 
-    .line 7466
-    const-string/jumbo v7, "mz_status_bar_tint"
+    const-string v7, "mz_status_bar_tint"
 
-    .line 7465
     invoke-static {v4, v7, v6}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_3
 
-    .line 7466
-    const-string/jumbo v4, "me.ele"
-
-    iget-object v7, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
-
-    invoke-virtual {v7}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v4, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isWhiteApp()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_8
 
-    const/4 v3, 0x0
+    :cond_3
+    move v3, v6
 
-    .line 7467
     .local v3, "statusBarTintEnabled":Z
     :goto_1
+    if-eqz v3, :cond_4
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mLandscape:Z
+
+    if-eqz v4, :cond_9
+
+    :cond_4
+    const/4 v3, 0x0
+
+    .local v3, "statusBarTintEnabled":Z
+    :goto_2
     invoke-direct {p0, p2}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isShowStatusBarColor(Landroid/view/WindowManager$LayoutParams;)Z
 
     move-result v2
 
-    .line 7468
     .local v2, "showStatusBarColor":Z
     iget v4, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     and-int/2addr v4, v8
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_a
 
     move v4, v5
 
-    :goto_2
+    :goto_3
     iput-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
-    .line 7469
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_5
 
-    .line 7470
     invoke-static {p2}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isAppDrawsSystemBarBackgrounds(Landroid/view/WindowManager$LayoutParams;)Z
 
     move-result v4
 
     iput-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
-    .line 7471
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_5
 
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_5
 
-    .line 7472
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->getStatusBarColor()I
@@ -2412,107 +2348,90 @@
 
     iput v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
-    .line 7475
-    :cond_3
+    :cond_5
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
 
-    if-ne v4, v3, :cond_4
+    if-ne v4, v3, :cond_6
 
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mShowStatusBarColor:Z
 
-    if-eq v2, v4, :cond_14
+    if-eq v2, v4, :cond_16
 
-    .line 7476
-    :cond_4
+    :cond_6
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_d
 
-    .line 7477
     iput-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mShowStatusBarColor:Z
 
-    .line 7478
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
 
-    if-eq v4, v3, :cond_5
+    if-eq v4, v3, :cond_7
 
-    .line 7479
     iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
 
-    .line 7480
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_c
 
-    .line 7481
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->isAutoStatusBarIcon()Z
 
     move-result v4
 
-    if-nez v4, :cond_9
+    if-nez v4, :cond_b
 
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_b
 
-    .line 7458
-    :cond_5
-    :goto_3
+    :cond_7
+    :goto_4
     return-void
 
-    .line 7466
     .end local v2    # "showStatusBarColor":Z
     .end local v3    # "statusBarTintEnabled":Z
-    :cond_6
+    :cond_8
+    move v3, v5
+
+    goto :goto_1
+
+    .local v3, "statusBarTintEnabled":Z
+    :cond_9
     const/4 v3, 0x1
 
-    .restart local v3    # "statusBarTintEnabled":Z
-    goto :goto_1
-
-    .line 7465
-    .end local v3    # "statusBarTintEnabled":Z
-    :cond_7
-    const/4 v3, 0x0
-
-    .restart local v3    # "statusBarTintEnabled":Z
-    goto :goto_1
-
-    .restart local v2    # "showStatusBarColor":Z
-    :cond_8
-    move v4, v6
-
-    .line 7468
+    .local v3, "statusBarTintEnabled":Z
     goto :goto_2
 
-    .line 7482
-    :cond_9
-    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
+    .restart local v2    # "showStatusBarColor":Z
+    :cond_a
+    move v4, v6
 
     goto :goto_3
 
-    .line 7485
-    :cond_a
+    :cond_b
+    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
+
+    goto :goto_4
+
+    :cond_c
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_7
 
-    .line 7486
     iput-boolean v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    .line 7487
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     iget v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    .line 7488
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
     invoke-static {v4}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
@@ -2521,77 +2440,61 @@
 
     invoke-direct {p0, v4}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7489
     iput-boolean v6, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    goto :goto_3
+    goto :goto_4
 
-    .line 7494
-    :cond_b
+    :cond_d
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mShowStatusBarColor:Z
 
-    if-eq v4, v2, :cond_d
+    if-eq v4, v2, :cond_e
 
-    .line 7495
     iput-boolean v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mShowStatusBarColor:Z
 
-    .line 7496
     iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
 
-    .line 7498
+    if-eqz v3, :cond_e
+
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mKeepAppStatusBar:Z
-
-    if-nez v4, :cond_d
-
-    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mShowStatusBarColor:Z
-
-    if-eqz v4, :cond_d
-
-    .line 7499
-    if-eqz v3, :cond_c
-
-    .line 7500
-    invoke-direct {p0, v5, p2, p3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setDrawsSystemBarBackgrounds(ZLandroid/view/WindowManager$LayoutParams;Z)V
-
-    .line 7502
-    :cond_c
-    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
-
-    .line 7503
-    return-void
-
-    .line 7507
-    :cond_d
-    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
-
-    if-eq v4, v3, :cond_5
-
-    .line 7508
-    iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
-
-    .line 7509
-    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
 
     if-eqz v4, :cond_f
 
-    .line 7510
+    :cond_e
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
+
+    if-eq v4, v3, :cond_7
+
+    iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
+
+    if-eqz v4, :cond_11
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mShowStatusBarColor:Z
+
+    if-eqz v4, :cond_10
+
+    invoke-direct {p0, v5, p2, p3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setDrawsSystemBarBackgrounds(ZLandroid/view/WindowManager$LayoutParams;Z)V
+
+    invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
+
+    goto :goto_4
+
+    :cond_f
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mShowStatusBarColor:Z
 
     if-eqz v4, :cond_e
 
-    .line 7511
     invoke-direct {p0, v5, p2, p3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setDrawsSystemBarBackgrounds(ZLandroid/view/WindowManager$LayoutParams;Z)V
 
-    .line 7512
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
 
-    goto :goto_3
+    return-void
 
-    .line 7514
-    :cond_e
+    :cond_10
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
 
@@ -2599,29 +2502,25 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
-    .line 7515
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->isAutoStatusBarIcon()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
-    .line 7516
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
 
-    goto :goto_3
+    goto :goto_4
 
-    .line 7521
-    :cond_f
+    :cond_11
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
 
-    if-eqz v4, :cond_13
+    if-eqz v4, :cond_15
 
-    .line 7522
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
 
     iget v7, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
@@ -2630,44 +2529,38 @@
 
     move-result v4
 
-    if-nez v4, :cond_12
+    if-nez v4, :cond_14
 
-    .line 7523
     iget v4, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     and-int/2addr v4, v8
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_13
 
-    :goto_4
+    .line 7401
+    :goto_5
     iput-boolean v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
-    .line 7524
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
-    if-nez v4, :cond_10
+    if-nez v4, :cond_12
 
-    .line 7525
     invoke-direct {p0, v6, p2, p3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setDrawsSystemBarBackgrounds(ZLandroid/view/WindowManager$LayoutParams;Z)V
 
-    .line 7526
     invoke-direct {p0, v6}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7533
-    :cond_10
-    :goto_5
+    :cond_12
+    :goto_6
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFloating:Z
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
-    .line 7534
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
     move-result-object v0
 
-    .line 7535
     .local v0, "dec":Landroid/view/View;
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
@@ -2691,55 +2584,46 @@
 
     invoke-virtual {v4, v5, v6, v7, v8}, Landroid/view/View;->setPadding(IIII)V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     .end local v0    # "dec":Landroid/view/View;
-    :cond_11
+    :cond_13
     move v5, v6
-
-    .line 7523
-    goto :goto_4
-
-    .line 7529
-    :cond_12
-    iput-boolean v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
-
-    .line 7530
-    iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
-
-    iget v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
-
-    invoke-virtual {v4, v5}, Landroid/view/Window;->setStatusBarColor(I)V
-
-    .line 7531
-    iput-boolean v6, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
     goto :goto_5
 
-    .line 7538
-    :cond_13
-    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
-
-    if-eqz v4, :cond_5
-
-    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
-
-    if-nez v4, :cond_5
-
-    .line 7539
+    :cond_14
     iput-boolean v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    .line 7540
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     iget v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
     invoke-virtual {v4, v5}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    .line 7541
     iput-boolean v6, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
-    .line 7542
+    goto :goto_6
+
+    :cond_15
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
+
+    if-eqz v4, :cond_7
+
+    iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
+
+    if-nez v4, :cond_7
+
+    iput-boolean v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
+
+    iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
+
+    iget v5, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
+
+    invoke-virtual {v4, v5}, Landroid/view/Window;->setStatusBarColor(I)V
+
+    iput-boolean v6, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
+
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
     invoke-static {v4}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
@@ -2748,17 +2632,16 @@
 
     invoke-direct {p0, v4}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    .line 7549
-    :cond_14
+    :cond_16
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
 
-    if-nez v4, :cond_15
+    if-nez v4, :cond_17
 
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_18
 
     iget v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
 
@@ -2766,46 +2649,42 @@
 
     move-result v4
 
-    if-eqz v4, :cond_16
+    if-eqz v4, :cond_18
 
-    .line 7550
-    :cond_15
+    :cond_17
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->isAutoStatusBarIcon()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_7
 
-    .line 7551
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    .line 7554
-    :cond_16
-    if-eqz p1, :cond_5
+    :cond_18
+    if-eqz p1, :cond_7
 
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarTintEnabled:Z
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
-    if-nez v4, :cond_17
+    if-nez v4, :cond_19
 
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFlymeStatusBar:Z
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_7
 
-    .line 7555
-    :cond_17
+    :cond_19
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 .end method
 
 .method public drawStatusBarBackground(Landroid/graphics/Canvas;)V
@@ -2813,7 +2692,6 @@
     .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .prologue
-    .line 7420
     iget-boolean v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
     if-nez v0, :cond_0
@@ -2830,17 +2708,14 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 7421
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecoViewDrawFirst:Z
 
-    .line 7422
     iget-boolean v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecoViewDrawFlag:Z
 
     if-eqz v0, :cond_0
 
-    .line 7423
     iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
@@ -2851,7 +2726,6 @@
 
     invoke-direct {p0, v0, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->onDrawDecorViewInner(Landroid/view/View;Z)V
 
-    .line 7424
     iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
@@ -2860,24 +2734,32 @@
 
     invoke-virtual {v0}, Landroid/view/View;->postInvalidate()V
 
-    .line 7419
     :cond_0
     return-void
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 2
+    .locals 3
     .param p1, "configuration"    # Landroid/content/res/Configuration;
 
     .prologue
     const/4 v1, 0x1
 
-    .line 7576
+    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v2, 0x2
+
+    if-ne v0, v2, :cond_1
+
+    move v0, v1
+
+    :goto_0
+    iput-boolean v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mLandscape:Z
+
     iget-boolean v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsActivityFirstStart:Z
 
     if-nez v0, :cond_0
 
-    .line 7577
     iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
@@ -2886,9 +2768,13 @@
 
     invoke-virtual {p0, v1, v0, v1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->apply(ZLandroid/view/WindowManager$LayoutParams;Z)V
 
-    .line 7575
     :cond_0
     return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method onCreate()V
@@ -2897,7 +2783,6 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 7287
     iget-object v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
     invoke-virtual {v2}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -2906,7 +2791,6 @@
 
     iput-object v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
-    .line 7288
     iget-object v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
     invoke-virtual {v2}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
@@ -2921,10 +2805,8 @@
 
     iput v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDensity:F
 
-    .line 7289
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->updateStatusBarHeight()V
 
-    .line 7290
     iget-object v2, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
     invoke-virtual {v2}, Landroid/app/Activity;->getApplication()Landroid/app/Application;
@@ -2935,7 +2817,6 @@
 
     move-result-object v0
 
-    .line 7291
     .local v0, "appInfo":Landroid/content/pm/ApplicationInfo;
     if-eqz v0, :cond_0
 
@@ -2950,7 +2831,6 @@
     :cond_0
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsInternalApp:Z
 
-    .line 7286
     return-void
 .end method
 
@@ -2960,12 +2840,10 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 7562
     iget-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsActivityFirstStart:Z
 
     if-eqz v1, :cond_0
 
-    .line 7563
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
     invoke-virtual {v1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -2974,7 +2852,6 @@
 
     iput-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
-    .line 7564
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1}, Landroid/view/Window;->isFloating()Z
@@ -2983,7 +2860,6 @@
 
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsFloating:Z
 
-    .line 7565
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
@@ -2996,19 +2872,16 @@
 
     iput v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mDecorViewPaddingTop:I
 
-    .line 7566
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isAppDrawsSystemBarBackgrounds()Z
 
     move-result v1
 
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsAppDrawStatusBar:Z
 
-    .line 7567
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    .line 7568
     .local v0, "value":Landroid/util/TypedValue;
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
 
@@ -3016,16 +2889,14 @@
 
     move-result-object v1
 
-    const v2, 0x1010433
+    const v2, #android:attr@colorPrimary#t
 
     invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 7569
     iget v1, v0, Landroid/util/TypedValue;->data:I
 
     iput v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mColorPrimary:I
 
-    .line 7571
     .end local v0    # "value":Landroid/util/TypedValue;
     :cond_0
     iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
@@ -3036,12 +2907,10 @@
 
     invoke-virtual {p0, v3, v1, v3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->apply(ZLandroid/view/WindowManager$LayoutParams;Z)V
 
-    .line 7572
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mIsActivityFirstStart:Z
 
-    .line 7561
     return-void
 .end method
 
@@ -3050,7 +2919,6 @@
     .param p1, "color"    # I
 
     .prologue
-    .line 7365
     iget-boolean v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
     if-nez v0, :cond_3
@@ -3059,13 +2927,10 @@
 
     if-eqz v0, :cond_3
 
-    .line 7366
     iput p1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mAppSetStatusBarColor:I
 
-    .line 7367
     invoke-direct {p0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->postDrawDecorViewInner()V
 
-    .line 7368
     iget v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
 
     invoke-direct {p0, v0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isVerifyColor(I)Z
@@ -3078,7 +2943,6 @@
 
     if-eqz v0, :cond_2
 
-    .line 7369
     iget v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
 
     invoke-static {v0, p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isSimilarColor(II)Z
@@ -3087,7 +2951,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 7370
     iget v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
 
     invoke-static {v0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
@@ -3096,12 +2959,10 @@
 
     invoke-direct {p0, v0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7371
     iget v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
 
     return v0
 
-    .line 7373
     :cond_0
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
 
@@ -3120,10 +2981,8 @@
     :goto_0
     invoke-direct {p0, v0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7374
     return p1
 
-    .line 7373
     :cond_1
     invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
 
@@ -3131,7 +2990,6 @@
 
     goto :goto_0
 
-    .line 7377
     :cond_2
     invoke-static {p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->isDarkColor(I)Z
 
@@ -3139,7 +2997,6 @@
 
     invoke-direct {p0, v0}, Landroid/app/Activity$FlymeInjector$TintBarInject;->setStatusBarDarkIcon(Z)V
 
-    .line 7379
     :cond_3
     return p1
 .end method
@@ -3153,7 +3010,6 @@
 
     const/4 v3, 0x0
 
-    .line 7430
     iget-boolean v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColorLock:Z
 
     if-nez v4, :cond_0
@@ -3162,16 +3018,13 @@
 
     if-eqz v4, :cond_1
 
-    .line 7455
     :cond_0
     :goto_0
     return-object p1
 
-    .line 7431
     :cond_1
     invoke-virtual {p0, v3, p1, v3}, Landroid/app/Activity$FlymeInjector$TintBarInject;->apply(ZLandroid/view/WindowManager$LayoutParams;Z)V
 
-    .line 7432
     iget-object v4, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
     invoke-virtual {v4}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
@@ -3191,7 +3044,6 @@
     :cond_2
     iput-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
-    .line 7433
     iget-boolean v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mTranslucentStatus:Z
 
     if-nez v3, :cond_3
@@ -3206,7 +3058,6 @@
 
     if-eqz v3, :cond_5
 
-    .line 7437
     :cond_3
     :goto_1
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -3219,7 +3070,6 @@
 
     if-nez v3, :cond_0
 
-    .line 7438
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     and-int/lit16 v3, v3, 0x2000
@@ -3228,7 +3078,6 @@
 
     const/4 v2, 0x1
 
-    .line 7439
     .local v2, "isVisibilityDark":Z
     :goto_2
     iget v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mStatusBarColor:I
@@ -3237,7 +3086,6 @@
 
     move-result v1
 
-    .line 7440
     .local v1, "isColorDark":Z
     if-eq v2, v1, :cond_0
 
@@ -3255,18 +3103,16 @@
 
     if-nez v3, :cond_0
 
-    .line 7441
+    .line 7397
     :cond_4
     if-eqz v1, :cond_7
 
-    .line 7442
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     or-int/lit16 v3, v3, 0x2000
 
     iput v3, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
-    .line 7446
     :goto_3
     iget-object v3, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
 
@@ -3278,21 +3124,17 @@
 
     invoke-direct {v4, p0}, Landroid/app/Activity$FlymeInjector$TintBarInject$1;-><init>(Landroid/app/Activity$FlymeInjector$TintBarInject;)V
 
-    .line 7451
     const-wide/16 v6, 0xa
 
-    .line 7446
     invoke-virtual {v3, v4, v6, v7}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 
-    .line 7434
     .end local v1    # "isColorDark":Z
     .end local v2    # "isVisibilityDark":Z
     :cond_5
     const/high16 v0, -0x80000000
 
-    .line 7435
     .local v0, "bits":I
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -3302,7 +3144,6 @@
 
     goto :goto_1
 
-    .line 7438
     .end local v0    # "bits":I
     :cond_6
     const/4 v2, 0x0
@@ -3310,7 +3151,6 @@
     .restart local v2    # "isVisibilityDark":Z
     goto :goto_2
 
-    .line 7444
     .restart local v1    # "isColorDark":Z
     :cond_7
     iget v3, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
@@ -3320,4 +3160,84 @@
     iput v3, p1, Landroid/view/WindowManager$LayoutParams;->systemUiVisibility:I
 
     goto :goto_3
+.end method
+
+.method private hasStatusBarBackground()Z
+    .locals 2
+
+    .prologue
+    iget-object v0, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mWindow:Landroid/view/Window;
+
+    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object v0
+
+    const v1, #android:id@statusBarBackground#t
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    .line 7346
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private isWhiteApp()Z
+    .locals 2
+
+    .prologue
+    iget-object v1, p0, Landroid/app/Activity$FlymeInjector$TintBarInject;->mThisActivity:Landroid/app/Activity;
+
+    invoke-virtual {v1}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    .local v0, "packageName":Ljava/lang/String;
+    if-eqz v0, :cond_1
+
+    const-string v1, "me.ele"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "com.google.android.googlequicksearchbox"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, ".cts"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    .line 7318
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method

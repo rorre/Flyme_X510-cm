@@ -75,54 +75,6 @@
     return-object v0
 .end method
 
-.method static synthetic -wrap1(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
-    .param p0, "phoneNumber"    # Ljava/lang/String;
-    .param p1, "context"    # Landroid/content/Context;
-
-    .prologue
-    invoke-static {p0, p1}, Landroid/text/util/UrlSpanHelper;->getDisplayNameFromPhone(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap10(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "intent"    # Landroid/content/Intent;
-
-    .prologue
-    invoke-static {p0, p1}, Landroid/text/util/UrlSpanHelper;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap2(Ljava/lang/CharSequence;)[J
-    .locals 1
-    .param p0, "value"    # Ljava/lang/CharSequence;
-
-    .prologue
-    invoke-static {p0}, Landroid/text/util/UrlSpanHelper;->subTimeToTime(Ljava/lang/CharSequence;)[J
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic -wrap3(Ljava/lang/CharSequence;)J
-    .locals 2
-    .param p0, "value"    # Ljava/lang/CharSequence;
-
-    .prologue
-    invoke-static {p0}, Landroid/text/util/UrlSpanHelper;->subDate(Ljava/lang/CharSequence;)J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
 .method static synthetic -wrap4(JLandroid/content/Context;Ljava/lang/CharSequence;)V
     .locals 0
     .param p0, "sTime"    # J
@@ -130,65 +82,7 @@
     .param p3, "title"    # Ljava/lang/CharSequence;
 
     .prologue
-    invoke-static {p0, p1, p2, p3}, Landroid/text/util/UrlSpanHelper;->createAllDayEvent(JLandroid/content/Context;Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap5(JLandroid/content/Context;Ljava/lang/CharSequence;)V
-    .locals 0
-    .param p0, "sTime"    # J
-    .param p2, "context"    # Landroid/content/Context;
-    .param p3, "title"    # Ljava/lang/CharSequence;
-
-    .prologue
     invoke-static {p0, p1, p2, p3}, Landroid/text/util/UrlSpanHelper;->createStartTimeEvent(JLandroid/content/Context;Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap6(JJLandroid/content/Context;Ljava/lang/CharSequence;)V
-    .locals 0
-    .param p0, "sTime"    # J
-    .param p2, "eTime"    # J
-    .param p4, "context"    # Landroid/content/Context;
-    .param p5, "title"    # Ljava/lang/CharSequence;
-
-    .prologue
-    invoke-static/range {p0 .. p5}, Landroid/text/util/UrlSpanHelper;->createTimeToTimeEvent(JJLandroid/content/Context;Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap7(JLandroid/content/Context;)V
-    .locals 0
-    .param p0, "sTime"    # J
-    .param p2, "context"    # Landroid/content/Context;
-
-    .prologue
-    invoke-static {p0, p1, p2}, Landroid/text/util/UrlSpanHelper;->openCalendar(JLandroid/content/Context;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap8(Ljava/lang/CharSequence;Landroid/view/View;)V
-    .locals 0
-    .param p0, "value"    # Ljava/lang/CharSequence;
-    .param p1, "widget"    # Landroid/view/View;
-
-    .prologue
-    invoke-static {p0, p1}, Landroid/text/util/UrlSpanHelper;->setPrimaryClip(Ljava/lang/CharSequence;Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap9(Landroid/view/View;Ljava/lang/String;)V
-    .locals 0
-    .param p0, "widget"    # Landroid/view/View;
-    .param p1, "url"    # Ljava/lang/String;
-
-    .prologue
-    invoke-static {p0, p1}, Landroid/text/util/UrlSpanHelper;->showWarning(Landroid/view/View;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -963,27 +857,13 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setItems(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 287
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
-    .line 288
     .local v1, "mDialog":Landroid/app/AlertDialog;
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 290
-    new-instance v3, Ljava/lang/Thread;
-
-    new-instance v4, Landroid/text/util/UrlSpanHelper$5;
-
-    invoke-direct {v4, v2, p0, v1}, Landroid/text/util/UrlSpanHelper$5;-><init>(Ljava/lang/CharSequence;Landroid/view/View;Landroid/app/AlertDialog;)V
-
-    invoke-direct {v3, v4}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    invoke-virtual {v3}, Ljava/lang/Thread;->start()V
-
-    .line 245
     return-void
 .end method
 
@@ -993,7 +873,6 @@
     .param p1, "message"    # Ljava/lang/String;
 
     .prologue
-    .line 546
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
@@ -1002,6 +881,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
+    .line 245
     .line 545
     return-void
 .end method
@@ -1063,28 +943,24 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 569
     .local v0, "builder":Landroid/app/AlertDialog$Builder;
     sget v3, Lcom/flyme/internal/R$string;->url_warning_title:I
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 570
     sget v3, Lcom/flyme/internal/R$string;->url_warning_messgae:I
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 571
-    const/high16 v3, 0x1040000
+    const/high16 v3, #android:string@cancel#i
 
     invoke-virtual {v0, v3, v5}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 572
-    new-instance v3, Landroid/text/util/UrlSpanHelper$7;
+    new-instance v3, Landroid/text/util/UrlSpanHelper$6;
 
-    invoke-direct {v3, v1, p0}, Landroid/text/util/UrlSpanHelper$7;-><init>(Landroid/net/Uri;Landroid/view/View;)V
+    invoke-direct {v3, v1, p0}, Landroid/text/util/UrlSpanHelper$6;-><init>(Landroid/net/Uri;Landroid/view/View;)V
 
-    const v4, 0x104000a
+    const v4, #android:string@ok#t
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1238,9 +1114,9 @@
 
     .line 338
     :cond_0
-    new-instance v4, Landroid/text/util/UrlSpanHelper$6;
+    new-instance v4, Landroid/text/util/UrlSpanHelper$5;
 
-    invoke-direct {v4, p0, p1, v2}, Landroid/text/util/UrlSpanHelper$6;-><init>(Landroid/view/View;Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v4, p0, p1, v2}, Landroid/text/util/UrlSpanHelper$5;-><init>(Landroid/view/View;Ljava/lang/String;Landroid/net/Uri;)V
 
     invoke-virtual {v0, v1, v4}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1480,4 +1356,97 @@
 
     .line 494
     return-object v0
+.end method
+
+.method static synthetic -wrap1(Ljava/lang/CharSequence;)[J
+    .locals 1
+    .param p0, "value"    # Ljava/lang/CharSequence;
+
+    .prologue
+    invoke-static {p0}, Landroid/text/util/UrlSpanHelper;->subTimeToTime(Ljava/lang/CharSequence;)[J
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic -wrap2(Ljava/lang/CharSequence;)J
+    .locals 2
+    .param p0, "value"    # Ljava/lang/CharSequence;
+
+    .prologue
+    invoke-static {p0}, Landroid/text/util/UrlSpanHelper;->subDate(Ljava/lang/CharSequence;)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method static synthetic -wrap3(JLandroid/content/Context;Ljava/lang/CharSequence;)V
+    .locals 0
+    .param p0, "sTime"    # J
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "title"    # Ljava/lang/CharSequence;
+
+    .prologue
+    invoke-static {p0, p1, p2, p3}, Landroid/text/util/UrlSpanHelper;->createAllDayEvent(JLandroid/content/Context;Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(JJLandroid/content/Context;Ljava/lang/CharSequence;)V
+    .locals 0
+    .param p0, "sTime"    # J
+    .param p2, "eTime"    # J
+    .param p4, "context"    # Landroid/content/Context;
+    .param p5, "title"    # Ljava/lang/CharSequence;
+
+    .prologue
+    invoke-static/range {p0 .. p5}, Landroid/text/util/UrlSpanHelper;->createTimeToTimeEvent(JJLandroid/content/Context;Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap6(JLandroid/content/Context;)V
+    .locals 0
+    .param p0, "sTime"    # J
+    .param p2, "context"    # Landroid/content/Context;
+
+    .prologue
+    invoke-static {p0, p1, p2}, Landroid/text/util/UrlSpanHelper;->openCalendar(JLandroid/content/Context;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap7(Ljava/lang/CharSequence;Landroid/view/View;)V
+    .locals 0
+    .param p0, "value"    # Ljava/lang/CharSequence;
+    .param p1, "widget"    # Landroid/view/View;
+
+    .prologue
+    invoke-static {p0, p1}, Landroid/text/util/UrlSpanHelper;->setPrimaryClip(Ljava/lang/CharSequence;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap8(Landroid/view/View;Ljava/lang/String;)V
+    .locals 0
+    .param p0, "widget"    # Landroid/view/View;
+    .param p1, "url"    # Ljava/lang/String;
+
+    .prologue
+    invoke-static {p0, p1}, Landroid/text/util/UrlSpanHelper;->showWarning(Landroid/view/View;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap9(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 0
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "intent"    # Landroid/content/Intent;
+
+    .prologue
+    invoke-static {p0, p1}, Landroid/text/util/UrlSpanHelper;->startActivity(Landroid/content/Context;Landroid/content/Intent;)V
+
+    return-void
 .end method

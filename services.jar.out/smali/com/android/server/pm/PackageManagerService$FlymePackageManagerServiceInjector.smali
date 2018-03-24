@@ -143,56 +143,13 @@
 .end method
 
 .method static flymeSetup(Lcom/android/server/pm/PackageManagerService;)V
-    .locals 1
+    .locals 0
     .param p0, "pms"    # Lcom/android/server/pm/PackageManagerService;
 
     .prologue
-    .line 21398
     sput-object p0, Lcom/android/server/pm/PackageManagerService$FlymePackageManagerServiceInjector;->mPms:Lcom/android/server/pm/PackageManagerService;
 
-    .line 21399
-    new-instance v0, Landroid/content/pm/ActivityInfo;
-
-    invoke-direct {v0}, Landroid/content/pm/ActivityInfo;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    .line 21400
-    new-instance v0, Landroid/content/pm/ResolveInfo;
-
-    invoke-direct {v0}, Landroid/content/pm/ResolveInfo;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessInfo:Landroid/content/pm/ResolveInfo;
-
-    .line 21397
     return-void
-.end method
-
-.method static getAccessActivityInfo(Lcom/android/server/pm/PackageManagerService;Landroid/content/ComponentName;)Landroid/content/pm/ActivityInfo;
-    .locals 1
-    .param p0, "dst"    # Lcom/android/server/pm/PackageManagerService;
-    .param p1, "component"    # Landroid/content/ComponentName;
-
-    .prologue
-    .line 21473
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessComponentName:Landroid/content/ComponentName;
-
-    invoke-virtual {v0, p1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 21474
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    return-object v0
-
-    .line 21476
-    :cond_0
-    const/4 v0, 0x0
-
-    return-object v0
 .end method
 
 .method static getFlymeEmptyApplicationInfo()Landroid/content/pm/ParceledListSlice;
@@ -514,36 +471,6 @@
     return p2
 .end method
 
-.method static grantFlymeRuntimePermission(Landroid/content/pm/PackageParser$Package;Lcom/android/server/pm/PermissionsState;Lcom/android/server/pm/BasePermission;I)V
-    .locals 1
-    .param p0, "pkg"    # Landroid/content/pm/PackageParser$Package;
-    .param p1, "permissionsState"    # Lcom/android/server/pm/PermissionsState;
-    .param p2, "bp"    # Lcom/android/server/pm/BasePermission;
-    .param p3, "userId"    # I
-
-    .prologue
-    .line 21603
-    invoke-static {}, Landroid/os/BuildExt;->isMarshallowFlymePermissionDisable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isSystemApp()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 21604
-    :cond_0
-    invoke-virtual {p1, p2, p3}, Lcom/android/server/pm/PermissionsState;->grantRuntimePermission(Lcom/android/server/pm/BasePermission;I)I
-
-    .line 21601
-    :cond_1
-    return-void
-.end method
-
 .method private static hasAppSupportAppLinks(Landroid/content/Intent;Ljava/util/List;)Z
     .locals 7
     .param p0, "intent"    # Landroid/content/Intent;
@@ -801,60 +728,6 @@
     return v1
 .end method
 
-.method static isResetFlymeRuntimePermissions()Z
-    .locals 1
-
-    .prologue
-    .line 21619
-    invoke-static {}, Landroid/os/BuildExt;->isMarshallowFlymePermissionDisable()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 21620
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 21622
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method static isResetFlymeRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
-    .locals 1
-    .param p0, "pkg"    # Landroid/content/pm/PackageParser$Package;
-
-    .prologue
-    .line 21611
-    invoke-static {}, Landroid/os/BuildExt;->isMarshallowFlymePermissionDisable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isSystemApp()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 21612
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
-
-    .line 21614
-    :cond_1
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method static replaceResolverName(Landroid/content/ComponentName;)Landroid/content/ComponentName;
     .locals 3
     .param p0, "componentName"    # Landroid/content/ComponentName;
@@ -914,141 +787,6 @@
     .end local v0    # "name":Landroid/content/ComponentName;
     :cond_0
     return-object p0
-.end method
-
-.method static scanPackageForAccessControl(Lcom/android/server/pm/PackageManagerService;)V
-    .locals 4
-    .param p0, "dst"    # Lcom/android/server/pm/PackageManagerService;
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
-
-    .line 21498
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mAndroidApplication:Landroid/content/pm/ApplicationInfo;
-
-    iput-object v1, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    .line 21499
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    const-string/jumbo v1, "com.meizu.app.AccessApplication"
-
-    iput-object v1, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    .line 21500
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mAndroidApplication:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    iput-object v1, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    .line 21501
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mAndroidApplication:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
-
-    iput-object v1, v0, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
-
-    .line 21502
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iput v2, v0, Landroid/content/pm/ActivityInfo;->launchMode:I
-
-    .line 21503
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    const/16 v1, 0x20
-
-    iput v1, v0, Landroid/content/pm/ActivityInfo;->flags:I
-
-    .line 21504
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iput v3, v0, Landroid/content/pm/ActivityInfo;->screenOrientation:I
-
-    .line 21505
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->mFlymeActivityInfo:Landroid/content/ActivityInfoExt;
-
-    iput-boolean v2, v0, Landroid/content/ActivityInfoExt;->needAccessControl:Z
-
-    .line 21506
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    sget v1, Lcom/flyme/internal/R$style;->Theme_Flyme_Light_AccessControl:I
-
-    iput v1, v0, Landroid/content/pm/ActivityInfo;->theme:I
-
-    .line 21507
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    const/16 v1, 0x480
-
-    iput v1, v0, Landroid/content/pm/ActivityInfo;->configChanges:I
-
-    .line 21508
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iput-boolean v3, v0, Landroid/content/pm/ActivityInfo;->exported:Z
-
-    .line 21509
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iput-boolean v3, v0, Landroid/content/pm/ActivityInfo;->enabled:Z
-
-    .line 21510
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessInfo:Landroid/content/pm/ResolveInfo;
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iput-object v1, v0, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    .line 21511
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessInfo:Landroid/content/pm/ResolveInfo;
-
-    iput v2, v0, Landroid/content/pm/ResolveInfo;->priority:I
-
-    .line 21512
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessInfo:Landroid/content/pm/ResolveInfo;
-
-    iput v2, v0, Landroid/content/pm/ResolveInfo;->preferredOrder:I
-
-    .line 21513
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessInfo:Landroid/content/pm/ResolveInfo;
-
-    iput v2, v0, Landroid/content/pm/ResolveInfo;->match:I
-
-    .line 21514
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iput v3, v0, Landroid/content/pm/ActivityInfo;->uiOptions:I
-
-    .line 21515
-    new-instance v0, Landroid/content/ComponentName;
-
-    iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mAndroidApplication:Landroid/content/pm/ApplicationInfo;
-
-    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService;->mAccessActivity:Landroid/content/pm/ActivityInfo;
-
-    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    invoke-direct {v0, v1, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/server/pm/PackageManagerService;->mAccessComponentName:Landroid/content/ComponentName;
-
-    .line 21497
-    return-void
 .end method
 
 .method public static startFlymePackageManagerService(Landroid/content/Context;)Lcom/android/server/pm/FlymePackageManagerService;
@@ -1316,4 +1054,94 @@
     .end local v8    # "pkg":Ljava/lang/String;
     :cond_1
     return-void
+.end method
+
+.method static grantFlymeRuntimePermission(Landroid/content/pm/PackageParser$Package;Lcom/android/server/pm/PermissionsState;Lcom/android/server/pm/BasePermission;II)I
+    .locals 1
+    .param p0, "pkg"    # Landroid/content/pm/PackageParser$Package;
+    .param p1, "permissionsState"    # Lcom/android/server/pm/PermissionsState;
+    .param p2, "bp"    # Lcom/android/server/pm/BasePermission;
+    .param p3, "userId"    # I
+    .param p4, "flags"    # I
+
+    .prologue
+    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isSystemApp()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isUpdatedSystemApp()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-virtual {p1, p2, p3}, Lcom/android/server/pm/PermissionsState;->grantRuntimePermission(Lcom/android/server/pm/BasePermission;I)I
+
+    or-int/lit8 p4, p4, 0x20
+
+    :cond_1
+    return p4
+.end method
+
+.method static grantFlymeRuntimePermission(Landroid/content/pm/PackageParser$Package;Lcom/android/server/pm/PermissionsState;Lcom/android/server/pm/BasePermission;[I)[I
+    .locals 5
+    .param p0, "pkg"    # Landroid/content/pm/PackageParser$Package;
+    .param p1, "permissionsState"    # Lcom/android/server/pm/PermissionsState;
+    .param p2, "bp"    # Lcom/android/server/pm/BasePermission;
+    .param p3, "changedRuntimePermissionUserIds"    # [I
+
+    .prologue
+    const/16 v4, 0x20
+
+    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isUpdatedSystemApp()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p0}, Landroid/content/pm/PackageParser$Package;->isSystemApp()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    invoke-static {}, Lcom/android/server/pm/UserManagerService;->getInstance()Lcom/android/server/pm/UserManagerService;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/pm/UserManagerService;->getUserIds()[I
+
+    move-result-object v0
+
+    .local v0, "currentUserIds":[I
+    const/4 v2, 0x0
+
+    array-length v3, v0
+
+    :goto_0
+    if-ge v2, v3, :cond_1
+
+    aget v1, v0, v2
+
+    .local v1, "userId":I
+    invoke-virtual {p1, p2, v1}, Lcom/android/server/pm/PermissionsState;->grantRuntimePermission(Lcom/android/server/pm/BasePermission;I)I
+
+    invoke-virtual {p1, p2, v1, v4, v4}, Lcom/android/server/pm/PermissionsState;->updatePermissionFlags(Lcom/android/server/pm/BasePermission;III)Z
+
+    invoke-static {p3, v1}, Lcom/android/internal/util/ArrayUtils;->appendInt([II)[I
+
+    move-result-object p3
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    .end local v0    # "currentUserIds":[I
+    .end local v1    # "userId":I
+    :cond_1
+    return-object p3
 .end method

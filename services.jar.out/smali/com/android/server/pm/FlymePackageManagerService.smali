@@ -12,6 +12,20 @@
 
 
 # instance fields
+.field private keyguardActivitylist:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Landroid/util/ArraySet",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
 .field mContext:Landroid/content/Context;
 
 .field mInstaller:Lcom/android/server/pm/Installer;
@@ -76,61 +90,54 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 44
     invoke-direct {p0}, Landroid/content/pm/IFlymePackageManager$Stub;-><init>()V
 
-    .line 35
     iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->mContext:Landroid/content/Context;
 
-    .line 36
     iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->mPms:Lcom/android/server/pm/PackageManagerService;
 
-    .line 37
     iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->mInstaller:Lcom/android/server/pm/Installer;
 
-    .line 38
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->mInterceptPackage:Ljava/util/List;
 
-    .line 39
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->startFromInteractive:Ljava/util/List;
 
-    .line 40
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->mayForbitPackage:Ljava/util/List;
 
-    .line 41
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->privacyBlock:Z
 
-    .line 42
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->recordKeyguardPackage:Ljava/util/HashMap;
 
-    .line 45
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->keyguardActivitylist:Ljava/util/HashMap;
+
     iput-object p1, p0, Lcom/android/server/pm/FlymePackageManagerService;->mContext:Landroid/content/Context;
 
-    .line 46
     iput-object p2, p0, Lcom/android/server/pm/FlymePackageManagerService;->mPms:Lcom/android/server/pm/PackageManagerService;
 
-    .line 47
     iput-object p3, p0, Lcom/android/server/pm/FlymePackageManagerService;->mInstaller:Lcom/android/server/pm/Installer;
 
-    .line 44
     return-void
 .end method
 
@@ -880,4 +887,119 @@
 
     .line 71
     return-void
+.end method
+
+.method public getSystemAppPath(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 1
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "userid"    # I
+
+    .prologue
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public getSystemAppRecord(I)Ljava/util/List;
+    .locals 1
+    .param p1, "userid"    # I
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .local v0, "finalresult":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    return-object v0
+.end method
+
+.method public getkeyguarActivitylist()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .local v0, "componentNames":Ljava/util/List;, "Ljava/util/List<Landroid/content/ComponentName;>;"
+    return-object v0
+.end method
+
+.method public getkeyguardBlackForSystem()Ljava/util/HashMap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Landroid/util/ArraySet",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;>;"
+        }
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/pm/FlymePackageManagerService;->keyguardActivitylist:Ljava/util/HashMap;
+
+    return-object v0
+.end method
+
+.method public isMzApp(Ljava/lang/String;)Z
+    .locals 1
+    .param p1, "pkg"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public isWhiltList(Landroid/content/ComponentName;)Z
+    .locals 1
+    .param p1, "componentName"    # Landroid/content/ComponentName;
+
+    .prologue
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public setkeyguardActivitylist(Landroid/content/ComponentName;Z)V
+    .locals 0
+    .param p1, "componment"    # Landroid/content/ComponentName;
+    .param p2, "shouldClear"    # Z
+
+    .prologue
+    return-void
+.end method
+
+.method public updateMultiOpenAppData(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 1
+    .param p1, "sourceDir"    # Ljava/lang/String;
+    .param p2, "targetDir"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v0, 0x0
+
+    return v0
 .end method

@@ -10700,12 +10700,6 @@
 
     invoke-virtual {v7, p1}, Landroid/content/BroadcastReceiver;->setPendingResult(Landroid/content/BroadcastReceiver$PendingResult;)V
 
-    invoke-static {p1, v6}, Landroid/app/ActivityThread$FlymeInjector;->isFlymePermissionGranted(Landroid/app/ActivityThread$ReceiverData;Landroid/app/LoadedApk;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_flyme_0
-
     invoke-virtual {v3}, Landroid/app/ContextImpl;->getReceiverRestrictedContext()Landroid/content/Context;
 
     move-result-object v8
@@ -10716,8 +10710,6 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :cond_flyme_0
 
     sget-object v8, Landroid/app/ActivityThread;->sCurrentBroadcastIntent:Ljava/lang/ThreadLocal;
 

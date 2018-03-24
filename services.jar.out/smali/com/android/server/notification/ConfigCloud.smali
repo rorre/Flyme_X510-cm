@@ -62,63 +62,70 @@
     .locals 3
 
     .prologue
-    .line 31
-    const-string/jumbo v0, "ConfigCloud"
+    const-string v0, "ConfigCloud"
 
     sput-object v0, Lcom/android/server/notification/ConfigCloud;->TAG:Ljava/lang/String;
 
-    .line 36
-    const/4 v0, 0x7
+    const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, "com.tencent.mm"
+    const-string v1, "com.tencent.mm"
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.tencent.mobileqq"
+    const-string v1, "com.tencent.mobileqq"
 
     const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.tencent.qqlite"
+    const-string v1, "com.tencent.qqlite"
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.tencent.mobileqqi"
+    const-string v1, "com.tencent.mobileqqi"
 
     const/4 v2, 0x3
 
     aput-object v1, v0, v2
 
-    .line 37
-    const-string/jumbo v1, "com.whatsapp"
+    const-string v1, "com.whatsapp"
 
     const/4 v2, 0x4
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "jp.naver.line.android"
+    const-string v1, "jp.naver.line.android"
 
     const/4 v2, 0x5
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, "com.facebook.orca"
+    const-string v1, "com.facebook.orca"
 
     const/4 v2, 0x6
 
     aput-object v1, v0, v2
 
-    .line 36
+    const-string v1, "com.android.mms"
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-string v1, "com.android.email"
+
+    const/16 v2, 0x8
+
+    aput-object v1, v0, v2
+
     sput-object v0, Lcom/android/server/notification/ConfigCloud;->HEADS_UP_WHITE:[Ljava/lang/String;
 
-    .line 30
     return-void
 .end method
 

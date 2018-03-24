@@ -22,66 +22,7 @@
     .line 2194
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
-.end method
-
-.method static destoryWindow(Lcom/android/server/wm/WindowStateAnimator;)V
-    .locals 4
-    .param p0, "wsa"    # Lcom/android/server/wm/WindowStateAnimator;
-
-    .prologue
-    .line 2204
-    iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mSession:Lcom/android/server/wm/Session;
-
-    iget v0, v0, Lcom/android/server/wm/Session;->mUid:I
-
-    iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mSession:Lcom/android/server/wm/Session;
-
-    iget v1, v1, Lcom/android/server/wm/Session;->mPid:I
-
-    invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
-
-    iget-object v3, v3, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v3, v3, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/wm/Wms_Interface;->destoryWindow(IIILjava/lang/String;)V
-
     .line 2202
-    return-void
-.end method
-
-.method static hideWindow(Lcom/android/server/wm/WindowStateAnimator;)V
-    .locals 4
-    .param p0, "wsa"    # Lcom/android/server/wm/WindowStateAnimator;
-
-    .prologue
-    .line 2198
-    iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mSession:Lcom/android/server/wm/Session;
-
-    iget v0, v0, Lcom/android/server/wm/Session;->mUid:I
-
-    iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mSession:Lcom/android/server/wm/Session;
-
-    iget v1, v1, Lcom/android/server/wm/Session;->mPid:I
-
-    invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
-
-    iget-object v3, v3, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v3, v3, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/wm/Wms_Interface;->hideWindow(IIILjava/lang/String;)V
-
-    .line 2196
     return-void
 .end method
 
@@ -90,7 +31,6 @@
     .param p0, "wsa"    # Lcom/android/server/wm/WindowStateAnimator;
 
     .prologue
-    .line 2217
     iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->isInMovedMode()Z
@@ -115,6 +55,7 @@
     .param p0, "wsa"    # Lcom/android/server/wm/WindowStateAnimator;
 
     .prologue
+    .line 2217
     .line 2210
     iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
 
@@ -213,7 +154,7 @@
 
     move-result-object v1
 
-    const v2, 0x105001c
+    const v2, #android:dimen@status_bar_height#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -234,54 +175,6 @@
     .line 2220
     .end local v0    # "status_bar_height":I
     :cond_1
-    return-void
-.end method
-
-.method static showWindow(Lcom/android/server/wm/WindowStateAnimator;)V
-    .locals 6
-    .param p0, "wsa"    # Lcom/android/server/wm/WindowStateAnimator;
-
-    .prologue
-    .line 2245
-    iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mSession:Lcom/android/server/wm/Session;
-
-    iget v0, v0, Lcom/android/server/wm/Session;->mUid:I
-
-    iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mSession:Lcom/android/server/wm/Session;
-
-    iget v1, v1, Lcom/android/server/wm/Session;->mPid:I
-
-    invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
-
-    iget-object v3, v3, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    iget-object v3, v3, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
-
-    .line 2246
-    iget-object v4, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
-
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowSurfaceController;->getWidth()F
-
-    move-result v4
-
-    float-to-int v4, v4
-
-    iget-object v5, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
-
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowSurfaceController;->getHeight()F
-
-    move-result v5
-
-    float-to-int v5, v5
-
-    .line 2245
-    invoke-static/range {v0 .. v5}, Lcom/android/server/wm/Wms_Interface;->showWindow(IIILjava/lang/String;II)V
-
-    .line 2243
     return-void
 .end method
 

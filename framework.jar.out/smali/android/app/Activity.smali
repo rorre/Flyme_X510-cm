@@ -77,8 +77,6 @@
 
 # instance fields
 
-.field mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
-
 .field mFlymeActionBarToTop:Z
 
 .field mFlymeTintBarInject:Landroid/app/Activity$FlymeInjector$TintBarInject;
@@ -7042,8 +7040,6 @@
 
     iput-boolean v0, p0, Landroid/app/Activity;->mCalled:Z
 
-    invoke-static/range {p0 .. p0}, Landroid/app/Activity$FlymeInjector;->injectAccessControl(Landroid/app/Activity;)V
-
     return-void
 .end method
 
@@ -10338,19 +10334,6 @@
     .param p2, "options"    # Landroid/os/Bundle;
 
     .prologue
-
-    invoke-static/range {p0 .. p1}, Landroid/app/Activity$FlymeInjector;->checkFlymeAccessControl(Landroid/app/Activity;Landroid/content/Intent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_flyme_0
-
-    invoke-static/range {p0 .. p2}, Landroid/app/Activity$FlymeInjector;->startFlymeActivity(Landroid/app/Activity;Landroid/content/Intent;Landroid/os/Bundle;)V
-
-    return-void
-
-    :cond_flyme_0
-
     const/4 v0, -0x1
 
     if-eqz p2, :cond_0
@@ -11749,15 +11732,6 @@
     invoke-virtual {v0, p1}, Landroid/app/Activity$FlymeInjector$TintBarInject;->drawStatusBarBackground(Landroid/graphics/Canvas;)V
 
     return-void
-.end method
-
-.method public getActivityInfo()Landroid/content/pm/ActivityInfo;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Landroid/app/Activity;->mActivityInfo:Landroid/content/pm/ActivityInfo;
-
-    return-object v0
 .end method
 
 .method public isActionBarToTop()Z

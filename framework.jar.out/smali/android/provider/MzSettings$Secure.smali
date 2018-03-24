@@ -25,6 +25,8 @@
 
 .field public static final FINGERPRINT_ID_SECRETS_MODE:Ljava/lang/String; = "mz_fp_id_secrets_mode"
 
+.field public static final MEIZU_CTS_STATE:Ljava/lang/String; = "mz_cts_state"
+
 .field public static final MEIZU_DEVICE_NAME:Ljava/lang/String; = "meizu_device_name"
 
 .field public static final MEIZU_KEYGUARD_LOCK:Ljava/lang/String; = "meizu_keyguard_lock"

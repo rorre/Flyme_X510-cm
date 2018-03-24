@@ -835,17 +835,26 @@
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->allNum:I
 
-    .line 213
     iget v2, v1, Lmeizu/notification/RankingDaily;->clickNum:I
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->clickNum:I
 
-    .line 214
     iget v2, v1, Lmeizu/notification/RankingDaily;->removeNum:I
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->removeNum:I
 
-    .line 215
+    iget-wide v2, p2, Lmeizu/notification/RankingDaily;->postDate:J
+
+    iget-wide v4, v1, Lmeizu/notification/RankingDaily;->postDate:J
+
+    sub-long/2addr v2, v4
+
+    const-wide/32 v4, 0x5265c00
+
+    cmp-long v2, v2, v4
+
+    if-lez v2, :cond_2
+
     iget-object v2, p0, Lcom/android/server/notification/RankingControllerImpl;->mNotificationFirewall:Lcom/android/server/notification/NotificationFirewall;
 
     iget-wide v4, p2, Lmeizu/notification/RankingDaily;->postDate:J
@@ -856,20 +865,25 @@
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->score:F
 
-    .line 216
+    :goto_2
     iget v2, v1, Lmeizu/notification/RankingDaily;->score_scale:F
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->score_scale:F
 
     goto :goto_1
 
-    .line 219
+    :cond_2
+    iget-wide v2, v1, Lmeizu/notification/RankingDaily;->postDate:J
+
+    iput-wide v2, p2, Lmeizu/notification/RankingDaily;->postDate:J
+
+    goto :goto_2
+
     :pswitch_1
     iget v2, v1, Lmeizu/notification/RankingDaily;->allNum:I
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->allNum:I
 
-    .line 220
     iget v2, p2, Lmeizu/notification/RankingDaily;->clickNum:I
 
     iget v3, v1, Lmeizu/notification/RankingDaily;->clickNum:I
@@ -919,14 +933,14 @@
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->removeNum:I
 
-    .line 230
     iget v2, v1, Lmeizu/notification/RankingDaily;->score_scale:F
 
     iput v2, p2, Lmeizu/notification/RankingDaily;->score_scale:F
 
     goto :goto_1
 
-    .line 210
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1148,16 +1162,9 @@
 
     iput v2, v0, Lmeizu/notification/RankingDaily;->score:F
 
-    .line 170
-    const/4 v2, 0x0
-
-    iget v4, v0, Lmeizu/notification/RankingDaily;->score:F
-
-    invoke-static {v2, v4}, Ljava/lang/Math;->max(FF)F
+    iget v2, v0, Lmeizu/notification/RankingDaily;->score:F
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
 
     monitor-exit v3
 
@@ -1167,7 +1174,6 @@
     :cond_0
     monitor-exit v3
 
-    .line 174
     iget-object v2, p1, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
 
     iget-object v2, v2, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
@@ -1186,7 +1192,6 @@
 
     iput v3, v2, Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;->score:F
 
-    .line 175
     iget-object v2, p1, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
 
     iget-object v2, v2, Landroid/service/notification/StatusBarNotification;->mFlymeFilter:Landroid/service/notification/StatusBarNotification$FlymeNotificationFilter;
@@ -1195,7 +1200,6 @@
 
     return v2
 
-    .line 164
     :catchall_0
     move-exception v2
 
@@ -1212,12 +1216,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 180
     iget-object v1, p0, Lcom/android/server/notification/RankingControllerImpl;->mAppResultMap:Landroid/util/ArrayMap;
 
     monitor-enter v1
 
-    .line 181
     :try_start_0
     iget-object v0, p0, Lcom/android/server/notification/RankingControllerImpl;->mAppResultMap:Landroid/util/ArrayMap;
 
@@ -1227,7 +1229,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 182
+    .line 170
     const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/android/server/notification/RankingControllerImpl;->mAppResultMap:Landroid/util/ArrayMap;
@@ -1253,10 +1255,9 @@
     :cond_0
     monitor-exit v1
 
-    .line 185
     return v2
 
-    .line 180
+    .line 164
     :catchall_0
     move-exception v0
 
@@ -1270,7 +1271,6 @@
     .param p1, "notification"    # Lcom/android/server/notification/NotificationRecord;
 
     .prologue
-    .line 251
     iget-object v0, p0, Lcom/android/server/notification/RankingControllerImpl;->mHandler:Lcom/android/server/notification/RankingControllerImpl$H;
 
     iget-object v1, p0, Lcom/android/server/notification/RankingControllerImpl;->mHandler:Lcom/android/server/notification/RankingControllerImpl$H;
@@ -1283,7 +1283,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/notification/RankingControllerImpl$H;->sendMessage(Landroid/os/Message;)Z
 
-    .line 250
     return-void
 .end method
 
@@ -1292,7 +1291,6 @@
     .param p1, "notification"    # Lcom/android/server/notification/NotificationRecord;
 
     .prologue
-    .line 247
     iget-object v0, p0, Lcom/android/server/notification/RankingControllerImpl;->mHandler:Lcom/android/server/notification/RankingControllerImpl$H;
 
     iget-object v1, p0, Lcom/android/server/notification/RankingControllerImpl;->mHandler:Lcom/android/server/notification/RankingControllerImpl$H;
@@ -1305,7 +1303,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/notification/RankingControllerImpl$H;->sendMessage(Landroid/os/Message;)Z
 
-    .line 246
     return-void
 .end method
 
@@ -1314,7 +1311,7 @@
     .param p1, "notification"    # Lcom/android/server/notification/NotificationRecord;
 
     .prologue
-    .line 255
+    .line 251
     iget-object v0, p0, Lcom/android/server/notification/RankingControllerImpl;->mHandler:Lcom/android/server/notification/RankingControllerImpl$H;
 
     iget-object v1, p0, Lcom/android/server/notification/RankingControllerImpl;->mHandler:Lcom/android/server/notification/RankingControllerImpl$H;
@@ -1327,6 +1324,8 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/notification/RankingControllerImpl$H;->sendMessage(Landroid/os/Message;)Z
 
+    .line 250
+    .line 246
     .line 254
     return-void
 .end method

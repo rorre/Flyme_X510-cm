@@ -75,7 +75,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog$6$2;-><init>(Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog$6;)V
 
-    invoke-static {v1, v2}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;->-wrap0(Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;Ljava/lang/Runnable;)V
+    invoke-static {v1, v2}, Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;->-wrap1(Lcom/android/server/policy/MzGlobalActions$MzGlobalActionsDialog;Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method

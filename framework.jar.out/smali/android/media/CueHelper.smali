@@ -67,36 +67,35 @@
     .locals 4
 
     .prologue
-    .line 48
+    const/4 v3, 0x3
+
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/String;
 
-    const-string/jumbo v1, ".ape"
+    const-string v1, ".ape"
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, ".flac"
+    const-string v1, ".flac"
 
     const/4 v2, 0x1
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, ".wav"
+    const-string v1, ".wav"
 
     const/4 v2, 0x2
 
     aput-object v1, v0, v2
 
-    const-string/jumbo v1, ".fla"
+    const-string v1, ".fla"
 
-    const/4 v2, 0x3
+    aput-object v1, v0, v3
 
-    aput-object v1, v0, v2
-
-    const-string/jumbo v1, ".dts"
+    const-string v1, ".dts"
 
     const/4 v2, 0x4
 
@@ -104,26 +103,18 @@
 
     sput-object v0, Landroid/media/CueHelper;->AUDIO_TYPE:[Ljava/lang/String;
 
-    .line 49
     const/16 v0, 0x6f
 
-    .line 50
-    const/16 v1, 0x6e
+    const/16 v1, 0xa
 
-    .line 51
-    const/16 v2, 0x67
+    const/16 v2, 0x72
 
-    .line 52
-    const/16 v3, 0x72
-
-    .line 49
-    filled-new-array {v0, v1, v2, v3}, [I
+    filled-new-array {v0, v1, v3, v2}, [I
 
     move-result-object v0
 
     sput-object v0, Landroid/media/CueHelper;->AUDIO_FILETYPE:[I
 
-    .line 18
     return-void
 .end method
 

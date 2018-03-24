@@ -61,6 +61,14 @@
 
 .field public static final ENABLE_SIP_FEATURE:Ljava/lang/String; = "enable_sip_feature"
 
+.field public static final FLYME_FIND_PHONE:Ljava/lang/String; = "com.meizu.flyme.FindPhone"
+
+.field public static final FLYME_FIND_PHONE_AUTO_SEND_NUMBER:Ljava/lang/String; = "com.meizu.flyme.auto_send_number"
+
+.field public static final FLYME_FIND_PHONE_LOCK_TYPE:Ljava/lang/String; = "com.meizu.flyme.service.find.LockType"
+
+.field public static final FLYME_FIND_PHONE_WIPE_ALL_NOT_VALIDATED:Ljava/lang/String; = "mz_wipe_all_not_validated"
+
 .field public static final FLYME_LOGOUT_CLEAR_FLAG:Ljava/lang/String; = "flyme_logout_clear_flag"
 
 .field public static final FLYME_VERSION_SETTING_UP:Ljava/lang/String; = "flyme_version_setting_up"
@@ -195,6 +203,8 @@
 
 .field public static final MZ_DO_NOT_DISTURB_END_TIME_MINUTE:Ljava/lang/String; = "mz_do_not_disturb_end_time_minutes"
 
+.field public static final MZ_DO_NOT_DISTURB_INTERRUPTION_FILTER:Ljava/lang/String; = "mz_do_not_disturb_interruption_filter"
+
 .field public static final MZ_DO_NOT_DISTURB_IS_WORKING:Ljava/lang/String; = "mz_do_not_disturb_is_working"
 
 .field public static final MZ_DO_NOT_DISTURB_PRE_PULSE_STATE:Ljava/lang/String; = "mz_do_not_disturb_pre_pulse_state"
@@ -206,6 +216,8 @@
 .field public static final MZ_DO_NOT_DISTURB_REMIND_REPEATING_COMING_CALL:Ljava/lang/String; = "mz_do_not_disturb_remind_repeating_coming _call"
 
 .field public static final MZ_DO_NOT_DISTURB_REPEAT_DAYS:Ljava/lang/String; = "mz_do_not_disturb_repeat_days"
+
+.field public static final MZ_DO_NOT_DISTURB_RULE_BACKUP:Ljava/lang/String; = "mz_do_not_disturb_rule_backup"
 
 .field public static final MZ_DO_NOT_DISTURB_SCREEN_NOT_WAKEUP_BY_NOTIFICATION:Ljava/lang/String; = "mz_do_not_disturb_screen_not_wakeup_by_notification"
 
@@ -395,9 +407,24 @@
 
 .field public static final NETWORK_PROVIDER_PACKAGE:Ljava/lang/String; = "network_provider_package"
 
+.field public static final NOTIFICATION_INTERCEPTION_AUTO_CLEAR:Ljava/lang/String; = "flyme_notification_interception_auto_clear"
+
+.field public static final NOTIFICATION_INTERCEPTION_SHOW_NUMBER:Ljava/lang/String; = "flyme_notification_interception_show_number"
+
 .field public static final NOTIFICATION_SOUND_FILE_PATH:Ljava/lang/String; = "notification_sound_file_path"
 
 .field public static final NOTIFICATION_WAKEUP_SCREEN:Ljava/lang/String; = "notification_wakeup_screen"
+
+.field public static final PUBLIC_SETTINGS:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field public static final REJECT_WHEN_OUTOF_PHONEBOOK:Ljava/lang/String; = "reject_when_outof_phonebook"
 
@@ -416,6 +443,8 @@
 .field public static final SCREEN_BRIGHTNESS_PREFERED:Ljava/lang/String; = "prefer_screen_brightness"
 
 .field public static final SCREEN_LUX_PREFERED:Ljava/lang/String; = "prefer_screen_lux"
+
+.field public static final SHOW_NAVIGATION_BAR:Ljava/lang/String; = "mz_show_navigation_bar"
 
 .field public static final SNS_ENALBE:Ljava/lang/String; = "sns_enable"
 
@@ -445,6 +474,8 @@
 
 .field public static final SUBSCREEN_SCREEN_NOTIFICATION_REMIND:Ljava/lang/String; = "subscreen_notification_remind"
 
+.field public static final SUBSCREEN_SCREEN_NOTIFICATION_SOURCE:Ljava/lang/String; = "subscreen_notification_source"
+
 .field public static final SUBSCREEN_SWITCH:Ljava/lang/String; = "subscreen_switch"
 
 .field public static final SUBSCREEN_TAKE_PHOTO:Ljava/lang/String; = "subscreen_take_photo"
@@ -461,14 +492,357 @@
 
 .field public static final VOICE_ASSISTENT_USE_IN_LOCKSCREEN:Ljava/lang/String; = "voice_assistent_use_in_lockscreen"
 
-
-# direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    .prologue
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    sput-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "flyme_notification_interception_auto_clear"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "flyme_notification_interception_show_number"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_shows_notification_on_launcher"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "notification_wakeup_screen"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "lockscreen_pull_notificationbar"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_current_network_speed"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_status_bar_tint"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "statusbar_battery_percent"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_switch"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_double_click"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_slide_up"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_slide_down"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_slide_left_right"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_c"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_c_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_e"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_e_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_m"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_m_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_o"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_o_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_s"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_s_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_v"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_v_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_w"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_w_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_z"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_quick_wakeup_draw_z_package_detail"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_switch"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_behavior_alpha"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_behavior_click"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_behavior_doubleclick"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_behavior_long"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_behavior_up"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_behavior_down"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_behavior_leftright"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_smart_touch_change"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "classic_mode"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "flyme_boss_icon"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "bottom_button_style_phone"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "classic_mode_sms"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "classic_mode_clock"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "classic_mode_email"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "classic_mode_calendar"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "classic_mode_memos"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "ringtone_sound_phone_1"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "ringtone_sound_phone_2"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_fingerprint_use_unlock"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "com.meizu.flyme.FindPhone"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "mz_wipe_all_not_validated"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "com.meizu.flyme.service.find.LockType"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "com.meizu.flyme.auto_send_number"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "cpu_l"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    sget-object v0, Landroid/provider/MzSettings$System;->PUBLIC_SETTINGS:Ljava/util/Set;
+
+    const-string v1, "home_double_click"
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

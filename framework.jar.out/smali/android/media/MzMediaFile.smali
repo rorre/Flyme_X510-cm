@@ -428,115 +428,97 @@
     .locals 9
 
     .prologue
-    const/16 v8, 0x65
+    const/16 v8, 0x6b
 
-    const/16 v7, 0x12d
+    const/16 v7, 0x65
 
     const/16 v6, 0x380d
 
-    const/16 v5, 0xc9
+    const/16 v5, 0x300b
 
-    const/16 v4, 0x300b
+    const/16 v4, 0xc9
 
-    .line 251
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 250
     sput-object v0, Landroid/media/MzMediaFile;->sFileTypeMap:Ljava/util/HashMap;
 
-    .line 253
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 252
     sput-object v0, Landroid/media/MzMediaFile;->sMimeTypeMap:Ljava/util/HashMap;
 
-    .line 256
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 255
     sput-object v0, Landroid/media/MzMediaFile;->sFileTypeToFormatMap:Ljava/util/HashMap;
 
-    .line 259
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 258
     sput-object v0, Landroid/media/MzMediaFile;->sMimeTypeToFormatMap:Ljava/util/HashMap;
 
-    .line 262
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 261
     sput-object v0, Landroid/media/MzMediaFile;->sFormatToMimeTypeMap:Ljava/util/HashMap;
 
-    .line 276
     invoke-static {}, Landroid/media/MzMediaFile;->isFormatEnabled()Z
 
     move-result v0
 
     sput-boolean v0, Landroid/media/MzMediaFile;->mIsFormatEnabled:Z
 
-    .line 277
     invoke-static {}, Landroid/media/MzMediaFile;->isTiffEnabled()Z
 
     move-result v0
 
     sput-boolean v0, Landroid/media/MzMediaFile;->mIsTiffEnabled:Z
 
-    .line 278
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/media/MzMediaFile;->mIsAdd:Z
 
-    .line 324
-    const-string/jumbo v0, "MP3"
+    const-string v0, "MP3"
 
-    const-string/jumbo v1, "audio/mpeg"
-
-    const/16 v2, 0x3009
-
-    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
-
-    .line 325
-    const-string/jumbo v0, "MPGA"
-
-    const-string/jumbo v1, "audio/mpeg"
+    const-string v1, "audio/mpeg"
 
     const/16 v2, 0x3009
 
-    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v7, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 326
-    const-string/jumbo v0, "MPA"
+    const-string v0, "MPGA"
 
-    const-string/jumbo v1, "audio/mpeg"
+    const-string v1, "audio/mpeg"
 
     const/16 v2, 0x3009
 
-    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v7, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 328
-    const-string/jumbo v0, "M4A"
+    const-string v0, "MPA"
 
-    const-string/jumbo v1, "audio/mp4"
+    const-string v1, "audio/mpeg"
+
+    const/16 v2, 0x3009
+
+    invoke-static {v0, v7, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+
+    const-string v0, "M4A"
+
+    const-string v1, "audio/mp4"
 
     const/16 v2, 0x66
 
-    invoke-static {v0, v2, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v2, v1, v5}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 329
-    const-string/jumbo v0, "WAV"
+    const-string v0, "WAV"
 
-    const-string/jumbo v1, "audio/x-wav"
+    const-string v1, "audio/x-wav"
 
     const/16 v2, 0x67
 
@@ -638,26 +620,24 @@
 
     if-eqz v0, :cond_0
 
-    .line 350
-    const-string/jumbo v0, "DCF"
+    const-string v0, "DCF"
 
-    const-string/jumbo v1, "audio/mpeg"
+    const-string v1, "audio/mpeg"
 
-    invoke-static {v0, v8, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v7, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 354
     :cond_0
     sget-boolean v0, Landroid/media/MzMediaFile;->mIsFormatEnabled:Z
 
     if-nez v0, :cond_1
 
-    const-string/jumbo v0, "persist.sys.sesame"
+    const-string v0, "persist.sys.sesame"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "open"
+    const-string v1, "open"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
@@ -675,55 +655,45 @@
 
     const-string/jumbo v1, "audio/vorbis"
 
-    const/16 v2, 0x6b
+    const v2, 0xb902
 
-    const v3, 0xb902
-
-    invoke-static {v0, v2, v1, v3}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
     .line 360
     const-string/jumbo v0, "OGG"
 
     const-string/jumbo v1, "audio/ogg"
 
-    const/16 v2, 0x6b
+    const v2, 0xb902
 
-    const v3, 0xb902
-
-    invoke-static {v0, v2, v1, v3}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
     .line 361
     const-string/jumbo v0, "OGG"
 
     const-string/jumbo v1, "application/ogg"
 
-    const/16 v2, 0x6b
+    const v2, 0xb902
 
-    const v3, 0xb902
-
-    invoke-static {v0, v2, v1, v3}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
     .line 363
     const-string/jumbo v0, "OGG"
 
     const-string/jumbo v1, "audio/webm"
 
-    const/16 v2, 0x6b
+    const v2, 0xb902
 
-    const v3, 0xb902
-
-    invoke-static {v0, v2, v1, v3}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
     .line 364
     const-string/jumbo v0, "OGA"
 
     const-string/jumbo v1, "application/ogg"
 
-    const/16 v2, 0x6b
+    const v2, 0xb902
 
-    const v3, 0xb902
-
-    invoke-static {v0, v2, v1, v3}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
     .line 365
     const-string/jumbo v0, "AAC"
@@ -747,159 +717,147 @@
 
     invoke-static {v0, v2, v1, v3}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 367
-    const-string/jumbo v0, "MKA"
+    const-string v0, "MKA"
 
-    const-string/jumbo v1, "audio/x-matroska"
+    const-string v1, "audio/x-matroska"
 
     const/16 v2, 0x6d
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 369
-    const-string/jumbo v0, "APE"
+    const-string v0, "APE"
 
-    const-string/jumbo v1, "audio/ape"
+    const-string v1, "audio/ape"
 
     const/16 v2, 0x6f
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 370
-    const-string/jumbo v0, "FLAC"
+    const-string v0, "FLAC"
 
-    const-string/jumbo v1, "audio/flac"
-
-    const/16 v2, 0x6e
-
-    invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
-
-    .line 371
-    const-string/jumbo v0, "FLA"
-
-    const-string/jumbo v1, "audio/flac"
+    const-string v1, "audio/flac"
 
     const/16 v2, 0x6e
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 372
-    const-string/jumbo v0, "CUS"
+    const-string v0, "FLA"
 
-    const-string/jumbo v1, "audio/cus"
+    const-string v1, "audio/flac"
+
+    const/16 v2, 0x6e
+
+    invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+
+    const-string v0, "CUS"
+
+    const-string v1, "audio/cus"
 
     const/16 v2, 0x71
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 374
-    const-string/jumbo v0, "MID"
+    const-string v0, "MID"
 
-    const-string/jumbo v1, "audio/midi"
+    const-string v1, "audio/midi"
 
-    invoke-static {v0, v5, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v4, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 375
-    const-string/jumbo v0, "MIDI"
+    const-string v0, "MIDI"
 
-    const-string/jumbo v1, "audio/midi"
+    const-string v1, "audio/midi"
 
-    invoke-static {v0, v5, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v4, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 376
-    const-string/jumbo v0, "XMF"
+    const-string v0, "XMF"
 
-    const-string/jumbo v1, "audio/midi"
+    const-string v1, "audio/midi"
 
-    invoke-static {v0, v5, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v4, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 377
-    const-string/jumbo v0, "RTTTL"
+    const-string v0, "RTTTL"
 
-    const-string/jumbo v1, "audio/midi"
+    const-string v1, "audio/midi"
 
-    invoke-static {v0, v5, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v4, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 378
-    const-string/jumbo v0, "SMF"
+    const-string v0, "SMF"
 
-    const-string/jumbo v1, "audio/sp-midi"
+    const-string v1, "audio/sp-midi"
 
     const/16 v2, 0xca
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 379
-    const-string/jumbo v0, "IMY"
+    const-string v0, "IMY"
 
-    const-string/jumbo v1, "audio/imelody"
+    const-string v1, "audio/imelody"
 
     const/16 v2, 0xcb
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 380
-    const-string/jumbo v0, "RTX"
+    const-string v0, "RTX"
 
-    const-string/jumbo v1, "audio/midi"
+    const-string v1, "audio/midi"
 
-    invoke-static {v0, v5, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v4, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 381
-    const-string/jumbo v0, "OTA"
+    const-string v0, "OTA"
 
-    const-string/jumbo v1, "audio/midi"
+    const-string v1, "audio/midi"
 
-    invoke-static {v0, v5, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v4, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 382
-    const-string/jumbo v0, "MXMF"
+    const-string v0, "MXMF"
 
-    const-string/jumbo v1, "audio/midi"
+    const-string v1, "audio/midi"
 
-    invoke-static {v0, v5, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-static {v0, v4, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 384
-    const-string/jumbo v0, "MPEG"
+    const-string v0, "MPEG"
 
-    const-string/jumbo v1, "video/mpeg"
+    const-string v1, "video/mpeg"
 
-    invoke-static {v0, v7, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    const/16 v2, 0x12d
 
-    .line 385
-    const-string/jumbo v0, "MPG"
+    invoke-static {v0, v2, v1, v5}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    const-string/jumbo v1, "video/mpeg"
+    const-string v0, "MPG"
 
-    invoke-static {v0, v7, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    const-string v1, "video/mpeg"
 
-    .line 386
-    const-string/jumbo v0, "MP4"
+    const/16 v2, 0x12d
 
-    const-string/jumbo v1, "video/mp4"
+    invoke-static {v0, v2, v1, v5}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    invoke-static {v0, v7, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    const-string v0, "MP4"
 
-    .line 387
-    const-string/jumbo v0, "M4V"
+    const-string v1, "video/mp4"
 
-    const-string/jumbo v1, "video/mp4"
+    const/16 v2, 0x12d
+
+    invoke-static {v0, v2, v1, v5}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+
+    const-string v0, "M4V"
+
+    const-string v1, "video/mp4"
 
     const/16 v2, 0x12e
 
-    invoke-static {v0, v2, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v2, v1, v5}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 388
-    const-string/jumbo v0, "MOV"
+    const-string v0, "MOV"
 
-    const-string/jumbo v1, "video/mp4"
+    const-string v1, "video/mp4"
 
-    invoke-static {v0, v7, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    const/16 v2, 0x12d
 
-    .line 389
-    const-string/jumbo v0, "3GP"
+    invoke-static {v0, v2, v1, v5}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    const-string/jumbo v1, "video/3gpp"
+    const-string v0, "3GP"
+
+    const-string v1, "video/3gpp"
 
     const/16 v2, 0x12f
 
@@ -1058,115 +1016,97 @@
 
     if-nez v0, :cond_4
 
-    .line 414
     :cond_3
     invoke-static {}, Landroid/media/MzMediaFile;->addMeizuVideo()V
 
-    .line 415
     const/4 v0, 0x1
 
     sput-boolean v0, Landroid/media/MzMediaFile;->mIsAdd:Z
 
-    .line 419
     :cond_4
-    const-string/jumbo v0, "APE"
+    const-string v0, "APE"
 
-    const-string/jumbo v1, "audio/x-ape"
+    const-string v1, "audio/x-ape"
 
     const/16 v2, 0x6f
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 423
-    const-string/jumbo v0, "MP4"
+    const-string v0, "MPEG"
 
-    const-string/jumbo v1, "video/ext-mp4"
+    const-string v1, "video/ext-mpeg"
 
-    invoke-static {v0, v7, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    const/16 v2, 0x12d
 
-    .line 424
-    const-string/jumbo v0, "MPEG"
+    invoke-static {v0, v2, v1, v5}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    const-string/jumbo v1, "video/ext-mpeg"
+    const-string v0, "AVI"
 
-    invoke-static {v0, v7, v1, v4}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
-
-    .line 425
-    const-string/jumbo v0, "AVI"
-
-    const-string/jumbo v1, "video/ext-avi"
+    const-string v1, "video/ext-avi"
 
     const/16 v2, 0x135
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 426
-    const-string/jumbo v0, "MTS"
+    const-string v0, "MTS"
 
-    const-string/jumbo v1, "video/ext-ts"
-
-    const/16 v2, 0x134
-
-    invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
-
-    .line 427
-    const-string/jumbo v0, "M2TS"
-
-    const-string/jumbo v1, "video/ext-ts"
+    const-string v1, "video/ext-ts"
 
     const/16 v2, 0x134
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 428
-    const-string/jumbo v0, "TS"
+    const-string v0, "M2TS"
 
-    const-string/jumbo v1, "video/ext-ts"
+    const-string v1, "video/ext-ts"
 
     const/16 v2, 0x134
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 429
-    const-string/jumbo v0, "AIFF"
+    const-string v0, "TS"
 
-    const-string/jumbo v1, "audio/ext-aiff"
+    const-string v1, "video/ext-ts"
+
+    const/16 v2, 0x134
+
+    invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+
+    const-string v0, "AIFF"
+
+    const-string v1, "audio/ext-aiff"
 
     const/16 v2, 0x74
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 431
-    const-string/jumbo v0, "MP3"
+    const-string v0, "MP3"
 
-    const-string/jumbo v1, "audio/ext-mpeg"
+    const-string v1, "audio/ext-mpeg"
 
     const/16 v2, 0x3009
 
-    invoke-static {v0, v8, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
+    invoke-static {v0, v7, v1, v2}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    .line 432
-    const-string/jumbo v0, "APE"
+    const-string v0, "APE"
 
-    const-string/jumbo v1, "audio/ext-ape"
+    const-string v1, "audio/ext-ape"
 
     const/16 v2, 0x6f
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 433
-    const-string/jumbo v0, "FLAC"
+    const-string v0, "FLAC"
 
-    const-string/jumbo v1, "audio/ext-flac"
+    const-string v1, "audio/ext-flac"
 
     const/16 v2, 0x6e
 
     invoke-static {v0, v2, v1}, Landroid/media/MzMediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 434
-    const-string/jumbo v0, "WAV"
+    const-string v0, "WAV"
 
-    const-string/jumbo v1, "audio/ext-wav"
+    const-string v1, "audio/ext-wav"
 
     const/16 v2, 0x67
 

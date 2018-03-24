@@ -314,6 +314,10 @@
 
 .field mFlymeBootMsgTitle:Landroid/widget/TextView;
 
+.field mFlymeInputMethodWindow:Landroid/view/WindowManagerPolicy$WindowState;
+
+.field mFlymeLastLightNavigationBar:Z
+
 .field mFlymeLastLightStatusBar:Z
 
 .field mFlymeLastStatusBarColor:I
@@ -7449,15 +7453,12 @@
 
     add-int/2addr v0, v1
 
-    .line 5750
     iget v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mCurBottom:I
 
     if-le v1, v0, :cond_3
 
-    .line 5751
     iput v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mCurBottom:I
 
-    .line 5736
     :cond_3
     return-void
 .end method
@@ -33932,14 +33933,13 @@
 
     const/4 v6, 0x0
 
-    .line 2434
     :goto_5
     iput-boolean v6, p0, Lcom/android/server/policy/PhoneWindowManager;->mForceDefaultOrientation:Z
 
-    .line 2359
+    invoke-static/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->setFlymeNavigationBarFlag(Lcom/android/server/policy/PhoneWindowManager;)V
+
     return-void
 
-    .line 2378
     .end local v1    # "longSizeDp":I
     .end local v2    # "navBarOverride":Ljava/lang/String;
     .end local v5    # "shortSizeDp":I
@@ -36743,4 +36743,13 @@
 
     :cond_8
     return v2
+.end method
+
+.method flymeGetFieldDisplayRotation()I
+    .locals 1
+
+    .prologue
+    iget v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mDisplayRotation:I
+
+    return v0
 .end method

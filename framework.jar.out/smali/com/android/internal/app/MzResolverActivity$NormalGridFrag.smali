@@ -1003,20 +1003,18 @@
 
     invoke-virtual {v6, v1}, Landroid/widget/GridView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 2226
-    invoke-virtual {v6, v4}, Landroid/widget/GridView;->setLayoutDirection(I)V
+    const/4 v1, 0x3
 
-    .line 2227
+    invoke-virtual {v6, v1}, Landroid/widget/GridView;->setLayoutDirection(I)V
+
     iget-object v1, p0, Lcom/android/internal/app/MzResolverActivity$NormalGridFrag;->mPageViews:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 2163
     add-int/lit8 v7, v7, 0x1
 
     goto/16 :goto_1
 
-    .line 2229
     .end local v0    # "adapter":Lcom/android/internal/app/MzResolverActivity$GridViewAdapter;
     .end local v3    # "viewPageList":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/app/MzResolverActivity$DisplayTargetInfo;>;"
     .end local v6    # "gridView":Landroid/widget/GridView;

@@ -1,4 +1,4 @@
-.class public final Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;
+.class final Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;
 .super Ljava/lang/Object;
 .source "ActivityManagerService.java"
 
@@ -9,17 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
+    accessFlags = 0x18
     name = "FlymeActivityManagerServiceInjector"
 .end annotation
 
 
-# static fields
-.field private static mAms:Lcom/android/server/am/ActivityManagerService;
-
-
 # direct methods
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 0
 
     .prologue
@@ -98,73 +94,6 @@
 
     .local v2, "e":Landroid/os/RemoteException;
     goto :goto_0
-.end method
-
-.method static adjustFlymeShrinkerGround(Lcom/android/server/am/ActivityRecord;Z)V
-    .locals 3
-    .param p0, "component"    # Lcom/android/server/am/ActivityRecord;
-    .param p1, "resumed"    # Z
-
-    .prologue
-    .line 22509
-    iget-object v0, p0, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
-
-    .line 22510
-    .local v0, "r":Lcom/android/server/am/ProcessRecord;
-    if-eqz v0, :cond_0
-
-    .line 22511
-    if-eqz p1, :cond_1
-
-    .line 22512
-    invoke-static {}, Lcom/android/server/shrinker/Shrinker;->getInstance()Lcom/android/server/shrinker/Shrinker;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {v1, v2}, Lcom/android/server/shrinker/Shrinker;->moveToForeground(Landroid/content/pm/ApplicationInfo;)V
-
-    .line 22508
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 22514
-    :cond_1
-    invoke-static {}, Lcom/android/server/shrinker/Shrinker;->getInstance()Lcom/android/server/shrinker/Shrinker;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
-
-    invoke-virtual {v1, v2}, Lcom/android/server/shrinker/Shrinker;->moveToBackground(Landroid/content/pm/ApplicationInfo;)V
-
-    goto :goto_0
-.end method
-
-.method static applyFlymeOomAdjLocked(Lcom/android/server/am/ProcessRecord;)V
-    .locals 0
-    .param p0, "app"    # Lcom/android/server/am/ProcessRecord;
-
-    .prologue
-    .line 22617
-    invoke-static {p0}, Lcom/android/server/am/Ams_Interface;->applyOomAdjLocked(Lcom/android/server/am/ProcessRecord;)V
-
-    .line 22615
-    return-void
-.end method
-
-.method static flymeSetup(Lcom/android/server/am/ActivityManagerService;)V
-    .locals 0
-    .param p0, "ams"    # Lcom/android/server/am/ActivityManagerService;
-
-    .prologue
-    .line 22505
-    sput-object p0, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->mAms:Lcom/android/server/am/ActivityManagerService;
-
-    .line 22504
-    return-void
 .end method
 
 .method static getHomeThumbnail(Lcom/android/server/am/ActivityManagerService;)Landroid/app/ActivityManager$TaskThumbnail;
@@ -366,40 +295,6 @@
     goto :goto_0
 .end method
 
-.method static modifyFlymeOomAdj(Lcom/android/server/am/ProcessRecord;)V
-    .locals 0
-    .param p0, "app"    # Lcom/android/server/am/ProcessRecord;
-
-    .prologue
-    .line 22611
-    invoke-static {p0}, Lcom/android/server/am/Ams_Interface;->modifyOomAdj(Lcom/android/server/am/ProcessRecord;)V
-
-    .line 22609
-    return-void
-.end method
-
-.method public static setPackageManagerService(Lcom/android/server/pm/PackageManagerService;)V
-    .locals 1
-    .param p0, "pms"    # Lcom/android/server/pm/PackageManagerService;
-
-    .prologue
-    .line 22573
-    sget-object v0, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->mAms:Lcom/android/server/am/ActivityManagerService;
-
-    if-eqz v0, :cond_0
-
-    .line 22574
-    sget-object v0, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->mAms:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mActivityStarter:Lcom/android/server/am/ActivityStarter;
-
-    invoke-virtual {v0, p0}, Lcom/android/server/am/ActivityStarter;->setPackageManager(Lcom/android/server/pm/PackageManagerService;)V
-
-    .line 22572
-    :cond_0
-    return-void
-.end method
-
 .method static shouldKeepAppProcess(Lcom/android/server/am/ActivityManagerService;I)Z
     .locals 8
     .param p0, "ams"    # Lcom/android/server/am/ActivityManagerService;
@@ -568,16 +463,117 @@
     return-void
 .end method
 
-.method static updateFlymeOomAdjLocked(Lcom/android/server/am/ActivityManagerService;)V
+.method static initFlymeExtraFields(Lcom/android/server/am/ActivityManagerService;)V
     .locals 1
     .param p0, "ams"    # Lcom/android/server/am/ActivityManagerService;
 
     .prologue
-    .line 22623
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService;->mLruProcesses:Ljava/util/ArrayList;
+    const-string v0, "access_control"
 
-    invoke-static {v0}, Lcom/android/server/am/Ams_Interface;->updateOomAdjLocked(Ljava/util/ArrayList;)V
+    invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    .line 22621
+    move-result-object v0
+
+    check-cast v0, Lcom/meizu/server/AccessControlService;
+
+    iput-object v0, p0, Lcom/android/server/am/ActivityManagerService;->mFlymeAccessControlService:Lcom/meizu/server/AccessControlService;
+
+    return-void
+.end method
+
+.method static isFlymeAccessApplication(Lcom/android/server/am/ActivityManagerService;ILcom/android/server/am/ActivityRecord;Lcom/android/server/am/TaskRecord;)Z
+    .locals 3
+    .param p0, "ams"    # Lcom/android/server/am/ActivityManagerService;
+    .param p1, "resultCode"    # I
+    .param p2, "r"    # Lcom/android/server/am/ActivityRecord;
+    .param p3, "tr"    # Lcom/android/server/am/TaskRecord;
+
+    .prologue
+    const/4 v0, 0x0
+
+    invoke-virtual {p2}, Lcom/android/server/am/ActivityRecord;->isAccessApplication()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p3, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    invoke-virtual {v1}, Lcom/android/server/am/ActivityStack;->topTask()Lcom/android/server/am/TaskRecord;
+
+    move-result-object v1
+
+    if-ne p3, v1, :cond_0
+
+    iget-object v1, p3, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
+
+    iget-object v2, p0, Lcom/android/server/am/ActivityManagerService;->mStackSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
+
+    iget-object v2, v2, Lcom/android/server/am/ActivityStackSupervisor;->mFocusedStack:Lcom/android/server/am/ActivityStack;
+
+    if-ne v1, v2, :cond_0
+
+    if-nez p1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method static isFlymeClearTaskAtIndexLocked(Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/TaskRecord;)Z
+    .locals 3
+    .param p0, "r"    # Lcom/android/server/am/ActivityRecord;
+    .param p1, "tr"    # Lcom/android/server/am/TaskRecord;
+
+    .prologue
+    iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->mFlymeSourceRecord:Ljava/lang/ref/WeakReference;
+
+    if-nez v2, :cond_1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v2, p1, Lcom/android/server/am/TaskRecord;->mActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+
+    move-result v1
+
+    .local v1, "start":I
+    if-gez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    :cond_0
+    invoke-virtual {p1, v1}, Lcom/android/server/am/TaskRecord;->performClearTaskAtIndexLocked(I)V
+
+    const/4 v2, 0x1
+
+    return v2
+
+    .end local v1    # "start":I
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/am/ActivityRecord;->mFlymeSourceRecord:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/am/ActivityRecord;
+
+    .local v0, "sourceRecord":Lcom/android/server/am/ActivityRecord;
+    goto :goto_0
+.end method
+
+.method static resetFlymeAccessControlService(Lcom/android/server/am/ActivityManagerService;)V
+    .locals 1
+    .param p0, "ams"    # Lcom/android/server/am/ActivityManagerService;
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService;->mFlymeAccessControlService:Lcom/meizu/server/AccessControlService;
+
+    invoke-virtual {v0}, Lcom/meizu/server/AccessControlService;->resetStatus()Z
+
     return-void
 .end method

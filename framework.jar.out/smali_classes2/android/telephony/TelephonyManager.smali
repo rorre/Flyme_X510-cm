@@ -4708,9 +4708,6 @@
     const/4 v4, 0x0
 
     :try_start_0
-
-    invoke-direct/range {p0 .. p0}, Landroid/telephony/TelephonyManager;->enforceFlymeReadPhoneStatePermission()V
-
     invoke-direct {p0}, Landroid/telephony/TelephonyManager;->getITelephony()Lcom/android/internal/telephony/ITelephony;
 
     move-result-object v2
@@ -4781,9 +4778,6 @@
     invoke-static {v4, v3}, Landroid/util/SeempLog;->record_str(ILjava/lang/String;)I
 
     :try_start_0
-
-    invoke-direct/range {p0 .. p0}, Landroid/telephony/TelephonyManager;->enforceFlymeReadPhoneStatePermission()V
-
     invoke-direct {p0}, Landroid/telephony/TelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
 
     move-result-object v2
@@ -5129,9 +5123,6 @@
 
     :cond_0
     :try_start_0
-
-    invoke-direct/range {p0 .. p0}, Landroid/telephony/TelephonyManager;->enforceFlymeReadPhoneStatePermission()V
-
     invoke-direct {p0}, Landroid/telephony/TelephonyManager;->getOpPackageName()Ljava/lang/String;
 
     move-result-object v3
@@ -5561,9 +5552,6 @@
 
     .local v3, "number":Ljava/lang/String;
     :try_start_0
-
-    invoke-direct/range {p0 .. p0}, Landroid/telephony/TelephonyManager;->enforceFlymeReadPhoneStatePermission()V
-
     invoke-direct {p0}, Landroid/telephony/TelephonyManager;->getITelephony()Lcom/android/internal/telephony/ITelephony;
 
     move-result-object v4
@@ -5594,9 +5582,6 @@
 
     :cond_1
     :try_start_1
-
-    invoke-direct/range {p0 .. p0}, Landroid/telephony/TelephonyManager;->enforceFlymeReadPhoneStatePermission()V
-
     invoke-direct {p0}, Landroid/telephony/TelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
 
     move-result-object v2
@@ -7429,9 +7414,6 @@
     invoke-static {v4, v3}, Landroid/util/SeempLog;->record_str(ILjava/lang/String;)I
 
     :try_start_0
-
-    invoke-direct/range {p0 .. p0}, Landroid/telephony/TelephonyManager;->enforceFlymeReadPhoneStatePermission()V
-
     invoke-direct {p0}, Landroid/telephony/TelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
 
     move-result-object v2
@@ -11527,32 +11509,4 @@
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
-.end method
-
-.method private enforceFlymeReadPhoneStatePermission()V
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/16 v0, 0x49
-
-    invoke-static {v0}, Lmeizu/security/FlymePermissionManager;->isFlymePermissionGranted(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-
-    .line 5290
-    :cond_0
-    return-void
 .end method

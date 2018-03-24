@@ -9,9 +9,9 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.android.internal.view.IInputMethodManager"
 
-.field static final MSG_MZ_FINISH_INPUT:I = 0x1392
+.field static final MSG_MZ_FINISH_INPUT:I = 0x271a
 
-.field static final MSG_MZ_VIS_CHANGED:I = 0x1388
+.field static final MSG_MZ_VIS_CHANGED:I = 0x2710
 
 .field private static final TRANSACTION_mzIsShown:I = 0x65
 
@@ -154,17 +154,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 186
     invoke-virtual {p0, v0, v3, v4}, Lcom/android/server/MzInputMethodManagerService;->flymeInvokeMethodSetSelectedInputMethodAndSubtypeLocked(Landroid/view/inputmethod/InputMethodInfo;IZ)V
 
-    .line 187
     return-void
 
-    .line 191
     :cond_0
     iget-object v1, p0, Lcom/android/server/MzInputMethodManagerService;->mMethodMap:Ljava/util/HashMap;
 
-    const-string/jumbo v2, "com.cootek.smartinputv5/com.cootek.smartinput5.TouchPalIME"
+    const-string v2, "com.emoji.keyboard.touchpal/com.cootek.smartinput5.TouchPalIME"
 
     invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -227,45 +224,38 @@
     .locals 5
 
     .prologue
-    .line 167
     iget-boolean v0, p0, Lcom/android/server/MzInputMethodManagerService;->mLastInputShown:Z
 
     iget-boolean v1, p0, Lcom/android/server/MzInputMethodManagerService;->mInputShown:Z
 
     if-eq v0, v1, :cond_0
 
-    .line 168
     iget-boolean v0, p0, Lcom/android/server/MzInputMethodManagerService;->mInputShown:Z
 
     iput-boolean v0, p0, Lcom/android/server/MzInputMethodManagerService;->mLastInputShown:Z
 
-    .line 169
     iget-object v0, p0, Lcom/android/server/MzInputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
     if-eqz v0, :cond_0
 
-    .line 170
     iget-object v0, p0, Lcom/android/server/MzInputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
     iget-object v0, v0, Lcom/android/server/InputMethodManagerService$ClientState;->client:Lcom/android/internal/view/IInputMethodClient;
 
     iget-object v1, p0, Lcom/android/server/MzInputMethodManagerService;->mCaller:Lcom/android/internal/os/HandlerCaller;
 
-    .line 171
     iget-boolean v2, p0, Lcom/android/server/MzInputMethodManagerService;->mInputShown:Z
 
     iget-object v3, p0, Lcom/android/server/MzInputMethodManagerService;->mCurClient:Lcom/android/server/InputMethodManagerService$ClientState;
 
-    const/16 v4, 0x1388
+    const/16 v4, 0x2710
 
-    .line 170
     invoke-virtual {v1, v4, v2, v3}, Lcom/android/internal/os/HandlerCaller;->obtainMessageBO(IZLjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
     invoke-virtual {p0, v0, v1}, Lcom/android/server/MzInputMethodManagerService;->executeOrSendMessage(Landroid/os/IInterface;Landroid/os/Message;)V
 
-    .line 166
     :cond_0
     return-void
 .end method
@@ -331,7 +321,7 @@
     .line 138
     iget-object v2, p0, Lcom/android/server/MzInputMethodManagerService;->mCaller:Lcom/android/internal/os/HandlerCaller;
 
-    const/16 v4, 0x1392
+    const/16 v4, 0x271a
 
     invoke-virtual {v2, v4, p1}, Lcom/android/internal/os/HandlerCaller;->obtainMessageO(ILjava/lang/Object;)Landroid/os/Message;
 
@@ -405,34 +395,27 @@
     .local v0, "clientState":Lcom/android/server/InputMethodManagerService$ClientState;
     iget v3, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     const/4 v2, -0x7
 
-    .line 103
     .local v2, "sequence":I
     :goto_0
-    if-eqz v0, :cond_0
-
-    .line 104
     iget-object v3, v0, Lcom/android/server/InputMethodManagerService$ClientState;->client:Lcom/android/internal/view/IInputMethodClient;
 
-    const/4 v4, 0x0
+    const/4 v4, -0x1
 
     invoke-interface {v3, v2, v4}, Lcom/android/internal/view/IInputMethodClient;->onUnbindMethod(II)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 108
     .end local v0    # "clientState":Lcom/android/server/InputMethodManagerService$ClientState;
     .end local v2    # "sequence":I
-    :cond_0
     :goto_1
     return v5
 
-    .line 102
     .restart local v0    # "clientState":Lcom/android/server/InputMethodManagerService$ClientState;
-    :cond_1
+    :cond_0
     const/16 v2, -0x9
 
     .restart local v2    # "sequence":I
@@ -461,28 +444,58 @@
     .line 95
     :sswitch_data_0
     .sparse-switch
-        0x1388 -> :sswitch_0
-        0x1392 -> :sswitch_1
+        0x2710 -> :sswitch_0
+        0x271a -> :sswitch_1
     .end sparse-switch
 .end method
 
 .method hideCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
-    .locals 1
+    .locals 3
     .param p1, "flags"    # I
     .param p2, "resultReceiver"    # Landroid/os/ResultReceiver;
 
     .prologue
-    .line 148
     invoke-super {p0, p1, p2}, Lcom/android/server/InputMethodManagerService;->hideCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
-    move-result v0
+    move-result v1
 
-    .line 149
-    .local v0, "res":Z
+    .local v1, "res":Z
+    const/4 v0, 0x1
+
+    .local v0, "needSetInputShown":Z
+    and-int/lit8 v2, p1, 0x1
+
+    if-eqz v2, :cond_1
+
+    iget-boolean v2, p0, Lcom/android/server/MzInputMethodManagerService;->mShowExplicitlyRequested:Z
+
+    if-nez v2, :cond_0
+
+    iget-boolean v2, p0, Lcom/android/server/MzInputMethodManagerService;->mShowForced:Z
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :cond_1
+    iget-boolean v2, p0, Lcom/android/server/MzInputMethodManagerService;->mShowForced:Z
+
+    if-eqz v2, :cond_2
+
+    and-int/lit8 v2, p1, 0x2
+
+    if-eqz v2, :cond_2
+
+    const/4 v0, 0x0
+
+    :cond_2
+    if-eqz v0, :cond_3
+
     invoke-direct {p0}, Lcom/android/server/MzInputMethodManagerService;->setInputShownLocked()V
 
-    .line 150
-    return v0
+    :cond_3
+    return v1
 .end method
 
 .method public mzIsShown()Z
@@ -560,17 +573,35 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 0
+    .locals 1
     .param p1, "name"    # Landroid/content/ComponentName;
 
     .prologue
-    .line 162
     invoke-super {p0, p1}, Lcom/android/server/InputMethodManagerService;->onServiceDisconnected(Landroid/content/ComponentName;)V
 
-    .line 163
+    iget-object v0, p0, Lcom/android/server/MzInputMethodManagerService;->mCurMethod:Lcom/android/internal/view/IInputMethod;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/MzInputMethodManagerService;->mCurIntent:Landroid/content/Intent;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/MzInputMethodManagerService;->mCurIntent:Landroid/content/Intent;
+
+    invoke-virtual {v0}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
     invoke-direct {p0}, Lcom/android/server/MzInputMethodManagerService;->setInputShownLocked()V
 
-    .line 161
+    :cond_0
     return-void
 .end method
 
@@ -694,15 +725,15 @@
     .param p2, "resultReceiver"    # Landroid/os/ResultReceiver;
 
     .prologue
-    .line 155
     invoke-super {p0, p1, p2}, Lcom/android/server/InputMethodManagerService;->showCurrentInputLocked(ILandroid/os/ResultReceiver;)Z
 
     move-result v0
 
-    .line 156
     .local v0, "res":Z
+    if-eqz v0, :cond_0
+
     invoke-direct {p0}, Lcom/android/server/MzInputMethodManagerService;->setInputShownLocked()V
 
-    .line 157
+    :cond_0
     return v0
 .end method

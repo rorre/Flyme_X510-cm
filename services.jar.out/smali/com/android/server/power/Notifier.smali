@@ -35,8 +35,6 @@
 
 
 # instance fields
-.field mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
-
 .field private final mActivityManagerInternal:Landroid/app/ActivityManagerInternal;
 
 .field private final mAppOps:Lcom/android/internal/app/IAppOpsService;
@@ -1930,48 +1928,4 @@
     .prologue
     .line 546
     return-void
-.end method
-
-.method notifyAccessControlGotoSleep(I)V
-    .locals 3
-    .param p1, "why"    # I
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/power/Notifier;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/power/Notifier;->mContext:Landroid/content/Context;
-
-    const-string v2, "access_control"
-
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lmeizu/security/AccessControlManager;
-
-    iput-object v1, p0, Lcom/android/server/power/Notifier;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/power/Notifier;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/power/Notifier;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
-
-    invoke-virtual {v1, p1}, Lmeizu/security/AccessControlManager;->screenTurnedOff(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    .local v0, "e":Landroid/os/RemoteException;
-    goto :goto_0
 .end method

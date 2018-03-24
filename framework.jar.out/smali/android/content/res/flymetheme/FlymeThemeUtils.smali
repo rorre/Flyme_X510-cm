@@ -461,3 +461,38 @@
 
     return v0
 .end method
+
+.method public static isAppUsingTheme(Ljava/lang/String;)Z
+    .locals 3
+    .param p0, "packageName"    # Ljava/lang/String;
+
+    .prologue
+    new-instance v0, Ljava/io/File;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "/data/data/com.meizu.customizecenter/theme/"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .local v0, "appThemeModuleFile":Ljava/io/File;
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    return v1
+.end method

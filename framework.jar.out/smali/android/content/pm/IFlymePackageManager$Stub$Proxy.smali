@@ -186,7 +186,7 @@
     .line 376
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0x9
+    const/16 v4, 0xa
 
     const/4 v5, 0x0
 
@@ -285,7 +285,7 @@
     .line 474
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xf
+    const/16 v4, 0x10
 
     const/4 v5, 0x0
 
@@ -379,7 +379,7 @@
     .line 342
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x7
+    const/16 v4, 0x8
 
     const/4 v5, 0x0
 
@@ -470,7 +470,7 @@
     .line 307
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x5
+    const/4 v4, 0x6
 
     const/4 v5, 0x0
 
@@ -551,7 +551,7 @@
     .line 440
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xd
+    const/16 v4, 0xe
 
     const/4 v5, 0x0
 
@@ -626,7 +626,7 @@
     .line 325
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x6
+    const/4 v4, 0x7
 
     const/4 v5, 0x0
 
@@ -718,7 +718,7 @@
     .line 285
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x4
+    const/4 v4, 0x5
 
     const/4 v5, 0x0
 
@@ -807,7 +807,7 @@
     .line 407
     iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v4, 0xb
+    const/16 v4, 0xc
 
     const/4 v5, 0x0
 
@@ -862,6 +862,376 @@
 .end method
 
 .method public resetVersion(Ljava/lang/String;)V
+    .locals 5
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/4 v3, 0x4
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setInterceptPackage(Ljava/util/List;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .local p1, "packageSet":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+
+    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x9
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setKeyGuardPackage(Ljava/lang/String;ZI)V
+    .locals 5
+    .param p1, "pkgname"    # Ljava/lang/String;
+    .param p2, "intercept"    # Z
+    .param p3, "level"    # I
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    if-eqz p2, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0x11
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setMayForbitPackage(Ljava/util/List;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    .local p1, "packageSet":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+
+    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xf
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public setProtectionState(ZLandroid/os/IBinder;)V
+    .locals 5
+    .param p1, "state"    # Z
+    .param p2, "binder"    # Landroid/os/IBinder;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
+
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
+
+    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xd
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public syncPackageState()V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v2, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v3, 0xb
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v2
+.end method
+
+.method public updatePermissions(Ljava/lang/String;)V
     .locals 5
     .param p1, "pkgName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
@@ -929,18 +1299,10 @@
     throw v2
 .end method
 
-.method public setInterceptPackage(Ljava/util/List;)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-
+.method public getSystemAppPath(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 6
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -948,307 +1310,366 @@
     .end annotation
 
     .prologue
-    .line 354
-    .local p1, "packageSet":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 355
     .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 357
     .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
-    const-string/jumbo v2, "android.content.pm.IFlymePackageManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 358
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
-
-    .line 359
-    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x8
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 360
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 363
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 364
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 352
-    return-void
-
-    .line 362
-    :catchall_0
-    move-exception v2
-
-    .line 363
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 364
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 362
-    throw v2
-.end method
-
-.method public setKeyGuardPackage(Ljava/lang/String;ZI)V
-    .locals 5
-    .param p1, "pkgname"    # Ljava/lang/String;
-    .param p2, "intercept"    # Z
-    .param p3, "level"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 486
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 487
-    .local v0, "_data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 489
-    .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
-    const-string/jumbo v3, "android.content.pm.IFlymePackageManager"
+    const-string v3, "android.content.pm.IFlymePackageManager"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 490
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 491
-    if-eqz p2, :cond_0
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x13
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    .local v2, "_result":Ljava/lang/String;
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-object v2
+
+    .end local v2    # "_result":Ljava/lang/String;
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getSystemAppRecord(I)Ljava/util/List;
+    .locals 6
+    .param p1, "userId"    # I
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
+
+    iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x12
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-object v2
+
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public getkeyguarActivitylist()Ljava/util/List;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x16
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    sget-object v3, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    .local v2, "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/ComponentName;>;"
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return-object v2
+
+    .end local v2    # "_result":Ljava/util/List;, "Ljava/util/List<Landroid/content/ComponentName;>;"
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public isMzApp(Ljava/lang/String;)Z
+    .locals 6
+    .param p1, "pkg"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v0
+
+    .local v0, "_data":Landroid/os/Parcel;
+    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+
+    move-result-object v1
+
+    .local v1, "_reply":Landroid/os/Parcel;
+    :try_start_0
+    const-string v3, "android.content.pm.IFlymePackageManager"
+
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+
+    const/16 v4, 0x14
+
+    const/4 v5, 0x0
+
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v3
+
+    if-eqz v3, :cond_0
 
     const/4 v2, 0x1
 
+    .local v2, "_result":Z
+    :goto_0
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    return v2
+
+    .end local v2    # "_result":Z
     :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 492
-    invoke-virtual {v0, p3}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 493
-    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x10
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 494
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 497
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 498
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 484
-    return-void
-
-    .line 496
-    :catchall_0
-    move-exception v2
-
-    .line 497
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 498
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 496
-    throw v2
-.end method
-
-.method public setMayForbitPackage(Ljava/util/List;)V
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 452
-    .local p1, "packageSet":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 453
-    .local v0, "_data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 455
-    .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
-    const-string/jumbo v2, "android.content.pm.IFlymePackageManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 456
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
-
-    .line 457
-    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xe
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 458
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 461
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 462
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 450
-    return-void
-
-    .line 460
-    :catchall_0
-    move-exception v2
-
-    .line 461
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 462
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 460
-    throw v2
-.end method
-
-.method public setProtectionState(ZLandroid/os/IBinder;)V
-    .locals 5
-    .param p1, "state"    # Z
-    .param p2, "binder"    # Landroid/os/IBinder;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
     const/4 v2, 0x0
 
-    .line 419
+    .restart local v2    # "_result":Z
+    goto :goto_0
+
+    .end local v2    # "_result":Z
+    :catchall_0
+    move-exception v3
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
+
+    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
+
+    throw v3
+.end method
+
+.method public setkeyguardActivitylist(Landroid/content/ComponentName;Z)V
+    .locals 5
+    .param p1, "componment"    # Landroid/content/ComponentName;
+    .param p2, "shouldClear"    # Z
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 420
     .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 422
     .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
-    const-string/jumbo v3, "android.content.pm.IFlymePackageManager"
+    const-string v4, "android.content.pm.IFlymePackageManager"
 
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 423
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    :cond_0
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p1, v0, v4}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
+
+    :goto_0
+    if-eqz p2, :cond_1
+
+    :goto_1
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 424
-    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeStrongBinder(Landroid/os/IBinder;)V
-
-    .line 425
     iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/16 v3, 0xc
+    const/16 v3, 0x15
 
     const/4 v4, 0x0
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 426
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 429
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 430
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 417
     return-void
 
-    .line 428
+    :cond_0
+    const/4 v4, 0x0
+
+    :try_start_1
+    invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
     :catchall_0
     move-exception v2
 
-    .line 429
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 430
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 428
     throw v2
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_1
 .end method
 
-.method public syncPackageState()V
-    .locals 5
+.method public updateMultiOpenAppData(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 6
+    .param p1, "sourceDir"    # Ljava/lang/String;
+    .param p2, "targetDir"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1256,125 +1677,67 @@
     .end annotation
 
     .prologue
-    .line 388
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 389
     .local v0, "_data":Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 391
     .local v1, "_reply":Landroid/os/Parcel;
     :try_start_0
-    const-string/jumbo v2, "android.content.pm.IFlymePackageManager"
+    const-string v3, "android.content.pm.IFlymePackageManager"
 
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 392
-    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0xa
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 393
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 396
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 397
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 386
-    return-void
-
-    .line 395
-    :catchall_0
-    move-exception v2
-
-    .line 396
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 397
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 395
-    throw v2
-.end method
-
-.method public updatePermissions(Ljava/lang/String;)V
-    .locals 5
-    .param p1, "pkgName"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 248
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 249
-    .local v0, "_data":Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 251
-    .local v1, "_reply":Landroid/os/Parcel;
-    :try_start_0
-    const-string/jumbo v2, "android.content.pm.IFlymePackageManager"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 252
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 253
-    iget-object v2, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
+    invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    const/4 v3, 0x2
+    iget-object v3, p0, Landroid/content/pm/IFlymePackageManager$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    const/4 v4, 0x0
+    const/4 v4, 0x2
 
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    const/4 v5, 0x0
 
-    .line 254
+    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
+
+    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 257
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v2, 0x1
+
+    .local v2, "_result":Z
+    :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 258
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 246
-    return-void
+    return v2
 
-    .line 256
+    .end local v2    # "_result":Z
+    :cond_0
+    const/4 v2, 0x0
+
+    .restart local v2    # "_result":Z
+    goto :goto_0
+
+    .end local v2    # "_result":Z
     :catchall_0
-    move-exception v2
+    move-exception v3
 
-    .line 257
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 258
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 256
-    throw v2
+    throw v3
 .end method
