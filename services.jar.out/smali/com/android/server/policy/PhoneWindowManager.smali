@@ -7460,6 +7460,9 @@
     iput v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mCurBottom:I
 
     :cond_3
+	
+	invoke-static/range {p0 .. p1}, Lcom/android/server/policy/PhoneWindowManager$FlymeInjector;->setFlymeInputMethodWindow(Lcom/android/server/policy/PhoneWindowManager;Landroid/view/WindowManagerPolicy$WindowState;)V
+
     return-void
 .end method
 
