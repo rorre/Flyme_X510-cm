@@ -20,6 +20,9 @@
 
 
 # instance fields
+
+.field private mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
 .field private mAuthorities:[Ljava/lang/String;
 
 .field private mAuthority:Ljava/lang/String;
@@ -2815,4 +2818,504 @@
 .end method
 
 .method public abstract update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+.end method
+
+.method isFlymeCurentLockApp(Landroid/net/Uri;Ljava/lang/String;)Z
+    .locals 21
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "callingPkg"    # Ljava/lang/String;
+
+    .prologue
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v16
+
+    .local v16, "uid":I
+    move-object/from16 v0, p0
+
+    iget v0, v0, Landroid/content/ContentProvider;->mMyUid:I
+
+    move/from16 v17, v0
+
+    invoke-static/range {v16 .. v17}, Landroid/os/UserHandle;->isSameApp(II)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_0
+
+    const/16 v17, 0x0
+
+    return v17
+
+    :cond_0
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
+
+    move-object/from16 v17, v0
+
+    const-string v18, "access_control"
+
+    invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Lmeizu/security/AccessControlManager;
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Landroid/content/ContentProvider;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
+    :cond_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
+    move-object/from16 v17, v0
+
+    if-nez v17, :cond_2
+
+    const/16 v17, 0x0
+
+    return v17
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Lmeizu/security/AccessControlManager;->getSwitchStatus()Z
+
+    move-result v17
+
+    if-nez v17, :cond_3
+
+    const/16 v17, 0x0
+
+    return v17
+
+    :cond_3
+    invoke-virtual/range {p1 .. p1}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
+
+    move-result-object v12
+
+    .local v12, "name":Ljava/lang/String;
+    if-nez v12, :cond_4
+
+    const/16 v17, 0x0
+
+    return v17
+
+    :cond_4
+    const/4 v8, 0x0
+
+    .local v8, "cpi":Landroid/content/pm/ProviderInfo;
+    :try_start_0
+    invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
+
+    move-result-object v17
+
+    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
+
+    move-result v18
+
+    const/16 v19, 0x0
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v19
+
+    move/from16 v2, v18
+
+    invoke-interface {v0, v12, v1, v2}, Landroid/content/pm/IPackageManager;->resolveContentProvider(Ljava/lang/String;II)Landroid/content/pm/ProviderInfo;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result-object v8
+
+    .end local v8    # "cpi":Landroid/content/pm/ProviderInfo;
+    :goto_0
+    if-eqz v8, :cond_12
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    const-string v18, "ownerPackage"
+
+    const-string v19, "string"
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v17 .. v20}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v15
+
+    .local v15, "ownerPackageId":I
+    const/4 v14, 0x0
+
+    .local v14, "ownerPackage":Ljava/lang/String;
+    if-lez v15, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v14
+
+    .end local v14    # "ownerPackage":Ljava/lang/String;
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
+    move-object/from16 v17, v0
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Lmeizu/security/AccessControlManager;->isAppUnlocked(Ljava/lang/String;)B
+
+    move-result v7
+
+    .local v7, "byRet":B
+    const/4 v4, 0x0
+
+    .local v4, "bRet":Z
+    const/16 v17, -0x1
+
+    move/from16 v0, v17
+
+    if-ne v0, v7, :cond_f
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mFlymeAccessControlManager:Lmeizu/security/AccessControlManager;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v14}, Lmeizu/security/AccessControlManager;->isAppUnlocked(Ljava/lang/String;)B
+
+    move-result v7
+
+    const/16 v17, -0x1
+
+    move/from16 v0, v17
+
+    if-ne v0, v7, :cond_d
+
+    const/4 v4, 0x0
+
+    :goto_1
+    if-eqz v14, :cond_6
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v14, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_6
+
+    const/4 v4, 0x0
+
+    :cond_6
+    const-string v17, "com.tencent.mm.sdk.plugin.provider"
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v12}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_7
+
+    const-string v17, "com.tencent.mm"
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_7
+
+    const/4 v4, 0x0
+
+    :cond_7
+    const-string v17, "com.meizu.safe"
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_8
+
+    const/4 v4, 0x0
+
+    :cond_8
+    const-string v17, "com.android.mms"
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v17
+
+    if-nez v17, :cond_9
+
+    const-string v17, "com.android.providers.telephony"
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_a
+
+    :cond_9
+    const/4 v4, 0x0
+
+    :cond_a
+    :try_start_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v17
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v18, v0
+
+    const/16 v19, 0x80
+
+    invoke-virtual/range {v17 .. v19}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v3
+
+    .local v3, "ai":Landroid/content/pm/ApplicationInfo;
+    if-eqz v3, :cond_b
+
+    iget-object v0, v3, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    move-object/from16 v17, v0
+
+    if-eqz v17, :cond_b
+
+    iget-object v0, v3, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    move-object/from16 v17, v0
+
+    const-string v18, "needAccessData"
+
+    const/16 v19, 0x1
+
+    invoke-virtual/range {v17 .. v19}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    move-result v13
+
+    .local v13, "needAccessData":Z
+    if-nez v13, :cond_b
+
+    const/4 v4, 0x0
+
+    .end local v3    # "ai":Landroid/content/pm/ApplicationInfo;
+    .end local v13    # "needAccessData":Z
+    :cond_b
+    :goto_2
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    const-string v18, "believePackages"
+
+    const-string v19, "array"
+
+    iget-object v0, v8, Landroid/content/pm/ProviderInfo;->packageName:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v17 .. v20}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v5
+
+    .local v5, "believePackageId":I
+    if-lez v5, :cond_11
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Landroid/content/ContentProvider;->mContext:Landroid/content/Context;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v6
+
+    .local v6, "believePackages":[Ljava/lang/String;
+    if-eqz v6, :cond_11
+
+    const/4 v11, 0x0
+
+    .local v11, "i":I
+    :goto_3
+    array-length v0, v6
+
+    move/from16 v17, v0
+
+    move/from16 v0, v17
+
+    if-ge v11, v0, :cond_11
+
+    aget-object v17, v6, v11
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_c
+
+    const/4 v4, 0x0
+
+    :cond_c
+    add-int/lit8 v11, v11, 0x1
+
+    goto :goto_3
+
+    .end local v5    # "believePackageId":I
+    .end local v6    # "believePackages":[Ljava/lang/String;
+    .end local v11    # "i":I
+    :cond_d
+    const/16 v17, 0x1
+
+    move/from16 v0, v17
+
+    if-ne v0, v7, :cond_e
+
+    const/4 v4, 0x0
+
+    goto/16 :goto_1
+
+    :cond_e
+    const/4 v4, 0x1
+
+    goto/16 :goto_1
+
+    :cond_f
+    const/16 v17, 0x1
+
+    move/from16 v0, v17
+
+    if-ne v0, v7, :cond_10
+
+    const/4 v4, 0x0
+
+    goto/16 :goto_1
+
+    :cond_10
+    const/4 v4, 0x1
+
+    goto/16 :goto_1
+
+    .restart local v5    # "believePackageId":I
+    :cond_11
+    return v4
+
+    .end local v4    # "bRet":Z
+    .end local v5    # "believePackageId":I
+    .end local v7    # "byRet":B
+    .end local v15    # "ownerPackageId":I
+    :cond_12
+    const/16 v17, 0x0
+
+    return v17
+
+    .restart local v4    # "bRet":Z
+    .restart local v7    # "byRet":B
+    .restart local v15    # "ownerPackageId":I
+    :catch_0
+    move-exception v9
+
+    .local v9, "e":Ljava/lang/Exception;
+    goto :goto_2
+
+    .end local v4    # "bRet":Z
+    .end local v7    # "byRet":B
+    .end local v9    # "e":Ljava/lang/Exception;
+    .end local v15    # "ownerPackageId":I
+    .restart local v8    # "cpi":Landroid/content/pm/ProviderInfo;
+    :catch_1
+    move-exception v10
+
+    .local v10, "ex":Landroid/os/RemoteException;
+    goto/16 :goto_0
 .end method

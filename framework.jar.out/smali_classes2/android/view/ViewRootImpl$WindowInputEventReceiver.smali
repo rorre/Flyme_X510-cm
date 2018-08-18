@@ -86,7 +86,9 @@
     .param p1, "event"    # Landroid/view/InputEvent;
 
     .prologue
-    .line 6356
+
+    invoke-direct/range {p0 .. p1}, Landroid/view/ViewRootImpl$WindowInputEventReceiver;->processEventForMoveWinIfNeed(Landroid/view/InputEvent;)V
+
     iget-object v0, p0, Landroid/view/ViewRootImpl$WindowInputEventReceiver;->this$0:Landroid/view/ViewRootImpl;
 
     const/4 v1, 0x0
@@ -94,6 +96,19 @@
     const/4 v2, 0x1
 
     invoke-virtual {v0, p1, p0, v1, v2}, Landroid/view/ViewRootImpl;->enqueueInputEvent(Landroid/view/InputEvent;Landroid/view/InputEventReceiver;IZ)V
+
+    return-void
+.end method
+
+.method private processEventForMoveWinIfNeed(Landroid/view/InputEvent;)V
+    .locals 1
+    .param p1, "event"    # Landroid/view/InputEvent;
+
+    .prologue
+    .line 6356
+    iget-object v0, p0, Landroid/view/ViewRootImpl$WindowInputEventReceiver;->this$0:Landroid/view/ViewRootImpl;
+
+    invoke-virtual {v0, p1}, Landroid/view/ViewRootImpl;->processEventForMoveWinIfNeed(Landroid/view/InputEvent;)V
 
     .line 6355
     return-void

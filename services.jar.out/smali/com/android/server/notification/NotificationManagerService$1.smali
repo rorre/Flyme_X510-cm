@@ -200,17 +200,17 @@
 
     monitor-exit v4
 
-    .line 591
     return-void
 
-    .line 593
     :cond_0
     :try_start_1
+
+    invoke-direct/range {p0 .. p3}, Lcom/android/server/notification/NotificationManagerService$1;->addFlymePackageClickNumber(IILjava/lang/String;)V
+
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 595
     .local v0, "now":J
     invoke-virtual {v2, v0, v1}, Lcom/android/server/notification/NotificationRecord;->getLifespanMs(J)I
 
@@ -386,19 +386,18 @@
 
     move-result v4
 
-    .line 573
     move-object/from16 v0, p3
 
     invoke-static {v0, v2, v3, v4}, Lcom/android/server/EventLogTags;->writeNotificationClicked(Ljava/lang/String;III)V
 
-    .line 576
+    invoke-direct/range {p0 .. p3}, Lcom/android/server/notification/NotificationManagerService$1;->addFlymePackageClickNumber(IILjava/lang/String;)V
+
     move-object/from16 v0, v16
 
     iget-object v0, v0, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
 
     move-object/from16 v17, v0
 
-    .line 577
     .local v17, "sbn":Landroid/service/notification/StatusBarNotification;
     move-object/from16 v0, p0
 
@@ -1100,4 +1099,58 @@
     throw v4
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
+.end method
+
+.method public onNotificationClearForReason(IILjava/lang/String;Ljava/lang/String;III)V
+    .locals 12
+    .param p1, "callingUid"    # I
+    .param p2, "callingPid"    # I
+    .param p3, "pkg"    # Ljava/lang/String;
+    .param p4, "tag"    # Ljava/lang/String;
+    .param p5, "id"    # I
+    .param p6, "userId"    # I
+    .param p7, "reason"    # I
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$1;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    const/4 v6, 0x0
+
+    const/16 v7, 0x42
+
+    const/4 v8, 0x1
+
+    const/4 v11, 0x0
+
+    move v1, p1
+
+    move v2, p2
+
+    move-object v3, p3
+
+    move-object/from16 v4, p4
+
+    move/from16 v5, p5
+
+    move/from16 v9, p6
+
+    move/from16 v10, p7
+
+    invoke-virtual/range {v0 .. v11}, Lcom/android/server/notification/NotificationManagerService;->cancelNotification(IILjava/lang/String;Ljava/lang/String;IIIZIILcom/android/server/notification/ManagedServices$ManagedServiceInfo;)V
+
+    return-void
+.end method
+
+.method private addFlymePackageClickNumber(IILjava/lang/String;)V
+    .locals 1
+    .param p1, "callingUid"    # I
+    .param p2, "callingPid"    # I
+    .param p3, "key"    # Ljava/lang/String;
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$1;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/notification/NotificationManagerService;->addFlymePackageClickNumber(IILjava/lang/String;)V
+
+    return-void
 .end method

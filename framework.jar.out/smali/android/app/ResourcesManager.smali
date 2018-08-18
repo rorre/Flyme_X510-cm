@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/app/ResourcesManager$FlymeInjector;,
         Landroid/app/ResourcesManager$1;,
         Landroid/app/ResourcesManager$ActivityResources;
     }
@@ -1722,6 +1723,8 @@
     move-object/from16 v1, p2
 
     invoke-static {v0, v5, v1}, Landroid/content/res/Resources;->updateSystemConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
+
+    invoke-static/range {v2 .. v2}, Landroid/app/ResourcesManager$FlymeInjector;->freeCaches(I)V
 
     .line 822
     invoke-static {}, Landroid/app/ApplicationPackageManager;->configurationChanged()V

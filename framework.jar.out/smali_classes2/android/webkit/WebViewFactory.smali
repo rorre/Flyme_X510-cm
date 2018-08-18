@@ -623,6 +623,8 @@
     .local v3, "uid":I
     if-eqz v3, :cond_1
 
+    goto :goto_flyme_0
+
     const/16 v4, 0x3e8
 
     if-ne v3, v4, :cond_2
@@ -649,16 +651,15 @@
 
     throw v4
 
-    .line 191
     :cond_2
+    :goto_flyme_0
     :try_start_2
     invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
 
     move-result-object v1
 
-    .line 192
     .local v1, "oldPolicy":Landroid/os/StrictMode$ThreadPolicy;
-    const-string/jumbo v4, "WebViewFactory.getProvider()"
+    const-string v4, "WebViewFactory.getProvider()"
 
     const-wide/16 v6, 0x10
 

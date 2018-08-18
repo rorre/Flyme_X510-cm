@@ -64,36 +64,30 @@
     .locals 1
 
     .prologue
-    .line 109
     invoke-direct {p0}, Landroid/app/Fragment;-><init>()V
 
-    .line 119
-    const v0, 0x10900b6
+    const v0, #android:layout@preference_list_fragment#t
 
     iput v0, p0, Landroid/preference/PreferenceFragment;->mLayoutResId:I
 
-    .line 127
     new-instance v0, Landroid/preference/PreferenceFragment$1;
 
     invoke-direct {v0, p0}, Landroid/preference/PreferenceFragment$1;-><init>(Landroid/preference/PreferenceFragment;)V
 
     iput-object v0, p0, Landroid/preference/PreferenceFragment;->mHandler:Landroid/os/Handler;
 
-    .line 139
     new-instance v0, Landroid/preference/PreferenceFragment$2;
 
     invoke-direct {v0, p0}, Landroid/preference/PreferenceFragment$2;-><init>(Landroid/preference/PreferenceFragment;)V
 
     iput-object v0, p0, Landroid/preference/PreferenceFragment;->mRequestFocus:Ljava/lang/Runnable;
 
-    .line 448
     new-instance v0, Landroid/preference/PreferenceFragment$3;
 
     invoke-direct {v0, p0}, Landroid/preference/PreferenceFragment$3;-><init>(Landroid/preference/PreferenceFragment;)V
 
     iput-object v0, p0, Landroid/preference/PreferenceFragment;->mListOnKeyListener:Landroid/view/View$OnKeyListener;
 
-    .line 109
     return-void
 .end method
 
@@ -101,43 +95,35 @@
     .locals 5
 
     .prologue
-    .line 369
     invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    .line 370
     .local v0, "preferenceScreen":Landroid/preference/PreferenceScreen;
     if-eqz v0, :cond_1
 
-    .line 371
     invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getView()Landroid/view/View;
 
     move-result-object v1
 
-    .line 372
     .local v1, "root":Landroid/view/View;
     if-eqz v1, :cond_0
 
-    .line 373
-    const v4, 0x1020016
+    const v4, #android:id@title#t
 
     invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v3
 
-    .line 374
     .local v3, "titleView":Landroid/view/View;
     instance-of v4, v3, Landroid/widget/TextView;
 
     if-eqz v4, :cond_0
 
-    .line 375
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->getTitle()Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    .line 376
     .local v2, "title":Ljava/lang/CharSequence;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -221,7 +207,7 @@
 
     .line 432
     :cond_1
-    const v2, 0x102000a
+    const v2, #android:id@list#t
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -492,7 +478,7 @@
 
     .line 413
     :cond_1
-    const v2, 0x102000a
+    const v2, #android:id@list#t
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -579,6 +565,9 @@
     .end local v0    # "container":Landroid/os/Bundle;
     .end local v1    # "preferenceScreen":Landroid/preference/PreferenceScreen;
     :cond_1
+
+    invoke-direct/range {p0 .. p0}, Landroid/preference/PreferenceFragment;->resetFlymeListViewPaddingTop()V
+
     return-void
 .end method
 
@@ -648,40 +637,31 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 171
     invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
 
-    .line 172
     sget-object v2, Lcom/android/internal/R$styleable;->PreferenceFragment:[I
 
-    .line 171
     const/4 v3, 0x0
 
-    .line 173
-    const v4, 0x1010506
+    const v4, #android:attr@preferenceFragmentStyle#t
 
-    .line 171
     invoke-virtual {v1, v3, v2, v4, v5}, Landroid/app/Activity;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 177
     .local v0, "a":Landroid/content/res/TypedArray;
     iget v1, p0, Landroid/preference/PreferenceFragment;->mLayoutResId:I
 
-    .line 176
     invoke-virtual {v0, v5, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v1
 
     iput v1, p0, Landroid/preference/PreferenceFragment;->mLayoutResId:I
 
-    .line 179
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 181
     iget v1, p0, Landroid/preference/PreferenceFragment;->mLayoutResId:I
 
     invoke-virtual {p1, v1, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
@@ -885,31 +865,24 @@
 
     const/4 v6, 0x1
 
-    .line 186
     invoke-super {p0, p1, p2}, Landroid/app/Fragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    .line 188
     invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
 
-    .line 189
     sget-object v3, Lcom/android/internal/R$styleable;->PreferenceFragment:[I
 
-    .line 190
-    const v4, 0x1010506
+    const v4, #android:attr@preferenceFragmentStyle#t
 
-    .line 191
     const/4 v5, 0x0
 
-    .line 188
     invoke-virtual {v2, v7, v3, v4, v5}, Landroid/app/Activity;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 193
     .local v0, "a":Landroid/content/res/TypedArray;
-    const v2, 0x102000a
+    const v2, #android:id@list#t
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -980,4 +953,152 @@
     .line 286
     :cond_0
     return-void
+.end method
+
+.method private resetFlymeListViewPaddingTop()V
+    .locals 12
+
+    .prologue
+    const/4 v11, 0x0
+
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/app/Activity;->isActionBarToTop()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    sget v9, Lcom/flyme/internal/R$dimen;->mz_action_bar_default_height:I
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    .local v0, "actionBarHight":I
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, #android:dimen@status_bar_height#t
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v7
+
+    .local v7, "statusBarHeight":I
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v6
+
+    .local v6, "preferenceScreen":Landroid/preference/PreferenceScreen;
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    sget v9, Lcom/flyme/internal/R$dimen;->mz_preferencefragment_margin_top:I
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    .local v3, "marginToActionBar":I
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v6}, Landroid/preference/PreferenceScreen;->getPreferenceCount()I
+
+    move-result v8
+
+    const/4 v9, 0x1
+
+    if-lt v8, v9, :cond_0
+
+    invoke-virtual {v6, v11}, Landroid/preference/PreferenceScreen;->getPreference(I)Landroid/preference/Preference;
+
+    move-result-object v5
+
+    .local v5, "preference":Landroid/preference/Preference;
+    if-eqz v5, :cond_0
+
+    instance-of v8, v5, Landroid/preference/PreferenceCategory;
+
+    if-eqz v8, :cond_0
+
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    sget v9, Lcom/flyme/internal/R$dimen;->mz_preferencefragment_category_margin_top:I
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    .end local v5    # "preference":Landroid/preference/Preference;
+    :cond_0
+    const/4 v2, 0x0
+
+    .local v2, "listView":Landroid/widget/ListView;
+    :try_start_0
+    invoke-virtual {p0}, Landroid/preference/PreferenceFragment;->getListView()Landroid/widget/ListView;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v2
+
+    .end local v2    # "listView":Landroid/widget/ListView;
+    :goto_0
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Landroid/widget/ListView;->getPaddingBottom()I
+
+    move-result v4
+
+    .local v4, "paddingBottom":I
+    invoke-virtual {v2}, Landroid/widget/ListView;->getPaddingLeft()I
+
+    move-result v8
+
+    invoke-virtual {v2}, Landroid/widget/ListView;->getPaddingTop()I
+
+    move-result v9
+
+    add-int/2addr v9, v0
+
+    add-int/2addr v9, v7
+
+    add-int/2addr v9, v3
+
+    invoke-virtual {v2}, Landroid/widget/ListView;->getPaddingRight()I
+
+    move-result v10
+
+    invoke-virtual {v2, v8, v9, v10, v4}, Landroid/widget/ListView;->setPadding(IIII)V
+
+    invoke-virtual {v2, v11}, Landroid/widget/ListView;->setClipToPadding(Z)V
+
+    .end local v0    # "actionBarHight":I
+    .end local v3    # "marginToActionBar":I
+    .end local v4    # "paddingBottom":I
+    .end local v6    # "preferenceScreen":Landroid/preference/PreferenceScreen;
+    .end local v7    # "statusBarHeight":I
+    :cond_1
+    return-void
+
+    .restart local v0    # "actionBarHight":I
+    .restart local v2    # "listView":Landroid/widget/ListView;
+    .restart local v3    # "marginToActionBar":I
+    .restart local v6    # "preferenceScreen":Landroid/preference/PreferenceScreen;
+    .restart local v7    # "statusBarHeight":I
+    :catch_0
+    move-exception v1
+
+    .local v1, "e":Ljava/lang/Exception;
+    goto :goto_0
 .end method

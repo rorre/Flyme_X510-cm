@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/wm/WindowState$FlymeInjector;,
         Lcom/android/server/wm/WindowState$DeadWindowEventReceiver;,
         Lcom/android/server/wm/WindowState$DeathRecipient;
     }
@@ -32,6 +33,8 @@
 
 
 # instance fields
+.field mWindowStateExt:Lcom/android/server/wm/WindowStateExt;
+
 .field mAnimateReplacingWindow:Z
 
 .field mAnimatingExit:Z
@@ -1468,28 +1471,25 @@
 
     iget-object v12, v12, Lcom/android/server/wm/AppWindowToken;->mInputApplicationHandle:Lcom/android/server/input/InputApplicationHandle;
 
-    .line 666
     :goto_e
     invoke-virtual/range {p10 .. p10}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
 
     move-result v14
 
-    .line 664
     invoke-direct {v13, v12, p0, v14}, Lcom/android/server/input/InputWindowHandle;-><init>(Lcom/android/server/input/InputApplicationHandle;Ljava/lang/Object;I)V
 
     iput-object v13, p0, Lcom/android/server/wm/WindowState;->mInputWindowHandle:Lcom/android/server/input/InputWindowHandle;
 
-    .line 524
+    invoke-static/range {p0 .. p0}, Lcom/android/server/wm/WindowState$FlymeInjector;->initFlymeExtraFields(Lcom/android/server/wm/WindowState;)V
+
     return-void
 
-    .line 639
     .restart local v11    # "parent":Lcom/android/server/wm/WindowToken;
     :cond_13
     move-object v3, v11
 
     goto :goto_c
 
-    .line 645
     .end local v11    # "parent":Lcom/android/server/wm/WindowToken;
     .restart local v2    # "appDisplay":Lcom/android/server/wm/DisplayContent;
     :cond_14
@@ -3557,6 +3557,8 @@
 
     .line 834
     :goto_5
+    invoke-static/range {p0 .. p0}, Lcom/android/server/wm/WindowState$FlymeInjector;->computeFrameLw(Lcom/android/server/wm/WindowState;)V
+
     if-eqz v29, :cond_6
 
     move-object/from16 v0, p0
@@ -14041,4 +14043,29 @@
     iget-boolean v0, p0, Lcom/android/server/wm/WindowState;->mWasVisibleBeforeClientHidden:Z
 
     return v0
+.end method
+
+.method public isInMovedMode()Z
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/wm/WindowState;->mWindowStateExt:Lcom/android/server/wm/WindowStateExt;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowStateExt;->isInMovedMode()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public setBackupFlag(I)V
+    .locals 1
+    .param p1, "flag"    # I
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/wm/WindowState;->mWindowStateExt:Lcom/android/server/wm/WindowStateExt;
+
+    iput p1, v0, Lcom/android/server/wm/WindowStateExt;->mBackupFlags:I
+
+    return-void
 .end method
