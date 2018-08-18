@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="emailAddressTypes">
+        <item>Casa</item>
+        <item>Trabayu</item>
+        <item>Other</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="imProtocols">
+        <item>AIM</item>
+        <item>Windows Live</item>
+        <item>Yahoo!</item>
+        <item>Skype</item>
+        <item>QQ</item>
+        <item>Google Talk</item>
+        <item>ICQ</item>
+        <item>Jabber</item>
+    </string-array>
+    <string-array name="organizationTypes">
+        <item>Trabayu</item>
+        <item>Otra</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="phoneTypes">
+        <item>Casa</item>
+        <item>Móvil</item>
+        <item>Trabayu</item>
+        <item>Fax del trabayu</item>
+        <item>Fax de casa</item>
+        <item>Busca</item>
+        <item>Otru</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="postalAddressTypes">
+        <item>Casa</item>
+        <item>Trabayu</item>
+        <item>Other</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="wfcOperatorErrorAlertMessages">
+        <item>"Pa facer llamaes y unviar mensaxes per Wi-Fi, pídi-y primero al operador la configuración d'esti serviciu. Dempués volvi activar les llamaes Wi-Fi n'Axustes."</item>
+    </string-array>
+    <string-array name="wfcSpnFormats">
+        <item>%s</item>
+        <item>%s Wi-Fi Calling</item>
+    </string-array>
+    <array name="fingerprint_acquired_vendor" />
+    <array name="fingerprint_error_vendor" />
+    <string-array name="imAddressTypes">
+        <item>Casa</item>
+        <item>Trabayu</item>
+        <item>Other</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="network_switch_type_name">
+        <item>datos móviles</item>
+        <item>Wi-Fi</item>
+        <item>Bluetooth</item>
+        <item>Ethernet</item>
+        <item>VPN</item>
+    </string-array>
+</resources>

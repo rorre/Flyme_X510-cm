@@ -1,0 +1,47 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+ro.secure=0
+ro.allow.mock.location=1
+ro.debuggable=1
+ro.adb.secure=0
+persist.service.acm.enable=0
+persist.sys.usb.config=mtp,adb
+ro.mount.fs=EXT4
+debug.hwui.render_dirty_regions=false
+persist.radio.multisim.config=dsds
+ro.telephony.ril_class=MT6580
+ro.telephony.ril.config=signalstrength
+ro.telephony.sim.count=2
+persist.gemini.sim_num=2
+ril.current.share_modem=2
+ro.mtk_gps_support=1
+ro.mtk_agps_app=1
+persist.debug.xlog.enable=1
+persist.sys.display.clearMotion=0
+ro.device.cache_dir=/data/cache
+security.perf_harden=1
+ro.zygote=zygote32
+pm.dexopt.first-boot=interpret-only
+pm.dexopt.boot=verify-profile
+pm.dexopt.install=interpret-only
+pm.dexopt.bg-dexopt=speed-profile
+pm.dexopt.ab-ota=speed-profile
+pm.dexopt.nsys-library=speed
+pm.dexopt.shared-apk=speed
+pm.dexopt.forced-dexopt=speed
+pm.dexopt.core-app=speed
+dalvik.vm.image-dex2oat-Xms=64m
+dalvik.vm.image-dex2oat-Xmx=64m
+dalvik.vm.dex2oat-Xms=64m
+dalvik.vm.dex2oat-Xmx=512m
+ro.dalvik.vm.native.bridge=0
+dalvik.vm.usejit=true
+dalvik.vm.usejitprofiles=true
+dalvik.vm.appimageformat=lz4
+debug.atrace.tags.enableflags=0
+#
+# BOOTIMAGE_BUILD_PROPERTIES
+#
+ro.bootimage.build.date=Wed Mar 7 20:45:19 UTC 2018
+ro.bootimage.build.date.utc=1520455519
