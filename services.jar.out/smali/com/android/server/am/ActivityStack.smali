@@ -5271,6 +5271,23 @@
     .line 2330
     :cond_19
     :goto_7
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    invoke-direct {v0, v1}, Lcom/android/server/am/ActivityStack;->checkFlymeAccessControl(Lcom/android/server/am/ActivityRecord;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_flyme_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_flyme_0
+
     if-eqz p1, :cond_1b
 
     move-object/from16 v0, p1

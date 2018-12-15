@@ -74,6 +74,8 @@
 
     iput-wide v0, p0, Lcom/android/server/notification/RankingHelper$Record;->soundTimeout:J
 
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/RankingHelper$Record;->initFlymeExtraFields()V
+
     return-void
 .end method
 

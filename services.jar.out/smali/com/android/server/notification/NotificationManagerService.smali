@@ -98,6 +98,16 @@
 # instance fields
 .field private mAdjustableNotificationLedBrightness:Z
 
+.field private mFlymeFirewall:Lcom/android/server/notification/NotificationFirewall;
+
+.field private mFlymeInterceptThread:Landroid/os/HandlerThread;
+
+.field mFlymePowerManager:Landroid/os/PowerManager;
+
+.field mFlymeWakeLock:Landroid/os/PowerManager$WakeLock;
+
+.field mFlymeWakeUpScreenRunnable:Ljava/lang/Runnable;
+
 .field private mAm:Landroid/app/IActivityManager;
 
 .field private mAppOps:Landroid/app/AppOpsManager;

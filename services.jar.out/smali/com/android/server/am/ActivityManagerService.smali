@@ -37661,6 +37661,12 @@
 
     :goto_3
     invoke-virtual {v8, v7, v6}, Lcom/android/server/am/BatteryStatsService;->notePackageInstalled(Ljava/lang/String;I)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
+
+    invoke-static {v0, v1}, Lcom/android/server/am/ActivityManagerService$FlymeActivityManagerServiceInjector;->addFlymeAppLocked(Lcom/android/server/am/ActivityManagerService;Landroid/content/Intent;)V
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_3
 
@@ -38446,6 +38452,7 @@
     invoke-virtual/range {v6 .. v15}, Lcom/android/server/am/ActivityManagerService;->forceStopPackageLocked(Ljava/lang/String;IZZZZZILjava/lang/String;)Z
 
     :cond_21
+    :goto_flyme_0
     if-eqz v72, :cond_2a
 
     const/16 v60, 0x0

@@ -1833,6 +1833,8 @@
 
     iput v7, v3, Lcom/android/server/notification/RankingHelper$Record;->visibility:I
 
+    invoke-direct {p0, p1, v3}, Lcom/android/server/notification/RankingHelper;->readFlymeExtraFields(Lorg/xmlpull/v1/XmlPullParser;Lcom/android/server/notification/RankingHelper$Record;)V
+
     const-string v7, "sound-timeout"
 
     const/4 v8, 0x0
@@ -2568,6 +2570,8 @@
 
     .line 229
     :cond_7
+    invoke-direct {p0, p1, v3}, Lcom/android/server/notification/RankingHelper;->writeFlymeExtraFields(Lorg/xmlpull/v1/XmlSerializer;Lcom/android/server/notification/RankingHelper$Record;)V
+
     const-string/jumbo v4, "package"
 
     const/4 v5, 0x0
