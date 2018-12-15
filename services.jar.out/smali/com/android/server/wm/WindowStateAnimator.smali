@@ -960,7 +960,7 @@
 
     iget-object v10, p0, Lcom/android/server/wm/WindowStateAnimator;->mContext:Landroid/content/Context;
 
-    const v11, 0x10a0011
+    const v11, #android:anim@app_starting_exit#t
 
     invoke-static {v10, v11}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -1369,7 +1369,7 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1
+    if-eqz v9, :cond_flyme_0
 
     if-eqz v0, :cond_1
 
@@ -1397,7 +1397,7 @@
 
     .line 1255
     :cond_1
-	:cond_flyme_0
+    :cond_flyme_0
     invoke-static/range {p0 .. p0}, Lcom/android/server/wm/WindowStateAnimator$FlymeInjector;->setSystemDecorRectTop(Lcom/android/server/wm/WindowStateAnimator;)V
 
     iget-boolean v9, v7, Lcom/android/server/wm/WindowState;->mEnforceSizeCompat:Z
@@ -3322,6 +3322,7 @@
 
     :cond_4
     :goto_4
+
     invoke-static/range {p0 .. p1}, Lcom/android/server/wm/WindowStateAnimator$FlymeInjector;->setSystemDecorRect(Lcom/android/server/wm/WindowStateAnimator;Landroid/graphics/Rect;)V
 
     return-void
@@ -6708,7 +6709,7 @@
     iget-object v4, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
 
     invoke-virtual {v4, v8}, Lcom/android/server/wm/WindowSurfaceController;->setShown(Z)V
-	
+
     .line 938
     :cond_6
     iput-object v7, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceController:Lcom/android/server/wm/WindowSurfaceController;
@@ -7573,15 +7574,6 @@
 
     .local v1, "e":Landroid/os/RemoteException;
     goto :goto_1
-.end method
-
-.method flymeGetFieldSystemDecorRect()Landroid/graphics/Rect;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mSystemDecorRect:Landroid/graphics/Rect;
-
-    return-object v0
 .end method
 
 .method getShown()Z
@@ -9168,7 +9160,7 @@
     .prologue
     iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mContext:Landroid/content/Context;
 
-    const v2, 0x10a00b1
+    const v2, #android:anim@window_move_from_decor#t
 
     invoke-static {v1, v2}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -11111,4 +11103,13 @@
     iget v1, v1, Landroid/view/DisplayInfo;->logicalWidth:I
 
     goto :goto_2
+.end method
+
+.method flymeGetFieldSystemDecorRect()Landroid/graphics/Rect;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mSystemDecorRect:Landroid/graphics/Rect;
+
+    return-object v0
 .end method
