@@ -66,38 +66,36 @@
 
     move-result-object v0
 
-    .line 341
     .local v0, "decor":Landroid/view/View;
     iget-object v1, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->contentInsets:Landroid/graphics/Rect;
 
-    .line 342
     invoke-virtual {v0}, Landroid/view/View;->getHeight()I
 
     move-result v2
 
-    .line 341
     iget-object v3, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->visibleInsets:Landroid/graphics/Rect;
 
     iput v2, v3, Landroid/graphics/Rect;->top:I
 
     iput v2, v1, Landroid/graphics/Rect;->top:I
 
-    .line 343
     iget-object v1, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->touchableRegion:Landroid/graphics/Region;
 
     invoke-virtual {v1}, Landroid/graphics/Region;->setEmpty()V
 
-    .line 344
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
 
-    .line 336
     .end local v0    # "decor":Landroid/view/View;
     :goto_0
+
+    iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$1;->this$0:Landroid/inputmethodservice/InputMethodService;
+
+    invoke-static/range {v1 .. v1}, Landroid/inputmethodservice/InputMethodService$FlymeInjector;->updateCoverHeightIfNeeded(Landroid/inputmethodservice/InputMethodService;)V
+
     return-void
 
-    .line 346
     :cond_0
     iget-object v1, p0, Landroid/inputmethodservice/InputMethodService$1;->this$0:Landroid/inputmethodservice/InputMethodService;
 

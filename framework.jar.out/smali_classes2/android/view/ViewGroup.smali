@@ -20749,3 +20749,99 @@
     .line 4262
     return-void
 .end method
+
+.method public dispatchStatusBarTap()Z
+    .locals 6
+
+    .prologue
+    const/4 v5, 0x0
+
+    iget-object v0, p0, Landroid/view/ViewGroup;->mChildren:[Landroid/view/View;
+
+    .local v0, "children":[Landroid/view/View;
+    iget v1, p0, Landroid/view/ViewGroup;->mChildrenCount:I
+
+    .local v1, "count":I
+    const/4 v2, 0x0
+
+    .local v2, "handled":Z
+    const/4 v4, -0x1
+
+    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->canScrollVertically(I)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getScrollY()I
+
+    move-result v4
+
+    if-lez v4, :cond_1
+
+    :cond_0
+    invoke-virtual {p0, v5}, Landroid/view/ViewGroup;->smoothScrollToPosition(I)V
+
+    :cond_1
+    const/4 v3, 0x0
+
+    .local v3, "i":I
+    :goto_0
+    if-ge v3, v1, :cond_2
+
+    aget-object v4, v0, v3
+
+    invoke-virtual {v4}, Landroid/view/View;->getVisibility()I
+
+    move-result v4
+
+    if-nez v4, :cond_4
+
+    aget-object v4, v0, v3
+
+    invoke-virtual {v4}, Landroid/view/View;->dispatchStatusBarTap()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    const/4 v2, 0x1
+
+    :cond_2
+    if-nez v2, :cond_3
+
+    invoke-super {p0}, Landroid/view/View;->dispatchStatusBarTap()Z
+
+    move-result v2
+
+    .end local v2    # "handled":Z
+    :cond_3
+    return v2
+
+    .restart local v2    # "handled":Z
+    :cond_4
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+.end method
+
+.method public smoothScrollToPosition(I)V
+    .locals 2
+    .param p1, "position"    # I
+
+    .prologue
+    const/4 v1, 0x0
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getScrollY()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->setScrollY(I)V
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->invalidate()V
+
+    :cond_0
+    return-void
+.end method

@@ -16,6 +16,11 @@
 
 
 # static fields
+
+.field public static final CONFIG_THEME:I = 0x4000
+
+.field public static final CONFIG_TYPEFACE:I = 0x8000
+
 .field public static final CONFIG_DENSITY:I = 0x1000
 
 .field public static final CONFIG_FONT_SCALE:I = 0x40000000

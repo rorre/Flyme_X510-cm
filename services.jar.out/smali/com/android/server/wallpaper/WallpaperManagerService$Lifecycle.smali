@@ -110,3 +110,12 @@
     .line 141
     return-void
 .end method
+
+.method public getService()Lcom/android/server/wallpaper/WallpaperManagerService;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$Lifecycle;->mService:Lcom/android/server/wallpaper/WallpaperManagerService;
+
+    return-object v0
+.end method

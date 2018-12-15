@@ -3,6 +3,14 @@
 .source "ActivityStarter.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/am/ActivityStarter$FlymeInjector;
+    }
+.end annotation
+
+
 # static fields
 .field private static final TAG:Ljava/lang/String;
 
@@ -18,6 +26,9 @@
 
 
 # instance fields
+
+.field mFlymePackageManagerService:Lcom/android/server/pm/FlymePackageManagerService;
+
 .field private mAddingToTask:Z
 
 .field private mAvoidMoveToFront:Z
@@ -2444,6 +2455,9 @@
     .end local v2    # "top":Lcom/android/server/am/ActivityRecord;
     :cond_4
     :goto_7
+
+    invoke-static/range {p0 .. p0}, Lcom/android/server/am/ActivityStarter$FlymeInjector;->setFlymeAccessApplication(Lcom/android/server/am/ActivityStarter;)V
+
     iget v3, p0, Lcom/android/server/am/ActivityStarter;->mLaunchFlags:I
 
     const/high16 v4, 0x1000000
@@ -2457,47 +2471,38 @@
     :goto_8
     iput-object v3, p0, Lcom/android/server/am/ActivityStarter;->mNotTop:Lcom/android/server/am/ActivityRecord;
 
-    .line 1397
     iput-object p3, p0, Lcom/android/server/am/ActivityStarter;->mInTask:Lcom/android/server/am/TaskRecord;
 
-    .line 1402
     if-eqz p3, :cond_5
 
     iget-boolean v3, p3, Lcom/android/server/am/TaskRecord;->inRecents:Z
 
     if-eqz v3, :cond_12
 
-    .line 1407
     :cond_5
+    :cond_flyme_0
     :goto_9
     iput p5, p0, Lcom/android/server/am/ActivityStarter;->mStartFlags:I
 
-    .line 1411
     and-int/lit8 v3, p5, 0x1
 
     if-eqz v3, :cond_7
 
-    .line 1412
     move-object v0, p6
 
-    .line 1413
     .local v0, "checkedCaller":Lcom/android/server/am/ActivityRecord;
     if-nez p6, :cond_6
 
-    .line 1414
     iget-object v3, p0, Lcom/android/server/am/ActivityStarter;->mSupervisor:Lcom/android/server/am/ActivityStackSupervisor;
 
     iget-object v3, v3, Lcom/android/server/am/ActivityStackSupervisor;->mFocusedStack:Lcom/android/server/am/ActivityStack;
 
-    .line 1415
     iget-object v4, p0, Lcom/android/server/am/ActivityStarter;->mNotTop:Lcom/android/server/am/ActivityRecord;
 
-    .line 1414
     invoke-virtual {v3, v4}, Lcom/android/server/am/ActivityStack;->topRunningNonDelayedActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v0
 
-    .line 1417
     :cond_6
     iget-object v3, v0, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
 
@@ -2627,6 +2632,12 @@
 
     .line 1403
     :cond_12
+    invoke-static/range {p0 .. p0}, Lcom/android/server/am/ActivityStarter$FlymeInjector;->isFlymeAccessApplication(Lcom/android/server/am/ActivityStarter;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_flyme_0
+
     sget-object v3, Lcom/android/server/am/ActivityStarter;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3053,6 +3064,10 @@
 
     iput-object v0, p0, Lcom/android/server/am/ActivityStarter;->mTargetStack:Lcom/android/server/am/ActivityStack;
 
+    iget-boolean v0, p0, Lcom/android/server/am/ActivityStarter;->mAvoidMoveToFront:Z
+
+    if-nez v0, :cond_flyme_0
+
     .line 1888
     iget-object v5, p0, Lcom/android/server/am/ActivityStarter;->mTargetStack:Lcom/android/server/am/ActivityStack;
 
@@ -3067,19 +3082,18 @@
 
     iget-object v9, v0, Lcom/android/server/am/ActivityRecord;->appTimeTracker:Lcom/android/server/am/AppTimeTracker;
 
-    const-string/jumbo v10, "inTaskToFront"
+    const-string v10, "inTaskToFront"
 
-    .line 1888
     invoke-virtual/range {v5 .. v10}, Lcom/android/server/am/ActivityStack;->moveTaskToFrontLocked(Lcom/android/server/am/TaskRecord;ZLandroid/app/ActivityOptions;Lcom/android/server/am/AppTimeTracker;Ljava/lang/String;)V
 
-    .line 1893
+    :cond_flyme_0
+
     iget-object v0, p0, Lcom/android/server/am/ActivityStarter;->mInTask:Lcom/android/server/am/TaskRecord;
 
     invoke-virtual {v0}, Lcom/android/server/am/TaskRecord;->getTopActivity()Lcom/android/server/am/ActivityRecord;
 
     move-result-object v13
 
-    .line 1894
     .local v13, "top":Lcom/android/server/am/ActivityRecord;
     if-eqz v13, :cond_4
 
@@ -4911,12 +4925,10 @@
     :goto_4
     move v11, v2
 
-    .line 1202
     .local v11, "dontStart":Z
     :goto_5
     if-eqz v11, :cond_15
 
-    .line 1203
     move-object/from16 v0, v20
 
     iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->task:Lcom/android/server/am/TaskRecord;
@@ -5021,21 +5033,17 @@
 
     iget v4, v0, Lcom/android/server/am/ActivityStack;->mStackId:I
 
-    .line 1220
     move/from16 v0, v17
 
     invoke-virtual {v2, v3, v0, v4}, Lcom/android/server/am/ActivityStackSupervisor;->handleNonResizableTaskIfNeeded(Lcom/android/server/am/TaskRecord;II)V
 
-    .line 1223
     const/4 v2, 0x3
 
     return v2
 
-    .line 1226
     :cond_15
     const/16 v16, 0x0
 
-    .line 1227
     .local v16, "newTask":Z
     move-object/from16 v0, p0
 
@@ -5043,13 +5051,13 @@
 
     if-eqz v2, :cond_17
 
+    .line 1228
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mSourceRecord:Lcom/android/server/am/ActivityRecord;
 
     if-eqz v2, :cond_17
 
-    .line 1228
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityStarter;->mSourceRecord:Lcom/android/server/am/ActivityRecord;
@@ -9004,6 +9012,17 @@
 
     .line 787
     .local v32, "aInfo":Landroid/content/pm/ActivityInfo;
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p2
+
+    move-object/from16 v2, p3
+
+    move-object/from16 v3, v32
+
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/am/ActivityStarter$FlymeInjector;->changeMayInterceptPackage(Lcom/android/server/am/ActivityStarter;ILjava/lang/String;Landroid/content/pm/ActivityInfo;)V
+
     invoke-static/range {p15 .. p15}, Landroid/app/ActivityOptions;->fromBundle(Landroid/os/Bundle;)Landroid/app/ActivityOptions;
 
     move-result-object v26
@@ -10550,5 +10569,52 @@
 
     .line 664
     :cond_0
+    return-void
+.end method
+
+.method flymeGetFieldService()Lcom/android/server/am/ActivityManagerService;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/am/ActivityStarter;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    return-object v0
+.end method
+
+.method flymeGetFieldStartActivity()Lcom/android/server/am/ActivityRecord;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/am/ActivityStarter;->mStartActivity:Lcom/android/server/am/ActivityRecord;
+
+    return-object v0
+.end method
+
+.method flymeGetFieldWindowManager()Lcom/android/server/wm/WindowManagerService;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/am/ActivityStarter;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    return-object v0
+.end method
+
+.method flymeSetFieldAvoidMoveToFront(Z)V
+    .locals 0
+    .param p1, "value"    # Z
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/server/am/ActivityStarter;->mAvoidMoveToFront:Z
+
+    return-void
+.end method
+
+.method flymeSetFieldDoResume(Z)V
+    .locals 0
+    .param p1, "value"    # Z
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/server/am/ActivityStarter;->mDoResume:Z
+
     return-void
 .end method

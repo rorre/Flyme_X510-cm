@@ -158,6 +158,17 @@
     .end annotation
 .end field
 
+.field mFlymeSourceRecord:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Lcom/android/server/am/ActivityRecord;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mHorizontalSizeConfigurations:[I
 
 .field mInitialActivityContainer:Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;
@@ -776,51 +787,41 @@
 
     iput v8, p0, Lcom/android/server/am/ActivityRecord;->icon:I
 
-    .line 682
     invoke-virtual/range {p7 .. p7}, Landroid/content/pm/ActivityInfo;->getLogoResource()I
 
     move-result v8
 
     iput v8, p0, Lcom/android/server/am/ActivityRecord;->logo:I
 
-    .line 683
     invoke-virtual/range {p7 .. p7}, Landroid/content/pm/ActivityInfo;->getThemeResource()I
 
     move-result v8
 
     iput v8, p0, Lcom/android/server/am/ActivityRecord;->theme:I
 
-    .line 684
     iget v8, p0, Lcom/android/server/am/ActivityRecord;->theme:I
 
     iput v8, p0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
-    .line 685
     iget v8, p0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
     if-nez v8, :cond_3
 
-    .line 686
     move-object/from16 v0, p7
 
     iget-object v8, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v8, v8, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    .line 687
     const/16 v9, 0xb
 
-    .line 686
     if-ge v8, v9, :cond_a
 
-    .line 688
-    const v8, 0x1030005
+    const v8, #android:style@Theme#t
 
-    .line 686
     :goto_2
     iput v8, p0, Lcom/android/server/am/ActivityRecord;->realTheme:I
 
-    .line 691
     :cond_3
     move-object/from16 v0, p7
 
@@ -1022,26 +1023,23 @@
     :goto_7
     iput-boolean v8, p0, Lcom/android/server/am/ActivityRecord;->immersive:Z
 
-    .line 724
     move-object/from16 v0, p7
 
     iget-object v8, v0, Landroid/content/pm/ActivityInfo;->requestedVrComponent:Ljava/lang/String;
 
     if-nez v8, :cond_11
 
-    .line 725
     const/4 v8, 0x0
 
-    .line 724
     :goto_8
     iput-object v8, p0, Lcom/android/server/am/ActivityRecord;->requestedVrComponent:Landroid/content/ComponentName;
 
-    .line 611
     .end local v5    # "ent":Lcom/android/server/AttributeCache$Entry;
     :goto_9
+    invoke-direct/range {p0 .. p17}, Lcom/android/server/am/ActivityRecord;->initFlymeExtraFields(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;ILjava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/pm/ActivityInfo;Landroid/content/res/Configuration;Lcom/android/server/am/ActivityRecord;Ljava/lang/String;IZZLcom/android/server/am/ActivityStackSupervisor;Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;Landroid/app/ActivityOptions;Lcom/android/server/am/ActivityRecord;)V
+
     return-void
 
-    .line 668
     :cond_8
     new-instance v8, Landroid/content/ComponentName;
 
@@ -1059,19 +1057,16 @@
 
     goto/16 :goto_0
 
-    .line 671
     :cond_9
     const/4 v8, 0x0
 
     goto/16 :goto_1
 
-    .line 689
     :cond_a
-    const v8, 0x103006b
+    const v8, #android:style@Theme.Holo#t
 
     goto/16 :goto_2
 
-    .line 700
     :cond_b
     move-object/from16 v0, p7
 
@@ -6304,6 +6299,18 @@
 
     move-result v0
 
+    if-nez v0, :cond_flyme_0
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/am/ActivityRecord;->isFlymeResolverActivity()Z
+
+    move-result v0
+
+    return v0
+
+    :cond_flyme_0
+
+    const/4 v0, 0x1
+
     return v0
 .end method
 
@@ -8071,4 +8078,79 @@
     invoke-virtual {v3}, Lcom/android/server/am/ActivityStackSupervisor;->scheduleIdleLocked()V
 
     goto :goto_0
+.end method
+
+.method private isFlymeResolverActivity()Z
+    .locals 2
+
+    .prologue
+    const-string v0, "com.android.internal.app.MzResolverActivity"
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->realActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private initFlymeExtraFields(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/ProcessRecord;ILjava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/pm/ActivityInfo;Landroid/content/res/Configuration;Lcom/android/server/am/ActivityRecord;Ljava/lang/String;IZZLcom/android/server/am/ActivityStackSupervisor;Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;Landroid/app/ActivityOptions;Lcom/android/server/am/ActivityRecord;)V
+    .locals 2
+    .param p1, "_service"    # Lcom/android/server/am/ActivityManagerService;
+    .param p2, "_caller"    # Lcom/android/server/am/ProcessRecord;
+    .param p3, "_launchedFromUid"    # I
+    .param p4, "_launchedFromPackage"    # Ljava/lang/String;
+    .param p5, "_intent"    # Landroid/content/Intent;
+    .param p6, "_resolvedType"    # Ljava/lang/String;
+    .param p7, "aInfo"    # Landroid/content/pm/ActivityInfo;
+    .param p8, "_configuration"    # Landroid/content/res/Configuration;
+    .param p9, "_resultTo"    # Lcom/android/server/am/ActivityRecord;
+    .param p10, "_resultWho"    # Ljava/lang/String;
+    .param p11, "_reqCode"    # I
+    .param p12, "_componentSpecified"    # Z
+    .param p13, "_rootVoiceInteraction"    # Z
+    .param p14, "supervisor"    # Lcom/android/server/am/ActivityStackSupervisor;
+    .param p15, "container"    # Lcom/android/server/am/ActivityStackSupervisor$ActivityContainer;
+    .param p16, "options"    # Landroid/app/ActivityOptions;
+    .param p17, "sourceRecord"    # Lcom/android/server/am/ActivityRecord;
+
+    .prologue
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->mFlymeSourceRecord:Ljava/lang/ref/WeakReference;
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Ljava/lang/ref/WeakReference;
+
+    move-object/from16 v0, p17
+
+    invoke-direct {v1, v0}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v1, p0, Lcom/android/server/am/ActivityRecord;->mFlymeSourceRecord:Ljava/lang/ref/WeakReference;
+
+    :cond_0
+    return-void
+.end method
+
+.method isAccessApplication()Z
+    .locals 2
+
+    .prologue
+    const-string v0, "android.content.pm.CONFIRM_ACCESS_APPCATONS"
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityRecord;->intent:Landroid/content/Intent;
+
+    invoke-virtual {v1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method

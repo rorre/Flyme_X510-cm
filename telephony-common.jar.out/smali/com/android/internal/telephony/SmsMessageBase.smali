@@ -12,6 +12,8 @@
 
 
 # instance fields
+.field protected mFlymeDestinationAddress:Lcom/android/internal/telephony/SmsAddress;
+
 .field protected mEmailBody:Ljava/lang/String;
 
 .field protected mEmailFrom:Ljava/lang/String;
@@ -667,4 +669,26 @@
     .line 321
     :cond_0
     return-void
+.end method
+
+.method public getFlymeDestinationAddress()Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mFlymeDestinationAddress:Lcom/android/internal/telephony/SmsAddress;
+
+    if-nez v0, :cond_0
+
+    return-object v1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mFlymeDestinationAddress:Lcom/android/internal/telephony/SmsAddress;
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/SmsAddress;->getAddressString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

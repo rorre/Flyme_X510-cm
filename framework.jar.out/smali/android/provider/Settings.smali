@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Landroid/provider/Settings$ShareList;,
         Landroid/provider/Settings$Bookmarks;,
         Landroid/provider/Settings$GenerationTracker;,
         Landroid/provider/Settings$Global;,
